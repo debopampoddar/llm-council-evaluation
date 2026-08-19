@@ -123,14 +123,30 @@ remain separate from model-judge outcomes.
 
 | Plan | Purpose |
 |---|---|
-| `local-pilot.yml` | Direct Llama vs balanced and rigorous local councils. |
-| `local-ablation.yml` | Direct vs five-sample same-model ensemble vs council. |
+| `held-out-ablation.yml` | **The publishable experiment.** Direct vs same-model ensemble vs balanced council over the 36-case held-out dataset, 3 repetitions. |
+| `local-pilot.yml` | Direct Llama vs balanced and rigorous local councils. Pipeline validation. |
+| `local-ablation.yml` | Direct vs five-sample same-model ensemble vs council, on the pilot dataset. |
 | `rigorous-stage-coverage.yml` | Mechanics-only check for forced rigorous debate stages. |
 | `publishable-template.yml` | Multi-family cloud-judge template; not publishable until customized. |
 
-The shipped 12-case pilot is useful for pipeline validation, not for a general
-quality claim. Use a held-out, versioned dataset of at least 30–50 representative
-cases before publishing conclusions.
+## Datasets
+
+| Dataset | Cases | Use |
+|---|---|---|
+| `smoke-v1.yml` | 2 | Mechanics check. Two cases, minutes not hours. |
+| `pilot-v1.yml` | 12 | Harness development. **Tuning target** — not evidence. |
+| `held-out-v1.yml` | 36 | Measurement. Held out from tuning; use for published claims. |
+
+`held-out-v1` spans architecture, debugging, security, grounded reasoning,
+planning, underspecified requests, and adversarial context, and is disjoint from
+`pilot-v1`. Its grounded-reasoning cases have exact derivable answers, so their
+deterministic checks are objectively defensible rather than keyword guesses.
+
+**Do not tune the system against `held-out-v1`.** The moment a threshold is
+adjusted until these numbers improve, it stops being a held-out set and its
+result stops meaning anything. Develop against `pilot-v1`, measure against
+`held-out-v1`, and version a new dataset if the held-out set becomes
+contaminated.
 
 ## Provider configuration
 
@@ -192,6 +208,12 @@ Each evidence unit is atomically written. The manifest embeds normalized inputs,
 their hashes, the council-catalog fingerprint, source commit/dirty state, Java and
 OS information, and harness version.
 
+`evaluation/results/` is gitignored — it is a working directory rewritten by every
+run. Anything cited in writing must first be copied into the tracked
+`evaluation/published/<run-id>/`, which documents exactly which files to keep and
+why. A number whose provenance is not in the repository cannot be checked by a
+reader.
+
 ## Documentation
 
 - [Architecture](docs/architecture.md)
@@ -207,3 +229,12 @@ how missing or conflicting judgments could change the estimate. Council call
 estimates cover advertised protocol topology, while internal provider retries may
 not be visible. The cost ceiling is an observed post-call guard, so a completed call
 can cross it and unpriced calls cannot be capped.
+
+A single judge cannot form a cross-judge majority, so a position-unstable pair
+resolves to unresolved rather than being outvoted. `held-out-ablation.yml` ships
+with one local judge for cost reasons; add a second independent family before
+treating a narrow margin as settled.
+
+Direct and council paths necessarily use different orchestration prompts. When the
+intended claim is about the protocol, that prompt-template difference remains a
+confound this harness discloses rather than removes.

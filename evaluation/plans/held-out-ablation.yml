@@ -1,0 +1,63 @@
+version: 1
+id: held-out-ablation
+# The publishable experiment. Unlike local-pilot this runs the held-out 36-case
+# dataset and includes the SAME_MODEL_ENSEMBLE ablation, which is the comparison
+# that separates "the council protocol helps" from "spending more calls helps".
+# A direct-vs-council win with no ensemble arm cannot tell those apart.
+description: Held-out comparison of a true direct baseline, a same-model ensemble ablation, and the local balanced council, judged blind and mirrored by an independent local model family.
+councilBaseUrl: http://127.0.0.1:8080
+dataset: ../datasets/held-out-v1.yml
+rubric: ../rubrics/general-v1.yml
+outputDirectory: ../results
+seed: 20260819
+# The methodology requires at least three repetitions for a publishable claim:
+# provider generation is stochastic and the harness seed cannot control it.
+# Intervals average within each case first, so repetitions do not inflate n.
+repetitions: 3
+execution:
+  # Derived, not guessed. 36 cases x 3 repetitions = 108 answer units per variant.
+  #   direct    108 x 1 call  x 2 transport attempts            =   216
+  #   ensemble  108 x 6 calls x 2 transport attempts            = 1,296
+  #   balanced  108 x 11 worst-case council calls               = 1,188
+  #   judging   2 comparisons x 108 pairs x 2 mirror
+  #             x 2 invalid-retry x 2 transport                 = 1,728
+  #   judge control preflight                                   =     2
+  #                                                     total   = 4,430
+  # 5,000 leaves ~13% headroom. Re-derive rather than raise this if `plan` refuses.
+  maxCalls: 5000
+  # All models are local Ollama, so nothing here is billable.
+  maxEstimatedCostUsd: 0.0
+  councilRequestTimeoutSeconds: 1800
+  judgeInvalidRetries: 1
+  continueOnFailure: true
+  liveCallsAcknowledged: true
+  billableCallsAcknowledged: false
+models:
+  # Baseline model. Matched to the council's own member model so the comparison
+  # isolates the protocol rather than the model. The remaining prompt-template
+  # confound between the direct and council paths is disclosed, not removed.
+  - {id: direct-llama, provider: ollama, providerModelId: "llama3.1:8b", modelFamily: llama, baseUrl: "http://127.0.0.1:11434", maxOutputTokens: 1200, contextWindowTokens: 16384, temperature: 0.3, timeoutSeconds: 600, retryMaxAttempts: 1, retryBaseDelayMs: 500, costPer1kInputTokens: 0.0, costPer1kOutputTokens: 0.0}
+  # Judge. gemma shares no family with any council member (llama, mistral, qwen)
+  # or with the baseline, which is what keeps the judge-independence warning quiet.
+  # Temperature is low because the judge must return an exact JSON contract.
+  - {id: gemma-judge, provider: ollama, providerModelId: "gemma4:12b-it-qat", modelFamily: gemma, baseUrl: "http://127.0.0.1:11434", maxOutputTokens: 1600, contextWindowTokens: 16384, temperature: 0.1, timeoutSeconds: 600, retryMaxAttempts: 1, retryBaseDelayMs: 500, costPer1kInputTokens: 0.0, costPer1kOutputTokens: 0.0}
+variants:
+  - {id: direct-llama, displayName: Direct Llama, type: DIRECT, enabled: true, modelId: direct-llama}
+  # The ablation: same model, five independent samples, one synthesis call. If the
+  # council only matches this, the gain is budget rather than protocol.
+  - {id: llama-ensemble, displayName: Five-sample Llama Ensemble, type: SAME_MODEL_ENSEMBLE, enabled: true, modelId: direct-llama, samples: 5}
+  - {id: local-balanced, displayName: Local Balanced Council, type: COUNCIL, enabled: true, profileId: local, depthMode: BALANCED}
+  # Rigorous is disabled by default purely on cost: it is ~29 worst-case council
+  # calls per answer against balanced's 11, and roughly triples total wall clock.
+  # Enable this variant and its comparison together, and raise maxCalls to ~8,000.
+  - {id: local-rigorous, displayName: Local Rigorous Council, type: COUNCIL, enabled: false, profileId: local, depthMode: RIGOROUS}
+comparisons:
+  - {id: direct-vs-balanced, left: direct-llama, right: local-balanced, enabled: true}
+  - {id: ensemble-vs-balanced, left: llama-ensemble, right: local-balanced, enabled: true}
+  - {id: direct-vs-rigorous, left: direct-llama, right: local-rigorous, enabled: false}
+judges:
+  # One judge means there is no cross-judge majority to require, so a
+  # position-unstable pair resolves to unresolved rather than being outvoted.
+  # A second independent family is the stronger design; add one before treating
+  # any margin here as settled.
+  - {id: gemma-local, modelId: gemma-judge, mirrored: true, enabled: true}

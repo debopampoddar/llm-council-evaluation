@@ -30,11 +30,18 @@ class EvaluationInputLoaderTest {
     }
 
     @Test
-    void everyShippedPlanAndReferencedAssetPassesStrictValidation() {
+    void everyShippedPlanAndReferencedAssetPassesStrictValidation() throws Exception {
         var loader = new EvaluationInputLoader(new EvaluationInputValidator());
-        List.of("local-pilot.yml", "local-ablation.yml", "rigorous-stage-coverage.yml",
-                        "publishable-template.yml")
-                .forEach(name -> loader.load(Path.of("evaluation/plans").resolve(name)));
+        // Enumerated rather than listed by name: a hand-maintained list silently
+        // stops covering the plan someone adds next, and the failure mode is an
+        // unparseable shipped asset discovered during a live run.
+        List<Path> plans;
+        try (var entries = Files.list(Path.of("evaluation/plans"))) {
+            plans = entries.filter(path -> path.getFileName().toString().endsWith(".yml")).sorted().toList();
+        }
+        // Positive control: enumeration that found nothing would pass vacuously.
+        assertTrue(plans.size() >= 5, "expected the shipped plans to be discovered, found " + plans);
+        plans.forEach(loader::load);
     }
 
     @Test

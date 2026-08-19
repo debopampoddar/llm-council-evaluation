@@ -31,7 +31,17 @@ but not independent evidence.
 
 ### Dataset
 
-Develop the harness on `smoke-v1.yml` and `pilot-v1.yml`. Before publishing:
+Develop the harness on `smoke-v1.yml` and `pilot-v1.yml`. Measure on
+`held-out-v1.yml`, which exists to satisfy the requirements below: 36 cases across
+seven categories, disjoint from the pilot set, and reserved from tuning. Run it
+through `plans/held-out-ablation.yml`.
+
+Keep that separation. `pilot-v1` is where thresholds and prompts may be adjusted;
+`held-out-v1` is not. If the held-out set is ever used to tune, it is contaminated
+and a new version must be authored — the number it produces afterwards measures
+fit to the test, not quality.
+
+The requirements this set was built against:
 
 1. Define target users and their task distribution.
 2. Create at least 30–50 diverse held-out cases; use more when effects are small.
