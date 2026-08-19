@@ -131,6 +131,7 @@ comparisons:
     left: direct-llama
     right: local-balanced
     enabled: true
+    primary: true
 judges:
   - id: gemma-local
     modelId: gemma-judge
@@ -138,9 +139,11 @@ judges:
     enabled: true
 ```
 
-An enabled comparison cannot reference a disabled variant. Use mirrored judging
-unless you have a documented reason not to. A judge model may not be independent of
-the candidates; that overlap is reported, not magically removed.
+An enabled comparison cannot reference a disabled variant. `primary` is optional
+for exploratory plans, but a publishable plan must preregister exactly one enabled
+primary comparison; the validator rejects multiple or disabled primaries. Use
+mirrored judging unless you have a documented reason not to. A judge model may not
+be independent of the candidates; that overlap is reported, not magically removed.
 
 ## Dataset structure
 

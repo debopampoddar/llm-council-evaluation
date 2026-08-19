@@ -10,6 +10,8 @@ import com.debopam.llmcouncil.evaluation.domain.EvaluationDataset;
 import com.debopam.llmcouncil.evaluation.domain.EvaluationPlan;
 import com.debopam.llmcouncil.evaluation.domain.JudgePreflightResult;
 import com.debopam.llmcouncil.evaluation.domain.JudgmentRecord;
+import com.debopam.llmcouncil.evaluation.domain.RunManifest;
+import com.debopam.llmcouncil.evaluation.domain.RuntimeEnvironment;
 import com.debopam.llmcouncil.evaluation.domain.UsageMetrics;
 import com.debopam.llmcouncil.evaluation.judging.BlindOrder;
 import com.debopam.llmcouncil.evaluation.judging.HumanReviewExporter;
@@ -18,6 +20,7 @@ import com.debopam.llmcouncil.evaluation.reporting.ReportGenerator;
 import com.debopam.llmcouncil.evaluation.statistics.EvaluationMetrics;
 import com.debopam.llmcouncil.evaluation.storage.EvaluationRunStore;
 import com.fasterxml.jackson.databind.JsonNode;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.nio.file.Path;
@@ -31,11 +34,9 @@ import java.util.Set;
 /**
  * Resumable experiment orchestration.
  *
- * <p>Council candidate execution stays sequential by design: the service under
- * test defaults to {@code max-concurrent-runs: 1} and rejects an overlapping run
- * rather than queueing it. Direct and ensemble candidates touch no council state
- * and are eligible for concurrency, as is every judgment. See {@link UnitExecutor}
- * for why the concurrency knob is environmental rather than a plan field.
+ * <p>All candidate execution stays sequential so latency and reliability are
+ * measured under comparable resource conditions. Independent judgments may use
+ * bounded concurrency after candidate evidence is complete.
  */
 @Component
 public class EvaluationRunner {
@@ -51,11 +52,21 @@ public class EvaluationRunner {
     private final ProgressReporter progress;
     private final UnitExecutor units;
 
+    @Autowired
     public EvaluationRunner(CouncilApiGateway council, CouncilCallEstimator estimator,
                             AnswerGenerator answers, DeterministicCheckEngine checks,
                             PairwiseJudgingService judging, HumanReviewExporter humanReview,
                             EvaluationRunStore store, EvaluationInputLoader loader,
                             ReportGenerator reports, ProgressReporter progress) {
+        this(council, estimator, answers, checks, judging, humanReview, store, loader,
+                reports, progress, UnitExecutor.fromEnvironment());
+    }
+
+    EvaluationRunner(CouncilApiGateway council, CouncilCallEstimator estimator,
+                     AnswerGenerator answers, DeterministicCheckEngine checks,
+                     PairwiseJudgingService judging, HumanReviewExporter humanReview,
+                     EvaluationRunStore store, EvaluationInputLoader loader,
+                     ReportGenerator reports, ProgressReporter progress, UnitExecutor units) {
         this.council = council;
         this.estimator = estimator;
         this.answers = answers;
@@ -66,7 +77,7 @@ public class EvaluationRunner {
         this.loader = loader;
         this.reports = reports;
         this.progress = progress;
-        this.units = UnitExecutor.fromEnvironment();
+        this.units = units;
     }
 
     public PreparedPlan prepare(EvaluationBundle bundle) {
@@ -122,6 +133,9 @@ public class EvaluationRunner {
         long maxJudgeCalls = 0;
         long comparisons = bundle.plan().comparisons().stream().filter(value -> !Boolean.FALSE.equals(value.enabled())).count();
         if (comparisons == 0) warnings.add("No comparison is enabled; this run will test mechanics only and produce no pairwise quality evidence.");
+        if (comparisons > 1 && bundle.plan().comparisons().stream()
+                .noneMatch(value -> !Boolean.FALSE.equals(value.enabled()) && Boolean.TRUE.equals(value.primary())))
+            warnings.add("Multiple comparisons are enabled but none is preregistered as primary; treat all results as exploratory.");
         if (comparisons > 0 && bundle.plan().repetitions() < 3)
             warnings.add("Fewer than three repetitions are configured; stochastic variation will be weakly characterized.");
         long enabledJudgeCount = enabledJudges(bundle.plan()).size();
@@ -155,13 +169,15 @@ public class EvaluationRunner {
                              boolean confirmLive, boolean confirmBillable) {
         PreparedPlan prepared = prepare(inputs.bundle());
         confirm(inputs.bundle().plan(), prepared.assessment(), confirmLive, confirmBillable);
-        EvaluationRunStore.RunHandle handle = store.create(inputs.bundle(), inputs.hashes(), prepared.catalog());
+        EvaluationRunStore.RunHandle handle = store.create(inputs.bundle(), inputs.hashes(), prepared.catalog(),
+                RuntimeEnvironment.capture(units.concurrency()));
         progress.info("Run directory: " + handle.directory());
         return execute(handle, inputs.bundle(), prepared.catalog());
     }
 
     public RunOutcome resume(Path runDirectory, boolean confirmLive, boolean confirmBillable) {
         EvaluationRunStore.RunHandle handle = store.open(runDirectory);
+        validateRuntimeEnvironment(handle.manifest());
         EvaluationBundle bundle = loader.fromManifest(handle.manifest(), handle.directory());
         PreparedPlan prepared = prepare(bundle);
         String current = store.catalogFingerprint(prepared.catalog());
@@ -199,10 +215,10 @@ public class EvaluationRunner {
             store.state(directory, "RUNNING", "Generating candidate answers.");
             for (EvaluationDataset.EvaluationCase evalCase : bundle.dataset().cases()) {
                 for (int repetition = 1; repetition <= bundle.plan().repetitions(); repetition++) {
-                    // Ordinals are assigned in the original iteration order so the
-                    // printed numbering is identical whether or not units overlap.
+                    // Candidate calls stay exclusive so per-variant latency and
+                    // reliability are measured without cross-variant contention.
                     List<Runnable> councilUnits = new ArrayList<>();
-                    List<Runnable> concurrentUnits = new ArrayList<>();
+                    List<Runnable> nonCouncilUnits = new ArrayList<>();
                     for (EvaluationPlan.VariantSpec variant : enabledVariants(bundle.plan())) {
                         answerOrdinal++;
                         long ordinal = answerOrdinal;
@@ -210,13 +226,13 @@ public class EvaluationRunner {
                         Runnable unit = () -> generateAnswer(bundle, directory, budget, councilRanges,
                                 evalCase, variant, currentRepetition, ordinal, totalAnswers);
                         if (variant.type() == EvaluationPlan.VariantType.COUNCIL) councilUnits.add(unit);
-                        else concurrentUnits.add(unit);
+                        else nonCouncilUnits.add(unit);
                     }
                     // Council first, and one at a time: it is the riskiest dependency,
                     // so a health, quorum, or catalog problem surfaces on the first case
                     // rather than after every cheap variant has already been paid for.
                     councilUnits.forEach(Runnable::run);
-                    units.run(concurrentUnits);
+                    nonCouncilUnits.forEach(Runnable::run);
                 }
             }
 
@@ -434,6 +450,21 @@ public class EvaluationRunner {
         if (assessment.maximumTotalCalls() > plan.execution().maxCalls()) {
             throw new IllegalStateException("Plan worst-case call estimate " + assessment.maximumTotalCalls()
                     + " exceeds execution.maxCalls " + plan.execution().maxCalls());
+        }
+    }
+
+    private void validateRuntimeEnvironment(RunManifest manifest) {
+        RuntimeEnvironment recorded = manifest.runtimeEnvironment();
+        RuntimeEnvironment current = RuntimeEnvironment.capture(units.concurrency());
+        if (recorded == null) {
+            progress.info("Legacy run manifest has no runtime execution metadata; "
+                    + "resume is allowed for compatibility, but execution conditions cannot be verified.");
+            return;
+        }
+        if (!recorded.equals(current)) {
+            throw new IllegalStateException("Runtime execution settings changed since this run started "
+                    + "(recorded=" + recorded + ", current=" + current
+                    + "). Refusing to mix evidence; restore the original settings or start a new run.");
         }
     }
 

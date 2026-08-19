@@ -1,6 +1,6 @@
 version: 1
 id: held-out-ablation
-# The publishable experiment. Unlike local-pilot this runs the held-out 36-case
+# The first held-out experiment. Unlike local-pilot this runs the held-out 36-case
 # dataset and includes the SAME_MODEL_ENSEMBLE ablation, which is the comparison
 # that separates "the council protocol helps" from "spending more calls helps".
 # A direct-vs-council win with no ensemble arm cannot tell those apart.
@@ -19,9 +19,11 @@ seed: 20260819
 # A 60/40 advantage needs 91 cases; 55/45 needs 370. So a third of a day spent on
 # repetitions cannot make a modest effect visible - only more cases can.
 #
-# Stage it. Run this at 1 repetition (~5-6 h). If a council wins 24+/36 the result
-# is decisive and repetitions would not have changed its sign. If it lands
-# inconclusive, spend the next increment on CASES rather than repetitions:
+# Stage it. Run this at 1 repetition. Runtime is hardware-dependent. A 24+/36
+# result clears the case-level interval, but stochastic replication can still
+# change the estimate or its sign. Treat this as the first held-out measurement
+# and independently replicate a promising result before calling it settled. If it lands
+# inconclusive, spend the next increment primarily on CASES rather than repetitions:
 # ~100 cases at 1 repetition costs about what 36 cases at 3 repetitions does and
 # resolves a materially smaller effect.
 #
@@ -81,19 +83,23 @@ variants:
   # which is the one thing this project exists to test.
   - {id: local-rigorous, displayName: Local Rigorous Council, type: COUNCIL, enabled: true, profileId: local, depthMode: RIGOROUS}
 comparisons:
-  # Four comparisons, each answering a different question. Judging is ~55 min per
-  # comparison, so this is the deliberate half of the budget.
+  # Preregistered PRIMARY: ensemble-vs-rigorous. It asks whether the protocol adds
+  # value beyond spending multiple calls on the same model. The other comparisons
+  # are secondary/exploratory and must not replace the primary after results exist.
+  # Judging is ~55 min per comparison, so this is the deliberate half of the budget.
   #   Is any council better than one call?          direct-vs-balanced
   #   Is the gain protocol or just more calls?      ensemble-vs-rigorous
   #   Is the flagship better than one call?         direct-vs-rigorous
   #   Is debate worth 3x the cheap council?         balanced-vs-rigorous
   - {id: direct-vs-balanced, left: direct-llama, right: local-balanced, enabled: true}
   - {id: direct-vs-rigorous, left: direct-llama, right: local-rigorous, enabled: true}
-  - {id: ensemble-vs-rigorous, left: llama-ensemble, right: local-rigorous, enabled: true}
+  - {id: ensemble-vs-rigorous, left: llama-ensemble, right: local-rigorous, enabled: true, primary: true}
   - {id: balanced-vs-rigorous, left: local-balanced, right: local-rigorous, enabled: true}
 judges:
   # One judge means there is no cross-judge majority to require, so a
   # position-unstable pair resolves to unresolved rather than being outvoted.
   # A second independent family is the stronger design; add one before treating
-  # any margin here as settled.
+  # any margin here as settled. If this local-only plan is retained, complete a
+  # blinded human-review subset and publish it separately; one model judge alone
+  # supports an exploratory result, not a definitive quality claim.
   - {id: gemma-local, modelId: gemma-judge, mirrored: true, enabled: true}

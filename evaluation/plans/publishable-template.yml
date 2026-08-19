@@ -25,7 +25,7 @@ variants:
   - {id: local-rigorous, displayName: Local Rigorous Council, type: COUNCIL, enabled: true, profileId: local, depthMode: RIGOROUS}
 comparisons:
   - {id: direct-vs-balanced, left: direct-llama, right: local-balanced, enabled: true}
-  - {id: direct-vs-rigorous, left: direct-llama, right: local-rigorous, enabled: true}
+  - {id: direct-vs-rigorous, left: direct-llama, right: local-rigorous, enabled: true, primary: true}
 judges:
   - {id: openai, modelId: openai-judge, mirrored: true, enabled: true}
   - {id: claude, modelId: claude-judge, mirrored: true, enabled: true}

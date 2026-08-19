@@ -64,7 +64,12 @@ public record EvaluationPlan(
         SAME_MODEL_ENSEMBLE
     }
 
-    public record ComparisonSpec(String id, String left, String right, Boolean enabled) {}
+    public record ComparisonSpec(String id, String left, String right, Boolean enabled, Boolean primary) {
+        /** Backward-compatible constructor for plans and tests that predate primary designation. */
+        public ComparisonSpec(String id, String left, String right, Boolean enabled) {
+            this(id, left, right, enabled, false);
+        }
+    }
 
     public record JudgeSpec(String id, String modelId, Boolean mirrored, Boolean enabled) {}
 }

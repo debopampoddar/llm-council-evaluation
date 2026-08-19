@@ -188,8 +188,8 @@ cases:
     question: Review an endpoint that serves stored run artifacts by relative path and give a design that cannot escape the run directory.
     context: The handler joins a user-supplied path onto a per-run base directory and streams the resulting file. The deployment stores artifacts on a shared volume that also holds configuration. Symbolic links may exist inside run directories.
     tags: [security, path-traversal, file-io]
-    requirements: [Identify path traversal via parent-directory segments, Require canonical resolution before the containment check, Address symbolic links resolving outside the base, Reject rather than sanitise by string replacement, Note URL decoding before validation]
-    referenceFacts: [Stripping the literal parent-directory token is bypassable through encoding and nested forms, Containment must be checked on the canonical resolved path not the joined string, A symlink inside the base can point outside it]
+    requirements: [Identify path traversal via parent-directory segments, Require canonical resolution before the containment check, Address symbolic links resolving outside the base, Prevent symlink replacement between validation and open through descriptor-relative or no-follow access or an immutable trusted tree, Reject rather than sanitise by string replacement, Note URL decoding before validation]
+    referenceFacts: [Stripping the literal parent-directory token is bypassable through encoding and nested forms, Containment must be checked on the canonical resolved path not the joined string, A symlink inside the base can point outside it, A separate check followed by open can have a symlink time-of-check/time-of-use race]
     redFlags: [Recommends only removing dot-dot sequences from the input string, Validates before decoding]
     deterministicChecks:
       - type: regex
@@ -202,8 +202,8 @@ cases:
     context: |
       The handler compares a caller-supplied token to the stored token with String.equals and returns 401 on mismatch. Tokens are 32-character hex strings. The endpoint is public, unrated, and returns in about 3 ms.
     tags: [security, cryptography, authentication]
-    requirements: [Identify the non-constant-time comparison, Explain that early-exit comparison leaks a prefix-length signal, Recommend MessageDigest.isEqual or another constant-time comparison, Assess exploitability honestly given network noise and add rate limiting, Recommend comparing hashes rather than raw secrets]
-    referenceFacts: [String.equals returns at the first differing character so its runtime depends on the shared prefix, Constant-time comparison removes the signal regardless of exploitability, Network jitter raises but does not eliminate the measurement cost]
+    requirements: [Identify that String.equals has no constant-time guarantee, Explain that implementation-dependent data-dependent timing may leak information, Recommend MessageDigest.isEqual or another timing-resistant comparison, Assess exploitability honestly given network noise and add rate limiting, Recommend comparing hashes rather than raw secrets]
+    referenceFacts: [The Java API does not specify String.equals as constant-time and security code must not rely on a particular implementation, A timing-resistant comparison removes secret-dependent early-exit behaviour regardless of practical exploitability, Network jitter raises the measurement cost but is not a security guarantee]
     redFlags: [Claims timing attacks are impossible over a network so no change is needed, Recommends a random delay as the primary mitigation]
     deterministicChecks:
       - type: regex

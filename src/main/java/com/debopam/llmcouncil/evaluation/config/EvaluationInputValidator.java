@@ -196,7 +196,12 @@ public class EvaluationInputValidator {
                         .filter(v -> (v.id().equals(c.left()) || v.id().equals(c.right())) && Boolean.FALSE.equals(v.enabled()))
                         .forEach(v -> errors.add("Enabled comparison '" + c.id() + "' references disabled variant '" + v.id() + "'"));
             }
+            if (Boolean.TRUE.equals(c.primary()) && Boolean.FALSE.equals(c.enabled()))
+                errors.add("Primary comparison '" + c.id() + "' must be enabled");
         });
+        long primaryComparisons = list(plan.comparisons()).stream().filter(java.util.Objects::nonNull)
+                .filter(c -> Boolean.TRUE.equals(c.primary())).count();
+        if (primaryComparisons > 1) errors.add("Plan may declare at most one primary comparison");
         boolean hasEnabledComparison = list(plan.comparisons()).stream().filter(java.util.Objects::nonNull)
                 .anyMatch(c -> !Boolean.FALSE.equals(c.enabled()));
         boolean hasEnabledJudge = list(plan.judges()).stream().filter(java.util.Objects::nonNull)

@@ -63,8 +63,9 @@ as independent questions.
 **Understand what that means before buying repetitions.** Because observations are
 averaged within case, `n` is the number of cases. Repetitions make each case's
 value more stable; they do not add independent observations and do not narrow the
-sampling interval. Spending three times the wall clock on repetitions cannot make
-a small effect visible.
+sampling interval. They can still change per-case averages—and even the observed
+direction—by reducing generation and judging noise, so a first result must not be
+called sign-stable without replication.
 
 ### What a given dataset size can resolve
 
@@ -77,8 +78,8 @@ sizes in this repository:
 | 91 | 60% |
 | 370 | 55% |
 
-So a council that is genuinely but modestly better — say 58/42 — is invisible at
-36 cases no matter how many repetitions are run. If a first pass is inconclusive,
+So a stable 58/42 effect cannot produce a narrow case-sampling interval at only 36
+cases, regardless of repetitions. If a first pass is inconclusive,
 **add cases, not repetitions**: roughly 100 cases at one repetition costs about
 what 36 cases at three repetitions costs, and resolves a materially smaller
 effect.
@@ -155,6 +156,24 @@ Treat overlapping intervals cautiously and avoid turning a pilot estimate into a
 binary “wins” claim. If testing many variants or categories, preregister the primary
 comparison or account for multiplicity outside the harness.
 
+The shipped held-out plan preregisters `ensemble-vs-rigorous` as primary because it
+tests whether the council protocol adds value beyond spending multiple calls on the
+same base model. `direct-vs-rigorous` is a key secondary comparison; the remaining
+comparisons are exploratory. This hierarchy must be fixed before results are read.
+
+## Runtime measurement conditions
+
+Candidate variants run sequentially. Overlapping a direct or ensemble candidate
+while measuring another variant would make latency and failure rates functions of
+resource contention rather than the variant alone. Independent blind judgments may
+run concurrently after candidate evidence is complete.
+
+Candidate and judgment concurrency plus the harness-visible `OLLAMA_NUM_PARALLEL`
+are stored in the manifest without entering the plan hash. New-format runs refuse a
+resume under changed settings. A legacy manifest has no such evidence and is allowed
+only with an explicit warning. For defensible latency reporting, also state the
+hardware and ensure no unrelated model workload shared it during candidate generation.
+
 ## Deterministic checks
 
 Checks validate explicit constraints such as required terms, forbidden content,
@@ -192,7 +211,8 @@ provide multi-rater agreement statistics.
 
 - Held-out and versioned representative dataset, normally 30–50+ cases.
 - True direct baseline and an explicit primary comparison.
-- Three or more stochastic repetitions when feasible.
+- Three or more stochastic repetitions when feasible, or an independently started
+  replication before describing a one-repetition direction as settled.
 - Mirrored judging with at least two meaningfully different judge families.
 - Current model identifiers and prices captured in the plan.
 - Clean source commit and immutable run evidence archived.

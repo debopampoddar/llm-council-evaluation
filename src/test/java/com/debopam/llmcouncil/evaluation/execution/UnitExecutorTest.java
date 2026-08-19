@@ -4,12 +4,13 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-import java.util.Collections;
-import java.util.Set;
+import java.util.concurrent.atomic.AtomicReference;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -115,6 +116,57 @@ class UnitExecutorTest {
         IllegalStateException ex = assertThrows(IllegalStateException.class,
                 () -> new UnitExecutor(3).run(units));
         assertEquals("budget exhausted", ex.getMessage(), "the original exception must survive, not be wrapped");
+    }
+
+    @Test
+    @DisplayName("a failure waits for already-started units to finish before returning")
+    void drainsStartedUnitsBeforePropagatingFailure() throws Exception {
+        CountDownLatch blockerStarted = new CountDownLatch(1);
+        CountDownLatch releaseBlocker = new CountDownLatch(1);
+        CountDownLatch callerReturned = new CountDownLatch(1);
+        AtomicReference<Throwable> observed = new AtomicReference<>();
+
+        Runnable blocker = () -> {
+            blockerStarted.countDown();
+            try {
+                assertTrue(releaseBlocker.await(5, TimeUnit.SECONDS), "test did not release the running unit");
+            } catch (InterruptedException ex) {
+                Thread.currentThread().interrupt();
+                fail("running units must not be interrupted during failure cleanup");
+            }
+        };
+        Runnable failure = () -> {
+            try {
+                assertTrue(blockerStarted.await(5, TimeUnit.SECONDS));
+            } catch (InterruptedException ex) {
+                Thread.currentThread().interrupt();
+                fail("interrupted");
+            }
+            throw new IllegalStateException("first failure");
+        };
+
+        Thread caller = new Thread(() -> {
+            try {
+                // Failure is submitted first so the old implementation observes
+                // it before waiting on the already-running blocker.
+                new UnitExecutor(2).run(List.of(failure, blocker));
+                observed.set(new AssertionError("failure was not propagated"));
+            } catch (Throwable ex) {
+                observed.set(ex);
+            } finally {
+                callerReturned.countDown();
+            }
+        });
+        caller.start();
+
+        assertTrue(blockerStarted.await(5, TimeUnit.SECONDS));
+        assertFalse(callerReturned.await(100, TimeUnit.MILLISECONDS),
+                "run returned while an already-started unit was still active");
+        releaseBlocker.countDown();
+        assertTrue(callerReturned.await(5, TimeUnit.SECONDS));
+        caller.join();
+        assertInstanceOf(IllegalStateException.class, observed.get());
+        assertEquals("first failure", observed.get().getMessage());
     }
 
     @Test

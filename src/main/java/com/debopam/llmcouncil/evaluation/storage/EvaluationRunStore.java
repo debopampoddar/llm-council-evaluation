@@ -1,20 +1,22 @@
 package com.debopam.llmcouncil.evaluation.storage;
 
 import com.debopam.llmcouncil.evaluation.config.EvaluationInputLoader;
-import com.debopam.llmcouncil.evaluation.config.InputHashes;
 import com.debopam.llmcouncil.evaluation.config.Hashing;
+import com.debopam.llmcouncil.evaluation.config.InputHashes;
 import com.debopam.llmcouncil.evaluation.domain.AnswerResult;
 import com.debopam.llmcouncil.evaluation.domain.CheckResult;
 import com.debopam.llmcouncil.evaluation.domain.EvaluationBundle;
-import com.debopam.llmcouncil.evaluation.domain.JudgmentRecord;
 import com.debopam.llmcouncil.evaluation.domain.JudgePreflightResult;
+import com.debopam.llmcouncil.evaluation.domain.JudgmentRecord;
 import com.debopam.llmcouncil.evaluation.domain.RunManifest;
 import com.debopam.llmcouncil.evaluation.domain.RunState;
+import com.debopam.llmcouncil.evaluation.domain.RuntimeEnvironment;
 import com.debopam.llmcouncil.evaluation.execution.EvaluationPromptFactory;
+import com.debopam.llmcouncil.evaluation.execution.UnitExecutor;
 import com.debopam.llmcouncil.evaluation.judging.JudgePromptFactory;
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
-import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.springframework.stereotype.Component;
 
@@ -46,6 +48,12 @@ public class EvaluationRunStore {
     }
 
     public RunHandle create(EvaluationBundle bundle, InputHashes hashes, JsonNode catalog) {
+        return create(bundle, hashes, catalog,
+                RuntimeEnvironment.capture(UnitExecutor.configuredConcurrency()));
+    }
+
+    public RunHandle create(EvaluationBundle bundle, InputHashes hashes, JsonNode catalog,
+                            RuntimeEnvironment runtimeEnvironment) {
         String runId = RUN_TIME.format(Instant.now()) + "-" + bundle.plan().id()
                 + "-" + hashes.plan().substring(0, 8);
         Path directory = bundle.outputDirectory().resolve(runId).toAbsolutePath().normalize();
@@ -66,6 +74,7 @@ public class EvaluationRunStore {
                 JudgePromptFactory.VERSION,
                 System.getProperty("java.version"),
                 System.getProperty("os.name") + " " + System.getProperty("os.version"),
+                runtimeEnvironment,
                 bundle.plan(), bundle.dataset(), bundle.rubric());
         write(directory.resolve("manifest.json"), manifest);
         write(directory.resolve("preflight/catalog.json"), catalog);

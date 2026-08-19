@@ -20,6 +20,7 @@ public record RunManifest(
         String judgePromptVersion,
         String javaVersion,
         String operatingSystem,
+        RuntimeEnvironment runtimeEnvironment,
         EvaluationPlan plan,
         EvaluationDataset dataset,
         EvaluationRubric rubric

@@ -49,7 +49,7 @@ variants:
 comparisons:
   - {id: direct-vs-balanced, left: direct-llama, right: local-balanced, enabled: true}
   - {id: direct-vs-rigorous, left: direct-llama, right: local-rigorous, enabled: true}
-  - {id: ensemble-vs-rigorous, left: llama-ensemble, right: local-rigorous, enabled: true}
+  - {id: ensemble-vs-rigorous, left: llama-ensemble, right: local-rigorous, enabled: true, primary: true}
   - {id: balanced-vs-rigorous, left: local-balanced, right: local-rigorous, enabled: true}
 judges:
   - {id: gemma-local, modelId: gemma-judge, mirrored: true, enabled: true}

@@ -32,6 +32,7 @@ import java.nio.file.Path;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class EvaluationRunnerIntegrationTest {
@@ -66,7 +67,7 @@ class EvaluationRunnerIntegrationTest {
         var report = new ReportGenerator(store, calculator, new JudgeIndependenceAnalyzer());
         var runner = new EvaluationRunner(council, new CouncilCallEstimator(), answerGenerator,
                 new DeterministicCheckEngine(), judge, human, store, loader, report,
-                new ProgressReporter(false, 30));
+                new ProgressReporter(false, 30), new UnitExecutor(1));
 
         var bundle = TestFixtures.bundle(temp);
         var loaded = new EvaluationInputLoader.LoadedInputs(bundle,
@@ -95,6 +96,13 @@ class EvaluationRunnerIntegrationTest {
         assertEquals(2, store.judgments(first.runDirectory()).size());
         assertEquals(4, judgeCalls.get(), "resume must not repeat judge preflight or completed attempts");
         assertTrue(Files.isRegularFile(checkFile), "resume must repair checks missing after an interrupted atomic answer write");
+
+        var changedRuntime = new EvaluationRunner(council, new CouncilCallEstimator(), answerGenerator,
+                new DeterministicCheckEngine(), judge, human, store, loader, report,
+                new ProgressReporter(false, 30), new UnitExecutor(2));
+        IllegalStateException mismatch = assertThrows(IllegalStateException.class,
+                () -> changedRuntime.resume(first.runDirectory(), true, false));
+        assertTrue(mismatch.getMessage().contains("Refusing to mix evidence"));
     }
 
     private ModelResponse response(ModelPrompt prompt, AtomicInteger judgeCalls) {

@@ -86,6 +86,20 @@ class EvaluationInputValidatorTest {
         assertTrue(error.errors().stream().anyMatch(value -> value.contains("requirements contains a blank")));
     }
 
+    @Test
+    void rejectsMoreThanOnePrimaryComparison() {
+        EvaluationPlan base = TestFixtures.plan(temp);
+        List<EvaluationPlan.ComparisonSpec> comparisons = List.of(
+                new EvaluationPlan.ComparisonSpec("first", "direct", "council", true, true),
+                new EvaluationPlan.ComparisonSpec("second", "direct", "council", true, true));
+        EvaluationPlan plan = copy(base, base.models(), base.variants(), comparisons, base.judges());
+
+        var error = assertThrows(EvaluationConfigurationException.class,
+                () -> validator.validate(bundle(plan, TestFixtures.evalCase())));
+
+        assertTrue(error.errors().stream().anyMatch(value -> value.contains("at most one primary")));
+    }
+
     private EvaluationPlan copy(EvaluationPlan base, List<EvaluationPlan.ModelSpec> models,
                                 List<EvaluationPlan.VariantSpec> variants,
                                 List<EvaluationPlan.ComparisonSpec> comparisons,

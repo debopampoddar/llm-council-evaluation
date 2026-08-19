@@ -16,17 +16,22 @@ After a completed run, copy the following out of
 
 | Path | Why it is required |
 |---|---|
-| `manifest.json` | Pins dataset, rubric, and plan hashes, the council-catalog fingerprint, source commit and dirty state, model versions, seed, and repetitions. Without it no result is reproducible. |
+| `manifest.json` | Pins dataset, rubric, and plan hashes, the council-catalog fingerprint, source commit and dirty state, model versions, seed, repetitions, and runtime concurrency. Without it no result is reproducible. |
 | `report/report.md` | The findings themselves, including the generated limitations section. |
 | `report/metrics.json` and `report/metrics.csv` | The numbers behind the prose, so a reader can recompute rather than trust. |
 | `report/judge-independence.json` | Judge/candidate family overlap and position stability — the standing caveat on every margin. |
+| `answers/` | The stochastic candidate outputs and usage/latency observations. A manifest can pin their configuration but cannot recreate them. |
+| `checks/` | Per-answer deterministic-check evidence used by the report. |
 | `judgments/` | Per-pair, per-orientation judge decisions. This is what makes the intervals checkable. |
+| `judgment-attempts/` | Raw judge attempts, required to audit invalid responses, retries, and usage claims. |
 | `preflight/judges/` | The 2+2 control proving each judge could discriminate at all before candidate work began. |
+| `human/human-review-completed.json` and `human/human-review-normalized.json` | Required when human outcomes are cited. Keep them separate from model judgments. |
 
-Leave behind `judgment-attempts/`, `answers/`, and `state.json` unless a specific
-claim depends on them — they are large, and the manifest already pins what
-produced them. Never publish `human/human-review-key.json` alongside a blinded
-packet you are still asking someone to review; the key is the reveal.
+`state.json` is operational rather than analytical and may be omitted. Never
+publish `human/human-review-key.json` alongside a blinded packet you are still
+asking someone to review; the key is the reveal. Once review is closed, archive
+the key with controlled access if independent audit of the normalization is
+required.
 
 ## Rules
 

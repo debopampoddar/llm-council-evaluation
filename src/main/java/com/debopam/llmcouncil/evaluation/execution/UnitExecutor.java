@@ -2,23 +2,24 @@ package com.debopam.llmcouncil.evaluation.execution;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorCompletionService;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicReference;
 
 /**
  * Runs independent evaluation units with bounded concurrency.
  *
- * <p><b>Why this is not a plan field.</b> Concurrency changes how long a run
- * takes and nothing about what it measures: every unit is independent, blind
- * order is derived per pair from the plan seed rather than from execution order,
- * and evidence is written per unit. Putting it in the plan would fold it into the
- * plan hash, which forms the run id — so raising concurrency would start a new
- * run instead of resuming an existing one, and two runs differing only in speed
- * would be incomparable. It is read from the environment instead, leaving the
- * manifest and the run id untouched.
+ * <p>Concurrency is an environmental execution setting rather than a plan field,
+ * so it does not change the experiment's run id. It is nevertheless recorded in
+ * the run manifest: concurrency can change resource contention and latency, and a
+ * resume must not silently mix execution conditions.
  *
  * <p>The default is {@code 1}, which executes units inline on the calling thread
  * and is byte-for-byte the previous sequential behaviour.
@@ -77,7 +78,8 @@ public final class UnitExecutor {
     }
 
     /**
-     * Run every unit, returning once all have finished or one has failed.
+     * Run every unit, returning once all started units have finished or one has
+     * failed and the remaining queued units have been cancelled.
      *
      * <p>The first failure is rethrown and the remaining queued units are
      * cancelled. Cancellation is {@code cancel(false)}: a unit already in flight
@@ -96,12 +98,21 @@ public final class UnitExecutor {
         }
         ExecutorService pool = Executors.newFixedThreadPool(Math.min(concurrency, units.size()));
         try {
-            List<Future<?>> futures = new ArrayList<>(units.size());
-            units.forEach(unit -> futures.add(pool.submit(unit)));
+            BlockingQueue<Future<TrackedRunnable>> completed = new LinkedBlockingQueue<>();
+            ExecutorCompletionService<TrackedRunnable> completion =
+                    new ExecutorCompletionService<>(pool, completed);
+            List<SubmittedUnit> submitted = new ArrayList<>(units.size());
+            for (Runnable unit : units) {
+                TrackedRunnable tracked = new TrackedRunnable(unit);
+                submitted.add(new SubmittedUnit(tracked, completion.submit(() -> {
+                    tracked.run();
+                    return tracked;
+                })));
+            }
             RuntimeException failure = null;
-            for (Future<?> future : futures) {
+            for (int finished = 0; finished < submitted.size(); finished++) {
                 try {
-                    future.get();
+                    completion.take().get();
                 } catch (CancellationException ignored) {
                     // Cancelled after an earlier failure; that first failure is what is reported.
                 } catch (ExecutionException ex) {
@@ -109,16 +120,65 @@ public final class UnitExecutor {
                         failure = ex.getCause() instanceof RuntimeException runtime
                                 ? runtime
                                 : new IllegalStateException(ex.getCause());
-                        futures.forEach(pending -> pending.cancel(false));
+                        submitted.forEach(SubmittedUnit::cancelIfQueued);
                     }
                 } catch (InterruptedException ex) {
                     Thread.currentThread().interrupt();
+                    submitted.forEach(SubmittedUnit::cancelIfQueued);
                     throw new IllegalStateException("Interrupted while running evaluation units", ex);
                 }
             }
             if (failure != null) throw failure;
         } finally {
             pool.shutdown();
+            awaitTermination(pool);
+        }
+    }
+
+    private void awaitTermination(ExecutorService pool) {
+        boolean interrupted = false;
+        while (!pool.isTerminated()) {
+            try {
+                pool.awaitTermination(1, TimeUnit.DAYS);
+            } catch (InterruptedException ex) {
+                interrupted = true;
+            }
+        }
+        if (interrupted) Thread.currentThread().interrupt();
+    }
+
+    private enum UnitState { QUEUED, RUNNING, COMPLETED, CANCELLED }
+
+    /**
+     * Makes the queued/running transition explicit so failure handling never
+     * calls {@code Future.cancel(false)} on a task that has already started.
+     */
+    private static final class TrackedRunnable implements Runnable {
+        private final Runnable delegate;
+        private final AtomicReference<UnitState> state = new AtomicReference<>(UnitState.QUEUED);
+
+        private TrackedRunnable(Runnable delegate) {
+            this.delegate = delegate;
+        }
+
+        @Override
+        public void run() {
+            if (!state.compareAndSet(UnitState.QUEUED, UnitState.RUNNING)) return;
+            try {
+                delegate.run();
+            } finally {
+                state.set(UnitState.COMPLETED);
+            }
+        }
+
+        private boolean cancelIfQueued() {
+            return state.compareAndSet(UnitState.QUEUED, UnitState.CANCELLED);
+        }
+    }
+
+    private record SubmittedUnit(TrackedRunnable unit, Future<TrackedRunnable> future) {
+        private void cancelIfQueued() {
+            if (unit.cancelIfQueued()) future.cancel(false);
         }
     }
 }

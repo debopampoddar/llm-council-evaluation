@@ -75,7 +75,25 @@ public class ReportGenerator {
                 .append(manifest.ensemblePromptVersion()).append("`, `")
                 .append(manifest.judgePromptVersion()).append("`\n")
                 .append("- Cases × repetitions: ").append(metrics.datasetCases()).append(" × ")
-                .append(metrics.repetitions()).append("\n\n");
+                .append(metrics.repetitions()).append("\n");
+        if (manifest.runtimeEnvironment() != null) {
+            out.append("- Candidate concurrency: ")
+                    .append(manifest.runtimeEnvironment().candidateConcurrency()).append("\n")
+                    .append("- Judgment concurrency: ")
+                    .append(manifest.runtimeEnvironment().judgmentConcurrency()).append("\n")
+                    .append("- Declared `OLLAMA_NUM_PARALLEL`: ")
+                    .append(manifest.runtimeEnvironment().ollamaNumParallel() == null
+                            ? "not exported to the harness"
+                            : manifest.runtimeEnvironment().ollamaNumParallel())
+                    .append("\n");
+        }
+        manifest.plan().comparisons().stream()
+                .filter(value -> !Boolean.FALSE.equals(value.enabled()) && Boolean.TRUE.equals(value.primary()))
+                .findFirst()
+                .ifPresent(value -> out.append("- Preregistered primary comparison: `")
+                        .append(value.id()).append("` (`").append(value.left()).append("` vs `")
+                        .append(value.right()).append("`)\n"));
+        out.append("\n");
 
         out.append("## Reliability and efficiency\n\n")
                 .append("| Variant | Attempts | Completed | Partial | Failed | Answer rate | Avg calls | Avg tokens | Avg latency | Cost |\n")
