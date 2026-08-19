@@ -1,0 +1,26 @@
+spring:
+  main:
+    web-application-type: none
+    banner-mode: off
+    log-startup-info: false
+  ai:
+    openai:
+      api-key: ${SPRING_AI_OPENAI_API_KEY:unused-development-placeholder}
+      base-url: ${SPRING_AI_OPENAI_BASE_URL:https://api.openai.com}
+    anthropic:
+      api-key: ${SPRING_AI_ANTHROPIC_API_KEY:unused-development-placeholder}
+    vertex:
+      ai:
+        gemini:
+          project-id: ${GOOGLE_CLOUD_PROJECT:}
+          location: ${GOOGLE_CLOUD_LOCATION:us-central1}
+
+logging:
+  level:
+    root: WARN
+    com.debopam.llmcouncil.evaluation: INFO
+
+evaluation:
+  progress:
+    enabled: ${EVALUATION_PROGRESS_ENABLED:true}
+    heartbeat-seconds: ${EVALUATION_PROGRESS_HEARTBEAT_SECONDS:30}

@@ -1,0 +1,29 @@
+version: 1
+id: local-ablation
+description: Separates council effects from spending additional calls on one model.
+councilBaseUrl: http://127.0.0.1:8080
+dataset: ../datasets/pilot-v1.yml
+rubric: ../rubrics/general-v1.yml
+outputDirectory: ../results
+seed: 20260819
+repetitions: 1
+execution:
+  maxCalls: 520
+  maxEstimatedCostUsd: 0.0
+  councilRequestTimeoutSeconds: 1800
+  judgeInvalidRetries: 1
+  continueOnFailure: true
+  liveCallsAcknowledged: true
+  billableCallsAcknowledged: false
+models:
+  - {id: llama, provider: ollama, providerModelId: "llama3.1:8b", modelFamily: llama, baseUrl: "http://127.0.0.1:11434", maxOutputTokens: 1200, contextWindowTokens: 16384, temperature: 0.3, timeoutSeconds: 240, retryMaxAttempts: 1, retryBaseDelayMs: 500, costPer1kInputTokens: 0.0, costPer1kOutputTokens: 0.0}
+  - {id: gemma-judge, provider: ollama, providerModelId: "gemma4:12b-it-qat", modelFamily: gemma, baseUrl: "http://127.0.0.1:11434", maxOutputTokens: 1200, contextWindowTokens: 16384, temperature: 0.1, timeoutSeconds: 240, retryMaxAttempts: 1, retryBaseDelayMs: 500, costPer1kInputTokens: 0.0, costPer1kOutputTokens: 0.0}
+variants:
+  - {id: direct-llama, displayName: Direct Llama, type: DIRECT, enabled: true, modelId: llama}
+  - {id: llama-ensemble, displayName: Five-sample Llama Ensemble, type: SAME_MODEL_ENSEMBLE, enabled: true, modelId: llama, samples: 5}
+  - {id: local-balanced, displayName: Local Balanced Council, type: COUNCIL, enabled: true, profileId: local, depthMode: BALANCED}
+comparisons:
+  - {id: direct-vs-balanced, left: direct-llama, right: local-balanced, enabled: true}
+  - {id: ensemble-vs-balanced, left: llama-ensemble, right: local-balanced, enabled: true}
+judges:
+  - {id: gemma-local, modelId: gemma-judge, mirrored: true, enabled: true}

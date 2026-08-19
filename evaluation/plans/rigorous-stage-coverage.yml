@@ -1,0 +1,22 @@
+version: 1
+id: rigorous-stage-coverage
+description: Mechanics-only run for a council configured with rigorous DEBATE.force-run=true. Do not use this plan as a quality benchmark.
+councilBaseUrl: http://127.0.0.1:8080
+dataset: ../datasets/smoke-v1.yml
+rubric: ../rubrics/general-v1.yml
+outputDirectory: ../results
+seed: 20260820
+repetitions: 1
+execution:
+  maxCalls: 60
+  maxEstimatedCostUsd: 0.0
+  councilRequestTimeoutSeconds: 1800
+  judgeInvalidRetries: 1
+  continueOnFailure: false
+  liveCallsAcknowledged: true
+  billableCallsAcknowledged: false
+models: []
+variants:
+  - {id: local-rigorous-forced, displayName: Forced Rigorous Stage Coverage, type: COUNCIL, enabled: true, profileId: local, depthMode: RIGOROUS}
+comparisons: []
+judges: []
