@@ -1,5 +1,7 @@
 package com.debopam.llmcouncil.evaluation.model;
 
+import com.debopam.llmcouncil.evaluation.domain.UsageMetrics;
+
 import java.util.concurrent.ThreadLocalRandom;
 
 /** Bounded transient retry wrapper with exponential backoff and jitter. */
@@ -16,21 +18,21 @@ public class RetryingModelGateway implements ModelGateway {
 
     @Override
     public ModelResponse call(ModelPrompt prompt) {
-        int failedAttempts = 0;
+        UsageMetrics failedUsage = UsageMetrics.empty();
         for (int attempt = 0; ; attempt++) {
             try {
                 ModelResponse result = delegate.call(prompt);
-                if (failedAttempts == 0) return result;
-                var usage = result.usage();
+                if (failedUsage.calls() == 0) return result;
                 return new ModelResponse(result.text(), result.durationMs(),
-                        new com.debopam.llmcouncil.evaluation.domain.UsageMetrics(
-                                usage.calls() + failedAttempts, usage.promptTokens(), usage.completionTokens(),
-                                usage.estimatedCostUsd(), true, usage.partiallyPriced()));
+                        failedUsage.plus(result.usage()));
             } catch (ModelGatewayException ex) {
-                failedAttempts += Math.max(1, ex.attemptedCalls());
+                failedUsage = failedUsage.plus(ex.usage().calls() == 0
+                        ? new UsageMetrics(Math.max(1, ex.attemptedCalls()), 0, 0,
+                                null, true, false)
+                        : ex.usage());
                 if (!ex.retryable() || attempt >= maxRetries) {
                     throw new ModelGatewayException(ex.category(), ex.getMessage(), ex,
-                            failedAttempts, ex.retryable());
+                            failedUsage, ex.retryable());
                 }
                 sleep(backoff(attempt));
             }

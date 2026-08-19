@@ -93,8 +93,15 @@ public class OllamaModelGateway implements ModelGateway {
             String text = root.path("message").path("content").asText(root.path("response").asText(""));
             Long promptTokens = root.has("prompt_eval_count") ? root.get("prompt_eval_count").longValue() : null;
             Long completionTokens = root.has("eval_count") ? root.get("eval_count").longValue() : null;
-            return new ModelResponse(text, Duration.between(started, Instant.now()).toMillis(),
-                    usage(promptTokens, completionTokens));
+            UsageMetrics usage = usage(promptTokens, completionTokens);
+            if (text.isBlank() && completionTokens != null
+                    && completionTokens >= model.maxOutputTokens()) {
+                throw new ModelGatewayException("OUTPUT_EXHAUSTED",
+                        "Ollama returned no visible content after consuming the full output allowance ("
+                                + completionTokens + "/" + model.maxOutputTokens() + " tokens)",
+                        null, usage, false);
+            }
+            return new ModelResponse(text, Duration.between(started, Instant.now()).toMillis(), usage);
         } catch (ModelGatewayException ex) {
             throw ex;
         } catch (java.net.http.HttpTimeoutException ex) {
@@ -110,7 +117,13 @@ public class OllamaModelGateway implements ModelGateway {
         Map<String, Object> payload = new LinkedHashMap<>();
         payload.put("model", model.providerModelId());
         payload.put("stream", false);
-        if (prompt.jsonMode()) payload.put("format", "json");
+        if (prompt.jsonMode()) {
+            payload.put("format", "json");
+            // Thinking-capable Ollama models can spend the entire output budget
+            // in message.thinking and return no visible JSON. Structured calls
+            // need machine-readable output, so make that policy explicit.
+            payload.put("think", false);
+        }
         payload.put("messages", List.of(
                 Map.of("role", "system", "content", prompt.system()),
                 Map.of("role", "user", "content", prompt.user())));

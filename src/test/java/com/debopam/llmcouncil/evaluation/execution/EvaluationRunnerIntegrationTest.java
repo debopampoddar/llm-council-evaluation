@@ -76,7 +76,10 @@ class EvaluationRunnerIntegrationTest {
         assertEquals(1, councilRuns.get());
         assertEquals(2, store.answers(first.runDirectory()).size());
         assertEquals(2, store.judgments(first.runDirectory()).size());
-        assertEquals(3, judgeCalls.get(), "one invalid judge response must be retried exactly once");
+        assertEquals(4, judgeCalls.get(),
+                "one smoke call plus one invalid judgment retry and its mirror are expected");
+        assertTrue(Files.isRegularFile(first.runDirectory().resolve(
+                "preflight/judges/judge.json")));
         assertTrue(Files.isRegularFile(first.runDirectory().resolve(
                 "judgment-attempts/direct-vs-council/case-1/r01/judge/o1/attempt-1.json")));
         assertTrue(Files.isRegularFile(first.runDirectory().resolve(
@@ -90,16 +93,21 @@ class EvaluationRunnerIntegrationTest {
         runner.resume(first.runDirectory(), true, false);
         assertEquals(1, councilRuns.get(), "resume must not re-run completed council units");
         assertEquals(2, store.judgments(first.runDirectory()).size());
-        assertEquals(3, judgeCalls.get(), "resume must not repeat completed judge attempts");
+        assertEquals(4, judgeCalls.get(), "resume must not repeat judge preflight or completed attempts");
         assertTrue(Files.isRegularFile(checkFile), "resume must repair checks missing after an interrupted atomic answer write");
     }
 
     private ModelResponse response(ModelPrompt prompt, AtomicInteger judgeCalls) {
         String text;
         if (prompt.system().contains("blind pairwise evaluator")) {
-            text = judgeCalls.incrementAndGet() == 1
-                    ? "{\"winner\":\"TIE\",\"confidence\":0.8,\"scores\":{\"A\":{\"criterion-id\":90},\"B\":{\"criterion-id\":90}},\"violations\":{\"A\":[],\"B\":[]},\"rationale\":\"Malformed criterion keys.\"}"
-                    : "{\"winner\":\"TIE\",\"confidence\":0.8,\"scores\":{\"A\":{\"correctness\":90,\"clarity\":90},\"B\":{\"correctness\":90,\"clarity\":90}},\"violations\":{\"A\":[],\"B\":[]},\"rationale\":\"Both are correct.\"}";
+            int call = judgeCalls.incrementAndGet();
+            if (prompt.requestId().startsWith("judge-preflight:")) {
+                text = "{\"winner\":\"A\",\"confidence\":0.99,\"scores\":{\"A\":{\"correctness\":100,\"clarity\":90},\"B\":{\"correctness\":0,\"clarity\":90}},\"violations\":{\"A\":[],\"B\":[\"incorrect arithmetic\"]},\"rationale\":\"A correctly states that two plus two is four.\"}";
+            } else if (call == 2) {
+                text = "{\"winner\":\"TIE\",\"confidence\":0.8,\"scores\":{\"A\":{\"criterion-id\":90},\"B\":{\"criterion-id\":90}},\"violations\":{\"A\":[],\"B\":[]},\"rationale\":\"Malformed criterion keys.\"}";
+            } else {
+                text = "{\"winner\":\"TIE\",\"confidence\":0.8,\"scores\":{\"A\":{\"correctness\":90,\"clarity\":90},\"B\":{\"correctness\":90,\"clarity\":90}},\"violations\":{\"A\":[],\"B\":[]},\"rationale\":\"Both are correct.\"}";
+            }
         } else {
             text = "The answer is four.";
         }

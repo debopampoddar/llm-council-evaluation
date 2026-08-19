@@ -100,7 +100,7 @@ cases:
     redFlags: [Answers 80 percent by confusing sensitivity with positive predictive value]
     deterministicChecks:
       - type: regex
-        pattern: "(?i)(29\\.6\\s*%|about\\s+30\\s*%|approximately\\s+30\\s*%)"
+        pattern: "(?i)(29\\.6\\d*\\s*%|about\\s+30\\s*%|approximately\\s+30\\s*%)"
     rubricOverrides: {}
   - id: planning-zero-downtime
     category: planning

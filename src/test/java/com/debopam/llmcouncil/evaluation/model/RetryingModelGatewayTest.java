@@ -40,4 +40,21 @@ class RetryingModelGatewayTest {
         assertEquals(1, failure.attemptedCalls());
         assertEquals(1, attempts.get());
     }
+
+    @Test
+    void doesNotRepeatDeterministicOutputExhaustion() {
+        AtomicInteger attempts = new AtomicInteger();
+        ModelGateway delegate = prompt -> {
+            attempts.incrementAndGet();
+            throw new ModelGatewayException("OUTPUT_EXHAUSTED", "blank full-budget output",
+                    null, new UsageMetrics(1, 10, 100, 0.0, false, false), false);
+        };
+
+        ModelGatewayException failure = assertThrows(ModelGatewayException.class,
+                () -> new RetryingModelGateway(delegate, 3, 0)
+                        .call(new ModelPrompt("id", "system", "user", true)));
+
+        assertEquals(1, attempts.get());
+        assertEquals(110, failure.usage().totalTokens());
+    }
 }

@@ -52,6 +52,13 @@ repetitions do not masquerade as independent questions.
 
 ## Blinded pairwise judging
 
+Before candidate generation, every enabled judge receives the same small control
+pair: one answer correctly states that 2 + 2 = 4 and the other states 2 + 2 = 5.
+It must return the normal exact JSON contract and choose the correct answer. This is
+a pipeline capability check, not a quality benchmark: it catches blank/exhausted
+responses, broken structured-output behavior, and gross instruction failure early.
+The evidence is stored under `preflight/judges/` and reused on resume.
+
 Candidate variant names are absent from judge prompts. A deterministic seed maps
 the two candidates to Answer A and Answer B. With `mirrored: true`, the judge sees
 the same pair a second time in reverse order.

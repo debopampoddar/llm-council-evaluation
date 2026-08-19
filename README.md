@@ -50,6 +50,7 @@ mvn --batch-mode --no-transfer-progress clean verify
 ```
 
 No tests make paid or live model calls. HTTP integrations use local fake servers.
+The current suite contains 40 deterministic tests.
 
 ## Run a local pilot
 
@@ -145,9 +146,22 @@ export GOOGLE_CLOUD_LOCATION=us-central1
 gcloud auth application-default login
 ```
 
-The plan preflight performs no text generation. Ollama model availability is checked
-through `/api/tags`; cloud configuration is checked locally and final authentication
-still occurs on the first provider request.
+The `plan` command's infrastructure preflight performs no text generation. Ollama
+model availability is checked through `/api/tags`; cloud configuration is checked
+locally. After live-call confirmation and run-directory creation, `run` performs one
+persisted control judgment per enabled judge before generating candidates. The
+control has an objectively superior answer and must produce valid exact-contract
+JSON selecting it; a blank, exhausted, malformed, or incorrect response stops the
+run before the expensive candidate workload. Passing preflight evidence is reused
+on resume. The plan's worst-case call estimate includes these smoke calls and their
+configured provider retries.
+
+Ollama JSON-mode requests also set `think: false`. This matters for thinking-capable
+judge models such as Gemma: hidden reasoning must not consume the entire output
+budget and leave the required JSON response blank. If Ollama reports a blank response
+with `eval_count` at the configured output limit, the harness records
+`OUTPUT_EXHAUSTED`, retains the token usage, and does not waste retries on the same
+deterministic limit.
 
 Set current per-1,000-token prices in the plan. A zero-priced cloud model is
 reported as unpriced, making cost totals incomplete.
@@ -159,6 +173,7 @@ evaluation/results/<run-id>/
 ├── manifest.json
 ├── state.json
 ├── preflight/catalog.json
+├── preflight/judges/<judge>.json
 ├── answers/<case>/<variant>/rNN.json
 ├── checks/<case>/<variant>/rNN.json
 ├── judgment-attempts/<comparison>/<case>/rNN/<judge>/oN/attempt-N.json

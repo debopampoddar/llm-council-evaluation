@@ -36,7 +36,37 @@ class OllamaModelGatewayTest {
             assertEquals(15, result.usage().totalTokens());
             assertEquals(0.0, result.usage().estimatedCostUsd());
             assertTrue(body.get().contains("\"format\":\"json\""));
+            assertTrue(body.get().contains("\"think\":false"));
             assertTrue(body.get().contains("\"num_ctx\":16384"));
+        } finally {
+            server.stop(0);
+        }
+    }
+
+    @Test
+    void reportsBlankFullBudgetOutputAsNonRetryableExhaustion() throws Exception {
+        HttpServer server = HttpServer.create(new InetSocketAddress(0), 0);
+        server.createContext("/api/chat", exchange -> {
+            byte[] response = ("{\"message\":{\"content\":\"\"},"
+                    + "\"prompt_eval_count\":12,\"eval_count\":100}")
+                    .getBytes(StandardCharsets.UTF_8);
+            exchange.sendResponseHeaders(200, response.length);
+            exchange.getResponseBody().write(response);
+            exchange.close();
+        });
+        server.start();
+        try {
+            var model = new EvaluationPlan.ModelSpec("m", "ollama", "test:1", "test",
+                    "http://127.0.0.1:" + server.getAddress().getPort(), 100, 16_384,
+                    0.1, 10, 3, 0, 0.0, 0.0);
+
+            ModelGatewayException failure = assertThrows(ModelGatewayException.class,
+                    () -> new OllamaModelGateway(model, new ObjectMapper())
+                            .call(new ModelPrompt("r", "system", "user", true)));
+
+            assertEquals("OUTPUT_EXHAUSTED", failure.category());
+            assertEquals(false, failure.retryable());
+            assertEquals(112, failure.usage().totalTokens());
         } finally {
             server.stop(0);
         }

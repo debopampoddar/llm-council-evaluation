@@ -8,6 +8,7 @@ import com.debopam.llmcouncil.evaluation.domain.AnswerResult;
 import com.debopam.llmcouncil.evaluation.domain.EvaluationBundle;
 import com.debopam.llmcouncil.evaluation.domain.EvaluationDataset;
 import com.debopam.llmcouncil.evaluation.domain.EvaluationPlan;
+import com.debopam.llmcouncil.evaluation.domain.JudgePreflightResult;
 import com.debopam.llmcouncil.evaluation.domain.JudgmentRecord;
 import com.debopam.llmcouncil.evaluation.domain.UsageMetrics;
 import com.debopam.llmcouncil.evaluation.judging.BlindOrder;
@@ -123,6 +124,9 @@ public class EvaluationRunner {
             maxJudgeCalls += comparisons * units * orientations
                     * (1 + invalidJudgeRetries(bundle.plan()))
                     * (1 + retries(bundle.plan(), judge.modelId()));
+            // One real structured smoke call per judge runs after live/billable
+            // confirmation and before any candidate answer is generated.
+            maxJudgeCalls += 1L + retries(bundle.plan(), judge.modelId());
             billable |= cloud(judgeModel.provider());
             warnIfUnpriced(judgeModel, warnings);
             if (!Boolean.TRUE.equals(judge.mirrored()))
@@ -168,10 +172,9 @@ public class EvaluationRunner {
 
     private RunOutcome execute(EvaluationRunStore.RunHandle handle, EvaluationBundle bundle, JsonNode catalog) {
         Path directory = handle.directory();
-        progress.phase("Candidate generation started.");
-        store.state(directory, "RUNNING", "Generating candidate answers.");
         int consumed = store.answers(directory).stream().mapToInt(value -> value.usage().calls()).sum()
-                + store.judgments(directory).stream().mapToInt(value -> value.usage().calls()).sum();
+                + store.judgments(directory).stream().mapToInt(value -> value.usage().calls()).sum()
+                + store.judgePreflights(directory).stream().mapToInt(value -> value.usage().calls()).sum();
         CallBudget budget = new CallBudget(bundle.plan().execution().maxCalls(), consumed);
         Map<String, CouncilCallEstimator.CallRange> councilRanges = new LinkedHashMap<>();
         enabledVariants(bundle.plan()).stream().filter(value -> value.type() == EvaluationPlan.VariantType.COUNCIL)
@@ -181,6 +184,9 @@ public class EvaluationRunner {
                 * enabledVariants(bundle.plan()).size();
         long answerOrdinal = 0;
         try {
+            preflightJudges(bundle, directory, budget);
+            progress.phase("Candidate generation started.");
+            store.state(directory, "RUNNING", "Generating candidate answers.");
             for (EvaluationDataset.EvaluationCase evalCase : bundle.dataset().cases()) {
                 for (int repetition = 1; repetition <= bundle.plan().repetitions(); repetition++) {
                     for (EvaluationPlan.VariantSpec variant : enabledVariants(bundle.plan())) {
@@ -313,6 +319,38 @@ public class EvaluationRunner {
         }
     }
 
+    private void preflightJudges(EvaluationBundle bundle, Path directory, CallBudget budget) {
+        if (bundle.plan().comparisons().stream()
+                .noneMatch(value -> !Boolean.FALSE.equals(value.enabled()))) {
+            return;
+        }
+        progress.phase("Judge smoke preflight started.");
+        store.state(directory, "RUNNING", "Validating structured judge output.");
+        for (EvaluationPlan.JudgeSpec judge : enabledJudges(bundle.plan())) {
+            var existing = store.judgePreflight(directory, judge.id());
+            if (existing.isPresent()
+                    && existing.get().status() == JudgePreflightResult.Status.PASSED) {
+                progress.info("Judge preflight already passed for '" + judge.id() + "'.");
+                continue;
+            }
+            int upper = 1 + retries(bundle.plan(), judge.modelId());
+            CallBudget.Reservation reservation = budget.reserve(upper,
+                    "judge-preflight/" + judge.id());
+            progress.info("Judge preflight: requesting structured control judgment from '"
+                    + judge.id() + "'.");
+            JudgePreflightResult result = progress.withHeartbeat("judge preflight " + judge.id(),
+                    () -> judging.preflight(bundle.plan(), bundle.rubric(), judge));
+            store.judgePreflight(directory, result);
+            budget.reconcile(reservation, result.usage().calls());
+            if (result.status() != JudgePreflightResult.Status.PASSED) {
+                throw new IllegalStateException("Judge preflight failed for '" + judge.id() + "' ["
+                        + result.failureCategory() + "]: " + result.failureReason());
+            }
+            progress.info("Judge preflight passed for '" + judge.id() + "' in "
+                    + result.durationMs() + " ms.");
+        }
+    }
+
     private void confirm(EvaluationPlan plan, PlanAssessment assessment,
                          boolean confirmLive, boolean confirmBillable) {
         if (!confirmLive || !Boolean.TRUE.equals(plan.execution().liveCallsAcknowledged())) {
@@ -334,6 +372,9 @@ public class EvaluationRunner {
         double actual = store.answers(directory).stream().filter(value -> value.usage().estimatedCostUsd() != null)
                 .mapToDouble(value -> value.usage().estimatedCostUsd()).sum()
                 + store.judgments(directory).stream().filter(value -> value.usage().estimatedCostUsd() != null)
+                .mapToDouble(value -> value.usage().estimatedCostUsd()).sum()
+                + store.judgePreflights(directory).stream()
+                .filter(value -> value.usage().estimatedCostUsd() != null)
                 .mapToDouble(value -> value.usage().estimatedCostUsd()).sum();
         if (actual > maximum) throw new CallBudget.BudgetExceededException(
                 "Estimated cost $" + actual + " exceeded configured maximum $" + maximum);

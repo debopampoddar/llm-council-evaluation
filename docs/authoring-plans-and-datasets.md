@@ -42,6 +42,10 @@ judges: []
 Do not simply raise `maxCalls` until the command passes. Confirm that every variant,
 comparison, repetition, judge orientation, and retry is intentional.
 
+The estimate also reserves one control-preflight call per enabled judge, including
+that model's configured transport/provider retries. The control runs only after the
+same live/billable acknowledgements as the experiment and is persisted for resume.
+
 ## Models
 
 ```yaml
@@ -75,7 +79,9 @@ part of the evidence.
 
 `contextWindowTokens` is optional and currently applies to Ollama as `num_ctx`.
 Specify it when reproducibility matters instead of relying on the daemon default.
-The shipped local plans use 16,384 tokens.
+The shipped local plans use 16,384 tokens. JSON-mode Ollama judge calls set
+`think: false`; a thinking model must spend its output budget on the required JSON
+rather than hidden reasoning.
 
 ## Variants
 

@@ -45,7 +45,7 @@ public class AnswerGenerator {
             };
         } catch (ModelGatewayException ex) {
             return failed(unitId, evalCase.id(), variant.id(), repetition, started,
-                    ex.category(), ex.getMessage(), ex.attemptedCalls());
+                    ex.category(), ex.getMessage(), ex.usage(), List.of());
         } catch (CouncilApiException ex) {
             return failed(unitId, evalCase.id(), variant.id(), repetition, started,
                     "COUNCIL_API_ERROR", ex.getMessage(), 0);
@@ -167,7 +167,7 @@ public class AnswerGenerator {
     }
 
     private UsageMetrics failedUsage(UsageMetrics completed, ModelGatewayException failure) {
-        return completed.plus(new UsageMetrics(failure.attemptedCalls(), 0, 0, null, true, false));
+        return completed.plus(failure.usage());
     }
 
     private EvaluationPlan.ModelSpec model(EvaluationPlan plan, String id) {

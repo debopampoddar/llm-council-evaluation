@@ -21,7 +21,8 @@ flowchart LR
   R["Versioned rubric"] --> V
   V --> F["Live preflight"]
   F --> C["Council REST API"]
-  F --> B["Call and cost guards"]
+  F --> P["Judge control preflight"]
+  P --> B["Call and cost guards"]
   B --> G["Candidate generation"]
   G --> C
   G --> M["Direct provider gateways"]
@@ -54,9 +55,14 @@ flowchart LR
 each enabled council variant, and calculates a conservative protocol estimate.
 It performs no candidate or judge generation.
 
-`run` repeats preflight, verifies both file and command-line acknowledgements,
-creates the manifest, and processes candidates sequentially. Successful evidence
-is durable before the next unit begins. Checks run immediately after each answer.
+`run` repeats infrastructure preflight, verifies both file and command-line
+acknowledgements, creates the manifest, and executes one persisted control pair per
+enabled judge. A judge must return valid exact-contract JSON and select the
+objectively correct control answer; otherwise the run stops before candidate work.
+Passing control evidence is reused on resume. The smoke calls and configured
+provider retries are included in call reservation. The runner then processes
+candidates sequentially. Successful evidence is durable before the next unit
+begins. Checks run immediately after each answer.
 Judging begins after candidate generation and is also stored one orientation at a
 time. Invalid responses can receive a bounded fresh call; every attempt is retained
 separately before the final canonical orientation is written. Reports are built from
@@ -81,6 +87,9 @@ part of the run evidence.
 - A pair is judge-eligible only when both variants produced a non-blank completed
   or partial answer.
 - Invalid judge JSON is invalid evidence, never an implicit tie.
+- A judge that cannot pass its control pair is rejected before candidate generation.
+- A blank full-budget Ollama JSON response is `OUTPUT_EXHAUSTED`, retains usage,
+  and is not retried as a transient transport failure.
 - Conflicting mirrored orientations are position-unstable and unresolved.
 - When enabled judges do not reach a strict majority, the pair is unresolved.
 - An interruption changes `state.json`; completed atomic units remain resumable.

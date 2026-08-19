@@ -6,6 +6,7 @@ import org.junit.jupiter.api.io.TempDir;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
+import java.util.regex.Pattern;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -21,6 +22,11 @@ class EvaluationInputLoaderTest {
         assertEquals(12, loaded.bundle().dataset().cases().size());
         assertEquals(3, loaded.bundle().plan().variants().size());
         assertEquals(64, loaded.hashes().plan().length());
+        var baseRate = loaded.bundle().dataset().cases().stream()
+                .filter(value -> "reasoning-base-rate".equals(value.id())).findFirst().orElseThrow();
+        String regex = baseRate.deterministicChecks().getFirst().pattern();
+        assertTrue(Pattern.compile(regex).matcher("The result is 29.63%.").find(),
+                "the shipped correctness check must accept a more precise equivalent result");
     }
 
     @Test

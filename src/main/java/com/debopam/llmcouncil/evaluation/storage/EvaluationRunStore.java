@@ -7,6 +7,7 @@ import com.debopam.llmcouncil.evaluation.domain.AnswerResult;
 import com.debopam.llmcouncil.evaluation.domain.CheckResult;
 import com.debopam.llmcouncil.evaluation.domain.EvaluationBundle;
 import com.debopam.llmcouncil.evaluation.domain.JudgmentRecord;
+import com.debopam.llmcouncil.evaluation.domain.JudgePreflightResult;
 import com.debopam.llmcouncil.evaluation.domain.RunManifest;
 import com.debopam.llmcouncil.evaluation.domain.RunState;
 import com.debopam.llmcouncil.evaluation.execution.EvaluationPromptFactory;
@@ -165,6 +166,19 @@ public class EvaluationRunStore {
 
     public List<JudgmentRecord> judgments(Path directory) {
         return readTree(directory.resolve("judgments"), JudgmentRecord.class);
+    }
+
+    public Optional<JudgePreflightResult> judgePreflight(Path directory, String judgeId) {
+        return optional(directory.resolve("preflight/judges").resolve(judgeId + ".json"),
+                JudgePreflightResult.class);
+    }
+
+    public void judgePreflight(Path directory, JudgePreflightResult result) {
+        write(directory.resolve("preflight/judges").resolve(result.judgeId() + ".json"), result);
+    }
+
+    public List<JudgePreflightResult> judgePreflights(Path directory) {
+        return readTree(directory.resolve("preflight/judges"), JudgePreflightResult.class);
     }
 
     public void writeReport(Path directory, String relativePath, String content) {
