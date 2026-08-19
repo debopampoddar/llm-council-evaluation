@@ -1,0 +1,55 @@
+version: 1
+id: held-out-smoke
+# Run this BEFORE held-out-ablation.yml. It is the same plan in every respect
+# except the dataset: same variants, same comparisons, same judge, same mirroring.
+# Two cases instead of thirty-six, so the entire pipeline - council health, model
+# tags, judge JSON contract, the 2+2 preflight control, deterministic checks,
+# evidence layout and report generation - is exercised end to end in roughly 25
+# minutes rather than discovered to be broken twelve hours in.
+#
+# It is deliberately NOT a quality measurement. Two cases cannot support any
+# claim; smoke-v1 exists to prove the machinery runs.
+#
+# Check before promoting to the full run:
+#   - the judge preflight passed its 2+2 control
+#   - no variant reported FAILED or PARTIAL
+#   - report/report.md generated and report/judge-independence.json is populated
+#   - how often DEBATE actually fired in the rigorous variant; if it never did,
+#     the rigorous arm degenerates to balanced plus wasted calls and the whole
+#     sycophancy measurement is empty
+description: Two-case mechanics rehearsal for held-out-ablation. Same variants, comparisons, and judge; not a quality measurement.
+councilBaseUrl: http://127.0.0.1:8080
+dataset: ../datasets/smoke-v1.yml
+rubric: ../rubrics/general-v1.yml
+outputDirectory: ../results
+seed: 20260819
+repetitions: 1
+execution:
+  # 2 cases x 1 repetition:
+  #   direct 4, ensemble 24, balanced 22, rigorous 58,
+  #   judging 4 comparisons x 2 pairs x 2 mirror x 2 invalid x 2 transport = 64,
+  #   judge control preflight 2. Total 174; 250 leaves headroom.
+  maxCalls: 250
+  maxEstimatedCostUsd: 0.0
+  councilRequestTimeoutSeconds: 1800
+  judgeInvalidRetries: 1
+  # False on purpose: in a rehearsal a failure should stop the run and be fixed,
+  # not be carried forward into the measurement run as an accepted condition.
+  continueOnFailure: false
+  liveCallsAcknowledged: true
+  billableCallsAcknowledged: false
+models:
+  - {id: direct-llama, provider: ollama, providerModelId: "llama3.1:8b", modelFamily: llama, baseUrl: "http://127.0.0.1:11434", maxOutputTokens: 1200, contextWindowTokens: 8192, temperature: 0.3, timeoutSeconds: 600, retryMaxAttempts: 1, retryBaseDelayMs: 500, costPer1kInputTokens: 0.0, costPer1kOutputTokens: 0.0}
+  - {id: gemma-judge, provider: ollama, providerModelId: "gemma4:12b-it-qat", modelFamily: gemma, baseUrl: "http://127.0.0.1:11434", maxOutputTokens: 1600, contextWindowTokens: 8192, temperature: 0.1, timeoutSeconds: 600, retryMaxAttempts: 1, retryBaseDelayMs: 500, costPer1kInputTokens: 0.0, costPer1kOutputTokens: 0.0}
+variants:
+  - {id: direct-llama, displayName: Direct Llama, type: DIRECT, enabled: true, modelId: direct-llama}
+  - {id: llama-ensemble, displayName: Five-sample Llama Ensemble, type: SAME_MODEL_ENSEMBLE, enabled: true, modelId: direct-llama, samples: 5}
+  - {id: local-balanced, displayName: Local Balanced Council, type: COUNCIL, enabled: true, profileId: local, depthMode: BALANCED}
+  - {id: local-rigorous, displayName: Local Rigorous Council, type: COUNCIL, enabled: true, profileId: local, depthMode: RIGOROUS}
+comparisons:
+  - {id: direct-vs-balanced, left: direct-llama, right: local-balanced, enabled: true}
+  - {id: direct-vs-rigorous, left: direct-llama, right: local-rigorous, enabled: true}
+  - {id: ensemble-vs-rigorous, left: llama-ensemble, right: local-rigorous, enabled: true}
+  - {id: balanced-vs-rigorous, left: local-balanced, right: local-rigorous, enabled: true}
+judges:
+  - {id: gemma-local, modelId: gemma-judge, mirrored: true, enabled: true}

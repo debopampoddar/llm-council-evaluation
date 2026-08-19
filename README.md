@@ -54,6 +54,19 @@ The current suite contains 40 deterministic tests.
 
 ## Run a local pilot
 
+Rehearse the whole pipeline on two cases before spending a night on it:
+
+```bash
+./scripts/evaluate.sh plan evaluation/plans/held-out-smoke.yml
+EVALUATION_SKIP_BUILD=true ./scripts/evaluate.sh \
+  run evaluation/plans/held-out-smoke.yml --confirm-live
+```
+
+That exercises council health, model tags, the judge JSON contract, the 2+2
+preflight control, deterministic checks, the evidence layout, and report
+generation. It is the cheapest insurance in this repository: ~25 minutes against
+a ~12 hour measurement run.
+
 Start `llm-council`, then inspect the live catalog, profile health, installed Ollama
 models, configured cloud credentials, and expected call budget:
 
@@ -123,7 +136,8 @@ remain separate from model-judge outcomes.
 
 | Plan | Purpose |
 |---|---|
-| `held-out-ablation.yml` | **The publishable experiment.** Direct vs same-model ensemble vs balanced council over the 36-case held-out dataset, 3 repetitions. |
+| `held-out-smoke.yml` | **Run this first.** Two-case rehearsal of `held-out-ablation` — identical variants, comparisons, and judge. ~25 min. |
+| `held-out-ablation.yml` | **The measurement run.** Direct, same-model ensemble, and both balanced and rigorous councils over the 36-case held-out dataset; four comparisons, 1 repetition by design. Rigorous is included because `BALANCED` has no `DEBATE` stage, so a run without it cannot measure sycophancy at all. ~12 h. |
 | `local-pilot.yml` | Direct Llama vs balanced and rigorous local councils. Pipeline validation. |
 | `local-ablation.yml` | Direct vs five-sample same-model ensemble vs council, on the pilot dataset. |
 | `rigorous-stage-coverage.yml` | Mechanics-only check for forced rigorous debate stages. |
@@ -147,6 +161,44 @@ adjusted until these numbers improve, it stops being a held-out set and its
 result stops meaning anything. Develop against `pilot-v1`, measure against
 `held-out-v1`, and version a new dataset if the held-out set becomes
 contaminated.
+
+## Run speed
+
+Candidate and judgment units are independent, so they can overlap. Concurrency is
+read from the environment rather than the plan, deliberately:
+
+```bash
+EVALUATION_CONCURRENCY=3 EVALUATION_SKIP_BUILD=true \
+  ./scripts/evaluate.sh run evaluation/plans/held-out-ablation.yml --confirm-live
+```
+
+**It is not a plan field on purpose.** The plan hash forms the run id, so folding
+concurrency into it would mean raising the setting started a new run instead of
+resuming an existing one, and two runs differing only in speed would be
+incomparable. Keeping it environmental leaves the manifest and run id untouched,
+so you may resume a run at a different concurrency than it started with.
+
+Concurrency changes how long a run takes and nothing about what it measures:
+units share no state, blind order is derived per pair from the plan seed rather
+than from execution order, evidence is written per unit through an atomic move,
+and the call budget is synchronized.
+
+**Council variants are never overlapped.** The service under test defaults to
+`council.runtime.max-concurrent-runs: 1` and rejects a second overlapping run
+rather than queueing it, so council units always run one at a time — and first
+within each case, so a health or quorum problem surfaces on the first case rather
+than after every cheap variant has been paid for. Direct, ensemble, and every
+judgment are eligible.
+
+Judging is roughly a third of a full run and is entirely council-free, so it is
+where concurrency pays. Measured on a CPU-only Intel i9 — the least favourable
+case, where inference already saturates every core — two-way concurrency returned
+1.20x throughput. A GPU at batch size 1 is memory-bandwidth bound and
+underutilised, so expect more there. Default is `1`, which is byte-for-byte the
+previous sequential behaviour.
+
+Raise Ollama's own `OLLAMA_NUM_PARALLEL` to match, or the daemon will serialise
+what the harness hands it concurrently.
 
 ## Provider configuration
 

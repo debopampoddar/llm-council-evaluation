@@ -28,7 +28,15 @@ import java.util.Map;
 import java.util.HashSet;
 import java.util.Set;
 
-/** Resumable experiment orchestration. Candidate execution stays sequential by design. */
+/**
+ * Resumable experiment orchestration.
+ *
+ * <p>Council candidate execution stays sequential by design: the service under
+ * test defaults to {@code max-concurrent-runs: 1} and rejects an overlapping run
+ * rather than queueing it. Direct and ensemble candidates touch no council state
+ * and are eligible for concurrency, as is every judgment. See {@link UnitExecutor}
+ * for why the concurrency knob is environmental rather than a plan field.
+ */
 @Component
 public class EvaluationRunner {
     private final CouncilApiGateway council;
@@ -41,6 +49,7 @@ public class EvaluationRunner {
     private final EvaluationInputLoader loader;
     private final ReportGenerator reports;
     private final ProgressReporter progress;
+    private final UnitExecutor units;
 
     public EvaluationRunner(CouncilApiGateway council, CouncilCallEstimator estimator,
                             AnswerGenerator answers, DeterministicCheckEngine checks,
@@ -57,6 +66,7 @@ public class EvaluationRunner {
         this.loader = loader;
         this.reports = reports;
         this.progress = progress;
+        this.units = UnitExecutor.fromEnvironment();
     }
 
     public PreparedPlan prepare(EvaluationBundle bundle) {
@@ -189,43 +199,24 @@ public class EvaluationRunner {
             store.state(directory, "RUNNING", "Generating candidate answers.");
             for (EvaluationDataset.EvaluationCase evalCase : bundle.dataset().cases()) {
                 for (int repetition = 1; repetition <= bundle.plan().repetitions(); repetition++) {
+                    // Ordinals are assigned in the original iteration order so the
+                    // printed numbering is identical whether or not units overlap.
+                    List<Runnable> councilUnits = new ArrayList<>();
+                    List<Runnable> concurrentUnits = new ArrayList<>();
                     for (EvaluationPlan.VariantSpec variant : enabledVariants(bundle.plan())) {
                         answerOrdinal++;
-                        String unit = evalCase.id() + "/" + variant.id() + "/r" + repetition;
-                        var existing = store.answer(directory, evalCase.id(), variant.id(), repetition);
-                        if (existing.isPresent()) {
-                            if (!store.checksPresent(directory, evalCase.id(), variant.id(), repetition)) {
-                                store.checks(directory, existing.get(), checks.evaluate(evalCase, existing.get()));
-                                progress.info("Repaired missing deterministic checks for " + unit + ".");
-                            }
-                            progress.skipped("ANSWER", answerOrdinal, totalAnswers, unit, "evidence already exists");
-                            store.state(directory, "RUNNING", "Candidate answers " + answerOrdinal + "/" + totalAnswers + ".");
-                            continue;
-                        }
-                        progress.started("ANSWER", answerOrdinal, totalAnswers, unit);
-                        int upper = upperBound(bundle.plan(), variant, councilRanges);
-                        CallBudget.Reservation reservation = budget.reserve(upper,
-                                evalCase.id() + "/" + variant.id() + "/r" + repetition);
+                        long ordinal = answerOrdinal;
                         int currentRepetition = repetition;
-                        AnswerResult result = progress.withHeartbeat("answer " + unit,
-                                () -> answers.generate(bundle.plan(), evalCase, variant, currentRepetition));
-                        store.answer(directory, result);
-                        var checkResults = checks.evaluate(evalCase, result);
-                        store.checks(directory, result, checkResults);
-                        budget.reconcile(reservation, result.usage().calls());
-                        long checkFailures = checkResults.stream()
-                                .filter(value -> value.status() != com.debopam.llmcouncil.evaluation.domain.CheckResult.Status.PASS)
-                                .count();
-                        progress.completed("ANSWER", answerOrdinal, totalAnswers, unit,
-                                result.status() + (checkFailures == 0 ? "" : ", " + checkFailures + " check failures"),
-                                result.durationMs(), result.usage().calls());
-                        store.state(directory, "RUNNING", "Candidate answers " + answerOrdinal + "/" + totalAnswers + ".");
-                        enforceCost(bundle.plan(), directory);
-                        if (result.status() == AnswerResult.AnswerStatus.FAILED
-                                && !Boolean.TRUE.equals(bundle.plan().execution().continueOnFailure())) {
-                            throw new IllegalStateException("Variant failed and continueOnFailure is false: " + result.unitId());
-                        }
+                        Runnable unit = () -> generateAnswer(bundle, directory, budget, councilRanges,
+                                evalCase, variant, currentRepetition, ordinal, totalAnswers);
+                        if (variant.type() == EvaluationPlan.VariantType.COUNCIL) councilUnits.add(unit);
+                        else concurrentUnits.add(unit);
                     }
+                    // Council first, and one at a time: it is the riskiest dependency,
+                    // so a health, quorum, or catalog problem surfaces on the first case
+                    // rather than after every cheap variant has already been paid for.
+                    councilUnits.forEach(Runnable::run);
+                    units.run(concurrentUnits);
                 }
             }
 
@@ -249,12 +240,70 @@ public class EvaluationRunner {
         }
     }
 
+    /**
+     * Generate, check, and record one candidate answer.
+     *
+     * <p>Extracted so it can be handed to {@link UnitExecutor}. Every mutation it
+     * performs is safe to overlap: {@link CallBudget} is synchronized, the store
+     * writes each unit to its own path through a temporary file and an atomic
+     * move, and {@link ProgressReporter} serialises its output.
+     *
+     * @param evalCase      the case being answered
+     * @param variant       the variant producing the answer
+     * @param repetition    1-based repetition index
+     * @param ordinal       position in the original sequential ordering, for display
+     * @param totalAnswers  total answer units, for display
+     */
+    private void generateAnswer(EvaluationBundle bundle, Path directory, CallBudget budget,
+                                Map<String, CouncilCallEstimator.CallRange> councilRanges,
+                                EvaluationDataset.EvaluationCase evalCase,
+                                EvaluationPlan.VariantSpec variant, int repetition,
+                                long ordinal, long totalAnswers) {
+        String unit = evalCase.id() + "/" + variant.id() + "/r" + repetition;
+        var existing = store.answer(directory, evalCase.id(), variant.id(), repetition);
+        if (existing.isPresent()) {
+            if (!store.checksPresent(directory, evalCase.id(), variant.id(), repetition)) {
+                store.checks(directory, existing.get(), checks.evaluate(evalCase, existing.get()));
+                progress.info("Repaired missing deterministic checks for " + unit + ".");
+            }
+            progress.skipped("ANSWER", ordinal, totalAnswers, unit, "evidence already exists");
+            store.state(directory, "RUNNING", "Candidate answers " + ordinal + "/" + totalAnswers + ".");
+            return;
+        }
+        progress.started("ANSWER", ordinal, totalAnswers, unit);
+        int upper = upperBound(bundle.plan(), variant, councilRanges);
+        CallBudget.Reservation reservation = budget.reserve(upper, unit);
+        AnswerResult result = progress.withHeartbeat("answer " + unit,
+                () -> answers.generate(bundle.plan(), evalCase, variant, repetition));
+        store.answer(directory, result);
+        var checkResults = checks.evaluate(evalCase, result);
+        store.checks(directory, result, checkResults);
+        budget.reconcile(reservation, result.usage().calls());
+        long checkFailures = checkResults.stream()
+                .filter(value -> value.status() != com.debopam.llmcouncil.evaluation.domain.CheckResult.Status.PASS)
+                .count();
+        progress.completed("ANSWER", ordinal, totalAnswers, unit,
+                result.status() + (checkFailures == 0 ? "" : ", " + checkFailures + " check failures"),
+                result.durationMs(), result.usage().calls());
+        store.state(directory, "RUNNING", "Candidate answers " + ordinal + "/" + totalAnswers + ".");
+        enforceCost(bundle.plan(), directory);
+        if (result.status() == AnswerResult.AnswerStatus.FAILED
+                && !Boolean.TRUE.equals(bundle.plan().execution().continueOnFailure())) {
+            throw new IllegalStateException("Variant failed and continueOnFailure is false: " + result.unitId());
+        }
+    }
+
     private void judgeMissing(EvaluationBundle bundle, Path directory, List<AnswerResult> answerList,
                               CallBudget budget) {
         Map<String, AnswerResult> byKey = new LinkedHashMap<>();
         answerList.forEach(value -> byKey.put(key(value.caseId(), value.variantId(), value.repetition()), value));
         long totalJudgments = expectedJudgments(bundle, byKey);
         long judgmentOrdinal = 0;
+        // Every judgment is independent: no council state, no shared mutable
+        // evidence path, and blind order is derived per pair from the plan seed
+        // rather than from execution order. Collect them all, then run them with
+        // whatever concurrency the environment allows.
+        List<Runnable> pending = new ArrayList<>();
         for (EvaluationPlan.ComparisonSpec comparison : bundle.plan().comparisons()) {
             if (Boolean.FALSE.equals(comparison.enabled())) continue;
             for (EvaluationDataset.EvaluationCase evalCase : bundle.dataset().cases()) {
@@ -268,55 +317,77 @@ public class EvaluationRunner {
                         int count = Boolean.TRUE.equals(judge.mirrored()) ? 2 : 1;
                         for (int orientation = 1; orientation <= count; orientation++) {
                             judgmentOrdinal++;
-                            String unit = pairId + "/" + judge.id() + "/o" + orientation;
-                            if (store.judgment(directory, comparison.id(), evalCase.id(), repetition,
-                                    judge.id(), orientation).isPresent()) {
-                                progress.skipped("JUDGE", judgmentOrdinal, totalJudgments, unit,
-                                        "evidence already exists");
-                                store.state(directory, "RUNNING", "Judgments " + judgmentOrdinal + "/" + totalJudgments + ".");
-                                continue;
-                            }
-                            progress.started("JUDGE", judgmentOrdinal, totalJudgments, unit);
-                            boolean normal = orientation == 1 ? leftFirst : !leftFirst;
-                            AnswerResult a = normal ? left : right;
-                            AnswerResult b = normal ? right : left;
-                            int upper = (1 + invalidJudgeRetries(bundle.plan()))
-                                    * (1 + retries(bundle.plan(), judge.modelId()));
-                            CallBudget.Reservation reservation = budget.reserve(upper,
-                                    pairId + "/" + judge.id() + "/o" + orientation);
+                            long ordinal = judgmentOrdinal;
                             int currentOrientation = orientation;
-                            JudgmentRecord record = null;
-                            UsageMetrics combinedUsage = UsageMetrics.empty();
-                            long combinedDuration = 0;
-                            int maximumAttempts = 1 + invalidJudgeRetries(bundle.plan());
-                            for (int attempt = 1; attempt <= maximumAttempts; attempt++) {
-                                int currentAttempt = attempt;
-                                JudgmentRecord current = progress.withHeartbeat(
-                                        "judgment " + unit + " attempt " + currentAttempt + "/" + maximumAttempts,
-                                        () -> judging.judge(bundle.plan(), bundle.rubric(), evalCase,
-                                                comparison, judge, a, b, currentOrientation));
-                                store.judgmentAttempt(directory, current, attempt);
-                                combinedUsage = combinedUsage.plus(current.usage());
-                                combinedDuration += current.durationMs();
-                                record = current;
-                                if (current.status() != JudgmentRecord.Status.INVALID || attempt == maximumAttempts) {
-                                    break;
-                                }
-                                progress.info("Judge output was invalid for " + unit + " ("
-                                        + current.failureReason() + "); retrying with a fresh model call.");
-                            }
-                            record = withTotals(record, combinedDuration, combinedUsage);
-                            store.judgment(directory, record);
-                            budget.reconcile(reservation, record.usage().calls());
-                            progress.completed("JUDGE", judgmentOrdinal, totalJudgments, unit,
-                                    record.status().toString(), record.durationMs(), record.usage().calls());
-                            store.state(directory, "RUNNING", "Judgments " + judgmentOrdinal + "/" + totalJudgments + ".");
-                            enforceCost(bundle.plan(), directory);
+                            int currentRepetition = repetition;
+                            pending.add(() -> judgeOne(bundle, directory, budget, comparison, evalCase,
+                                    currentRepetition, judge, currentOrientation, left, right, leftFirst,
+                                    pairId, ordinal, totalJudgments));
                         }
                     }
                 }
             }
         }
+        units.run(pending);
+    }
+
+    /**
+     * Run one judge orientation for one pair, with its invalid-response retries.
+     *
+     * <p>Extracted so it can be handed to {@link UnitExecutor}. Retries stay
+     * inside the unit, so a retried judgment never interleaves its attempts with
+     * another unit's.
+     *
+     * @param leftFirst  seeded blind assignment for this pair
+     * @param ordinal    position in the original sequential ordering, for display
+     */
+    private void judgeOne(EvaluationBundle bundle, Path directory, CallBudget budget,
+                          EvaluationPlan.ComparisonSpec comparison,
+                          EvaluationDataset.EvaluationCase evalCase, int repetition,
+                          EvaluationPlan.JudgeSpec judge, int orientation,
+                          AnswerResult left, AnswerResult right, boolean leftFirst,
+                          String pairId, long ordinal, long totalJudgments) {
+        String unit = pairId + "/" + judge.id() + "/o" + orientation;
+        if (store.judgment(directory, comparison.id(), evalCase.id(), repetition,
+                judge.id(), orientation).isPresent()) {
+            progress.skipped("JUDGE", ordinal, totalJudgments, unit, "evidence already exists");
+            store.state(directory, "RUNNING", "Judgments " + ordinal + "/" + totalJudgments + ".");
+            return;
+        }
+        progress.started("JUDGE", ordinal, totalJudgments, unit);
+        boolean normal = orientation == 1 ? leftFirst : !leftFirst;
+        AnswerResult a = normal ? left : right;
+        AnswerResult b = normal ? right : left;
+        int upper = (1 + invalidJudgeRetries(bundle.plan()))
+                * (1 + retries(bundle.plan(), judge.modelId()));
+        CallBudget.Reservation reservation = budget.reserve(upper, unit);
+        JudgmentRecord record = null;
+        UsageMetrics combinedUsage = UsageMetrics.empty();
+        long combinedDuration = 0;
+        int maximumAttempts = 1 + invalidJudgeRetries(bundle.plan());
+        for (int attempt = 1; attempt <= maximumAttempts; attempt++) {
+            int currentAttempt = attempt;
+            JudgmentRecord current = progress.withHeartbeat(
+                    "judgment " + unit + " attempt " + currentAttempt + "/" + maximumAttempts,
+                    () -> judging.judge(bundle.plan(), bundle.rubric(), evalCase,
+                            comparison, judge, a, b, orientation));
+            store.judgmentAttempt(directory, current, attempt);
+            combinedUsage = combinedUsage.plus(current.usage());
+            combinedDuration += current.durationMs();
+            record = current;
+            if (current.status() != JudgmentRecord.Status.INVALID || attempt == maximumAttempts) {
+                break;
+            }
+            progress.info("Judge output was invalid for " + unit + " ("
+                    + current.failureReason() + "); retrying with a fresh model call.");
+        }
+        record = withTotals(record, combinedDuration, combinedUsage);
+        store.judgment(directory, record);
+        budget.reconcile(reservation, record.usage().calls());
+        progress.completed("JUDGE", ordinal, totalJudgments, unit,
+                record.status().toString(), record.durationMs(), record.usage().calls());
+        store.state(directory, "RUNNING", "Judgments " + ordinal + "/" + totalJudgments + ".");
+        enforceCost(bundle.plan(), directory);
     }
 
     private void preflightJudges(EvaluationBundle bundle, Path directory, CallBudget budget) {

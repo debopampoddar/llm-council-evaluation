@@ -55,10 +55,37 @@ and independence matter more than a raw count.
 
 ### Repetitions
 
-Provider generation is stochastic and the harness seed cannot control it. Run at
-least three repetitions for a publishable experiment when budget permits. The
-interval calculation first averages repeated observations within each case, so
-repetitions do not masquerade as independent questions.
+Provider generation is stochastic and the harness seed cannot control it.
+Repetitions reduce per-case measurement noise, and the interval calculation first
+averages repeated observations within each case, so repetitions do not masquerade
+as independent questions.
+
+**Understand what that means before buying repetitions.** Because observations are
+averaged within case, `n` is the number of cases. Repetitions make each case's
+value more stable; they do not add independent observations and do not narrow the
+sampling interval. Spending three times the wall clock on repetitions cannot make
+a small effect visible.
+
+### What a given dataset size can resolve
+
+The 95% interval must exclude 0.5 before a preference means anything. At the
+sizes in this repository:
+
+| Cases | Smallest win rate that clears 0.5 |
+|---:|---|
+| 36 (`held-out-v1`) | 24/36 = **66.7%** |
+| 91 | 60% |
+| 370 | 55% |
+
+So a council that is genuinely but modestly better — say 58/42 — is invisible at
+36 cases no matter how many repetitions are run. If a first pass is inconclusive,
+**add cases, not repetitions**: roughly 100 cases at one repetition costs about
+what 36 cases at three repetitions costs, and resolves a materially smaller
+effect.
+
+Use three repetitions once `n` is adequate for the effect you expect, or when
+per-case variance is visibly large. Note that the run id embeds the plan hash, so
+changing `repetitions` starts a new run rather than extending an existing one.
 
 ## Blinded pairwise judging
 
