@@ -74,8 +74,11 @@ attempts for transport/provider failures. `execution.judgeInvalidRetries` separa
 controls fresh calls after a syntactically or semantically invalid judge response;
 every attempt is retained in `judgment-attempts/`. Both retry types are included in
 the worst-case call estimate. Keep `modelFamily` honest: it drives the
-judge-independence warning. Prices are USD per 1,000 input and output tokens and are
-part of the evidence.
+judge-independence warning. Check the live council catalog as well: a judge that
+matches a candidate's validator is correlated even if it does not draft or chair.
+For the current local council, Gemma is the validator and must not be described as
+an independent judge. Prices are USD per 1,000 input and output tokens and are part
+of the evidence.
 
 `contextWindowTokens` is optional and currently applies to Ollama as `num_ctx`.
 Specify it when reproducibility matters instead of relying on the daemon default.
@@ -144,6 +147,8 @@ for exploratory plans, but a publishable plan must preregister exactly one enabl
 primary comparison; the validator rejects multiple or disabled primaries. Use
 mirrored judging unless you have a documented reason not to. A judge model may not
 be independent of the candidates; that overlap is reported, not magically removed.
+Publishable plans should use at least two judge families outside every candidate's
+member, chair, and validator path.
 
 ## Dataset structure
 

@@ -31,15 +31,27 @@ but not independent evidence.
 
 ### Dataset
 
-Develop the harness on `smoke-v1.yml` and `pilot-v1.yml`. Measure on
-`held-out-v1.yml`, which exists to satisfy the requirements below: 36 cases across
-seven categories, disjoint from the pilot set, and reserved from tuning. Run it
-through `plans/held-out-ablation.yml`.
+Develop the harness on `smoke-v1.yml`, `pilot-v1.yml`, and the explicit
+`prompt-injection-regression-v1.yml` security regression. `held-out-v1.yml` was
+the first 36-case measurement set and its archived results remain historical
+evidence. As of 2026-08-20 it is contaminated for future confirmation because an
+observed adversarial failure informed application changes. Do not rerun it to
+claim the fix generalizes. `held-out-v2.yml` is the new disjoint six-case set,
+and `held-out-v2-fast.yml` is its deterministic-only execution plan. It is sized
+for rapid diagnosis: 18 candidate answers, no correlated local judge, and no
+statistical superiority claim.
 
 Keep that separation. `pilot-v1` is where thresholds and prompts may be adjusted;
-`held-out-v1` is not. If the held-out set is ever used to tune, it is contaminated
-and a new version must be authored — the number it produces afterwards measures
-fit to the test, not quality.
+`held-out-v1` is not. The first v2 run is likewise the only unseen v2 run. If an
+answer or failure from it is used to change code, prompts, checks, rubric, or
+thresholds, mark v2 contaminated and author new confirmation cases — a later v2
+number would measure fit to a visible diagnostic, not generalization.
+
+Six cases are enough to find large, actionable regressions quickly but not enough
+to estimate small effects or category-level performance. Inspect all outputs
+against evaluator requirements and red flags. A later quality claim still needs a
+larger frozen set, blinded comparisons, independent judge families, and a human
+review subset.
 
 The requirements this set was built against:
 
@@ -119,7 +131,10 @@ position-unstable. Across judges, a strict majority is required. Ties,
 position-instability, invalid evidence, and no-majority outcomes are preserved
 rather than forced into a winner.
 
-Prefer judges from model families that are not candidate families. Two endpoint
+Prefer judges from model families that are not candidate families and are not
+used anywhere in a council candidate's generation, chair, or validation path. A
+Gemma judge is therefore correlated with the post-2026-08-20 local council, whose
+dedicated validator is Gemma. Two endpoint
 names from the same family are correlated evidence, not two independent judges.
 The report labels known overlap from configured `modelFamily` values and council
 catalog metadata.

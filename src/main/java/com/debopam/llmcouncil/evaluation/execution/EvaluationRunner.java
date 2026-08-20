@@ -156,7 +156,9 @@ public class EvaluationRunner {
             if (!Boolean.TRUE.equals(judge.mirrored()))
                 warnings.add("Judge '" + judge.id() + "' is not mirrored; position bias will not be measured.");
         }
-        if (bundle.dataset().cases().size() < 30) warnings.add("This is a pilot dataset; do not make a general quality claim.");
+        if (bundle.dataset().cases().size() < 30) {
+            warnings.add("Small-sample limitation: fewer than 30 cases; do not make a general quality claim.");
+        }
         PlanAssessment assessment = new PlanAssessment(bundle.dataset().cases().size(), bundle.plan().repetitions(),
                 answerUnits, minCalls, maxCalls, maxJudgeCalls, maxCalls + maxJudgeCalls,
                 billable, List.copyOf(estimates), List.copyOf(warnings));

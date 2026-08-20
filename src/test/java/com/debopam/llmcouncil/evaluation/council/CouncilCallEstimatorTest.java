@@ -14,7 +14,7 @@ class CouncilCallEstimatorTest {
                 EvaluationPlan.VariantType.COUNCIL, true, "local", "BALANCED", null, null);
         var range = new CouncilCallEstimator().estimate(TestFixtures.catalog(), variant);
         assertEquals(6, range.minimum());
-        assertEquals(8, range.maximum());
+        assertEquals(9, range.maximum());
     }
 
     @Test
@@ -31,6 +31,6 @@ class CouncilCallEstimatorTest {
         var range = new CouncilCallEstimator().estimate(catalog, variant);
 
         assertEquals(14, range.minimum());
-        assertEquals(20, range.maximum());
+        assertEquals(21, range.maximum());
     }
 }

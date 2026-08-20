@@ -29,17 +29,23 @@ The included local plans assume:
 
 - council API: `http://127.0.0.1:8080`
 - Ollama API: `http://127.0.0.1:11434`
-- council models: `llama3.1:8b`, `mistral:7b`, and `qwen2.5:7b`
-- evaluator models: `llama3.1:8b` for the direct baseline and
-  `gemma4:12b-it-qat` for an independent local judge
+- council models: `llama3.1:8b`, `mistral:7b`, `qwen2.5:7b`, and the
+  `gemma4:12b-it-qat` validator
+- evaluator models in the historical local plans: `llama3.1:8b` for the direct
+  baseline and `gemma4:12b-it-qat` as the one local judge
 
-Install the additional judge before running a local plan:
+Install Gemma before running the current council or a historical local plan:
 
 ```bash
 ollama pull gemma4:12b-it-qat
 ```
 
-The local plans explicitly send a 16,384-token Ollama context window. This is a
+Gemma is no longer independent of the current council because it now performs
+the council's validation. Historical plans and published evidence are retained
+unchanged for audit, but a new publishable comparison must use judge families
+outside every candidate's member, chair, and validator path.
+
+The local plans explicitly send a bounded Ollama context window. This is a
 practical laptop default; it reduces memory pressure while leaving ample room for
 the judge rubric and two candidate answers.
 
@@ -53,9 +59,28 @@ No tests make paid or live model calls. HTTP integrations use local fake servers
 the deterministic suite is enumerated by Maven so this documentation cannot drift
 when coverage is added.
 
-## Run a local pilot
+## Run the post-hardening security regression
 
-Rehearse the whole pipeline on two cases before spending a night on it:
+After building the updated council, run the seven-case deterministic regression
+across QUICK, BALANCED, and RIGOROUS:
+
+```bash
+./scripts/evaluate.sh plan evaluation/plans/prompt-injection-regression.yml
+EVALUATION_SKIP_BUILD=true ./scripts/evaluate.sh \
+  run evaluation/plans/prompt-injection-regression.yml --confirm-live
+```
+
+This plan has no model judge or pairwise quality claim. Gemma cannot independently
+judge the gate it now implements. Accept a completed attack case only when its
+deterministic checks pass. Also accept an attack case that explicitly fails closed
+at the council trust boundary and returns no answer; in that case, a positive
+task-content check can fail because there is deliberately no candidate text to
+inspect. Benign-analysis controls must complete and pass. Inspect candidate status,
+warnings, checks, and raw artifacts rather than reducing this to one win rate.
+
+## Historical local experiments
+
+The following reproduces the original two-case mechanics rehearsal:
 
 ```bash
 ./scripts/evaluate.sh plan evaluation/plans/held-out-smoke.yml
@@ -65,8 +90,8 @@ EVALUATION_SKIP_BUILD=true ./scripts/evaluate.sh \
 
 That exercises council health, model tags, the judge JSON contract, the 2+2
 preflight control, deterministic checks, the evidence layout, and report
-generation. It is the cheapest insurance in this repository: minutes against a
-hardware-dependent measurement run that normally takes many hours.
+generation. It is historical pipeline evidence, not validation of the hardened
+application: its Gemma judge is now correlated and its dataset informed the fix.
 
 Start `llm-council`, then inspect the live catalog, profile health, installed Ollama
 models, configured cloud credentials, and expected call budget:
@@ -137,8 +162,10 @@ remain separate from model-judge outcomes.
 
 | Plan | Purpose |
 |---|---|
-| `held-out-smoke.yml` | **Run this first.** Two-case rehearsal of `held-out-ablation` — identical variants, comparisons, and judge. ~25 min. |
-| `held-out-ablation.yml` | **First held-out measurement.** Direct, same-model ensemble, and both balanced and rigorous councils over 36 held-out cases. `ensemble-vs-rigorous` is preregistered as primary; the one-repetition result still requires replication before a settled claim. Runtime is hardware-dependent and normally many hours. |
+| `prompt-injection-regression.yml` | Current deterministic live regression across local QUICK, BALANCED, and RIGOROUS. No model judge and no overall quality claim. |
+| `held-out-v2-fast.yml` | Six-case, 18-answer deterministic diagnostic across Direct, BALANCED, and RIGOROUS. Fast feedback; no model judge or superiority claim. |
+| `held-out-smoke.yml` | Historical two-case rehearsal of `held-out-ablation`; retained for reproduction, not current evidence. |
+| `held-out-ablation.yml` | Historical first held-out measurement. Its dataset is now contaminated for confirmation and its Gemma judge overlaps the current validator. Do not rerun it as proof of the fix. |
 | `local-pilot.yml` | Direct Llama vs balanced and rigorous local councils. Pipeline validation. |
 | `local-ablation.yml` | Direct vs five-sample same-model ensemble vs council, on the pilot dataset. |
 | `rigorous-stage-coverage.yml` | Mechanics-only check for forced rigorous debate stages. |
@@ -150,7 +177,9 @@ remain separate from model-judge outcomes.
 |---|---|---|
 | `smoke-v1.yml` | 2 | Mechanics check. Two cases, minutes not hours. |
 | `pilot-v1.yml` | 12 | Harness development. **Tuning target** — not evidence. |
-| `held-out-v1.yml` | 36 | Measurement input. Held out from tuning; publication still requires the methodology checklist. |
+| `prompt-injection-regression-v1.yml` | 7 | Visible development security regression; not an unseen benchmark. |
+| `held-out-v1.yml` | 36 | Historical measurement input; contaminated for future confirmation as of 2026-08-20. |
+| `held-out-v2.yml` | 6 | Compact one-shot diagnostic across six technical categories. If its results drive changes, mark it contaminated and do not reuse it as confirmation. |
 
 `held-out-v1` spans architecture, debugging, security, grounded reasoning,
 planning, underspecified requests, and adversarial context, and is disjoint from
@@ -159,11 +188,24 @@ deterministic checks are objectively defensible rather than keyword guesses.
 Its intended audience, construction, coverage, limitations, and contamination
 policy are documented in [`evaluation/datasets/README.md`](evaluation/datasets/README.md).
 
-**Do not tune the system against `held-out-v1`.** The moment a threshold is
-adjusted until these numbers improve, it stops being a held-out set and its
-result stops meaning anything. Develop against `pilot-v1`, measure against
-`held-out-v1`, and version a new dataset if the held-out set becomes
-contaminated.
+`held-out-v1` has now informed system changes, so preserve it for historical audit
+and author a disjoint `held-out-v2` before the next confirmatory quality run.
+Develop prompt-injection behavior against the named regression set; do not disguise
+that visible regression as held-out evidence.
+
+Run the compact v2 diagnostic after the prompt-injection regression:
+
+```bash
+./scripts/evaluate.sh plan evaluation/plans/held-out-v2-fast.yml
+EVALUATION_PROGRESS_HEARTBEAT_SECONDS=15 EVALUATION_SKIP_BUILD=true \
+  ./scripts/evaluate.sh run evaluation/plans/held-out-v2-fast.yml --confirm-live
+```
+
+This produces 18 candidate answers and no judgments. Acceptance means all expected
+units and deterministic-check files exist, no unexplained candidate failures occur,
+and every answer is manually inspected against its requirements and red flags. It
+is a rapid correctness diagnostic, not the multi-family judged experiment required
+for a publishable quality-superiority claim.
 
 ## Run speed
 
@@ -283,8 +325,9 @@ can cross it and unpriced calls cannot be capped.
 
 A single judge cannot form a cross-judge majority, so a position-unstable pair
 resolves to unresolved rather than being outvoted. `held-out-ablation.yml` ships
-with one local judge for cost reasons; add a second independent family before
-treating a narrow margin as settled.
+with one local judge for cost reasons. That Gemma judge now overlaps the current
+council validator. Use two external judge families and a new held-out dataset
+before treating a new margin as publishable.
 
 Direct and council paths necessarily use different orchestration prompts. When the
 intended claim is about the protocol, that prompt-template difference remains a

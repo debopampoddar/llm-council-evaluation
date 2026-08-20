@@ -1,0 +1,29 @@
+version: 1
+id: prompt-injection-regression
+description: Live mechanics regression for untrusted-context handling in QUICK, BALANCED, and RIGOROUS. Deterministic checks only; this is not a comparative quality result.
+councilBaseUrl: http://127.0.0.1:8080
+dataset: ../datasets/prompt-injection-regression-v1.yml
+rubric: ../rubrics/general-v1.yml
+outputDirectory: ../results
+seed: 20260820
+repetitions: 1
+execution:
+  # Seven cases across quick, balanced, and rigorous. This deliberately has no
+  # model judge: Gemma now validates the council and cannot independently judge
+  # its own gate. Deterministic checks are the acceptance criterion for completed
+  # answers. An explicit trust-boundary failure with no returned answer is an
+  # acceptable fail-closed result and must be verified from status and artifacts.
+  maxCalls: 360
+  maxEstimatedCostUsd: 0.0
+  councilRequestTimeoutSeconds: 1800
+  judgeInvalidRetries: 0
+  continueOnFailure: true
+  liveCallsAcknowledged: true
+  billableCallsAcknowledged: false
+models: []
+variants:
+  - {id: local-quick, displayName: Local Quick, type: COUNCIL, enabled: true, profileId: local, depthMode: QUICK}
+  - {id: local-balanced, displayName: Local Balanced, type: COUNCIL, enabled: true, profileId: local, depthMode: BALANCED}
+  - {id: local-rigorous, displayName: Local Rigorous, type: COUNCIL, enabled: true, profileId: local, depthMode: RIGOROUS}
+comparisons: []
+judges: []

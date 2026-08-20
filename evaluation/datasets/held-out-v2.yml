@@ -1,0 +1,106 @@
+version: 1
+id: held-out-v2
+description: Six compact, previously unused technical cases for a one-shot diagnostic of direct, balanced, and rigorous answer quality. The set emphasizes high-information failure modes rather than statistical breadth.
+cases:
+  - id: architecture-consistent-snapshot-export
+    category: architecture
+    question: Design an export that represents every customer record exactly as it existed at one logical cutoff while normal writes continue. Explain the boundary between the initial scan and concurrent changes, and how you would verify the export.
+    context: |
+      The PostgreSQL table contains 500 million rows and a full export takes about two hours. Holding a two-hour database transaction is operationally unacceptable. Changes are already emitted through CDC, including deletes, but ordering is guaranteed only within each partition. Consumers require one value per customer as of the declared cutoff: no omissions, duplicates, or changes from after the cutoff.
+    tags: [distributed-systems, database, consistency, change-data-capture]
+    requirements: [Define one explicit snapshot or cutoff boundary, Connect the initial scan and CDC stream through a durable high-water mark or equivalent protocol, Use stable keyset progress rather than offset pagination, Handle updates and tombstones around the boundary, Verify completeness and uniqueness with counts checksums or reconciliation, State any database or CDC capability the design depends on]
+    referenceFacts: [Scanning current rows and later appending arbitrary CDC events does not define one point-in-time state, A database snapshot identifier or log position can connect the scan to subsequent changes, Offset pagination can skip or duplicate rows under concurrent modification, Deletes must be represented during reconciliation]
+    redFlags: [Claims a timestamp on each output row alone guarantees one consistent snapshot, Uses offset pagination over a changing table as the correctness mechanism, Ignores deletes or the scan-to-stream handoff]
+    deterministicChecks:
+      - {type: regex, pattern: "(?i)(snapshot|cut.?off|high.?water|log position|lsn)"}
+      - {type: regex, pattern: "(?i)(cdc|change.?data|change log|write-ahead|wal)"}
+      - {type: regex, pattern: "(?i)(reconcil|checksum|count|verify|validation)"}
+    rubricOverrides: {}
+
+  - id: debugging-executor-starvation
+    category: debugging
+    question: Diagnose why this service hangs with low CPU, give the concrete execution sequence, and propose the smallest safe correction.
+    context: |
+      A Java service uses one fixed ExecutorService with eight threads for request work and remote lookups:
+
+      Future<Response> handle(Request request) {
+        return pool.submit(() -> {
+          Result value = CompletableFuture
+              .supplyAsync(() -> remoteLookup(request.id()), pool)
+              .join();
+          return render(value);
+        });
+      }
+
+      Under load, eight handle tasks occupy all eight pool threads. Thread dumps show all eight waiting in CompletableFuture.join(), no remoteLookup task starts, the submission queue grows, and CPU remains below 10 percent.
+    tags: [java, concurrency, executors, failure-diagnosis]
+    requirements: [Identify thread-pool starvation or starvation deadlock rather than a CPU bottleneck, Explain that all workers block waiting for work queued to the same exhausted pool, Prefer non-blocking composition or separate appropriately bounded executors, Add remote-call timeout cancellation and overload handling, Warn that merely increasing the pool postpones rather than proves elimination of the cycle]
+    referenceFacts: [The outer tasks consume every worker before queuing the inner tasks, CompletableFuture.join blocks the worker executing the outer task, A dependency must not be scheduled exclusively behind tasks that synchronously wait for it on the same bounded executor]
+    redFlags: [Attributes the hang primarily to synchronized locking, Recommends only increasing the executor size, Claims low CPU rules out a concurrency failure]
+    deterministicChecks:
+      - {type: regex, pattern: "(?i)(starvation|thread.?pool deadlock|pool exhaustion)"}
+      - {type: regex, pattern: "(?i)(same|shared).*(pool|executor)|(pool|executor).*(same|shared)"}
+      - {type: regex, pattern: "(?i)(non.?block|thenCompose|separate.*(pool|executor)|dedicated.*(pool|executor))"}
+    rubricOverrides: {}
+
+  - id: security-tenant-cache-isolation
+    category: security
+    question: Assess the incident, identify the security boundary failure, and give both the immediate containment and the durable application design.
+    context: |
+      GET /documents/{documentId} authorizes the caller against tenantId from the request token, loads the document, and caches the rendered response under key document:{documentId}. Document identifiers are sequential and unique only inside a tenant. On a cache hit, the handler returns the cached response before loading the document or repeating the tenant authorization check. A Tenant B user received a Tenant A document after both tenants requested documentId 4182.
+    tags: [security, multi-tenancy, authorization, caching, incident-response]
+    requirements: [Identify cross-tenant data exposure and broken object-level authorization, Contain by disabling or purging the unsafe cache path and preserving evidence, Scope cache identity by trusted tenant plus document identity, Perform authorization on every request including cache hits, Derive tenant identity from authenticated claims rather than a caller-controlled parameter, Assess affected keys logs and notifications]
+    referenceFacts: [The cache key aliases documents that share a tenant-local identifier, Returning before authorization makes the cache an authorization bypass, Adding tenant identity to the key prevents aliasing but does not replace authorization]
+    redFlags: [Recommends only making document IDs globally unique, Trusts a tenant query parameter as the isolation boundary, Treats cache-key repair as sufficient without incident assessment]
+    deterministicChecks:
+      - {type: regex, pattern: "(?i)(cross.?tenant|tenant.*(leak|exposure)|broken.*authori[sz]|object.?level authori[sz])"}
+      - {type: regex, pattern: "(?i)(cache.*(tenant|authori[sz])|tenant.*cache)"}
+      - {type: regex, pattern: "(?i)(purge|disable|contain|incident|affected)"}
+    rubricOverrides: {}
+
+  - id: reasoning-queue-drain
+    category: grounded-reasoning
+    question: Calculate what happens to the backlog before and after the scale-up, state when it clears, and identify the main assumption behind the estimate. Show the arithmetic.
+    context: |
+      Jobs arrive at a constant 900 jobs per minute. Each worker sustainably processes 20 jobs per minute. There are 40 workers until exactly 10:00, when the pool is increased to 60 workers. At 10:00 the queue contains 6,000 jobs. Ignore startup delay and assume arrival and processing rates remain constant.
+    tags: [capacity, queueing, arithmetic]
+    requirements: [Compute original capacity as 800 jobs per minute, Compute pre-scale backlog growth as 100 jobs per minute, Compute scaled capacity as 1200 jobs per minute, Compute net drain as 300 jobs per minute, Compute a 20 minute drain time and 10:20 completion, State that the result depends on stable sustainable rates and no startup delay]
+    referenceFacts: [40 times 20 equals 800 so arrivals exceed capacity by 100, 60 times 20 equals 1200 so capacity exceeds arrivals by 300, 6000 divided by 300 equals 20 minutes]
+    redFlags: [Divides the backlog by total capacity without subtracting continuing arrivals, Claims the queue clears at 10:05, Treats the estimate as guaranteed under changing rates]
+    deterministicChecks:
+      - {type: regex, pattern: "(?i)(?<![0-9])800(?![0-9])"}
+      - {type: regex, pattern: "(?i)(?<![0-9])100(?![0-9])"}
+      - {type: regex, pattern: "(?i)(?<![0-9])1,?200(?![0-9])"}
+      - {type: regex, pattern: "(?i)(?<![0-9])300(?![0-9])"}
+      - {type: regex, pattern: "(?i)(20\\s*(minutes?|min)|10:20)"}
+    rubricOverrides: {}
+
+  - id: planning-mobile-enum-migration
+    category: planning
+    question: Plan the API and rollout changes needed to introduce the two new states without breaking old mobile clients. Include observability, rollback, and the point at which compatibility code can be removed.
+    context: |
+      GET /jobs currently returns status PENDING or COMPLETE. The new workflow needs PROCESSING and FAILED. Mobile versions already in the field deserialize status into a strict enum and crash on unknown values. Some users do not update for 90 days. The server and web client can deploy independently, but the mobile release cannot be forced. The team wants to start the new workflow next week.
+    tags: [api-evolution, compatibility, rollout, mobile]
+    requirements: [Do not send new enum values to incompatible clients, Propose explicit API versioning capability negotiation or a backward-compatible representation, Define a safe mapping for legacy clients and its semantic limitations, Roll out behind a flag with client-version telemetry and error monitoring, Include rollback that does not strand jobs in new states, Retain compatibility for the measured old-client lifetime before deprecation]
+    referenceFacts: [Adding enum values is breaking for strict readers, A server deploy cannot make already installed clients tolerant, Compatibility removal must depend on observed client adoption rather than only the release date]
+    redFlags: [Calls the enum addition backward compatible without qualification, Requires every user to update next week, Removes legacy mapping immediately after the new server deploy]
+    deterministicChecks:
+      - {type: regex, pattern: "(?i)(version|capabilit|negotiat|legacy.*map|map.*legacy)"}
+      - {type: regex, pattern: "(?i)(feature flag|rollout|telemetry|monitor)"}
+      - {type: regex, pattern: "(?i)(rollback|deprecat|90 days|client adoption)"}
+    rubricOverrides: {}
+
+  - id: underspecified-replace-postgres
+    category: underspecified
+    question: Should we replace PostgreSQL with Cassandra to fix the latency problem? Give a decision and the next investigation steps without inventing missing workload requirements.
+    context: |
+      The database contains 1.5 TB. Normal request p95 is 35 ms, but p99 reaches 1.8 seconds during one daily analytics query. Database CPU averages 25 percent. About 70 percent of request reads fetch one tenant by primary key. Several write paths require multi-row transactions. No growth forecast, write rate, availability target, or regional requirement has been supplied. The team has not captured the slow query plan.
+    tags: [ambiguity, database, performance, decision-making]
+    requirements: [Do not recommend a database replacement from the supplied evidence, Connect the tail spike to the coincident analytics workload as a hypothesis rather than proof, Request the slow query plan wait events I/O and workload measurements, Consider isolating analytics indexing query changes or a replica before migration, Identify missing growth availability consistency and regional requirements, Explain that Cassandra changes transaction and query semantics]
+    referenceFacts: [Average CPU does not locate a tail-latency bottleneck, One coincident analytics query is evidence for targeted diagnosis not proof of root cause, A primary-key-heavy workload alone does not justify a database migration, Required multi-row transactions are a material constraint when considering Cassandra]
+    redFlags: [Approves Cassandra primarily because the dataset is 1.5 TB, Claims low average CPU proves PostgreSQL is not the bottleneck, Ignores transaction semantics, Invents an availability or multi-region requirement]
+    deterministicChecks:
+      - {type: regex, pattern: "(?i)(query plan|explain analyze|wait event|i/o|slow query)"}
+      - {type: regex, pattern: "(?i)(transaction|consisten|multi.?row)"}
+      - {type: regex, pattern: "(?i)(measure|profile|investigat|evidence|insufficient|not enough)"}
+    rubricOverrides: {}

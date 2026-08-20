@@ -60,7 +60,7 @@ public class ReportGenerator {
                     .append(expectedAnswers).append(" expected candidate attempts are present.\n\n");
         }
         if (metrics.datasetCases() < 30) {
-            out.append("> **Pilot only.** This run has fewer than 30 cases and does not support a general quality claim.\n\n");
+            out.append("> **Small-sample limitation.** This run has fewer than 30 cases and does not support a general quality claim.\n\n");
         }
         out.append("## Run validity\n\n")
                 .append("- Run: `").append(manifest.runId()).append("`\n")

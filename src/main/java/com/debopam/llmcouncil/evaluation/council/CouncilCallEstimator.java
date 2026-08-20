@@ -33,10 +33,16 @@ public class CouncilCallEstimator {
                 case "VALIDATE" -> validator ? 1 : 0;
                 default -> 0;
             };
-            // Each successful-but-incomplete review pass can make one bounded
-            // targeted recovery call per reviewer.
-            int maximumStageCalls = "REVIEW".equals(stage) || "REVIEW_POST_DEBATE".equals(stage)
-                    ? minimumStageCalls * 2 : minimumStageCalls;
+            // Reviews can make one bounded targeted recovery call per reviewer.
+            // Validation can make one bounded structured-output recovery when
+            // the first response reaches its output ceiling without parseable
+            // JSON. Both attempts are real provider calls and belong in the
+            // preflight ceiling even though recovery is normally unused.
+            int maximumStageCalls = switch (stage) {
+                case "REVIEW", "REVIEW_POST_DEBATE" -> minimumStageCalls * 2;
+                case "VALIDATE" -> validator ? 2 : 0;
+                default -> minimumStageCalls;
+            };
             if ("DEBATE".equals(stage)) {
                 int rounds = debateOptions.path("max-rounds").asInt(3);
                 if (forceDebate) minimum += members * debateOptions.path("min-rounds").asInt(2);

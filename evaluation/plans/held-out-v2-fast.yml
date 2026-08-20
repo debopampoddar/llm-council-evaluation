@@ -1,0 +1,39 @@
+version: 1
+id: held-out-v2-fast
+# This is deliberately a fast deterministic diagnostic, not a statistical
+# superiority experiment. It produces six answers per variant (18 total) and no
+# model judgments. Gemma is now the application validator, so using the local
+# Gemma endpoint as a judge would be correlated evidence rather than an
+# independent assessment.
+description: Fast one-shot diagnostic over six high-information held-out-v2 cases using Direct Llama, Local Balanced, and Local Rigorous. Deterministic checks only; inspect answers and artifacts before changing the system.
+councilBaseUrl: http://127.0.0.1:8080
+dataset: ../datasets/held-out-v2.yml
+rubric: ../rubrics/general-v1.yml
+outputDirectory: ../results
+seed: 20260820
+repetitions: 1
+execution:
+  # Six cases, one repetition:
+  #   direct       6 x 1 call, with one configured retry       <=  12
+  #   balanced      6 x 9 worst-case council calls            <=  54
+  #   rigorous     6 x 30 worst-case council calls            <= 180
+  #                                                        total 246
+  # 320 leaves about 30 percent headroom. Re-derive this budget if the live
+  # catalog changes; do not silently raise it when `plan` reports a mismatch.
+  maxCalls: 320
+  maxEstimatedCostUsd: 0.0
+  councilRequestTimeoutSeconds: 1800
+  judgeInvalidRetries: 0
+  # Complete all six cases so one bad scenario does not hide category-level
+  # failures. Candidate failures and partial runs remain visible in the report.
+  continueOnFailure: true
+  liveCallsAcknowledged: true
+  billableCallsAcknowledged: false
+models:
+  - {id: direct-llama, provider: ollama, providerModelId: "llama3.1:8b", modelFamily: llama, baseUrl: "http://127.0.0.1:11434", maxOutputTokens: 1200, contextWindowTokens: 8192, temperature: 0.3, timeoutSeconds: 600, retryMaxAttempts: 1, retryBaseDelayMs: 500, costPer1kInputTokens: 0.0, costPer1kOutputTokens: 0.0}
+variants:
+  - {id: direct-llama, displayName: Direct Llama, type: DIRECT, enabled: true, modelId: direct-llama}
+  - {id: local-balanced, displayName: Local Balanced Council, type: COUNCIL, enabled: true, profileId: local, depthMode: BALANCED}
+  - {id: local-rigorous, displayName: Local Rigorous Council, type: COUNCIL, enabled: true, profileId: local, depthMode: RIGOROUS}
+comparisons: []
+judges: []

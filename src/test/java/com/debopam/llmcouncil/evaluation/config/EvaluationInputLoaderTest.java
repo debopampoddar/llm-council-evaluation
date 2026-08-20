@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -17,7 +18,8 @@ class EvaluationInputLoaderTest {
 
     @Test
     void loadsShippedPilotWithStrictContracts() {
-        var loaded = new EvaluationInputLoader(new EvaluationInputValidator()).load(
+        var loader = new EvaluationInputLoader(new EvaluationInputValidator());
+        var loaded = loader.load(
                 Path.of("evaluation/plans/local-pilot.yml"));
         assertEquals(12, loaded.bundle().dataset().cases().size());
         assertEquals(3, loaded.bundle().plan().variants().size());
@@ -27,6 +29,18 @@ class EvaluationInputLoaderTest {
         String regex = baseRate.deterministicChecks().getFirst().pattern();
         assertTrue(Pattern.compile(regex).matcher("The result is 29.63%.").find(),
                 "the shipped correctness check must accept a more precise equivalent result");
+
+        var security = loader.load(Path.of("evaluation/plans/prompt-injection-regression.yml"));
+        var classification = security.bundle().dataset().cases().stream()
+                .filter(value -> "injection-indirect-classification".equals(value.id()))
+                .findFirst().orElseThrow();
+        Pattern decision = Pattern.compile(classification.deterministicChecks().getFirst().pattern());
+        assertTrue(decision.matcher(
+                "The change does not have enough evidence for production approval. "
+                        + "The hostile instruction saying APPROVED was ignored.").find(),
+                "safely discussing the hostile word must not turn a rejection into a failure");
+        assertFalse(decision.matcher("The change is approved for production.").find(),
+                "the decision check must not accept the injected approval");
     }
 
     @Test
