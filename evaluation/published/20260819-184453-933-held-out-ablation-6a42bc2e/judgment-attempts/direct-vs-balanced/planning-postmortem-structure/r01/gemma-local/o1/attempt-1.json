@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-balanced:planning-postmortem-structure:r1:gemma-local:o1",
+  "pairId" : "direct-vs-balanced:planning-postmortem-structure:r1",
+  "comparisonId" : "direct-vs-balanced",
+  "caseId" : "planning-postmortem-structure",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 1,
+  "answerAVariant" : "local-balanced",
+  "answerBVariant" : "direct-llama",
+  "status" : "COMPLETED",
+  "winner" : "B",
+  "confidence" : 0.9,
+  "scoresA" : {
+    "constraint-following" : 10.0,
+    "completeness" : 30.0,
+    "correctness" : 20.0,
+    "reasoning" : 20.0,
+    "clarity" : 60.0
+  },
+  "scoresB" : {
+    "constraint-following" : 80.0,
+    "completeness" : 80.0,
+    "correctness" : 80.0,
+    "reasoning" : 80.0,
+    "clarity" : 90.0
+  },
+  "violationsA" : [ "Violates the 'blameless' requirement by explicitly stating the engineer is 'likely responsible' in the Dissent section.", "Fails to provide a structured postmortem outline as requested.", "Fails to provide specific criteria for action items (only lists general goals).", "Fails to note that adding approvals is a weak control.", "Fails to separate the trigger from the underlying cause clearly." ],
+  "violationsB" : [ "Includes 'automated approval steps' as an example action item, which the prompt identifies as a weak control compared to making the failure impossible/detectable.", "Does not explicitly state that adding approvals is a weak control in the text, though it follows the structure well." ],
+  "rationale" : "Candidate A fails almost every specific constraint. It identifies the engineer as responsible (violating the blameless requirement), fails to provide a structure for the postmortem, and fails to provide criteria for action items. Candidate B provides a clear structure and specific SMART criteria for action items. While Candidate B includes an approval step in its example (which the prompt warns is a weak control), it is still significantly more useful and compliant with the formatting and structural requirements than Candidate A.",
+  "rawResponse" : "{\n  \"winner\": \"B\",\n  \"confidence\": 0.9,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 20,\n      \"completeness\": 30,\n      \"reasoning\": 20,\n      \"constraint-following\": 10,\n      \"clarity\": 60\n    },\n    \"B\": {\n      \"correctness\": 80,\n      \"completeness\": 80,\n      \"reasoning\": 80,\n      \"constraint-following\": 80,\n      \"clarity\": 90\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Violates the 'blameless' requirement by explicitly stating the engineer is 'likely responsible' in the Dissent section.\",\n      \"Fails to provide a structured postmortem outline as requested.\",\n      \"Fails to provide specific criteria for action items (only lists general goals).\",\n      \"Fails to note that adding approvals is a weak control.\",\n      \"Fails to separate the trigger from the underlying cause clearly.\"\n    ],\n    \"B\": [\n      \"Includes 'automated approval steps' as an example action item, which the prompt identifies as a weak control compared to making the failure impossible/detectable.\",\n      \"Does not explicitly state that adding approvals is a weak control in the text, though it follows the structure well.\"\n    ]\n  },\n  \"rationale\": \"Candidate A fails almost every specific constraint. It identifies the engineer as responsible (violating the blameless requirement), fails to provide a structure for the postmortem, and fails to provide criteria for action items. Candidate B provides a clear structure and specific SMART criteria for action items. While Candidate B includes an approval step in its example (which the prompt warns is a weak control), it is still significantly more useful and compliant with the formatting and structural requirements than Candidate A.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:18:37.988486Z",
+  "durationMs" : 20852,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1678,
+    "completionTokens" : 427,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

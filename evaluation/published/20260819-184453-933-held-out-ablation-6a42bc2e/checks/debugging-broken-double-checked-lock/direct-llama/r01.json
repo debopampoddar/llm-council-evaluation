@@ -1,0 +1,7 @@
+[ {
+  "unitId" : "debugging-broken-double-checked-lock:direct-llama:r1",
+  "checkIndex" : 0,
+  "type" : "regex",
+  "status" : "PASS",
+  "detail" : "Pattern condition satisfied"
+} ]

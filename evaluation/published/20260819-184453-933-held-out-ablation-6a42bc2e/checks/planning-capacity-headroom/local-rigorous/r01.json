@@ -1,0 +1,7 @@
+[ {
+  "unitId" : "planning-capacity-headroom:local-rigorous:r1",
+  "checkIndex" : 0,
+  "type" : "non-blank",
+  "status" : "PASS",
+  "detail" : "Answer is not blank"
+} ]

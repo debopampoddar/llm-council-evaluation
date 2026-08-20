@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-balanced:planning-feature-flag-debt:r1:gemma-local:o1",
+  "pairId" : "direct-vs-balanced:planning-feature-flag-debt:r1",
+  "comparisonId" : "direct-vs-balanced",
+  "caseId" : "planning-feature-flag-debt",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 1,
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-balanced",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 20.0,
+    "completeness" : 30.0,
+    "correctness" : 40.0,
+    "reasoning" : 30.0,
+    "clarity" : 80.0
+  },
+  "scoresB" : {
+    "constraint-following" : 20.0,
+    "completeness" : 30.0,
+    "correctness" : 40.0,
+    "reasoning" : 30.0,
+    "clarity" : 70.0
+  },
+  "violationsA" : [ "Failed to distinguish between permanent operational switches and temporary release flags (Requirement).", "Failed to mention using runtime evaluation telemetry to find dead flags (Requirement).", "Failed to specify removing the losing branch together (Requirement).", "Failed to explicitly address the risk of incomplete features (Requirement).", "Incorrectly suggests prioritizing 'Emergency kill switches' for removal, which contradicts the reference fact that they are permanent operational controls and not debt." ],
+  "violationsB" : [ "Failed to distinguish between permanent operational switches and temporary release flags (Requirement).", "Failed to mention using runtime evaluation telemetry to find dead flags (Requirement).", "Failed to specify removing the losing branch together (Requirement).", "Failed to explicitly address the risk of incomplete features (Requirement).", "Contains meta-commentary about 'drafts' which were not provided in the prompt, indicating a hallucination or a copy-paste error from a different context." ],
+  "rationale" : "Both candidates failed significantly on the specific requirements provided in the prompt. Neither candidate mentioned using runtime telemetry, removing the losing branch, or the specific sequencing needed to protect incomplete features. Furthermore, both candidates failed to correctly identify that 'kill switches' are permanent operational controls and should not be removed as debt (Candidate A actually suggested prioritizing them for removal, which is a direct violation of the reference facts). Candidate B also contains significant hallucinations/meta-text regarding 'drafts' that do not exist in the prompt. Because both failed the core requirements and the reference facts equally, it is a tie.",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 40,\n      \"completeness\": 30,\n      \"reasoning\": 30,\n      \"constraint-following\": 20,\n      \"clarity\": 80\n    },\n    \"B\": {\n      \"correctness\": 40,\n      \"completeness\": 30,\n      \"reasoning\": 30,\n      \"constraint-following\": 20,\n      \"clarity\": 70\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Failed to distinguish between permanent operational switches and temporary release flags (Requirement).\",\n      \"Failed to mention using runtime evaluation telemetry to find dead flags (Requirement).\",\n      \"Failed to specify removing the losing branch together (Requirement).\",\n      \"Failed to explicitly address the risk of incomplete features (Requirement).\",\n      \"Incorrectly suggests prioritizing 'Emergency kill switches' for removal, which contradicts the reference fact that they are permanent operational controls and not debt.\"\n    ],\n    \"B\": [\n      \"Failed to distinguish between permanent operational switches and temporary release flags (Requirement).\",\n      \"Failed to mention using runtime evaluation telemetry to find dead flags (Requirement).\",\n      \"Failed to specify removing the losing branch together (Requirement).\",\n      \"Failed to explicitly address the risk of incomplete features (Requirement).\",\n      \"Contains meta-commentary about 'drafts' which were not provided in the prompt, indicating a hallucination or a copy-paste error from a different context.\"\n    ]\n  },\n  \"rationale\": \"Both candidates failed significantly on the specific requirements provided in the prompt. Neither candidate mentioned using runtime telemetry, removing the losing branch, or the specific sequencing needed to protect incomplete features. Furthermore, both candidates failed to correctly identify that 'kill switches' are permanent operational controls and should not be removed as debt (Candidate A actually suggested prioritizing them for removal, which is a direct violation of the reference facts). Candidate B also contains significant hallucinations/meta-text regarding 'drafts' that do not exist in the prompt. Because both failed the core requirements and the reference facts equally, it is a tie.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:17:56.455139Z",
+  "durationMs" : 23428,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1639,
+    "completionTokens" : 503,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "ensemble-vs-rigorous:planning-retention-deletion:r1:gemma-local:o1",
+  "pairId" : "ensemble-vs-rigorous:planning-retention-deletion:r1",
+  "comparisonId" : "ensemble-vs-rigorous",
+  "caseId" : "planning-retention-deletion",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 1,
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "llama-ensemble",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 3.0,
+    "completeness" : 3.0,
+    "correctness" : 4.0,
+    "reasoning" : 3.0,
+    "clarity" : 5.0
+  },
+  "scoresB" : {
+    "constraint-following" : 3.0,
+    "completeness" : 3.0,
+    "correctness" : 4.0,
+    "reasoning" : 3.0,
+    "clarity" : 5.0
+  },
+  "violationsA" : [ "Fails to enumerate specific stores as requested (it lists them but doesn't detail the derived copies/types clearly).", "Fails to propose a verifiable completion signal (proposes a 'centralized system' but no specific mechanism like a status table or webhook).", "Fails to address the specific 'restore-time re-deletion' requirement for backups.", "Contains meta-commentary about 'Drafts' and 'Reviewers' which is irrelevant to the prompt." ],
+  "violationsB" : [ "Fails to propose a verifiable completion signal (best-effort schedule is not a verifiable signal).", "Fails to address the 'restore-time re-deletion' requirement for backups.", "Fails to distinguish between row-level deletion and aggregate derivation (it suggests purging aggregates, which may not be required if they are non-identifiable).", "Fails to address the third-party processor obligation correctly (it says it's 'outside of our control' rather than addressing the obligation to notify/request deletion)." ],
+  "rationale" : "Both candidates perform poorly against the specific requirements of the prompt. Neither candidate proposed a 'verifiable completion signal' (e.g., a state machine or a confirmation registry), instead offering vague 'centralized systems' or 'schedules'. Both failed to correctly address the backup requirement (which requires a documented restore-time re-deletion strategy because they are immutable). Candidate A is cluttered with meta-talk about 'Drafts' and 'Reviewers' which was not part of the prompt. Candidate B correctly identifies the stores but fails the logic on aggregates (which may not need deletion) and the third-party obligation. Because both failed the core technical requirements (verifiable signal and backup strategy) and provided low-quality responses, they are tied at a low score.",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 4,\n      \"completeness\": 3,\n      \"reasoning\": 3,\n      \"constraint-following\": 3,\n      \"clarity\": 5\n    },\n    \"B\": {\n      \"correctness\": 4,\n      \"completeness\": 3,\n      \"reasoning\": 3,\n      \"constraint-following\": 3,\n      \"clarity\": 5\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Fails to enumerate specific stores as requested (it lists them but doesn't detail the derived copies/types clearly).\",\n      \"Fails to propose a verifiable completion signal (proposes a 'centralized system' but no specific mechanism like a status table or webhook).\",\n      \"Fails to address the specific 'restore-time re-deletion' requirement for backups.\",\n      \"Contains meta-commentary about 'Drafts' and 'Reviewers' which is irrelevant to the prompt.\"\n    ],\n    \"B\": [\n      \"Fails to propose a verifiable completion signal (best-effort schedule is not a verifiable signal).\",\n      \"Fails to address the 'restore-time re-deletion' requirement for backups.\",\n      \"Fails to distinguish between row-level deletion and aggregate derivation (it suggests purging aggregates, which may not be required if they are non-identifiable).\",\n      \"Fails to address the third-party processor obligation correctly (it says it's 'outside of our control' rather than addressing the obligation to notify/request deletion).\"\n    ]\n  },\n  \"rationale\": \"Both candidates perform poorly against the specific requirements of the prompt. Neither candidate proposed a 'verifiable completion signal' (e.g., a state machine or a confirmation registry), instead offering vague 'centralized systems' or 'schedules'. Both failed to correctly address the backup requirement (which requires a documented restore-time re-deletion strategy because they are immutable). Candidate A is cluttered with meta-talk about 'Drafts' and 'Reviewers' which was not part of the prompt. Candidate B correctly identifies the stores but fails the logic on aggregates (which may not need deletion) and the third-party obligation. Because both failed the core technical requirements (verifiable signal and backup strategy) and provided low-quality responses, they are tied at a low score.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T09:06:34.972887Z",
+  "durationMs" : 26090,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1871,
+    "completionTokens" : 550,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

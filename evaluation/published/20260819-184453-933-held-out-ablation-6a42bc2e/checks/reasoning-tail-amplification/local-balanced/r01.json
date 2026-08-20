@@ -1,0 +1,7 @@
+[ {
+  "unitId" : "reasoning-tail-amplification:local-balanced:r1",
+  "checkIndex" : 0,
+  "type" : "regex",
+  "status" : "PASS",
+  "detail" : "Pattern condition satisfied"
+} ]

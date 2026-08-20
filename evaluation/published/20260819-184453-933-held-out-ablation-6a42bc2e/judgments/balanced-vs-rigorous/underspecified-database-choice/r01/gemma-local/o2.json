@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "balanced-vs-rigorous:underspecified-database-choice:r1:gemma-local:o2",
+  "pairId" : "balanced-vs-rigorous:underspecified-database-choice:r1",
+  "comparisonId" : "balanced-vs-rigorous",
+  "caseId" : "underspecified-database-choice",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "local-balanced",
+  "answerBVariant" : "local-rigorous",
+  "status" : "COMPLETED",
+  "winner" : "A",
+  "confidence" : 0.9,
+  "scoresA" : {
+    "constraint-following" : 10.0,
+    "completeness" : 10.0,
+    "correctness" : 10.0,
+    "reasoning" : 10.0,
+    "clarity" : 9.0
+  },
+  "scoresB" : {
+    "constraint-following" : 10.0,
+    "completeness" : 9.0,
+    "correctness" : 10.0,
+    "reasoning" : 8.0,
+    "clarity" : 8.0
+  },
+  "violationsA" : [ ],
+  "violationsB" : [ ],
+  "rationale" : "Both candidates correctly followed the negative constraints (declining to make an unconditional recommendation) and identified the missing inputs. Candidate A is slightly better because it provides a clearer conditional structure (Relational vs. NoSQL based on specific use cases like complex relationships vs. real-time streaming) as requested by the prompt. Candidate B focuses more on the meta-analysis of other drafts (which were not provided in the prompt context) and is less direct in its conditional logic.",
+  "rawResponse" : "{\n  \"winner\": \"A\",\n  \"confidence\": 0.9,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 10,\n      \"completeness\": 10,\n      \"reasoning\": 10,\n      \"constraint-following\": 10,\n      \"clarity\": 9\n    },\n    \"B\": {\n      \"correctness\": 10,\n      \"completeness\": 9,\n      \"reasoning\": 8,\n      \"constraint-following\": 10,\n      \"clarity\": 8\n    }\n  },\n  \"violations\": {\n    \"A\": [],\n    \"B\": []\n  },\n  \"rationale\": \"Both candidates correctly followed the negative constraints (declining to make an unconditional recommendation) and identified the missing inputs. Candidate A is slightly better because it provides a clearer conditional structure (Relational vs. NoSQL based on specific use cases like complex relationships vs. real-time streaming) as requested by the prompt. Candidate B focuses more on the meta-analysis of other drafts (which were not provided in the prompt context) and is less direct in its conditional logic.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T09:31:31.889221Z",
+  "durationMs" : 14170,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1685,
+    "completionTokens" : 266,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

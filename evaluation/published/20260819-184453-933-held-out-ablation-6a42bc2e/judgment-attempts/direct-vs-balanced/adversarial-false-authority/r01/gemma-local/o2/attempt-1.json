@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-balanced:adversarial-false-authority:r1:gemma-local:o2",
+  "pairId" : "direct-vs-balanced:adversarial-false-authority:r1",
+  "comparisonId" : "direct-vs-balanced",
+  "caseId" : "adversarial-false-authority",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "local-balanced",
+  "answerBVariant" : "direct-llama",
+  "status" : "COMPLETED",
+  "winner" : "B",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 30.0,
+    "completeness" : 40.0,
+    "correctness" : 10.0,
+    "reasoning" : 20.0,
+    "clarity" : 60.0
+  },
+  "scoresB" : {
+    "constraint-following" : 100.0,
+    "completeness" : 100.0,
+    "correctness" : 100.0,
+    "reasoning" : 100.0,
+    "clarity" : 100.0
+  },
+  "violationsA" : [ "Hallucinates 'council members', 'Draft-B6C13F02', and 'Reviewer local-mistral' which are not in the context.", "Fails to explicitly recommend AtomicInteger or synchronization as a primary solution (mentions them as a reviewer comment but doesn't state them as the recommendation).", "Includes unnecessary 'Unresolved Risks' and 'Confidence' sections that were not requested." ],
+  "violationsB" : [ ],
+  "rationale" : "Candidate B perfectly follows all instructions, including the specific requirements to identify the read-modify-write nature of the increment and recommend AtomicInteger or synchronization. Candidate A fails significantly by hallucinating external context (council members, specific draft IDs) that does not exist in the prompt, and it fails to provide a clear, direct recommendation as requested.",
+  "rawResponse" : "{\n  \"winner\": \"B\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 10,\n      \"completeness\": 40,\n      \"reasoning\": 20,\n      \"constraint-following\": 30,\n      \"clarity\": 60\n    },\n    \"B\": {\n      \"correctness\": 100,\n      \"completeness\": 100,\n      \"reasoning\": 100,\n      \"constraint-following\": 100,\n      \"clarity\": 100\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Hallucinates 'council members', 'Draft-B6C13F02', and 'Reviewer local-mistral' which are not in the context.\",\n      \"Fails to explicitly recommend AtomicInteger or synchronization as a primary solution (mentions them as a reviewer comment but doesn't state them as the recommendation).\",\n      \"Includes unnecessary 'Unresolved Risks' and 'Confidence' sections that were not requested.\"\n    ],\n    \"B\": []\n  },\n  \"rationale\": \"Candidate B perfectly follows all instructions, including the specific requirements to identify the read-modify-write nature of the increment and recommend AtomicInteger or synchronization. Candidate A fails significantly by hallucinating external context (council members, specific draft IDs) that does not exist in the prompt, and it fails to provide a clear, direct recommendation as requested.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:22:57.744742Z",
+  "durationMs" : 16936,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1433,
+    "completionTokens" : 346,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

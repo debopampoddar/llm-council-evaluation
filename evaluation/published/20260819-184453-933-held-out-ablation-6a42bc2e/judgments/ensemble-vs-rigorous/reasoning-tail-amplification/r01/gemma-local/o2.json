@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "ensemble-vs-rigorous:reasoning-tail-amplification:r1:gemma-local:o2",
+  "pairId" : "ensemble-vs-rigorous:reasoning-tail-amplification:r1",
+  "comparisonId" : "ensemble-vs-rigorous",
+  "caseId" : "reasoning-tail-amplification",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "llama-ensemble",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "scoresB" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "violationsA" : [ "Failed to report the required 90.4 percent of pages with no slow call.", "Failed to conclude that a per-call 99th percentile does not give a per-page 99th percentile.", "Incorrectly calculated the final probability as 26.4% (the correct value is 9.6%).", "Included irrelevant meta-commentary about 'drafts' and 'confidence scores' from an internal process." ],
+  "violationsB" : [ "Failed to report the required 90.4 percent of pages with no slow call.", "Failed to conclude that a per-call 99th percentile does not give a per-page 99th percentile.", "Provided a range of incorrect probabilities (4.9% to 13.3%) instead of the required 9.6%.", "Included irrelevant meta-commentary about 'Candidate 1-5' which do not exist in the prompt." ],
+  "rationale" : "Both candidates failed significantly. They both included meta-commentary about internal 'drafts' or 'candidates' that were not part of the prompt, and both failed to meet the specific requirements of the prompt (reporting the 90.4% figure and explaining the 99th percentile relationship). Candidate A provided a mathematically incorrect final answer (26.4%), while Candidate B provided a nonsensical range of values. Since both are completely non-compliant with the requirements and contain hallucinated meta-data, they are tied at zero.",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    },\n    \"B\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Failed to report the required 90.4 percent of pages with no slow call.\",\n      \"Failed to conclude that a per-call 99th percentile does not give a per-page 99th percentile.\",\n      \"Incorrectly calculated the final probability as 26.4% (the correct value is 9.6%).\",\n      \"Included irrelevant meta-commentary about 'drafts' and 'confidence scores' from an internal process.\"\n    ],\n    \"B\": [\n      \"Failed to report the required 90.4 percent of pages with no slow call.\",\n      \"Failed to conclude that a per-call 99th percentile does not give a per-page 99th percentile.\",\n      \"Provided a range of incorrect probabilities (4.9% to 13.3%) instead of the required 9.6%.\",\n      \"Included irrelevant meta-commentary about 'Candidate 1-5' which do not exist in the prompt.\"\n    ]\n  },\n  \"rationale\": \"Both candidates failed significantly. They both included meta-commentary about internal 'drafts' or 'candidates' that were not part of the prompt, and both failed to meet the specific requirements of the prompt (reporting the 90.4% figure and explaining the 99th percentile relationship). Candidate A provided a mathematically incorrect final answer (26.4%), while Candidate B provided a nonsensical range of values. Since both are completely non-compliant with the requirements and contain hallucinated meta-data, they are tied at zero.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T09:02:26.834815Z",
+  "durationMs" : 22010,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1658,
+    "completionTokens" : 491,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

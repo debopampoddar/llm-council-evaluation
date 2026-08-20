@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-balanced:security-timing-safe-compare:r1:gemma-local:o2",
+  "pairId" : "direct-vs-balanced:security-timing-safe-compare:r1",
+  "comparisonId" : "direct-vs-balanced",
+  "caseId" : "security-timing-safe-compare",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-balanced",
+  "status" : "COMPLETED",
+  "winner" : "A",
+  "confidence" : 0.9,
+  "scoresA" : {
+    "constraint-following" : 9.0,
+    "completeness" : 8.0,
+    "correctness" : 10.0,
+    "reasoning" : 9.0,
+    "clarity" : 9.0
+  },
+  "scoresB" : {
+    "constraint-following" : 4.0,
+    "completeness" : 5.0,
+    "correctness" : 7.0,
+    "reasoning" : 5.0,
+    "clarity" : 8.0
+  },
+  "violationsA" : [ ],
+  "violationsB" : [ "Failed to recommend comparing hashes rather than raw secrets.", "Failed to mention network noise/jitter as a factor in exploitability.", "Failed to mention rate limiting as a mitigation.", "Incorrectly stated that hashing ensures case-insensitivity (hashing is generally case-sensitive)." ],
+  "rationale" : "Candidate A is the superior response because it correctly identifies the core security requirements and provides a more technically sound justification. Candidate B fails on several specific requirements: it does not mention network noise/jitter, it does not recommend rate limiting, and it fails to recommend comparing hashes rather than raw secrets. Furthermore, Candidate B's 'Important Dissent' section contains a technical inaccuracy, claiming that hashing ensures case-insensitivity (hashing is actually case-sensitive). Candidate A correctly identifies the need for constant-time comparison and addresses the vulnerability of the short hex string.",
+  "rawResponse" : "{\n  \"winner\": \"A\",\n  \"confidence\": 0.9,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 10,\n      \"completeness\": 8,\n      \"reasoning\": 9,\n      \"constraint-following\": 9,\n      \"clarity\": 9\n    },\n    \"B\": {\n      \"correctness\": 7,\n      \"completeness\": 5,\n      \"reasoning\": 5,\n      \"constraint-following\": 4,\n      \"clarity\": 8\n    }\n  },\n  \"violations\": {\n    \"A\": [],\n    \"B\": [\n      \"Failed to recommend comparing hashes rather than raw secrets.\",\n      \"Failed to mention network noise/jitter as a factor in exploitability.\",\n      \"Failed to mention rate limiting as a mitigation.\",\n      \"Incorrectly stated that hashing ensures case-insensitivity (hashing is generally case-sensitive).\"\n    ]\n  },\n  \"rationale\": \"Candidate A is the superior response because it correctly identifies the core security requirements and provides a more technically sound justification. Candidate B fails on several specific requirements: it does not mention network noise/jitter, it does not recommend rate limiting, and it fails to recommend comparing hashes rather than raw secrets. Furthermore, Candidate B's 'Important Dissent' section contains a technical inaccuracy, claiming that hashing ensures case-insensitivity (hashing is actually case-sensitive). Candidate A correctly identifies the need for constant-time comparison and addresses the vulnerability of the short hex string.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:10:26.990717Z",
+  "durationMs" : 17080,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1580,
+    "completionTokens" : 348,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

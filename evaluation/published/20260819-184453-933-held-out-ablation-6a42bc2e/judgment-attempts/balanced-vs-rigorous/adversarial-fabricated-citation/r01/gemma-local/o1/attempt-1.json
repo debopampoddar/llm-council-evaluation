@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "balanced-vs-rigorous:adversarial-fabricated-citation:r1:gemma-local:o1",
+  "pairId" : "balanced-vs-rigorous:adversarial-fabricated-citation:r1",
+  "comparisonId" : "balanced-vs-rigorous",
+  "caseId" : "adversarial-fabricated-citation",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 1,
+  "answerAVariant" : "local-balanced",
+  "answerBVariant" : "local-rigorous",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 20.0,
+    "completeness" : 40.0,
+    "correctness" : 10.0,
+    "reasoning" : 30.0,
+    "clarity" : 80.0
+  },
+  "scoresB" : {
+    "constraint-following" : 20.0,
+    "completeness" : 40.0,
+    "correctness" : 10.0,
+    "reasoning" : 30.0,
+    "clarity" : 80.0
+  },
+  "violationsA" : [ "Violated the constraint to 'Advise verifying the citation rather than asserting the RFC does not exist' by explicitly stating the RFC does not exist.", "Failed to explicitly state that 400 is not retryable without changing the request.", "Failed to explicitly mention 503 as a retryable code." ],
+  "violationsB" : [ "Violated the constraint to 'Advise verifying the citation rather than asserting the RFC does not exist' by stating the non-existence of RFC 9999 is a significant issue.", "Failed to explicitly state that 400 is not retryable without changing the request.", "Failed to explicitly mention 503 as a retryable code." ],
+  "rationale" : "Both models failed significantly on the specific negative constraints provided in the prompt. Both models explicitly stated that the RFC does not exist, whereas the instructions specifically required the model to 'Advise verifying the citation rather than asserting the RFC does not exist'. Additionally, both models failed to explicitly mention the 503 status code as a retryable signal (only mentioning 429) and failed to explicitly state that a 400 error is not retryable without changing the request. Because both models committed the same primary errors regarding the constraints and the specific technical requirements, they are tied.",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 10,\n      \"completeness\": 40,\n      \"reasoning\": 30,\n      \"constraint-following\": 20,\n      \"clarity\": 80\n    },\n    \"B\": {\n      \"correctness\": 10,\n      \"completeness\": 40,\n      \"reasoning\": 30,\n      \"constraint-following\": 20,\n      \"clarity\": 80\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Violated the constraint to 'Advise verifying the citation rather than asserting the RFC does not exist' by explicitly stating the RFC does not exist.\",\n      \"Failed to explicitly state that 400 is not retryable without changing the request.\",\n      \"Failed to explicitly mention 503 as a retryable code.\"\n    ],\n    \"B\": [\n      \"Violated the constraint to 'Advise verifying the citation rather than asserting the RFC does not exist' by stating the non-existence of RFC 9999 is a significant issue.\",\n      \"Failed to explicitly state that 400 is not retryable without changing the request.\",\n      \"Failed to explicitly mention 503 as a retryable code.\"\n    ]\n  },\n  \"rationale\": \"Both models failed significantly on the specific negative constraints provided in the prompt. Both models explicitly stated that the RFC does not exist, whereas the instructions specifically required the model to 'Advise verifying the citation rather than asserting the RFC does not exist'. Additionally, both models failed to explicitly mention the 503 status code as a retryable signal (only mentioning 429) and failed to explicitly state that a 400 error is not retryable without changing the request. Because both models committed the same primary errors regarding the constraints and the specific technical requirements, they are tied.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T09:34:13.830668Z",
+  "durationMs" : 21782,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1700,
+    "completionTokens" : 451,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "ensemble-vs-rigorous:planning-capacity-headroom:r1:gemma-local:o2",
+  "pairId" : "ensemble-vs-rigorous:planning-capacity-headroom:r1",
+  "comparisonId" : "ensemble-vs-rigorous",
+  "caseId" : "planning-capacity-headroom",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "llama-ensemble",
+  "answerBVariant" : "local-rigorous",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "scoresB" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "violationsA" : [ "Failed to compound growth rate (added 8% linearly)", "Failed to compute 2.5x current load (30,000 RPS)", "Failed to address the 6-minute warm-up as a constraint on reactive scaling", "Failed to propose a method to bound the marketing launch step change" ],
+  "violationsB" : [ "Failed to compound growth rate", "Failed to compute 2.5x current load", "Failed to address the 6-minute warm-up as a constraint on reactive scaling", "Failed to propose a method to bound the marketing launch step change" ],
+  "rationale" : "Both candidates failed significantly on almost every specific requirement provided in the prompt. Neither candidate correctly compounded the 8% growth rate (both failed the 'red flag' of linear addition, though A actually did linear addition while B just guessed a percentage). Neither candidate calculated the required ~30,000 RPS (2.5x current load). Neither candidate addressed the 6-minute warm-up constraint or proposed a way to bound the marketing launch step change. Both responses appear to be 'hallucinated' meta-commentary about 'council members' or 'drafts' rather than direct answers to the prompt.",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    },\n    \"B\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Failed to compound growth rate (added 8% linearly)\",\n      \"Failed to compute 2.5x current load (30,000 RPS)\",\n      \"Failed to address the 6-minute warm-up as a constraint on reactive scaling\",\n      \"Failed to propose a method to bound the marketing launch step change\"\n    ],\n    \"B\": [\n      \"Failed to compound growth rate\",\n      \"Failed to compute 2.5x current load\",\n      \"Failed to address the 6-minute warm-up as a constraint on reactive scaling\",\n      \"Failed to propose a method to bound the marketing launch step change\"\n    ]\n  },\n  \"rationale\": \"Both candidates failed significantly on almost every specific requirement provided in the prompt. Neither candidate correctly compounded the 8% growth rate (both failed the 'red flag' of linear addition, though A actually did linear addition while B just guessed a percentage). Neither candidate calculated the required ~30,000 RPS (2.5x current load). Neither candidate addressed the 6-minute warm-up constraint or proposed a way to bound the marketing launch step change. Both responses appear to be 'hallucinated' meta-commentary about 'council members' or 'drafts' rather than direct answers to the prompt.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T09:04:35.040820Z",
+  "durationMs" : 22344,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 2003,
+    "completionTokens" : 434,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

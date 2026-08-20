@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-rigorous:planning-postmortem-structure:r1:gemma-local:o2",
+  "pairId" : "direct-vs-rigorous:planning-postmortem-structure:r1",
+  "comparisonId" : "direct-vs-rigorous",
+  "caseId" : "planning-postmortem-structure",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "direct-llama",
+  "status" : "COMPLETED",
+  "winner" : "B",
+  "confidence" : 0.9,
+  "scoresA" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "scoresB" : {
+    "constraint-following" : 7.0,
+    "completeness" : 7.0,
+    "correctness" : 10.0,
+    "reasoning" : 8.0,
+    "clarity" : 10.0
+  },
+  "violationsA" : [ "Failed to provide a postmortem structure.", "Failed to provide criteria for action items.", "Failed to redirect responsibility from the individual to systemic causes (mentions 'assign accountability' and 'individual accountability').", "Failed to note that adding approvals is a weak control.", "Failed to separate trigger from underlying cause." ],
+  "violationsB" : [ "Included 'automated approval steps' as an action item, which contradicts the requirement to note that approvals are a weak control compared to making failures impossible/detectable.", "Did not explicitly state the requirement to redirect responsibility from the individual to systemic causes (though it implies it by focusing on factors)." ],
+  "rationale" : "Candidate A failed almost every requirement: it did not provide a structure, did not provide criteria for action items, and actually suggested assigning accountability (violating the blameless requirement). Candidate B provided the requested structure and criteria, though it missed the specific nuance regarding the weakness of approval gates (it actually suggested them as an action item). Candidate B is the winner as it actually attempted the task, whereas Candidate A provided a meta-commentary that ignored the prompt's instructions.",
+  "rawResponse" : "{\n  \"winner\": \"B\",\n  \"confidence\": 0.9,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    },\n    \"B\": {\n      \"correctness\": 10,\n      \"completeness\": 7,\n      \"reasoning\": 8,\n      \"constraint-following\": 7,\n      \"clarity\": 10\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Failed to provide a postmortem structure.\",\n      \"Failed to provide criteria for action items.\",\n      \"Failed to redirect responsibility from the individual to systemic causes (mentions 'assign accountability' and 'individual accountability').\",\n      \"Failed to note that adding approvals is a weak control.\",\n      \"Failed to separate trigger from underlying cause.\"\n    ],\n    \"B\": [\n      \"Included 'automated approval steps' as an action item, which contradicts the requirement to note that approvals are a weak control compared to making failures impossible/detectable.\",\n      \"Did not explicitly state the requirement to redirect responsibility from the individual to systemic causes (though it implies it by focusing on factors).\"\n    ]\n  },\n  \"rationale\": \"Candidate A failed almost every requirement: it did not provide a structure, did not provide criteria for action items, and actually suggested assigning accountability (violating the blameless requirement). Candidate B provided the requested structure and criteria, though it missed the specific nuance regarding the weakness of approval gates (it actually suggested them as an action item). Candidate B is the winner as it actually attempted the task, whereas Candidate A provided a meta-commentary that ignored the prompt's instructions.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:42:07.768022Z",
+  "durationMs" : 19149,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1660,
+    "completionTokens" : 407,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-balanced:planning-capacity-headroom:r1:gemma-local:o2",
+  "pairId" : "direct-vs-balanced:planning-capacity-headroom:r1",
+  "comparisonId" : "direct-vs-balanced",
+  "caseId" : "planning-capacity-headroom",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-balanced",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 3.0,
+    "completeness" : 4.0,
+    "correctness" : 5.0,
+    "reasoning" : 4.0,
+    "clarity" : 8.0
+  },
+  "scoresB" : {
+    "constraint-following" : 3.0,
+    "completeness" : 4.0,
+    "correctness" : 5.0,
+    "reasoning" : 4.0,
+    "clarity" : 8.0
+  },
+  "violationsA" : [ "Failed to compute the specific 12-month projection (approx 30,000 RPS / 100 instances).", "Failed to explicitly state the required headroom and its reason.", "Did not explicitly address the 6-minute warm-up as a constraint on reactive scaling (only mentioned it as an assumption)." ],
+  "violationsB" : [ "Failed to compute the specific 12-month projection (approx 30,000 RPS / 100 instances).", "Failed to explicitly state the required headroom and its reason.", "Did not explicitly address the 6-minute warm-up as a constraint on reactive scaling (suggested a solution instead of stating the constraint)." ],
+  "rationale" : "Both candidates failed significantly on the core mathematical and logical requirements of the prompt. Neither candidate performed the compound growth calculation (1.08^12 ≈ 2.52x), which is necessary to determine that the capacity needs to reach approximately 30,000 RPS (requiring ~100 instances). Both failed to explicitly state the required headroom and the reason for it, and neither correctly identified the 6-minute warm-up as a specific constraint on reactive scaling (it is a 'slow' warm-up, meaning reactive scaling is insufficient for sudden spikes). Both candidates treated the marketing launch as a qualitative risk rather than proposing a method to bound it as requested. Because both failed the primary technical requirements equally, it is a tie.",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 5,\n      \"completeness\": 4,\n      \"reasoning\": 4,\n      \"constraint-following\": 3,\n      \"clarity\": 8\n    },\n    \"B\": {\n      \"correctness\": 5,\n      \"completeness\": 4,\n      \"reasoning\": 4,\n      \"constraint-following\": 3,\n      \"clarity\": 8\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Failed to compute the specific 12-month projection (approx 30,000 RPS / 100 instances).\",\n      \"Failed to explicitly state the required headroom and its reason.\",\n      \"Did not explicitly address the 6-minute warm-up as a constraint on reactive scaling (only mentioned it as an assumption).\"\n    ],\n    \"B\": [\n      \"Failed to compute the specific 12-month projection (approx 30,000 RPS / 100 instances).\",\n      \"Failed to explicitly state the required headroom and its reason.\",\n      \"Did not explicitly address the 6-minute warm-up as a constraint on reactive scaling (suggested a solution instead of stating the constraint).\"\n    ]\n  },\n  \"rationale\": \"Both candidates failed significantly on the core mathematical and logical requirements of the prompt. Neither candidate performed the compound growth calculation (1.08^12 ≈ 2.52x), which is necessary to determine that the capacity needs to reach approximately 30,000 RPS (requiring ~100 instances). Both failed to explicitly state the required headroom and the reason for it, and neither correctly identified the 6-minute warm-up as a specific constraint on reactive scaling (it is a 'slow' warm-up, meaning reactive scaling is insufficient for sudden spikes). Both candidates treated the marketing launch as a qualitative risk rather than proposing a method to bound it as requested. Because both failed the primary technical requirements equally, it is a tie.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:17:32.970534Z",
+  "durationMs" : 21816,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1666,
+    "completionTokens" : 482,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-balanced:debugging-utc-boundary:r1:gemma-local:o2",
+  "pairId" : "direct-vs-balanced:debugging-utc-boundary:r1",
+  "comparisonId" : "direct-vs-balanced",
+  "caseId" : "debugging-utc-boundary",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-balanced",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "scoresB" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "violationsA" : [ "Violates red flag: Recommends storing local time without an offset.", "Fails to identify that the correct bucket depends on a defined reporting time zone.", "Fails to recommend storing the instant and converting with an explicit zone at query time." ],
+  "violationsB" : [ "Fails to identify that the correct bucket depends on a defined reporting time zone.", "Fails to recommend storing the instant and converting with an explicit zone at query time.", "Contains hallucinated meta-commentary about 'draft-7B434406' and 'review scores' which are not in the context." ],
+  "rationale" : "Both candidates fail significantly on the core requirements and red flags. Candidate A explicitly violates a red flag by recommending storing local time without an offset. Candidate B includes bizarre hallucinated meta-commentary about internal drafts and scores that do not exist in the prompt. Neither candidate correctly identifies the need for a defined reporting time zone or the specific recommendation to store the instant and convert at query time. Because both are fundamentally incorrect and fail to meet the requirements, a tie is declared.",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    },\n    \"B\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Violates red flag: Recommends storing local time without an offset.\",\n      \"Fails to identify that the correct bucket depends on a defined reporting time zone.\",\n      \"Fails to recommend storing the instant and converting with an explicit zone at query time.\"\n    ],\n    \"B\": [\n      \"Fails to identify that the correct bucket depends on a defined reporting time zone.\",\n      \"Fails to recommend storing the instant and converting with an explicit zone at query time.\",\n      \"Contains hallucinated meta-commentary about 'draft-7B434406' and 'review scores' which are not in the context.\"\n    ]\n  },\n  \"rationale\": \"Both candidates fail significantly on the core requirements and red flags. Candidate A explicitly violates a red flag by recommending storing local time without an offset. Candidate B includes bizarre hallucinated meta-commentary about internal drafts and scores that do not exist in the prompt. Neither candidate correctly identifies the need for a defined reporting time zone or the specific recommendation to store the instant and convert at query time. Because both are fundamentally incorrect and fail to meet the requirements, a tie is declared.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:09:01.078571Z",
+  "durationMs" : 19031,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1671,
+    "completionTokens" : 399,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

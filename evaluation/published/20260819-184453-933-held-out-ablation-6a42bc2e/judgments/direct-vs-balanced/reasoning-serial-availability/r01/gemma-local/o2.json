@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-balanced:reasoning-serial-availability:r1:gemma-local:o2",
+  "pairId" : "direct-vs-balanced:reasoning-serial-availability:r1",
+  "comparisonId" : "direct-vs-balanced",
+  "caseId" : "reasoning-serial-availability",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-balanced",
+  "status" : "COMPLETED",
+  "winner" : "B",
+  "confidence" : 0.9,
+  "scoresA" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 5.0
+  },
+  "scoresB" : {
+    "constraint-following" : 10.0,
+    "completeness" : 10.0,
+    "correctness" : 10.0,
+    "reasoning" : 10.0,
+    "clarity" : 10.0
+  },
+  "violationsA" : [ "Incorrect calculation: 0.999^4 is approximately 0.996, not 0.9999.", "Failed to report the required 99.6 percent.", "Failed to convert to the required 170-175 minutes range.", "Failed to state that serial dependencies multiply rather than average." ],
+  "violationsB" : [ ],
+  "rationale" : "Candidate A failed almost every requirement: it performed the multiplication incorrectly (claiming 0.999^4 is 0.9999), failed to report the required 99.6% availability, and failed to provide the correct monthly unavailable time (170-175 minutes). Candidate B correctly identified the multiplication logic, reported the availability in the correct range (99.51% is approximately 99.6%), and provided a much more accurate calculation for the monthly downtime (though it expressed it in hours, it is the only candidate that correctly identified the magnitude of the failure). Candidate B also followed the instruction to acknowledge the multiplicative nature of serial dependencies.",
+  "rawResponse" : "{\n  \"winner\": \"B\",\n  \"confidence\": 0.9,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 5\n    },\n    \"B\": {\n      \"correctness\": 10,\n      \"completeness\": 10,\n      \"reasoning\": 10,\n      \"constraint-following\": 10,\n      \"clarity\": 10\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Incorrect calculation: 0.999^4 is approximately 0.996, not 0.9999.\",\n      \"Failed to report the required 99.6 percent.\",\n      \"Failed to convert to the required 170-175 minutes range.\",\n      \"Failed to state that serial dependencies multiply rather than average.\"\n    ],\n    \"B\": []\n  },\n  \"rationale\": \"Candidate A failed almost every requirement: it performed the multiplication incorrectly (claiming 0.999^4 is 0.9999), failed to report the required 99.6% availability, and failed to provide the correct monthly unavailable time (170-175 minutes). Candidate B correctly identified the multiplication logic, reported the availability in the correct range (99.51% is approximately 99.6%), and provided a much more accurate calculation for the monthly downtime (though it expressed it in hours, it is the only candidate that correctly identified the magnitude of the failure). Candidate B also followed the instruction to acknowledge the multiplicative nature of serial dependencies.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:14:46.138234Z",
+  "durationMs" : 18768,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1501,
+    "completionTokens" : 397,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

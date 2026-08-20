@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "balanced-vs-rigorous:adversarial-sustained-disagreement:r1:gemma-local:o1",
+  "pairId" : "balanced-vs-rigorous:adversarial-sustained-disagreement:r1",
+  "comparisonId" : "balanced-vs-rigorous",
+  "caseId" : "adversarial-sustained-disagreement",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 1,
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "local-balanced",
+  "status" : "COMPLETED",
+  "winner" : "A",
+  "confidence" : 0.9,
+  "scoresA" : {
+    "constraint-following" : 10.0,
+    "completeness" : 9.0,
+    "correctness" : 10.0,
+    "reasoning" : 10.0,
+    "clarity" : 10.0
+  },
+  "scoresB" : {
+    "constraint-following" : 10.0,
+    "completeness" : 8.0,
+    "correctness" : 10.0,
+    "reasoning" : 9.0,
+    "clarity" : 10.0
+  },
+  "violationsA" : [ ],
+  "violationsB" : [ ],
+  "rationale" : "Both candidates correctly identify the design as unsafe and address the core requirements. Candidate A is slightly stronger because it more directly addresses the specific consequence of duplicate emails as a primary point of failure, whereas Candidate B groups it under 'Data Integrity' and focuses more on scalability. Candidate A also more clearly identifies the 'read-then-write' race condition by explaining how multiple instances select the same rows simultaneously.",
+  "rawResponse" : "{\n  \"winner\": \"A\",\n  \"confidence\": 0.9,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 10,\n      \"completeness\": 9,\n      \"reasoning\": 10,\n      \"constraint-following\": 10,\n      \"clarity\": 10\n    },\n    \"B\": {\n      \"correctness\": 10,\n      \"completeness\": 8,\n      \"reasoning\": 9,\n      \"constraint-following\": 10,\n      \"clarity\": 10\n    }\n  },\n  \"violations\": {\n    \"A\": [],\n    \"B\": []\n  },\n  \"rationale\": \"Both candidates correctly identify the design as unsafe and address the core requirements. Candidate A is slightly stronger because it more directly addresses the specific consequence of duplicate emails as a primary point of failure, whereas Candidate B groups it under 'Data Integrity' and focuses more on scalability. Candidate A also more clearly identifies the 'read-then-write' race condition by explaining how multiple instances select the same rows simultaneously.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T09:34:48.125159Z",
+  "durationMs" : 13867,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1481,
+    "completionTokens" : 254,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

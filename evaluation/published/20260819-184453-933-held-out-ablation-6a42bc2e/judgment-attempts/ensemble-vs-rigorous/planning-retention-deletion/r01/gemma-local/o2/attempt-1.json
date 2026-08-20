@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "ensemble-vs-rigorous:planning-retention-deletion:r1:gemma-local:o2",
+  "pairId" : "ensemble-vs-rigorous:planning-retention-deletion:r1",
+  "comparisonId" : "ensemble-vs-rigorous",
+  "caseId" : "planning-retention-deletion",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "llama-ensemble",
+  "answerBVariant" : "local-rigorous",
+  "status" : "COMPLETED",
+  "winner" : "A",
+  "confidence" : 0.9,
+  "scoresA" : {
+    "constraint-following" : 80.0,
+    "completeness" : 80.0,
+    "correctness" : 85.0,
+    "reasoning" : 80.0,
+    "clarity" : 90.0
+  },
+  "scoresB" : {
+    "constraint-following" : 20.0,
+    "completeness" : 30.0,
+    "correctness" : 40.0,
+    "reasoning" : 20.0,
+    "clarity" : 60.0
+  },
+  "violationsA" : [ "Does not explicitly propose a 'verifiable completion signal' as requested (relies on a schedule/soft-delete status).", "Fails to explicitly distinguish that aggregates might not require deletion if they cannot identify an individual (it proposes purging them regardless)." ],
+  "violationsB" : [ "Fails to enumerate the specific stores clearly as requested.", "Fails to address the specific constraint regarding immutable backups (mentions them but doesn't explain the 'expiry plus restore-time re-deletion' logic).", "Fails to propose a verifiable completion signal.", "Contains 'hallucinated' meta-commentary about 'Draft-B28BF69F' and 'Reviewer local-llama3' which are not part of the provided context." ],
+  "rationale" : "Candidate A is significantly better because it actually addresses the technical requirements of the prompt. It identifies the stores, addresses the backup immutability, and provides a structured plan. Candidate B is a poor response that includes 'hallucinated' meta-text about internal drafts and reviewers that were not provided in the prompt, and it fails to provide a concrete technical design for the requested systems.",
+  "rawResponse" : "{\n  \"winner\": \"A\",\n  \"confidence\": 0.9,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 85,\n      \"completeness\": 80,\n      \"reasoning\": 80,\n      \"constraint-following\": 80,\n      \"clarity\": 90\n    },\n    \"B\": {\n      \"correctness\": 40,\n      \"completeness\": 30,\n      \"reasoning\": 20,\n      \"constraint-following\": 20,\n      \"clarity\": 60\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Does not explicitly propose a 'verifiable completion signal' as requested (relies on a schedule/soft-delete status).\",\n      \"Fails to explicitly distinguish that aggregates might not require deletion if they cannot identify an individual (it proposes purging them regardless).\"\n    ],\n    \"B\": [\n      \"Fails to enumerate the specific stores clearly as requested.\",\n      \"Fails to address the specific constraint regarding immutable backups (mentions them but doesn't explain the 'expiry plus restore-time re-deletion' logic).\",\n      \"Fails to propose a verifiable completion signal.\",\n      \"Contains 'hallucinated' meta-commentary about 'Draft-B28BF69F' and 'Reviewer local-llama3' which are not part of the provided context.\"\n    ]\n  },\n  \"rationale\": \"Candidate A is significantly better because it actually addresses the technical requirements of the prompt. It identifies the stores, addresses the backup immutability, and provides a structured plan. Candidate B is a poor response that includes 'hallucinated' meta-text about internal drafts and reviewers that were not provided in the prompt, and it fails to provide a concrete technical design for the requested systems.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T09:06:56.497643Z",
+  "durationMs" : 21434,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1871,
+    "completionTokens" : 421,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

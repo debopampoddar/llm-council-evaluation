@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-rigorous:planning-postmortem-structure:r1:gemma-local:o1",
+  "pairId" : "direct-vs-rigorous:planning-postmortem-structure:r1",
+  "comparisonId" : "direct-vs-rigorous",
+  "caseId" : "planning-postmortem-structure",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 1,
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-rigorous",
+  "status" : "COMPLETED",
+  "winner" : "A",
+  "confidence" : 0.9,
+  "scoresA" : {
+    "constraint-following" : 6.0,
+    "completeness" : 7.0,
+    "correctness" : 8.0,
+    "reasoning" : 7.0,
+    "clarity" : 9.0
+  },
+  "scoresB" : {
+    "constraint-following" : 0.0,
+    "completeness" : 1.0,
+    "correctness" : 2.0,
+    "reasoning" : 2.0,
+    "clarity" : 5.0
+  },
+  "violationsA" : [ "Included 'automated approval steps' as an action item, which the prompt identifies as a weak control compared to making failure impossible/detectable.", "Did not explicitly separate the trigger from the underlying cause in the structure (merged them into root cause/contributing factors)." ],
+  "violationsB" : [ "Failed to provide a postmortem structure.", "Failed to provide criteria for action items.", "Included 'assign accountability' in the recommendation, violating the blameless requirement.", "Failed to address the specific requirement regarding the weakness of approval steps.", "Failed to separate trigger from underlying cause." ],
+  "rationale" : "Candidate A provided a structured response that actually addressed the prompt's request for a postmortem structure and action item criteria. While it failed to strictly separate the trigger from the underlying cause and included a 'weak' control (approvals) in its examples, it was still functional. Candidate B failed almost every requirement: it did not provide a structure, did not provide criteria, and explicitly suggested 'assigning accountability' which violates the blameless requirement. Candidate A is the only viable answer despite some minor instruction misses.",
+  "rawResponse" : "{\n  \"winner\": \"A\",\n  \"confidence\": 0.9,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 8,\n      \"completeness\": 7,\n      \"reasoning\": 7,\n      \"constraint-following\": 6,\n      \"clarity\": 9\n    },\n    \"B\": {\n      \"correctness\": 2,\n      \"completeness\": 1,\n      \"reasoning\": 2,\n      \"constraint-following\": 0,\n      \"clarity\": 5\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Included 'automated approval steps' as an action item, which the prompt identifies as a weak control compared to making failure impossible/detectable.\",\n      \"Did not explicitly separate the trigger from the underlying cause in the structure (merged them into root cause/contributing factors).\"\n    ],\n    \"B\": [\n      \"Failed to provide a postmortem structure.\",\n      \"Failed to provide criteria for action items.\",\n      \"Included 'assign accountability' in the recommendation, violating the blameless requirement.\",\n      \"Failed to address the specific requirement regarding the weakness of approval steps.\",\n      \"Failed to separate trigger from underlying cause.\"\n    ]\n  },\n  \"rationale\": \"Candidate A provided a structured response that actually addressed the prompt's request for a postmortem structure and action item criteria. While it failed to strictly separate the trigger from the underlying cause and included a 'weak' control (approvals) in its examples, it was still functional. Candidate B failed almost every requirement: it did not provide a structure, did not provide criteria, and explicitly suggested 'assigning accountability' which violates the blameless requirement. Candidate A is the only viable answer despite some minor instruction misses.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:41:48.550952Z",
+  "durationMs" : 19956,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1660,
+    "completionTokens" : 403,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

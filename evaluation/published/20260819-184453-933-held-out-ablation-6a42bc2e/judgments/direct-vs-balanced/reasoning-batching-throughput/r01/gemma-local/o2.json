@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-balanced:reasoning-batching-throughput:r1:gemma-local:o2",
+  "pairId" : "direct-vs-balanced:reasoning-batching-throughput:r1",
+  "comparisonId" : "direct-vs-balanced",
+  "caseId" : "reasoning-batching-throughput",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "local-balanced",
+  "answerBVariant" : "direct-llama",
+  "status" : "COMPLETED",
+  "winner" : "B",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "scoresB" : {
+    "constraint-following" : 100.0,
+    "completeness" : 100.0,
+    "correctness" : 100.0,
+    "reasoning" : 100.0,
+    "clarity" : 100.0
+  },
+  "violationsA" : [ "Failed to provide the specific calculations required by the prompt (10,000 seconds, 100 seconds, 100x speed-up).", "Included irrelevant 'council member' and 'dissent' text not present in the context.", "Failed to state the speed-up clearly as requested." ],
+  "violationsB" : [ ],
+  "rationale" : "Candidate B followed all instructions perfectly, providing the step-by-step calculations for both the per-record and batched approaches, converting units correctly, and stating the final speed-up of 100 times. Candidate A failed to perform the required calculations, included hallucinated content about 'council members' and 'dissent' not found in the context, and did not provide the specific values requested in the requirements.",
+  "rawResponse" : "{\n  \"winner\": \"B\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    },\n    \"B\": {\n      \"correctness\": 100,\n      \"completeness\": 100,\n      \"reasoning\": 100,\n      \"constraint-following\": 100,\n      \"clarity\": 100\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Failed to provide the specific calculations required by the prompt (10,000 seconds, 100 seconds, 100x speed-up).\",\n      \"Included irrelevant 'council member' and 'dissent' text not present in the context.\",\n      \"Failed to state the speed-up clearly as requested.\"\n    ],\n    \"B\": []\n  },\n  \"rationale\": \"Candidate B followed all instructions perfectly, providing the step-by-step calculations for both the per-record and batched approaches, converting units correctly, and stating the final speed-up of 100 times. Candidate A failed to perform the required calculations, included hallucinated content about 'council members' and 'dissent' not found in the context, and did not provide the specific values requested in the requirements.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:16:01.985094Z",
+  "durationMs" : 16777,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1754,
+    "completionTokens" : 338,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

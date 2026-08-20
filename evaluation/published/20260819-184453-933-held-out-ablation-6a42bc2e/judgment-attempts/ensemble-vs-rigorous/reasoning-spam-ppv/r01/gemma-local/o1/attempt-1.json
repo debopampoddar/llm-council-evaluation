@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "ensemble-vs-rigorous:reasoning-spam-ppv:r1:gemma-local:o1",
+  "pairId" : "ensemble-vs-rigorous:reasoning-spam-ppv:r1",
+  "comparisonId" : "ensemble-vs-rigorous",
+  "caseId" : "reasoning-spam-ppv",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 1,
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "llama-ensemble",
+  "status" : "COMPLETED",
+  "winner" : "B",
+  "confidence" : 0.9,
+  "scoresA" : {
+    "constraint-following" : 100.0,
+    "completeness" : 90.0,
+    "correctness" : 100.0,
+    "reasoning" : 100.0,
+    "clarity" : 90.0
+  },
+  "scoresB" : {
+    "constraint-following" : 100.0,
+    "completeness" : 100.0,
+    "correctness" : 100.0,
+    "reasoning" : 100.0,
+    "clarity" : 100.0
+  },
+  "violationsA" : [ "Includes unnecessary 'Important Dissent' and 'Unresolved Risks' sections which are not requested and contain hallucinated 'council members' and 'draft' IDs." ],
+  "violationsB" : [ ],
+  "rationale" : "Candidate B is superior because it directly addresses the prompt's requirement to 'show the expected counts' by listing them clearly. Candidate A provides the correct math but includes a significant amount of irrelevant, hallucinated meta-commentary regarding 'council members' and 'drafts' which was not part of the prompt or context.",
+  "rawResponse" : "{\n  \"winner\": \"B\",\n  \"confidence\": 0.9,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 100,\n      \"completeness\": 90,\n      \"reasoning\": 100,\n      \"constraint-following\": 100,\n      \"clarity\": 90\n    },\n    \"B\": {\n      \"correctness\": 100,\n      \"completeness\": 100,\n      \"reasoning\": 100,\n      \"constraint-following\": 100,\n      \"clarity\": 100\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Includes unnecessary 'Important Dissent' and 'Unresolved Risks' sections which are not requested and contain hallucinated 'council members' and 'draft' IDs.\"\n    ],\n    \"B\": []\n  },\n  \"rationale\": \"Candidate B is superior because it directly addresses the prompt's requirement to 'show the expected counts' by listing them clearly. Candidate A provides the correct math but includes a significant amount of irrelevant, hallucinated meta-commentary regarding 'council members' and 'drafts' which was not part of the prompt or context.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:59:25.086609Z",
+  "durationMs" : 14568,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1336,
+    "completionTokens" : 288,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

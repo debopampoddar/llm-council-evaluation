@@ -1,0 +1,24 @@
+{
+  "unitId" : "debugging-threadlocal-leak:direct-llama:r1",
+  "caseId" : "debugging-threadlocal-leak",
+  "variantId" : "direct-llama",
+  "repetition" : 1,
+  "status" : "COMPLETED",
+  "answer" : "**Defect:** The `RequestContext` class uses a `ThreadLocal` to store request state, but it is not properly cleaned up when the thread is reused. This leads to a memory leak, where the thread's local state is retained even after the request has completed.\n\n**Why heap use grows over days rather than immediately:**\n\n1. The `ThreadLocal` is initialized with a new `HashMap` on each request, which is a relatively small object.\n2. The `HashMap` is not garbage collected immediately because the thread is reused, and the `ThreadLocal` is still referencing the old map.\n3. Over time, the thread is reused multiple times, and the old maps are not garbage collected. This leads to a gradual increase in heap usage.\n4. The old-generation occupancy never returns to baseline because the objects are not being garbage collected due to the `ThreadLocal` reference.\n\n**Smallest correct fix:**\n\n```java\npublic class RequestContext {\n  private static final ThreadLocal<Map<String,Object>> STATE =\n      ThreadLocal.withInitial(HashMap::new);\n  public static void put(String k, Object v) { STATE.get().put(k, v); }\n  public static void clear() { STATE.remove(); }\n}\n```\n\nAdd a `clear()` method that removes the `ThreadLocal` reference, allowing the old maps to be garbage collected. Call `clear()` when the request is completed, or use a `try-finally` block to ensure the `ThreadLocal` is cleared even if an exception is thrown.\n\n**Important assumptions:**\n\n* The servlet container uses a pooled thread executor, which reuses threads.\n* The `RequestContext` class is used on every request.\n\n**Material uncertainties:**\n\n* The specific behavior of the servlet container's thread pool and garbage collection.\n* The exact timing and frequency of thread reuse and garbage collection.",
+  "startedAt" : "2026-08-19T19:30:32.041817Z",
+  "completedAt" : "2026-08-19T19:30:42.080753Z",
+  "durationMs" : 10038,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 207,
+    "completionTokens" : 379,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  },
+  "failureCategory" : null,
+  "failureReason" : null,
+  "warnings" : [ ],
+  "componentAnswers" : [ ],
+  "councilResult" : null
+}

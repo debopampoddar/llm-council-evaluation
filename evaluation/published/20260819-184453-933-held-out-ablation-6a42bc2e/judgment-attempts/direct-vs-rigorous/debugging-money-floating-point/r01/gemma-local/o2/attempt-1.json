@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-rigorous:debugging-money-floating-point:r1:gemma-local:o2",
+  "pairId" : "direct-vs-rigorous:debugging-money-floating-point:r1",
+  "comparisonId" : "direct-vs-rigorous",
+  "caseId" : "debugging-money-floating-point",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "direct-llama",
+  "status" : "COMPLETED",
+  "winner" : "B",
+  "confidence" : 0.9,
+  "scoresA" : {
+    "constraint-following" : 5.0,
+    "completeness" : 7.0,
+    "correctness" : 10.0,
+    "reasoning" : 5.0,
+    "clarity" : 6.0
+  },
+  "scoresB" : {
+    "constraint-following" : 10.0,
+    "completeness" : 10.0,
+    "correctness" : 10.0,
+    "reasoning" : 10.0,
+    "clarity" : 10.0
+  },
+  "violationsA" : [ "The response is formatted as a meta-commentary/council report rather than a direct answer to the user's question.", "Fails to explicitly mention the 'integer minor units' alternative required by the prompt.", "Includes unnecessary 'Dissent' and 'Unresolved Risks' sections that do not answer the prompt." ],
+  "violationsB" : [ ],
+  "rationale" : "Candidate A is a meta-report about a 'council' of reviewers and fails to provide a direct, clean answer to the user's prompt. It also fails to mention the 'integer minor units' requirement. Candidate B directly addresses all requirements: it explains binary floating point issues, accumulated rounding errors, recommends BigDecimal and integer minor units, specifies rounding modes, and addresses both the application and database types.",
+  "rawResponse" : "{\n  \"winner\": \"B\",\n  \"confidence\": 0.9,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 10,\n      \"completeness\": 7,\n      \"reasoning\": 5,\n      \"constraint-following\": 5,\n      \"clarity\": 6\n    },\n    \"B\": {\n      \"correctness\": 10,\n      \"completeness\": 10,\n      \"reasoning\": 10,\n      \"constraint-following\": 10,\n      \"clarity\": 10\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"The response is formatted as a meta-commentary/council report rather than a direct answer to the user's question.\",\n      \"Fails to explicitly mention the 'integer minor units' alternative required by the prompt.\",\n      \"Includes unnecessary 'Dissent' and 'Unresolved Risks' sections that do not answer the prompt.\"\n    ],\n    \"B\": []\n  },\n  \"rationale\": \"Candidate A is a meta-report about a 'council' of reviewers and fails to provide a direct, clean answer to the user's prompt. It also fails to mention the 'integer minor units' requirement. Candidate B directly addresses all requirements: it explains binary floating point issues, accumulated rounding errors, recommends BigDecimal and integer minor units, specifies rounding modes, and addresses both the application and database types.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:31:29.334067Z",
+  "durationMs" : 16351,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1700,
+    "completionTokens" : 328,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

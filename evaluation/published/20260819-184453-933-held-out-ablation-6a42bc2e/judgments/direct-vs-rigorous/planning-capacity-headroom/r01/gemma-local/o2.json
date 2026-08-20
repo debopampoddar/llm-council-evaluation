@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-rigorous:planning-capacity-headroom:r1:gemma-local:o2",
+  "pairId" : "direct-vs-rigorous:planning-capacity-headroom:r1",
+  "comparisonId" : "direct-vs-rigorous",
+  "caseId" : "planning-capacity-headroom",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-rigorous",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 30.0,
+    "completeness" : 40.0,
+    "correctness" : 40.0,
+    "reasoning" : 30.0,
+    "clarity" : 80.0
+  },
+  "scoresB" : {
+    "constraint-following" : 30.0,
+    "completeness" : 40.0,
+    "correctness" : 40.0,
+    "reasoning" : 30.0,
+    "clarity" : 70.0
+  },
+  "violationsA" : [ "Failed to compute the required 2.5x load (30,000 RPS) for the 12-month projection.", "Failed to explicitly state the required headroom and its reason.", "Failed to address the 6-minute warm-up as a constraint on reactive scaling.", "Failed to propose a method to bound the unquantified marketing launch step change." ],
+  "violationsB" : [ "Failed to compute the required 2.5x load (30,000 RPS) for the 12-month projection.", "Failed to explicitly state the required headroom and its reason.", "Failed to address the 6-minute warm-up as a constraint on reactive scaling.", "Failed to propose a method to bound the unquantified marketing launch step change." ],
+  "rationale" : "Both candidates failed significantly on the core mathematical and technical requirements of the prompt. Neither candidate calculated the 12-month projection (which should be ~30,000 RPS based on the 1.08^12 growth rate and the 2.5x requirement), nor did either address the 6-minute warm-up constraint or propose a way to bound the marketing launch step change. Candidate A is slightly clearer in its structure, but both are equally deficient in meeting the specific constraints provided in the prompt.",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 40,\n      \"completeness\": 40,\n      \"reasoning\": 30,\n      \"constraint-following\": 30,\n      \"clarity\": 80\n    },\n    \"B\": {\n      \"correctness\": 40,\n      \"completeness\": 40,\n      \"reasoning\": 30,\n      \"constraint-following\": 30,\n      \"clarity\": 70\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Failed to compute the required 2.5x load (30,000 RPS) for the 12-month projection.\",\n      \"Failed to explicitly state the required headroom and its reason.\",\n      \"Failed to address the 6-minute warm-up as a constraint on reactive scaling.\",\n      \"Failed to propose a method to bound the unquantified marketing launch step change.\"\n    ],\n    \"B\": [\n      \"Failed to compute the required 2.5x load (30,000 RPS) for the 12-month projection.\",\n      \"Failed to explicitly state the required headroom and its reason.\",\n      \"Failed to address the 6-minute warm-up as a constraint on reactive scaling.\",\n      \"Failed to propose a method to bound the unquantified marketing launch step change.\"\n    ]\n  },\n  \"rationale\": \"Both candidates failed significantly on the core mathematical and technical requirements of the prompt. Neither candidate calculated the 12-month projection (which should be ~30,000 RPS based on the 1.08^12 growth rate and the 2.5x requirement), nor did either address the 6-minute warm-up constraint or propose a way to bound the marketing launch step change. Candidate A is slightly clearer in its structure, but both are equally deficient in meeting the specific constraints provided in the prompt.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:40:43.779372Z",
+  "durationMs" : 21171,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1663,
+    "completionTokens" : 464,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

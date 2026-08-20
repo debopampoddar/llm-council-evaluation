@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-balanced:debugging-lock-ordering-deadlock:r1:gemma-local:o2",
+  "pairId" : "direct-vs-balanced:debugging-lock-ordering-deadlock:r1",
+  "comparisonId" : "direct-vs-balanced",
+  "caseId" : "debugging-lock-ordering-deadlock",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-balanced",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "scoresB" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "violationsA" : [ "The proposed fix does not address the requirement to use a global lock ordering (e.g., by account ID).", "The proposed fix introduces a new data structure (Map) which is not thread-safe in the provided snippet (computeIfAbsent on a HashMap is not atomic/thread-safe for concurrent access).", "The proposed fix does not address the equal-identifier case (transferring to the same account).", "The interleaving provided in the text is logically inconsistent: it says T2 acquires lock on A in step 1 but then says it's blocked, while the code shows T2's first action is acquiring the lock on 'from' (which is A)." ],
+  "violationsB" : [ "The proposed fix violates the requirement to 'preserve per-account locking' by suggesting a single global lock.", "It fails to provide a concrete interleaving as requested by the prompt.", "It fails to address the equal-identifier case.", "It fails to propose a global lock ordering." ],
+  "rationale" : "Both candidates fail significantly on the core requirements. Candidate A fails to provide a lock-ordering fix (it just swaps synchronized for ReentrantLock without ordering) and fails to address the equal-identifier case. Candidate B fails the primary constraint of preserving per-account locking by suggesting a global lock, and it fails to provide the requested interleaving. Since both are fundamentally incorrect regarding the specific requirements of the prompt, a tie is declared.",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    },\n    \"B\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"The proposed fix does not address the requirement to use a global lock ordering (e.g., by account ID).\",\n      \"The proposed fix introduces a new data structure (Map) which is not thread-safe in the provided snippet (computeIfAbsent on a HashMap is not atomic/thread-safe for concurrent access).\",\n      \"The proposed fix does not address the equal-identifier case (transferring to the same account).\",\n      \"The interleaving provided in the text is logically inconsistent: it says T2 acquires lock on A in step 1 but then says it's blocked, while the code shows T2's first action is acquiring the lock on 'from' (which is A).\"\n    ],\n    \"B\": [\n      \"The proposed fix violates the requirement to 'preserve per-account locking' by suggesting a single global lock.\",\n      \"It fails to provide a concrete interleaving as requested by the prompt.\",\n      \"It fails to address the equal-identifier case.\",\n      \"It fails to propose a global lock ordering.\"\n    ]\n  },\n  \"rationale\": \"Both candidates fail significantly on the core requirements. Candidate A fails to provide a lock-ordering fix (it just swaps synchronized for ReentrantLock without ordering) and fails to address the equal-identifier case. Candidate B fails the primary constraint of preserving per-account locking by suggesting a global lock, and it fails to provide the requested interleaving. Since both are fundamentally incorrect regarding the specific requirements of the prompt, a tie is declared.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:07:10.374577Z",
+  "durationMs" : 21705,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1735,
+    "completionTokens" : 477,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

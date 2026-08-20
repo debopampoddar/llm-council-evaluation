@@ -1,0 +1,194 @@
+{
+  "unitId" : "debugging-threadlocal-leak:local-rigorous:r1",
+  "caseId" : "debugging-threadlocal-leak",
+  "variantId" : "local-rigorous",
+  "repetition" : 1,
+  "status" : "COMPLETED",
+  "answer" : "**Final Recommendation/Answer:**\n\nThe defect is a memory leak caused by the accumulation of ThreadLocal variables. The smallest correct fix is to clear the ThreadLocal map after each request, either by implementing a cleanup method or using a bounded ThreadLocal implementation.\n\n**Rationale:**\n\nThe analysis of the provided code and the council member drafts indicates that the use of ThreadLocal variables without proper cleanup leads to memory leaks and gradual heap growth. The Java garbage collector may not immediately free memory associated with ThreadLocals due to the strong references they hold, but the heap growth over days suggests that the GC is not able to keep up with the rate of memory allocation. The council members' drafts and peer reviews provide a consistent explanation of the issue and the necessary fix.\n\n**Important Dissent:**\n\nNone of the council members' drafts or peer reviews raise significant concerns or alternative perspectives that would alter the final recommendation.\n\n**Unresolved Risks:**\n\n1. The possibility that other factors, such as inefficient code, resource leaks, or misconfigured garbage collection settings, could contribute to the observed memory growth.\n2. The assumption that the filter is the only component calling put() on every request, which may not be the case.\n\n**Confidence:**\n\n95\n\n**Smallest Correct Fix:**\n\nTo fix this issue, you should either remove the use of ThreadLocals or implement a mechanism to clear the ThreadLocal map after each request. This can be achieved by creating a cleanup method that removes the ThreadLocal map for the current thread after the request has been processed. Alternatively, you can use a bounded ThreadLocal implementation that clears the map after a certain number of requests.\n\n```java\npublic class RequestContext {\n    private static final ThreadLocal<Map<String, Object>> STATE =\n        ThreadLocal.withInitial(() -> new HashMap<>());\n\n    public static void put(String k, Object v) {\n        Map<String, Object> map = STATE.get();\n        map.put(k, v);\n        // Clear the map after use to avoid memory leaks\n        map.clear();\n    }\n}\n```\n\nNote: The above code snippet is an example of how to clear the ThreadLocal map after each request. The actual implementation may vary depending on the specific requirements and constraints of the application.",
+  "startedAt" : "2026-08-19T19:27:41.132133Z",
+  "completedAt" : "2026-08-19T19:30:32.021410Z",
+  "durationMs" : 170889,
+  "usage" : {
+    "calls" : 8,
+    "promptTokens" : 8038,
+    "completionTokens" : 4111,
+    "estimatedCostUsd" : null,
+    "estimated" : false,
+    "partiallyPriced" : false
+  },
+  "failureCategory" : null,
+  "failureReason" : null,
+  "warnings" : [ ],
+  "componentAnswers" : [ ],
+  "councilResult" : {
+    "sessionId" : "245ff0bc-a5ac-4e60-8080-e27dd5430a3d",
+    "status" : "COMPLETED",
+    "profileId" : "local",
+    "depthMode" : "RIGOROUS",
+    "policyId" : "local-rigorous",
+    "protocolId" : "rigorous",
+    "answer" : "**Final Recommendation/Answer:**\n\nThe defect is a memory leak caused by the accumulation of ThreadLocal variables. The smallest correct fix is to clear the ThreadLocal map after each request, either by implementing a cleanup method or using a bounded ThreadLocal implementation.\n\n**Rationale:**\n\nThe analysis of the provided code and the council member drafts indicates that the use of ThreadLocal variables without proper cleanup leads to memory leaks and gradual heap growth. The Java garbage collector may not immediately free memory associated with ThreadLocals due to the strong references they hold, but the heap growth over days suggests that the GC is not able to keep up with the rate of memory allocation. The council members' drafts and peer reviews provide a consistent explanation of the issue and the necessary fix.\n\n**Important Dissent:**\n\nNone of the council members' drafts or peer reviews raise significant concerns or alternative perspectives that would alter the final recommendation.\n\n**Unresolved Risks:**\n\n1. The possibility that other factors, such as inefficient code, resource leaks, or misconfigured garbage collection settings, could contribute to the observed memory growth.\n2. The assumption that the filter is the only component calling put() on every request, which may not be the case.\n\n**Confidence:**\n\n95\n\n**Smallest Correct Fix:**\n\nTo fix this issue, you should either remove the use of ThreadLocals or implement a mechanism to clear the ThreadLocal map after each request. This can be achieved by creating a cleanup method that removes the ThreadLocal map for the current thread after the request has been processed. Alternatively, you can use a bounded ThreadLocal implementation that clears the map after a certain number of requests.\n\n```java\npublic class RequestContext {\n    private static final ThreadLocal<Map<String, Object>> STATE =\n        ThreadLocal.withInitial(() -> new HashMap<>());\n\n    public static void put(String k, Object v) {\n        Map<String, Object> map = STATE.get();\n        map.put(k, v);\n        // Clear the map after use to avoid memory leaks\n        map.clear();\n    }\n}\n```\n\nNote: The above code snippet is an example of how to clear the ThreadLocal map after each request. The actual implementation may vary depending on the specific requirements and constraints of the application.",
+    "draftCount" : 3,
+    "reviewCount" : 6,
+    "debateRounds" : 0,
+    "participatingModels" : [ "local-llama3", "local-mistral", "local-qwen" ],
+    "excludedModels" : [ ],
+    "warnings" : [ ],
+    "sycophancyWarnings" : [ ],
+    "scoreSummary" : {
+      "scores" : [ {
+        "scorerId" : "confidence-weighted",
+        "draftId" : "draft-312942A7",
+        "dimensionScores" : {
+          "accuracy" : 95.0,
+          "completeness" : 87.5,
+          "reasoning" : 95.0,
+          "clarity" : 95.0,
+          "constructiveness" : 90.0
+        },
+        "weightedTotal" : 92.0,
+        "label" : "initial"
+      }, {
+        "scorerId" : "confidence-weighted",
+        "draftId" : "draft-14FDAEB9",
+        "dimensionScores" : {
+          "accuracy" : 95.0,
+          "completeness" : 90.0,
+          "reasoning" : 95.0,
+          "clarity" : 92.5,
+          "constructiveness" : 95.0
+        },
+        "weightedTotal" : 93.49999999999999,
+        "label" : "initial"
+      }, {
+        "scorerId" : "confidence-weighted",
+        "draftId" : "draft-6D1BECE",
+        "dimensionScores" : {
+          "accuracy" : 92.5,
+          "completeness" : 85.0,
+          "reasoning" : 95.0,
+          "clarity" : 95.0,
+          "constructiveness" : 87.5
+        },
+        "weightedTotal" : 92.0,
+        "label" : "initial"
+      } ],
+      "variance" : 0.4999999999999905,
+      "winningDraftId" : "draft-14FDAEB9",
+      "escalated" : false,
+      "escalationPolicy" : null,
+      "reviewerDisagreement" : 0.25,
+      "disagreementMeasurable" : true
+    },
+    "validation" : {
+      "validatorId" : "local-validator",
+      "approved" : true,
+      "confidence" : 0.95,
+      "issues" : [ ],
+      "recommendedFixes" : [ "To fix this issue, you should either remove the use of ThreadLocals or implement a mechanism to clear the ThreadLocal map after each request." ],
+      "criteria" : {
+        "uncertainty" : "warn - The answer acknowledges unresolved risks related to other factors contributing to the observed memory growth and the assumption that the filter is the only component calling put() on every request.",
+        "correctness" : "pass - The answer correctly identifies the memory leak issue, explains why heap use grows over days, and provides a fix.",
+        "completeness" : "pass - The answer provides a detailed explanation and a code example for the fix.",
+        "actionability" : "pass - The answer provides a clear and actionable recommendation for fixing the issue.",
+        "safety" : "pass - The answer does not introduce any security concerns."
+      },
+      "requiresHumanReview" : false,
+      "rawText" : "{\n  \"approved\": true,\n  \"confidence\": 0.95,\n  \"issues\": [],\n  \"recommendedFixes\": [\"To fix this issue, you should either remove the use of ThreadLocals or implement a mechanism to clear the ThreadLocal map after each request.\"],\n  \"criteria\": {\n    \"correctness\": \"pass - The answer correctly identifies the memory leak issue, explains why heap use grows over days, and provides a fix.\",\n    \"completeness\": \"pass - The answer provides a detailed explanation and a code example for the fix.\",\n    \"uncertainty\": \"warn - The answer acknowledges unresolved risks related to other factors contributing to the observed memory growth and the assumption that the filter is the only component calling put() on every request.\",\n    \"safety\": \"pass - The answer does not introduce any security concerns.\",\n    \"actionability\": \"pass - The answer provides a clear and actionable recommendation for fixing the issue.\"\n  },\n  \"requiresHumanReview\": false\n}"
+    },
+    "validationIndependence" : "INDEPENDENT",
+    "failureReason" : null,
+    "failureCategory" : null,
+    "modelFailures" : [ ],
+    "usage" : {
+      "promptTokens" : 8038,
+      "completionTokens" : 4111,
+      "totalTokens" : 12149,
+      "calls" : 8,
+      "estimatedCostUsd" : null,
+      "estimated" : false,
+      "partiallyPriced" : false,
+      "byModel" : [ {
+        "modelId" : "local-mistral",
+        "calls" : 2,
+        "promptTokens" : 1964,
+        "completionTokens" : 1456,
+        "totalTokens" : 3420,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "modelId" : "local-qwen",
+        "calls" : 2,
+        "promptTokens" : 1654,
+        "completionTokens" : 1041,
+        "totalTokens" : 2695,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "modelId" : "local-llama3",
+        "calls" : 2,
+        "promptTokens" : 1631,
+        "completionTokens" : 927,
+        "totalTokens" : 2558,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "modelId" : "local-chair",
+        "calls" : 1,
+        "promptTokens" : 1624,
+        "completionTokens" : 454,
+        "totalTokens" : 2078,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "modelId" : "local-validator",
+        "calls" : 1,
+        "promptTokens" : 1165,
+        "completionTokens" : 233,
+        "totalTokens" : 1398,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      } ],
+      "byStage" : [ {
+        "stage" : "GENERATE",
+        "calls" : 3,
+        "promptTokens" : 775,
+        "completionTokens" : 910,
+        "totalTokens" : 1685,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "stage" : "REVIEW",
+        "calls" : 3,
+        "promptTokens" : 4474,
+        "completionTokens" : 2514,
+        "totalTokens" : 6988,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "stage" : "SYNTHESIZE",
+        "calls" : 1,
+        "promptTokens" : 1624,
+        "completionTokens" : 454,
+        "totalTokens" : 2078,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "stage" : "VALIDATE",
+        "calls" : 1,
+        "promptTokens" : 1165,
+        "completionTokens" : 233,
+        "totalTokens" : 1398,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      } ]
+    },
+    "integrity" : {
+      "reduced" : false,
+      "preserveDissent" : true,
+      "sycophancyThreshold" : 0.7,
+      "reviewsPerDraft" : 2,
+      "notes" : [ ]
+    }
+  }
+}

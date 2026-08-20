@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "balanced-vs-rigorous:reasoning-tail-amplification:r1:gemma-local:o2",
+  "pairId" : "balanced-vs-rigorous:reasoning-tail-amplification:r1",
+  "comparisonId" : "balanced-vs-rigorous",
+  "caseId" : "reasoning-tail-amplification",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "local-balanced",
+  "answerBVariant" : "local-rigorous",
+  "status" : "COMPLETED",
+  "winner" : "A",
+  "confidence" : 0.9,
+  "scoresA" : {
+    "constraint-following" : 9.0,
+    "completeness" : 8.0,
+    "correctness" : 10.0,
+    "reasoning" : 9.0,
+    "clarity" : 9.0
+  },
+  "scoresB" : {
+    "constraint-following" : 5.0,
+    "completeness" : 5.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 5.0
+  },
+  "violationsA" : [ "Did not explicitly state the required conclusion that a per-call 99th percentile does not give a per-page 99th percentile." ],
+  "violationsB" : [ "Incorrectly claims the answer is 26.4% despite correctly calculating 9.6% in the same paragraph.", "Contradicts the reference facts and the mathematical logic of the prompt." ],
+  "rationale" : "Candidate A correctly performs the math (1 - 0.99^10 ≈ 9.52%) and follows the logic of the prompt. Candidate B contains a major hallucination/contradiction where it calculates the correct value (9.6%) but then asserts that the answer is 26.4% for no apparent reason, violating the correctness and reasoning criteria. While Candidate A missed the specific concluding sentence about the 99th percentile, it is significantly more accurate than Candidate B.",
+  "rawResponse" : "{\n  \"winner\": \"A\",\n  \"confidence\": 0.9,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 10,\n      \"completeness\": 8,\n      \"reasoning\": 9,\n      \"constraint-following\": 9,\n      \"clarity\": 9\n    },\n    \"B\": {\n      \"correctness\": 0,\n      \"completeness\": 5,\n      \"reasoning\": 0,\n      \"constraint-following\": 5,\n      \"clarity\": 5\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Did not explicitly state the required conclusion that a per-call 99th percentile does not give a per-page 99th percentile.\"\n    ],\n    \"B\": [\n      \"Incorrectly claims the answer is 26.4% despite correctly calculating 9.6% in the same paragraph.\",\n      \"Contradicts the reference facts and the mathematical logic of the prompt.\"\n    ]\n  },\n  \"rationale\": \"Candidate A correctly performs the math (1 - 0.99^10 ≈ 9.52%) and follows the logic of the prompt. Candidate B contains a major hallucination/contradiction where it calculates the correct value (9.6%) but then asserts that the answer is 26.4% for no apparent reason, violating the correctness and reasoning criteria. While Candidate A missed the specific concluding sentence about the 99th percentile, it is significantly more accurate than Candidate B.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T09:26:01.499447Z",
+  "durationMs" : 17229,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1660,
+    "completionTokens" : 355,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

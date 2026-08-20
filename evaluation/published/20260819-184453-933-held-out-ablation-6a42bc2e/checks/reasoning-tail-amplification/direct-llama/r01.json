@@ -1,0 +1,7 @@
+[ {
+  "unitId" : "reasoning-tail-amplification:direct-llama:r1",
+  "checkIndex" : 0,
+  "type" : "regex",
+  "status" : "FAIL",
+  "detail" : "Pattern condition failed: (?i)(9\\.6\\d*\\s*%|90\\.4\\d*\\s*%|0\\.904)"
+} ]

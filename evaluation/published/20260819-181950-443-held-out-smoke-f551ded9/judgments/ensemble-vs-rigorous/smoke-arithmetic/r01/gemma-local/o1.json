@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "ensemble-vs-rigorous:smoke-arithmetic:r1:gemma-local:o1",
+  "pairId" : "ensemble-vs-rigorous:smoke-arithmetic:r1",
+  "comparisonId" : "ensemble-vs-rigorous",
+  "caseId" : "smoke-arithmetic",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 1,
+  "answerAVariant" : "llama-ensemble",
+  "answerBVariant" : "local-rigorous",
+  "status" : "COMPLETED",
+  "winner" : "A",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "reasoning" : 100.0,
+    "correctness" : 100.0,
+    "completeness" : 100.0,
+    "constraint-following" : 100.0,
+    "clarity" : 100.0
+  },
+  "scoresB" : {
+    "reasoning" : 80.0,
+    "correctness" : 100.0,
+    "completeness" : 90.0,
+    "constraint-following" : 100.0,
+    "clarity" : 80.0
+  },
+  "violationsA" : [ ],
+  "violationsB" : [ "Includes unnecessary meta-commentary and 'dissent' regarding edge cases that contradict the provided context (which states the percentage is exact and records are indivisible)." ],
+  "rationale" : "Candidate A provides a direct, clear, and accurate response that follows all instructions and requirements. Candidate B includes a significant amount of unnecessary 'meta-talk' and 'dissent' regarding real-world complexities that are explicitly excluded by the provided context (which states the percentage is exact and records are indivisible). Candidate A is much more concise and better suited to the prompt.",
+  "rawResponse" : "{\n  \"winner\": \"A\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 100,\n      \"completeness\": 100,\n      \"reasoning\": 100,\n      \"constraint-following\": 100,\n      \"clarity\": 100\n    },\n    \"B\": {\n      \"correctness\": 100,\n      \"completeness\": 90,\n      \"reasoning\": 80,\n      \"constraint-following\": 100,\n      \"clarity\": 80\n    }\n  },\n  \"violations\": {\n    \"A\": [],\n    \"B\": [\n      \"Includes unnecessary meta-commentary and 'dissent' regarding edge cases that contradict the provided context (which states the percentage is exact and records are indivisible).\"\n    ]\n  },\n  \"rationale\": \"Candidate A provides a direct, clear, and accurate response that follows all instructions and requirements. Candidate B includes a significant amount of unnecessary 'meta-talk' and 'dissent' regarding real-world complexities that are explicitly excluded by the provided context (which states the percentage is exact and records are indivisible). Candidate A is much more concise and better suited to the prompt.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-19T18:33:59.671113Z",
+  "durationMs" : 17852,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1242,
+    "completionTokens" : 297,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "unitId" : "planning-retention-deletion:direct-llama:r1",
+  "caseId" : "planning-retention-deletion",
+  "variantId" : "direct-llama",
+  "repetition" : 1,
+  "status" : "COMPLETED",
+  "answer" : "**Data Retention and Deletion Design**\n\nTo honour user deletion requests within 30 days, we will implement a data retention and deletion capability that spans across the primary database, search index, analytics warehouse, backups, and third-party email provider.\n\n**Key Components:**\n\n1. **Deletion Flag**: Introduce a deletion flag in the primary database to mark user records for deletion. This flag will be updated when a user requests deletion.\n2. **Deletion Queue**: Create a deletion queue that processes user records marked for deletion. The queue will be responsible for updating the deletion flag, removing records from the search index, and sending deletion requests to the analytics warehouse and backups.\n3. **Analytics Warehouse**: Update the analytics warehouse to remove deleted user records within 30 days. This will involve creating a scheduled task that periodically checks for deleted records and removes them.\n4. **Backups**: Update the backup retention policy to remove deleted user records within 90 days. This will ensure that backups are immutable and do not contain deleted records.\n5. **Search Index**: Update the search index to remove deleted user records within 30 days. This will involve creating a scheduled task that periodically checks for deleted records and removes them.\n6. **Email Provider**: Coordinate with the third-party email provider to remove delivery logs for deleted users within their own retention policy.\n\n**Key Reasons:**\n\n* Introducing a deletion flag and deletion queue ensures that user records are marked for deletion and processed in a timely manner.\n* Updating the analytics warehouse and backups ensures that deleted records are removed within the required retention period.\n* Coordinating with the third-party email provider ensures that delivery logs are removed within their own retention policy.\n\n**Important Assumptions:**\n\n* The primary database, search index, analytics warehouse, and backups are all accessible and can be updated programmatically.\n* The third-party email provider is willing to coordinate with us to remove delivery logs for deleted users.\n\n**Material Uncertainties:**\n\n* The impact of deleted records on the analytics warehouse and backups, particularly if they are used for reporting or auditing purposes.\n* The potential for data inconsistencies or errors if the deletion process is not properly coordinated across all systems.",
+  "startedAt" : "2026-08-20T07:11:33.065974Z",
+  "completedAt" : "2026-08-20T07:11:46.785296Z",
+  "durationMs" : 13719,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 176,
+    "completionTokens" : 443,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  },
+  "failureCategory" : null,
+  "failureReason" : null,
+  "warnings" : [ ],
+  "componentAnswers" : [ ],
+  "councilResult" : null
+}

@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-rigorous:reasoning-batching-throughput:r1:gemma-local:o2",
+  "pairId" : "direct-vs-rigorous:reasoning-batching-throughput:r1",
+  "comparisonId" : "direct-vs-rigorous",
+  "caseId" : "reasoning-batching-throughput",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-rigorous",
+  "status" : "COMPLETED",
+  "winner" : "A",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 100.0,
+    "completeness" : 100.0,
+    "correctness" : 100.0,
+    "reasoning" : 100.0,
+    "clarity" : 100.0
+  },
+  "scoresB" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "violationsA" : [ ],
+  "violationsB" : [ "Failed to perform the required calculations.", "Provided a completely incorrect answer (10% less time instead of 100x speed-up).", "Included meta-commentary about 'drafts' and 'council members' which were not part of the prompt context." ],
+  "rationale" : "Candidate A correctly followed all instructions, performing the required calculations for both the per-record and batched approaches and correctly identifying the 100x speed-up. Candidate B failed completely by providing a nonsensical answer (10% less time) and including irrelevant meta-text about 'drafts' and 'council members' that were not present in the provided context.",
+  "rawResponse" : "{\n  \"winner\": \"A\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 100,\n      \"completeness\": 100,\n      \"reasoning\": 100,\n      \"constraint-following\": 100,\n      \"clarity\": 100\n    },\n    \"B\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    }\n  },\n  \"violations\": {\n    \"A\": [],\n    \"B\": [\n      \"Failed to perform the required calculations.\",\n      \"Provided a completely incorrect answer (10% less time instead of 100x speed-up).\",\n      \"Included meta-commentary about 'drafts' and 'council members' which were not part of the prompt context.\"\n    ]\n  },\n  \"rationale\": \"Candidate A correctly followed all instructions, performing the required calculations for both the per-record and batched approaches and correctly identifying the 100x speed-up. Candidate B failed completely by providing a nonsensical answer (10% less time) and including irrelevant meta-text about 'drafts' and 'council members' that were not present in the provided context.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:39:12.067535Z",
+  "durationMs" : 15961,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1625,
+    "completionTokens" : 319,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

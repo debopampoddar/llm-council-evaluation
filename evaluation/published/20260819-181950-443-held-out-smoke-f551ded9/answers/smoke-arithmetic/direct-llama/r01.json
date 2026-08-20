@@ -1,0 +1,24 @@
+{
+  "unitId" : "smoke-arithmetic:direct-llama:r1",
+  "caseId" : "smoke-arithmetic",
+  "variantId" : "direct-llama",
+  "repetition" : 1,
+  "status" : "COMPLETED",
+  "answer" : "To find the number of valid records, we need to calculate 15% of 40 and subtract it from 40.\n\n15% of 40 = 0.15 x 40 = 6\n\nNumber of invalid records = 6\n\nNumber of valid records = Total records - Invalid records\n= 40 - 6\n= 34\n\nTherefore, there are 34 valid records remaining.",
+  "startedAt" : "2026-08-19T18:27:06.101508Z",
+  "completedAt" : "2026-08-19T18:27:09.882455Z",
+  "durationMs" : 3780,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 127,
+    "completionTokens" : 83,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  },
+  "failureCategory" : null,
+  "failureReason" : null,
+  "warnings" : [ ],
+  "componentAnswers" : [ ],
+  "councilResult" : null
+}

@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-rigorous:planning-framework-major-upgrade:r1:gemma-local:o2",
+  "pairId" : "direct-vs-rigorous:planning-framework-major-upgrade:r1",
+  "comparisonId" : "direct-vs-rigorous",
+  "caseId" : "planning-framework-major-upgrade",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-rigorous",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "scoresB" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "violationsA" : [ "Violates requirement to sequence low-risk services first (it prioritizes critical payment path services first).", "Violates requirement to keep payment-path services out of the first wave.", "Fails to state that the plan does not fit the 10-week freeze (it schedules the upgrade to end at week 20).", "Does not define explicit abort/rollback criteria (only mentions a 'plan' exists)." ],
+  "violationsB" : [ "Violates requirement to sequence low-risk services first (it suggests parallel upgrades for critical services).", "Violates requirement to keep payment-path services out of the first wave.", "Fails to state that the plan does not fit the 10-week freeze.", "Does not define explicit abort/rollback criteria.", "Does not specifically address the requirement to treat untested services as a distinct risk requiring characterization tests first." ],
+  "rationale" : "Both candidates failed significantly on the core requirements of the prompt. \n\nCandidate A failed the sequencing requirements by prioritizing the critical payment path first (the prompt explicitly required low-risk services first and keeping payment-path services out of the first wave). It also failed to acknowledge that the 20-week timeline exceeds the 10-week freeze constraint.\n\nCandidate B failed the sequencing requirements by suggesting parallel upgrades for critical services and failed to address the specific requirement regarding the characterization tests for the two untested teams. It also failed to address the 10-week freeze constraint or provide explicit abort/rollback criteria.\n\nBoth models provided generic 'plans' that ignored the specific constraints provided in the context (e.g., the lack of a shared integration environment and the specific handling of untested services).",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    },\n    \"B\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Violates requirement to sequence low-risk services first (it prioritizes critical payment path services first).\",\n      \"Violates requirement to keep payment-path services out of the first wave.\",\n      \"Fails to state that the plan does not fit the 10-week freeze (it schedules the upgrade to end at week 20).\",\n      \"Does not define explicit abort/rollback criteria (only mentions a 'plan' exists).\"\n    ],\n    \"B\": [\n      \"Violates requirement to sequence low-risk services first (it suggests parallel upgrades for critical services).\",\n      \"Violates requirement to keep payment-path services out of the first wave.\",\n      \"Fails to state that the plan does not fit the 10-week freeze.\",\n      \"Does not define explicit abort/rollback criteria.\",\n      \"Does not specifically address the requirement to treat untested services as a distinct risk requiring characterization tests first.\"\n    ]\n  },\n  \"rationale\": \"Both candidates failed significantly on the core requirements of the prompt. \\n\\nCandidate A failed the sequencing requirements by prioritizing the critical payment path first (the prompt explicitly required low-risk services first and keeping payment-path services out of the first wave). It also failed to acknowledge that the 20-week timeline exceeds the 10-week freeze constraint.\\n\\nCandidate B failed the sequencing requirements by suggesting parallel upgrades for critical services and failed to address the specific requirement regarding the characterization tests for the two untested teams. It also failed to address the 10-week freeze constraint or provide explicit abort/rollback criteria.\\n\\nBoth models provided generic 'plans' that ignored the specific constraints provided in the context (e.g., the lack of a shared integration environment and the specific handling of untested services).\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:40:02.359708Z",
+  "durationMs" : 25349,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1851,
+    "completionTokens" : 535,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

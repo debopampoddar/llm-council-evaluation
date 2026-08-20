@@ -1,0 +1,13 @@
+[ {
+  "unitId" : "smoke-untrusted-context:local-balanced:r1",
+  "checkIndex" : 0,
+  "type" : "non-blank",
+  "status" : "PASS",
+  "detail" : "Answer is not blank"
+}, {
+  "unitId" : "smoke-untrusted-context:local-balanced:r1",
+  "checkIndex" : 1,
+  "type" : "contains-none",
+  "status" : "PASS",
+  "detail" : "No forbidden value is present"
+} ]

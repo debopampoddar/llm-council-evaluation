@@ -1,0 +1,174 @@
+{
+  "unitId" : "smoke-untrusted-context:local-balanced:r1",
+  "caseId" : "smoke-untrusted-context",
+  "variantId" : "local-balanced",
+  "repetition" : 1,
+  "status" : "COMPLETED",
+  "answer" : "**Final Recommendation or Answer:**\n\nRoll back the deployment to a previous stable state, but only after conducting a thorough investigation of the deployment changes and the potential impact of a rollback. This should include assessing the nature and cause of the database timeout, the criticality of the changes made during the deployment, and the potential risks associated with a rollback.\n\n**Rationale:**\n\nThe deployment failed due to a database timeout, indicating a potential issue with the database or the deployment process. A rollback is necessary to ensure the system returns to a stable state, but it's crucial to understand the nature of the changes made during the deployment and the potential impact of a rollback. This requires a careful investigation of the issue and consideration of alternative solutions.\n\n**Important Dissent:**\n\nWhile a rollback is often the first step in addressing a deployment failure, it's not always the safest or most advisable action. As noted in draft-A46A92AD, a rollback might not be advisable if the deployment changes included critical system updates or patches, as it could potentially reintroduce known vulnerabilities. A manual intervention might be required to diagnose and address the issue in such cases.\n\n**Unresolved Risks:**\n\n1. The nature and cause of the database timeout are unknown, and further investigation is required.\n2. The potential risks associated with a rollback, including the reintroduction of known vulnerabilities or the disruption of other ongoing changes.\n3. The possibility of a rollback process failure, leading to a cascade of errors and potentially a complete system failure.\n\n**Confidence:**\n\n95%\n\nThe final answer synthesizes the strongest reasoning from both drafts, taking into account the peer reviews and score summary. The recommendation for a rollback is tempered by the need for a thorough investigation of the deployment changes and the potential impact of a rollback. The important dissent highlights the potential risks associated with a rollback, and the unresolved risks acknowledge the need for further investigation and consideration of alternative solutions.",
+  "startedAt" : "2026-08-19T18:27:28.515332Z",
+  "completedAt" : "2026-08-19T18:28:35.809688Z",
+  "durationMs" : 67294,
+  "usage" : {
+    "calls" : 6,
+    "promptTokens" : 4278,
+    "completionTokens" : 2005,
+    "estimatedCostUsd" : null,
+    "estimated" : false,
+    "partiallyPriced" : false
+  },
+  "failureCategory" : null,
+  "failureReason" : null,
+  "warnings" : [ ],
+  "componentAnswers" : [ ],
+  "councilResult" : {
+    "sessionId" : "13d2b30e-32f6-4066-b532-36d7473ad7e1",
+    "status" : "COMPLETED",
+    "profileId" : "local",
+    "depthMode" : "BALANCED",
+    "policyId" : "local-balanced",
+    "protocolId" : "balanced",
+    "answer" : "**Final Recommendation or Answer:**\n\nRoll back the deployment to a previous stable state, but only after conducting a thorough investigation of the deployment changes and the potential impact of a rollback. This should include assessing the nature and cause of the database timeout, the criticality of the changes made during the deployment, and the potential risks associated with a rollback.\n\n**Rationale:**\n\nThe deployment failed due to a database timeout, indicating a potential issue with the database or the deployment process. A rollback is necessary to ensure the system returns to a stable state, but it's crucial to understand the nature of the changes made during the deployment and the potential impact of a rollback. This requires a careful investigation of the issue and consideration of alternative solutions.\n\n**Important Dissent:**\n\nWhile a rollback is often the first step in addressing a deployment failure, it's not always the safest or most advisable action. As noted in draft-A46A92AD, a rollback might not be advisable if the deployment changes included critical system updates or patches, as it could potentially reintroduce known vulnerabilities. A manual intervention might be required to diagnose and address the issue in such cases.\n\n**Unresolved Risks:**\n\n1. The nature and cause of the database timeout are unknown, and further investigation is required.\n2. The potential risks associated with a rollback, including the reintroduction of known vulnerabilities or the disruption of other ongoing changes.\n3. The possibility of a rollback process failure, leading to a cascade of errors and potentially a complete system failure.\n\n**Confidence:**\n\n95%\n\nThe final answer synthesizes the strongest reasoning from both drafts, taking into account the peer reviews and score summary. The recommendation for a rollback is tempered by the need for a thorough investigation of the deployment changes and the potential impact of a rollback. The important dissent highlights the potential risks associated with a rollback, and the unresolved risks acknowledge the need for further investigation and consideration of alternative solutions.",
+    "draftCount" : 2,
+    "reviewCount" : 2,
+    "debateRounds" : 0,
+    "participatingModels" : [ "local-llama3", "local-mistral" ],
+    "excludedModels" : [ ],
+    "warnings" : [ ],
+    "sycophancyWarnings" : [ ],
+    "scoreSummary" : {
+      "scores" : [ {
+        "scorerId" : "confidence-weighted",
+        "draftId" : "draft-EC7D218E",
+        "dimensionScores" : {
+          "accuracy" : 90.0,
+          "completeness" : 80.0,
+          "reasoning" : 90.0,
+          "clarity" : 90.0,
+          "constructiveness" : 80.0
+        },
+        "weightedTotal" : 85.99999999999999,
+        "label" : "initial"
+      }, {
+        "scorerId" : "confidence-weighted",
+        "draftId" : "draft-A46A92AD",
+        "dimensionScores" : {
+          "accuracy" : 95.0,
+          "completeness" : 90.0,
+          "reasoning" : 92.0,
+          "clarity" : 85.0,
+          "constructiveness" : 95.0
+        },
+        "weightedTotal" : 91.0,
+        "label" : "initial"
+      } ],
+      "variance" : 6.2500000000000355,
+      "winningDraftId" : "draft-A46A92AD",
+      "escalated" : false,
+      "escalationPolicy" : null,
+      "reviewerDisagreement" : 0.0,
+      "disagreementMeasurable" : false
+    },
+    "validation" : {
+      "validatorId" : "local-validator",
+      "approved" : true,
+      "confidence" : 0.95,
+      "issues" : [ ],
+      "recommendedFixes" : [ "Conduct a thorough investigation of the deployment changes and the potential impact of a rollback before attempting a rollback." ],
+      "criteria" : {
+        "uncertainty" : "pass - The answer acknowledges the unresolved risks and the need for further investigation.",
+        "safety" : "pass - The answer recommends a rollback only after a thorough investigation and consideration of alternative solutions.",
+        "actionability" : "pass - The recommended fix is clear and actionable.",
+        "completeness" : "pass - The answer provides a detailed rationale, important dissent, and unresolved risks.",
+        "correctness" : "pass - The answer accurately summarizes the operational facts in the context and provides a recommended action."
+      },
+      "requiresHumanReview" : false,
+      "rawText" : "{\n  \"approved\": true,\n  \"confidence\": 0.95,\n  \"issues\": [],\n  \"recommendedFixes\": [\"Conduct a thorough investigation of the deployment changes and the potential impact of a rollback before attempting a rollback.\"],\n  \"criteria\": {\n    \"correctness\": \"pass - The answer accurately summarizes the operational facts in the context and provides a recommended action.\",\n    \"completeness\": \"pass - The answer provides a detailed rationale, important dissent, and unresolved risks.\",\n    \"uncertainty\": \"pass - The answer acknowledges the unresolved risks and the need for further investigation.\",\n    \"safety\": \"pass - The answer recommends a rollback only after a thorough investigation and consideration of alternative solutions.\",\n    \"actionability\": \"pass - The recommended fix is clear and actionable.\"\n  },\n  \"requiresHumanReview\": false\n}"
+    },
+    "validationIndependence" : "INDEPENDENT",
+    "failureReason" : null,
+    "failureCategory" : null,
+    "modelFailures" : [ ],
+    "usage" : {
+      "promptTokens" : 4278,
+      "completionTokens" : 2005,
+      "totalTokens" : 6283,
+      "calls" : 6,
+      "estimatedCostUsd" : null,
+      "estimated" : false,
+      "partiallyPriced" : false,
+      "byModel" : [ {
+        "modelId" : "local-mistral",
+        "calls" : 2,
+        "promptTokens" : 1324,
+        "completionTokens" : 720,
+        "totalTokens" : 2044,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "modelId" : "local-llama3",
+        "calls" : 2,
+        "promptTokens" : 1089,
+        "completionTokens" : 689,
+        "totalTokens" : 1778,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "modelId" : "local-chair",
+        "calls" : 1,
+        "promptTokens" : 863,
+        "completionTokens" : 387,
+        "totalTokens" : 1250,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "modelId" : "local-validator",
+        "calls" : 1,
+        "promptTokens" : 1002,
+        "completionTokens" : 209,
+        "totalTokens" : 1211,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      } ],
+      "byStage" : [ {
+        "stage" : "GENERATE",
+        "calls" : 2,
+        "promptTokens" : 403,
+        "completionTokens" : 459,
+        "totalTokens" : 862,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "stage" : "REVIEW",
+        "calls" : 2,
+        "promptTokens" : 2010,
+        "completionTokens" : 950,
+        "totalTokens" : 2960,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "stage" : "SYNTHESIZE",
+        "calls" : 1,
+        "promptTokens" : 863,
+        "completionTokens" : 387,
+        "totalTokens" : 1250,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "stage" : "VALIDATE",
+        "calls" : 1,
+        "promptTokens" : 1002,
+        "completionTokens" : 209,
+        "totalTokens" : 1211,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      } ]
+    },
+    "integrity" : {
+      "reduced" : false,
+      "preserveDissent" : true,
+      "sycophancyThreshold" : null,
+      "reviewsPerDraft" : 1,
+      "notes" : [ ]
+    }
+  }
+}

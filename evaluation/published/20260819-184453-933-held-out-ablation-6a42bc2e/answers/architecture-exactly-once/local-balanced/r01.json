@@ -1,0 +1,174 @@
+{
+  "unitId" : "architecture-exactly-once:local-balanced:r1",
+  "caseId" : "architecture-exactly-once",
+  "variantId" : "local-balanced",
+  "repetition" : 1,
+  "status" : "COMPLETED",
+  "answer" : "**Final Recommendation/Answer:**\n\nImplement a combination of idempotent operations, message acknowledgments, and a retry mechanism to achieve \"at-least-once delivery\" with a guarantee of idempotence, which is the closest achievable goal to \"exactly-once delivery\" in a distributed system with unreliable network and potential service crashes. Additionally, consider implementing a distributed consensus protocol like Raft or Paxos to ensure that both services agree on the order and delivery of messages, but acknowledge that this would require additional complexity and synchronization overhead.\n\n**Rationale:**\n\nThe council members agree that achieving \"exactly-once delivery\" is challenging in a distributed system with unreliable network and potential service crashes. However, they also recognize that the business need of not charging a customer twice and never silently not charging must be satisfied. The combination of idempotent operations, message acknowledgments, and a retry mechanism provides a robust solution to ensure that messages are processed exactly once and that the business need is met. The distributed consensus protocol offers an additional layer of guarantee, but its implementation and synchronization would require careful consideration.\n\n**Important Dissent:**\n\nWhile the majority of the council members agree on the recommended design, Reviewer local-mistral raises a concern that the design does not account for the order in which messages are delivered, which could lead to inconsistencies in the system state. This concern highlights the importance of considering the message ordering in the system design.\n\n**Unresolved Risks:**\n\n1. **Network reliability**: The network may still drop or delay messages, even with acknowledgments and retries.\n2. **Service crashes**: Either side may still crash after sending but before recording that it sent, potentially leading to lost or duplicated messages.\n3. **Message ordering**: The order in which messages are delivered may not be guaranteed, which could lead to inconsistencies in the system state.\n\n**Confidence:**\n\nThe council members have a high confidence in the recommended design, with an average confidence score of 87.5. However, they also acknowledge that the design is not foolproof and that additional considerations may be necessary depending on the specific requirements and constraints of the system.\n\n**Weighting:**\n\nThe final recommendation is weighted by the score summary, which gives more weight to draft-C9E875F3 (total=90.0) than draft-682F2A71 (total=85.99999999999999). The review scores and confidence levels are also taken into account, with Reviewer local-llama3's score of 90 and confidence of 0.95 having a significant impact on the final recommendation.",
+  "startedAt" : "2026-08-19T18:45:06.803405Z",
+  "completedAt" : "2026-08-19T18:46:18.718580Z",
+  "durationMs" : 71915,
+  "usage" : {
+    "calls" : 6,
+    "promptTokens" : 5255,
+    "completionTokens" : 2678,
+    "estimatedCostUsd" : null,
+    "estimated" : false,
+    "partiallyPriced" : false
+  },
+  "failureCategory" : null,
+  "failureReason" : null,
+  "warnings" : [ ],
+  "componentAnswers" : [ ],
+  "councilResult" : {
+    "sessionId" : "47345431-2899-4828-a259-23a2e9e80664",
+    "status" : "COMPLETED",
+    "profileId" : "local",
+    "depthMode" : "BALANCED",
+    "policyId" : "local-balanced",
+    "protocolId" : "balanced",
+    "answer" : "**Final Recommendation/Answer:**\n\nImplement a combination of idempotent operations, message acknowledgments, and a retry mechanism to achieve \"at-least-once delivery\" with a guarantee of idempotence, which is the closest achievable goal to \"exactly-once delivery\" in a distributed system with unreliable network and potential service crashes. Additionally, consider implementing a distributed consensus protocol like Raft or Paxos to ensure that both services agree on the order and delivery of messages, but acknowledge that this would require additional complexity and synchronization overhead.\n\n**Rationale:**\n\nThe council members agree that achieving \"exactly-once delivery\" is challenging in a distributed system with unreliable network and potential service crashes. However, they also recognize that the business need of not charging a customer twice and never silently not charging must be satisfied. The combination of idempotent operations, message acknowledgments, and a retry mechanism provides a robust solution to ensure that messages are processed exactly once and that the business need is met. The distributed consensus protocol offers an additional layer of guarantee, but its implementation and synchronization would require careful consideration.\n\n**Important Dissent:**\n\nWhile the majority of the council members agree on the recommended design, Reviewer local-mistral raises a concern that the design does not account for the order in which messages are delivered, which could lead to inconsistencies in the system state. This concern highlights the importance of considering the message ordering in the system design.\n\n**Unresolved Risks:**\n\n1. **Network reliability**: The network may still drop or delay messages, even with acknowledgments and retries.\n2. **Service crashes**: Either side may still crash after sending but before recording that it sent, potentially leading to lost or duplicated messages.\n3. **Message ordering**: The order in which messages are delivered may not be guaranteed, which could lead to inconsistencies in the system state.\n\n**Confidence:**\n\nThe council members have a high confidence in the recommended design, with an average confidence score of 87.5. However, they also acknowledge that the design is not foolproof and that additional considerations may be necessary depending on the specific requirements and constraints of the system.\n\n**Weighting:**\n\nThe final recommendation is weighted by the score summary, which gives more weight to draft-C9E875F3 (total=90.0) than draft-682F2A71 (total=85.99999999999999). The review scores and confidence levels are also taken into account, with Reviewer local-llama3's score of 90 and confidence of 0.95 having a significant impact on the final recommendation.",
+    "draftCount" : 2,
+    "reviewCount" : 2,
+    "debateRounds" : 0,
+    "participatingModels" : [ "local-llama3", "local-mistral" ],
+    "excludedModels" : [ ],
+    "warnings" : [ ],
+    "sycophancyWarnings" : [ ],
+    "scoreSummary" : {
+      "scores" : [ {
+        "scorerId" : "confidence-weighted",
+        "draftId" : "draft-682F2A71",
+        "dimensionScores" : {
+          "accuracy" : 90.0,
+          "completeness" : 80.0,
+          "reasoning" : 90.0,
+          "clarity" : 90.0,
+          "constructiveness" : 90.0
+        },
+        "weightedTotal" : 85.99999999999999,
+        "label" : "initial"
+      }, {
+        "scorerId" : "confidence-weighted",
+        "draftId" : "draft-C9E875F3",
+        "dimensionScores" : {
+          "accuracy" : 95.0,
+          "completeness" : 85.0,
+          "reasoning" : 95.0,
+          "clarity" : 90.0,
+          "constructiveness" : 90.0
+        },
+        "weightedTotal" : 90.0,
+        "label" : "initial"
+      } ],
+      "variance" : 4.000000000000028,
+      "winningDraftId" : "draft-C9E875F3",
+      "escalated" : false,
+      "escalationPolicy" : null,
+      "reviewerDisagreement" : 0.0,
+      "disagreementMeasurable" : false
+    },
+    "validation" : {
+      "validatorId" : "local-validator",
+      "approved" : true,
+      "confidence" : 0.9,
+      "issues" : [ ],
+      "recommendedFixes" : [ ],
+      "criteria" : {
+        "uncertainty" : "pass - The final answer acknowledges the unresolved risks and the potential need for additional considerations.",
+        "correctness" : "pass - The final answer provides a design that addresses the business need and the challenges of the network and potential service crashes.",
+        "completeness" : "pass - The final answer includes a detailed explanation of the recommended design and addresses potential risks.",
+        "actionability" : "pass - The final answer provides a clear and actionable recommendation for implementing 'at-least-once delivery' with idempotence.",
+        "safety" : "pass - The final answer discusses the safety implications and provides a design that minimizes potential risks."
+      },
+      "requiresHumanReview" : false,
+      "rawText" : "{\n  \"approved\": true,\n  \"confidence\": 0.9,\n  \"issues\": [],\n  \"recommendedFixes\": [],\n  \"criteria\": {\n    \"correctness\": \"pass - The final answer provides a design that addresses the business need and the challenges of the network and potential service crashes.\",\n    \"completeness\": \"pass - The final answer includes a detailed explanation of the recommended design and addresses potential risks.\",\n    \"uncertainty\": \"pass - The final answer acknowledges the unresolved risks and the potential need for additional considerations.\",\n    \"safety\": \"pass - The final answer discusses the safety implications and provides a design that minimizes potential risks.\",\n    \"actionability\": \"pass - The final answer provides a clear and actionable recommendation for implementing 'at-least-once delivery' with idempotence.\"\n  },\n  \"requiresHumanReview\": false\n}"
+    },
+    "validationIndependence" : "INDEPENDENT",
+    "failureReason" : null,
+    "failureCategory" : null,
+    "modelFailures" : [ ],
+    "usage" : {
+      "promptTokens" : 5255,
+      "completionTokens" : 2678,
+      "totalTokens" : 7933,
+      "calls" : 6,
+      "estimatedCostUsd" : null,
+      "estimated" : false,
+      "partiallyPriced" : false,
+      "byModel" : [ {
+        "modelId" : "local-mistral",
+        "calls" : 2,
+        "promptTokens" : 1599,
+        "completionTokens" : 972,
+        "totalTokens" : 2571,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "modelId" : "local-llama3",
+        "calls" : 2,
+        "promptTokens" : 1337,
+        "completionTokens" : 969,
+        "totalTokens" : 2306,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "modelId" : "local-chair",
+        "calls" : 1,
+        "promptTokens" : 1115,
+        "completionTokens" : 527,
+        "totalTokens" : 1642,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "modelId" : "local-validator",
+        "calls" : 1,
+        "promptTokens" : 1204,
+        "completionTokens" : 210,
+        "totalTokens" : 1414,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      } ],
+      "byStage" : [ {
+        "stage" : "GENERATE",
+        "calls" : 2,
+        "promptTokens" : 490,
+        "completionTokens" : 632,
+        "totalTokens" : 1122,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "stage" : "REVIEW",
+        "calls" : 2,
+        "promptTokens" : 2446,
+        "completionTokens" : 1309,
+        "totalTokens" : 3755,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "stage" : "SYNTHESIZE",
+        "calls" : 1,
+        "promptTokens" : 1115,
+        "completionTokens" : 527,
+        "totalTokens" : 1642,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "stage" : "VALIDATE",
+        "calls" : 1,
+        "promptTokens" : 1204,
+        "completionTokens" : 210,
+        "totalTokens" : 1414,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      } ]
+    },
+    "integrity" : {
+      "reduced" : false,
+      "preserveDissent" : true,
+      "sycophancyThreshold" : null,
+      "reviewsPerDraft" : 1,
+      "notes" : [ ]
+    }
+  }
+}

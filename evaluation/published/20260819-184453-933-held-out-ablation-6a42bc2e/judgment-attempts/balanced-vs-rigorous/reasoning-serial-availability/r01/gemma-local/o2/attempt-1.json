@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "balanced-vs-rigorous:reasoning-serial-availability:r1:gemma-local:o2",
+  "pairId" : "balanced-vs-rigorous:reasoning-serial-availability:r1",
+  "comparisonId" : "balanced-vs-rigorous",
+  "caseId" : "reasoning-serial-availability",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "local-balanced",
+  "answerBVariant" : "local-rigorous",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "scoresB" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "violationsA" : [ "Failed to report approximately 99.6 percent.", "Failed to convert unavailable time to 170-175 minutes.", "Failed to state that serial dependencies multiply rather than average." ],
+  "violationsB" : [ "Incorrect calculation: 0.999^4 is ~0.996, not 0.9970.", "Failed to report approximately 99.6 percent.", "Failed to convert unavailable time to 170-175 minutes.", "Failed to state that serial dependencies multiply rather than average." ],
+  "rationale" : "Both candidates failed significantly on the specific requirements provided in the prompt. Neither candidate reported the required 99.6% availability, neither converted the unavailable time to the required 170-175 minute range, and neither explicitly stated that serial dependencies multiply rather than average. Candidate A's math for the unavailable time (14.4 hours) is also incorrect based on the 99.51% figure it provided (which would be ~13.1 hours). Candidate B's math is also incorrect (0.999^4 is not 0.9970). Since both failed all specific constraints and requirements, it is a tie.",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    },\n    \"B\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Failed to report approximately 99.6 percent.\",\n      \"Failed to convert unavailable time to 170-175 minutes.\",\n      \"Failed to state that serial dependencies multiply rather than average.\"\n    ],\n    \"B\": [\n      \"Incorrect calculation: 0.999^4 is ~0.996, not 0.9970.\",\n      \"Failed to report approximately 99.6 percent.\",\n      \"Failed to convert unavailable time to 170-175 minutes.\",\n      \"Failed to state that serial dependencies multiply rather than average.\"\n    ]\n  },\n  \"rationale\": \"Both candidates failed significantly on the specific requirements provided in the prompt. Neither candidate reported the required 99.6% availability, neither converted the unavailable time to the required 170-175 minute range, and neither explicitly stated that serial dependencies multiply rather than average. Candidate A's math for the unavailable time (14.4 hours) is also incorrect based on the 99.51% figure it provided (which would be ~13.1 hours). Candidate B's math is also incorrect (0.999^4 is not 0.9970). Since both failed all specific constraints and requirements, it is a tie.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T09:25:25.218543Z",
+  "durationMs" : 20204,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1597,
+    "completionTokens" : 439,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

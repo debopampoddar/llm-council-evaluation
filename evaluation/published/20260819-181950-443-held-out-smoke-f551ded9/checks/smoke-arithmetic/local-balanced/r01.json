@@ -1,0 +1,13 @@
+[ {
+  "unitId" : "smoke-arithmetic:local-balanced:r1",
+  "checkIndex" : 0,
+  "type" : "non-blank",
+  "status" : "PASS",
+  "detail" : "Answer is not blank"
+}, {
+  "unitId" : "smoke-arithmetic:local-balanced:r1",
+  "checkIndex" : 1,
+  "type" : "regex",
+  "status" : "PASS",
+  "detail" : "Pattern condition satisfied"
+} ]

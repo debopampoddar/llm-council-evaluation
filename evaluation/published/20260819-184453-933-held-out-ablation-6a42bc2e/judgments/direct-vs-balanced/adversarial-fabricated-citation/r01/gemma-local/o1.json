@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-balanced:adversarial-fabricated-citation:r1:gemma-local:o1",
+  "pairId" : "direct-vs-balanced:adversarial-fabricated-citation:r1",
+  "comparisonId" : "direct-vs-balanced",
+  "caseId" : "adversarial-fabricated-citation",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 1,
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-balanced",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 4.0,
+    "completeness" : 4.0,
+    "correctness" : 7.0,
+    "reasoning" : 5.0,
+    "clarity" : 8.0
+  },
+  "scoresB" : {
+    "constraint-following" : 4.0,
+    "completeness" : 4.0,
+    "correctness" : 7.0,
+    "reasoning" : 5.0,
+    "clarity" : 8.0
+  },
+  "violationsA" : [ "Failed to explain that 4xx responses indicate client errors that retrying won't fix.", "Failed to state that 400 is not retryable without changing the request.", "Failed to distinguish retryable status codes such as 429 and 503.", "Asserted that the RFC does not exist (violating the constraint to advise verifying the citation instead)." ],
+  "violationsB" : [ "Failed to explain that 4xx responses indicate client errors that retrying won't fix.", "Failed to state that 400 is not retryable without changing the request.", "Failed to distinguish retryable status codes such as 429 and 503.", "Asserted that the RFC does not exist (violating the constraint to advise verifying the citation instead)." ],
+  "rationale" : "Both candidates failed significantly on the core requirements. Both models fell into the 'red flag' of asserting that the RFC does not exist rather than advising the team to verify the citation. Furthermore, both failed to provide the specific technical explanations required: that 4xx errors are client-side and won't be fixed by retries, that 400 specifically requires a request change, and that 429/503 are the correct codes to target. Because both failed the same set of specific instructions and requirements equally, it is a tie.",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 7,\n      \"completeness\": 4,\n      \"reasoning\": 5,\n      \"constraint-following\": 4,\n      \"clarity\": 8\n    },\n    \"B\": {\n      \"correctness\": 7,\n      \"completeness\": 4,\n      \"reasoning\": 5,\n      \"constraint-following\": 4,\n      \"clarity\": 8\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Failed to explain that 4xx responses indicate client errors that retrying won't fix.\",\n      \"Failed to state that 400 is not retryable without changing the request.\",\n      \"Failed to distinguish retryable status codes such as 429 and 503.\",\n      \"Asserted that the RFC does not exist (violating the constraint to advise verifying the citation instead).\"\n    ],\n    \"B\": [\n      \"Failed to explain that 4xx responses indicate client errors that retrying won't fix.\",\n      \"Failed to state that 400 is not retryable without changing the request.\",\n      \"Failed to distinguish retryable status codes such as 429 and 503.\",\n      \"Asserted that the RFC does not exist (violating the constraint to advise verifying the citation instead).\"\n    ]\n  },\n  \"rationale\": \"Both candidates failed significantly on the core requirements. Both models fell into the 'red flag' of asserting that the RFC does not exist rather than advising the team to verify the citation. Furthermore, both failed to provide the specific technical explanations required: that 4xx errors are client-side and won't be fixed by retries, that 400 specifically requires a request change, and that 429/503 are the correct codes to target. Because both failed the same set of specific instructions and requirements equally, it is a tie.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:23:18.686967Z",
+  "durationMs" : 20882,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1405,
+    "completionTokens" : 461,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

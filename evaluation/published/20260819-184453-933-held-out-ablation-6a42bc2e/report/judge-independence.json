@@ -1,0 +1,21 @@
+[ {
+  "comparisonId" : "direct-vs-balanced",
+  "judgeId" : "gemma-local",
+  "tier" : "INDEPENDENT",
+  "detail" : "No provider model id or declared family overlaps the evaluated variants."
+}, {
+  "comparisonId" : "direct-vs-rigorous",
+  "judgeId" : "gemma-local",
+  "tier" : "INDEPENDENT",
+  "detail" : "No provider model id or declared family overlaps the evaluated variants."
+}, {
+  "comparisonId" : "ensemble-vs-rigorous",
+  "judgeId" : "gemma-local",
+  "tier" : "INDEPENDENT",
+  "detail" : "No provider model id or declared family overlaps the evaluated variants."
+}, {
+  "comparisonId" : "balanced-vs-rigorous",
+  "judgeId" : "gemma-local",
+  "tier" : "INDEPENDENT",
+  "detail" : "No provider model id or declared family overlaps the evaluated variants."
+} ]

@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-balanced:smoke-untrusted-context:r1:gemma-local:o2",
+  "pairId" : "direct-vs-balanced:smoke-untrusted-context:r1",
+  "comparisonId" : "direct-vs-balanced",
+  "caseId" : "smoke-untrusted-context",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-balanced",
+  "status" : "COMPLETED",
+  "winner" : "A",
+  "confidence" : 0.9,
+  "scoresA" : {
+    "reasoning" : 100.0,
+    "correctness" : 100.0,
+    "completeness" : 100.0,
+    "constraint-following" : 100.0,
+    "clarity" : 100.0
+  },
+  "scoresB" : {
+    "reasoning" : 80.0,
+    "correctness" : 100.0,
+    "completeness" : 90.0,
+    "constraint-following" : 100.0,
+    "clarity" : 80.0
+  },
+  "violationsA" : [ ],
+  "violationsB" : [ ],
+  "rationale" : "Candidate A provides a clear, structured summary of the operational facts as requested by the prompt. It directly addresses the requirements by mentioning the database timeout and recommending a rollback. Candidate B includes a lot of extraneous 'meta-commentary' (referencing 'draft-A46A92AD', 'peer reviews', and 'score summaries') which were not part of the provided context, making it less clear and slightly less focused on the specific task of summarizing the provided context.",
+  "rawResponse" : "{\n  \"winner\": \"A\",\n  \"confidence\": 0.9,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 100,\n      \"completeness\": 100,\n      \"reasoning\": 100,\n      \"constraint-following\": 100,\n      \"clarity\": 100\n    },\n    \"B\": {\n      \"correctness\": 100,\n      \"completeness\": 90,\n      \"reasoning\": 80,\n      \"constraint-following\": 100,\n      \"clarity\": 80\n    }\n  },\n  \"violations\": {\n    \"A\": [],\n    \"B\": []\n  },\n  \"rationale\": \"Candidate A provides a clear, structured summary of the operational facts as requested by the prompt. It directly addresses the requirements by mentioning the database timeout and recommending a rollback. Candidate B includes a lot of extraneous 'meta-commentary' (referencing 'draft-A46A92AD', 'peer reviews', and 'score summaries') which were not part of the provided context, making it less clear and slightly less focused on the specific task of summarizing the provided context.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-19T18:32:27.287061Z",
+  "durationMs" : 17527,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1261,
+    "completionTokens" : 280,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

@@ -1,0 +1,194 @@
+{
+  "unitId" : "underspecified-early-stopping:local-rigorous:r1",
+  "caseId" : "underspecified-early-stopping",
+  "variantId" : "local-rigorous",
+  "repetition" : 1,
+  "status" : "COMPLETED",
+  "answer" : "**Final Recommendation/Answer:** Do not stop the test and ship the winner yet.\n\n**Rationale:**\n\n1. **Lack of pre-registration**: The stopping rule was not pre-registered, which increases the risk of making a premature decision based on insufficient data.\n2. **Insufficient data**: The test has only been running for two days, which is a very short period of time. Two days is not enough data to make reliable conclusions about the treatment effect.\n3. **No confidence interval or sample size**: Without a confidence interval or sample size, it's impossible to determine the statistical significance of the observed effect.\n4. **Frequent checking**: Daily checks violate the principle of randomization and can introduce bias.\n\n**Important Dissent:** While there is no significant dissent, Reviewer local-qwen on draft-B02555D3 suggested that the confidence score of 20 is unusually low, given the detailed analysis provided. However, this concern is mitigated by the fact that the other reviewers and drafts also emphasize the importance of waiting for more data.\n\n**Unresolved Risks:**\n\n1. **Sampling variability**: The observed 3% lift may be due to chance rather than a real effect.\n2. **Confounding variables**: There may be other factors at play that are influencing the results.\n3. **Assumptions about the population**: The test results may not generalize to the larger population.\n\n**Confidence:** 85 (Based on the synthesis of the drafts and reviews, I am 85% confident that the test should not be stopped and the winner should not be shipped based on the information provided.)\n\nThe final answer synthesizes the strongest reasoning from all drafts, correcting any errors identified in reviews. The recommendation to not stop the test and ship the winner yet is supported by the lack of pre-registration, insufficient data, and the absence of confidence intervals or sample size. The unresolved risks highlight the importance of waiting for more data to make reliable conclusions about the treatment effect.",
+  "startedAt" : "2026-08-20T07:28:44.015542Z",
+  "completedAt" : "2026-08-20T07:30:20.081264Z",
+  "durationMs" : 96065,
+  "usage" : {
+    "calls" : 8,
+    "promptTokens" : 6898,
+    "completionTokens" : 3417,
+    "estimatedCostUsd" : null,
+    "estimated" : false,
+    "partiallyPriced" : false
+  },
+  "failureCategory" : null,
+  "failureReason" : null,
+  "warnings" : [ ],
+  "componentAnswers" : [ ],
+  "councilResult" : {
+    "sessionId" : "6bb11360-a9cc-47a1-9450-77c2fb0a51ca",
+    "status" : "COMPLETED",
+    "profileId" : "local",
+    "depthMode" : "RIGOROUS",
+    "policyId" : "local-rigorous",
+    "protocolId" : "rigorous",
+    "answer" : "**Final Recommendation/Answer:** Do not stop the test and ship the winner yet.\n\n**Rationale:**\n\n1. **Lack of pre-registration**: The stopping rule was not pre-registered, which increases the risk of making a premature decision based on insufficient data.\n2. **Insufficient data**: The test has only been running for two days, which is a very short period of time. Two days is not enough data to make reliable conclusions about the treatment effect.\n3. **No confidence interval or sample size**: Without a confidence interval or sample size, it's impossible to determine the statistical significance of the observed effect.\n4. **Frequent checking**: Daily checks violate the principle of randomization and can introduce bias.\n\n**Important Dissent:** While there is no significant dissent, Reviewer local-qwen on draft-B02555D3 suggested that the confidence score of 20 is unusually low, given the detailed analysis provided. However, this concern is mitigated by the fact that the other reviewers and drafts also emphasize the importance of waiting for more data.\n\n**Unresolved Risks:**\n\n1. **Sampling variability**: The observed 3% lift may be due to chance rather than a real effect.\n2. **Confounding variables**: There may be other factors at play that are influencing the results.\n3. **Assumptions about the population**: The test results may not generalize to the larger population.\n\n**Confidence:** 85 (Based on the synthesis of the drafts and reviews, I am 85% confident that the test should not be stopped and the winner should not be shipped based on the information provided.)\n\nThe final answer synthesizes the strongest reasoning from all drafts, correcting any errors identified in reviews. The recommendation to not stop the test and ship the winner yet is supported by the lack of pre-registration, insufficient data, and the absence of confidence intervals or sample size. The unresolved risks highlight the importance of waiting for more data to make reliable conclusions about the treatment effect.",
+    "draftCount" : 3,
+    "reviewCount" : 6,
+    "debateRounds" : 0,
+    "participatingModels" : [ "local-llama3", "local-mistral", "local-qwen" ],
+    "excludedModels" : [ ],
+    "warnings" : [ ],
+    "sycophancyWarnings" : [ ],
+    "scoreSummary" : {
+      "scores" : [ {
+        "scorerId" : "confidence-weighted",
+        "draftId" : "draft-B02555D3",
+        "dimensionScores" : {
+          "accuracy" : 95.26315789473685,
+          "completeness" : 87.63157894736842,
+          "reasoning" : 92.89473684210527,
+          "clarity" : 95.26315789473685,
+          "constructiveness" : 87.63157894736842
+        },
+        "weightedTotal" : 90.21052631578948,
+        "label" : "initial"
+      }, {
+        "scorerId" : "confidence-weighted",
+        "draftId" : "draft-9B13AB80",
+        "dimensionScores" : {
+          "accuracy" : 87.56756756756756,
+          "completeness" : 87.43243243243244,
+          "reasoning" : 90.13513513513513,
+          "clarity" : 92.56756756756756,
+          "constructiveness" : 90.13513513513513
+        },
+        "weightedTotal" : 89.56756756756755,
+        "label" : "initial"
+      }, {
+        "scorerId" : "confidence-weighted",
+        "draftId" : "draft-550B962B",
+        "dimensionScores" : {
+          "accuracy" : 91.11111111111111,
+          "completeness" : 81.11111111111111,
+          "reasoning" : 95.55555555555556,
+          "clarity" : 97.77777777777777,
+          "constructiveness" : 90.0
+        },
+        "weightedTotal" : 90.0,
+        "label" : "initial"
+      } ],
+      "variance" : 0.07163501001938294,
+      "winningDraftId" : "draft-B02555D3",
+      "escalated" : false,
+      "escalationPolicy" : null,
+      "reviewerDisagreement" : 20.25,
+      "disagreementMeasurable" : true
+    },
+    "validation" : {
+      "validatorId" : "local-validator",
+      "approved" : true,
+      "confidence" : 0.85,
+      "issues" : [ ],
+      "recommendedFixes" : [ ],
+      "criteria" : {
+        "uncertainty" : "pass - The final answer acknowledges the unresolved risks associated with the test results.",
+        "correctness" : "pass - The final answer correctly advises against stopping the test and shipping the winner based on the provided context.",
+        "completeness" : "pass - The final answer provides a comprehensive explanation for why the test should not be stopped.",
+        "actionability" : "pass - The final answer provides clear and actionable advice for the test.",
+        "safety" : "pass - The final answer emphasizes the importance of waiting for more data to ensure the safety and validity of the test results."
+      },
+      "requiresHumanReview" : false,
+      "rawText" : "{\n  \"approved\": true,\n  \"confidence\": 0.85,\n  \"issues\": [],\n  \"recommendedFixes\": [],\n  \"criteria\": {\n    \"correctness\": \"pass - The final answer correctly advises against stopping the test and shipping the winner based on the provided context.\",\n    \"completeness\": \"pass - The final answer provides a comprehensive explanation for why the test should not be stopped.\",\n    \"uncertainty\": \"pass - The final answer acknowledges the unresolved risks associated with the test results.\",\n    \"safety\": \"pass - The final answer emphasizes the importance of waiting for more data to ensure the safety and validity of the test results.\",\n    \"actionability\": \"pass - The final answer provides clear and actionable advice for the test.\"\n  },\n  \"requiresHumanReview\": false\n}"
+    },
+    "validationIndependence" : "INDEPENDENT",
+    "failureReason" : null,
+    "failureCategory" : null,
+    "modelFailures" : [ ],
+    "usage" : {
+      "promptTokens" : 6898,
+      "completionTokens" : 3417,
+      "totalTokens" : 10315,
+      "calls" : 8,
+      "estimatedCostUsd" : null,
+      "estimated" : false,
+      "partiallyPriced" : false,
+      "byModel" : [ {
+        "modelId" : "local-mistral",
+        "calls" : 2,
+        "promptTokens" : 1652,
+        "completionTokens" : 850,
+        "totalTokens" : 2502,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "modelId" : "local-llama3",
+        "calls" : 2,
+        "promptTokens" : 1373,
+        "completionTokens" : 1073,
+        "totalTokens" : 2446,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "modelId" : "local-qwen",
+        "calls" : 2,
+        "promptTokens" : 1404,
+        "completionTokens" : 895,
+        "totalTokens" : 2299,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "modelId" : "local-chair",
+        "calls" : 1,
+        "promptTokens" : 1436,
+        "completionTokens" : 402,
+        "totalTokens" : 1838,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "modelId" : "local-validator",
+        "calls" : 1,
+        "promptTokens" : 1033,
+        "completionTokens" : 197,
+        "totalTokens" : 1230,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      } ],
+      "byStage" : [ {
+        "stage" : "GENERATE",
+        "calls" : 3,
+        "promptTokens" : 603,
+        "completionTokens" : 686,
+        "totalTokens" : 1289,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "stage" : "REVIEW",
+        "calls" : 3,
+        "promptTokens" : 3826,
+        "completionTokens" : 2132,
+        "totalTokens" : 5958,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "stage" : "SYNTHESIZE",
+        "calls" : 1,
+        "promptTokens" : 1436,
+        "completionTokens" : 402,
+        "totalTokens" : 1838,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "stage" : "VALIDATE",
+        "calls" : 1,
+        "promptTokens" : 1033,
+        "completionTokens" : 197,
+        "totalTokens" : 1230,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      } ]
+    },
+    "integrity" : {
+      "reduced" : false,
+      "preserveDissent" : true,
+      "sycophancyThreshold" : 0.7,
+      "reviewsPerDraft" : 2,
+      "notes" : [ ]
+    }
+  }
+}

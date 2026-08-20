@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-rigorous:architecture-tenant-isolation:r1:gemma-local:o1",
+  "pairId" : "direct-vs-rigorous:architecture-tenant-isolation:r1",
+  "comparisonId" : "direct-vs-rigorous",
+  "caseId" : "architecture-tenant-isolation",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 1,
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "direct-llama",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 3.0,
+    "completeness" : 4.0,
+    "correctness" : 3.0,
+    "reasoning" : 3.0,
+    "clarity" : 4.0
+  },
+  "scoresB" : {
+    "constraint-following" : 3.0,
+    "completeness" : 4.0,
+    "correctness" : 3.0,
+    "reasoning" : 3.0,
+    "clarity" : 4.0
+  },
+  "violationsA" : [ "Fails to explicitly compare shared-schema vs. dedicated approaches as required.", "Fails to explicitly propose a hybrid model (e.g., pooling 898 and isolating 2) as required.", "The 'Final Recommendation' actually suggests a separate instance for EVERY tenant, which is a red flag for a 6-person team managing 900 tenants." ],
+  "violationsB" : [ "Fails to explicitly compare shared-schema vs. dedicated approaches as required.", "Fails to explicitly propose a hybrid model as required.", "The 'Multi-VC' architecture as described is vague and leans toward a 'separate instance' model which is operationally infeasible for a 6-person team with 900 tenants." ],
+  "rationale" : "Both candidates failed significantly on the core requirements of the prompt. Neither candidate provided the required comparison between shared-schema, shared-database, and dedicated approaches. Neither candidate explicitly proposed a hybrid model (which is the standard industry solution for this specific scenario: pooling the 898 standard tenants and using dedicated instances for the 2 enterprise ones). Both candidates instead hallucinated a 'Multi-VC' architecture that is not a standard PostgreSQL term and would be an operational nightmare for a 6-person team to manage for 900 tenants. Because both failed the primary constraints and requirements in a similar fashion, they are tied at a low score.",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 3,\n      \"completeness\": 4,\n      \"reasoning\": 3,\n      \"constraint-following\": 3,\n      \"clarity\": 4\n    },\n    \"B\": {\n      \"correctness\": 3,\n      \"completeness\": 4,\n      \"reasoning\": 3,\n      \"constraint-following\": 3,\n      \"clarity\": 4\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Fails to explicitly compare shared-schema vs. dedicated approaches as required.\",\n      \"Fails to explicitly propose a hybrid model (e.g., pooling 898 and isolating 2) as required.\",\n      \"The 'Final Recommendation' actually suggests a separate instance for EVERY tenant, which is a red flag for a 6-person team managing 900 tenants.\"\n    ],\n    \"B\": [\n      \"Fails to explicitly compare shared-schema vs. dedicated approaches as required.\",\n      \"Fails to explicitly propose a hybrid model as required.\",\n      \"The 'Multi-VC' architecture as described is vague and leans toward a 'separate instance' model which is operationally infeasible for a 6-person team with 900 tenants.\"\n    ]\n  },\n  \"rationale\": \"Both candidates failed significantly on the core requirements of the prompt. Neither candidate provided the required comparison between shared-schema, shared-database, and dedicated approaches. Neither candidate explicitly proposed a hybrid model (which is the standard industry solution for this specific scenario: pooling the 898 standard tenants and using dedicated instances for the 2 enterprise ones). Both candidates instead hallucinated a 'Multi-VC' architecture that is not a standard PostgreSQL term and would be an operational nightmare for a 6-person team to manage for 900 tenants. Because both failed the primary constraints and requirements in a similar fashion, they are tied at a low score.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:27:51.555881Z",
+  "durationMs" : 22731,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1865,
+    "completionTokens" : 463,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

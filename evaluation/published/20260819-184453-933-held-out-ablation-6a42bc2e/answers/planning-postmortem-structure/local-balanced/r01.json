@@ -1,0 +1,174 @@
+{
+  "unitId" : "planning-postmortem-structure:local-balanced:r1",
+  "caseId" : "planning-postmortem-structure",
+  "variantId" : "local-balanced",
+  "repetition" : 1,
+  "status" : "COMPLETED",
+  "answer" : "**Final Recommendation or Answer:**\n\nConduct a thorough investigation to identify the root cause of the outage, including the config change and its impact on the system. Review and update the existing runbook to ensure it accurately reflects current processes and procedures. Establish clear ownership and accountability for the runbook and its maintenance. Develop a plan to improve monitoring and alerting to prevent similar incidents in the future. Additionally, consider the following:\n\n* Review the runbook creation and update process to ensure it is robust and effective.\n* Enhance communication between the engineering team and the customer support team to prevent delays in reporting incidents.\n* Consider implementing more sensitive monitoring and alerting systems to catch potential issues before they become outages.\n* Develop a plan to address the systemic issues that contributed to the outage, including improving change management and tracking, and enhancing incident response and prevention.\n\n**Rationale:**\n\nThe investigation will help identify the root cause of the outage and provide a clear understanding of the contributing factors. Updating the runbook will ensure that it accurately reflects current processes and procedures, reducing the likelihood of similar incidents. Establishing clear ownership and accountability will help prevent similar incidents in the future. Improving monitoring and alerting will enable the organization to catch potential issues before they become outages.\n\n**Important Dissent:**\n\nWhile the engineer who made the config change is likely responsible for the outage, the organization must also address the systemic issues that contributed to the outage. This includes reviewing and updating runbooks, improving monitoring systems, and enhancing communication between teams.\n\n**Unresolved Risks:**\n\n* The investigation may reveal additional factors contributing to the outage.\n* The root cause of the outage may be more complex than initially thought.\n* The organization's response to incidents may need to be revisited to ensure it is effective and efficient.\n\n**Confidence:**\n\n95\n\nThe final answer synthesizes the strongest reasoning from both drafts, taking into account the peer reviews and the score summary. The confidence level is 95, reflecting the high level of agreement among the council members and the robustness of the recommendations. The final answer acknowledges the importance of addressing systemic issues and the need for clear ownership and accountability.",
+  "startedAt" : "2026-08-20T07:02:14.072350Z",
+  "completedAt" : "2026-08-20T07:03:43.915797Z",
+  "durationMs" : 89843,
+  "usage" : {
+    "calls" : 6,
+    "promptTokens" : 5238,
+    "completionTokens" : 2682,
+    "estimatedCostUsd" : null,
+    "estimated" : false,
+    "partiallyPriced" : false
+  },
+  "failureCategory" : null,
+  "failureReason" : null,
+  "warnings" : [ ],
+  "componentAnswers" : [ ],
+  "councilResult" : {
+    "sessionId" : "2bceb5f5-fa70-4801-86da-51d93a9588ec",
+    "status" : "COMPLETED",
+    "profileId" : "local",
+    "depthMode" : "BALANCED",
+    "policyId" : "local-balanced",
+    "protocolId" : "balanced",
+    "answer" : "**Final Recommendation or Answer:**\n\nConduct a thorough investigation to identify the root cause of the outage, including the config change and its impact on the system. Review and update the existing runbook to ensure it accurately reflects current processes and procedures. Establish clear ownership and accountability for the runbook and its maintenance. Develop a plan to improve monitoring and alerting to prevent similar incidents in the future. Additionally, consider the following:\n\n* Review the runbook creation and update process to ensure it is robust and effective.\n* Enhance communication between the engineering team and the customer support team to prevent delays in reporting incidents.\n* Consider implementing more sensitive monitoring and alerting systems to catch potential issues before they become outages.\n* Develop a plan to address the systemic issues that contributed to the outage, including improving change management and tracking, and enhancing incident response and prevention.\n\n**Rationale:**\n\nThe investigation will help identify the root cause of the outage and provide a clear understanding of the contributing factors. Updating the runbook will ensure that it accurately reflects current processes and procedures, reducing the likelihood of similar incidents. Establishing clear ownership and accountability will help prevent similar incidents in the future. Improving monitoring and alerting will enable the organization to catch potential issues before they become outages.\n\n**Important Dissent:**\n\nWhile the engineer who made the config change is likely responsible for the outage, the organization must also address the systemic issues that contributed to the outage. This includes reviewing and updating runbooks, improving monitoring systems, and enhancing communication between teams.\n\n**Unresolved Risks:**\n\n* The investigation may reveal additional factors contributing to the outage.\n* The root cause of the outage may be more complex than initially thought.\n* The organization's response to incidents may need to be revisited to ensure it is effective and efficient.\n\n**Confidence:**\n\n95\n\nThe final answer synthesizes the strongest reasoning from both drafts, taking into account the peer reviews and the score summary. The confidence level is 95, reflecting the high level of agreement among the council members and the robustness of the recommendations. The final answer acknowledges the importance of addressing systemic issues and the need for clear ownership and accountability.",
+    "draftCount" : 2,
+    "reviewCount" : 2,
+    "debateRounds" : 0,
+    "participatingModels" : [ "local-llama3", "local-mistral" ],
+    "excludedModels" : [ ],
+    "warnings" : [ ],
+    "sycophancyWarnings" : [ ],
+    "scoreSummary" : {
+      "scores" : [ {
+        "scorerId" : "confidence-weighted",
+        "draftId" : "draft-C632BFFF",
+        "dimensionScores" : {
+          "accuracy" : 90.0,
+          "completeness" : 70.0,
+          "reasoning" : 90.0,
+          "clarity" : 80.0,
+          "constructiveness" : 80.0
+        },
+        "weightedTotal" : 80.0,
+        "label" : "initial"
+      }, {
+        "scorerId" : "confidence-weighted",
+        "draftId" : "draft-2F92A8D9",
+        "dimensionScores" : {
+          "accuracy" : 85.0,
+          "completeness" : 95.0,
+          "reasoning" : 90.0,
+          "clarity" : 90.0,
+          "constructiveness" : 85.0
+        },
+        "weightedTotal" : 88.99999999999999,
+        "label" : "initial"
+      } ],
+      "variance" : 20.249999999999936,
+      "winningDraftId" : "draft-2F92A8D9",
+      "escalated" : false,
+      "escalationPolicy" : null,
+      "reviewerDisagreement" : 0.0,
+      "disagreementMeasurable" : false
+    },
+    "validation" : {
+      "validatorId" : "local-validator",
+      "approved" : true,
+      "confidence" : 1.0,
+      "issues" : [ ],
+      "recommendedFixes" : [ ],
+      "criteria" : {
+        "uncertainty" : "pass - The answer acknowledges potential unresolved risks, such as additional factors contributing to the outage, the complexity of the root cause, and the need to revisit the organization's response to incidents.",
+        "correctness" : "pass - The answer provides a comprehensive investigation plan, recommendations for improving the runbook, monitoring and alerting, communication, and systemic issues.",
+        "completeness" : "pass - The answer addresses all aspects of the question, including the root cause investigation, runbook update, accountability, monitoring, communication, and systemic issues.",
+        "actionability" : "pass - The answer provides clear recommendations for action items, including a thorough investigation, runbook review, improvement of monitoring and alerting, communication enhancement, and systemic issue resolution.",
+        "safety" : "pass - The answer suggests improvements to monitoring and alerting systems to prevent similar incidents in the future."
+      },
+      "requiresHumanReview" : false,
+      "rawText" : "{\n  \"approved\": true,\n  \"confidence\": 1.0,\n  \"issues\": [],\n  \"recommendedFixes\": [],\n  \"criteria\": {\n    \"correctness\": \"pass - The answer provides a comprehensive investigation plan, recommendations for improving the runbook, monitoring and alerting, communication, and systemic issues.\",\n    \"completeness\": \"pass - The answer addresses all aspects of the question, including the root cause investigation, runbook update, accountability, monitoring, communication, and systemic issues.\",\n    \"uncertainty\": \"pass - The answer acknowledges potential unresolved risks, such as additional factors contributing to the outage, the complexity of the root cause, and the need to revisit the organization's response to incidents.\",\n    \"safety\": \"pass - The answer suggests improvements to monitoring and alerting systems to prevent similar incidents in the future.\",\n    \"actionability\": \"pass - The answer provides clear recommendations for action items, including a thorough investigation, runbook review, improvement of monitoring and alerting, communication enhancement, and systemic issue resolution.\"\n  },\n  \"requiresHumanReview\": false\n}"
+    },
+    "validationIndependence" : "INDEPENDENT",
+    "failureReason" : null,
+    "failureCategory" : null,
+    "modelFailures" : [ ],
+    "usage" : {
+      "promptTokens" : 5238,
+      "completionTokens" : 2682,
+      "totalTokens" : 7920,
+      "calls" : 6,
+      "estimatedCostUsd" : null,
+      "estimated" : false,
+      "partiallyPriced" : false,
+      "byModel" : [ {
+        "modelId" : "local-mistral",
+        "calls" : 2,
+        "promptTokens" : 1643,
+        "completionTokens" : 1037,
+        "totalTokens" : 2680,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "modelId" : "local-llama3",
+        "calls" : 2,
+        "promptTokens" : 1365,
+        "completionTokens" : 950,
+        "totalTokens" : 2315,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "modelId" : "local-chair",
+        "calls" : 1,
+        "promptTokens" : 1144,
+        "completionTokens" : 437,
+        "totalTokens" : 1581,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "modelId" : "local-validator",
+        "calls" : 1,
+        "promptTokens" : 1086,
+        "completionTokens" : 258,
+        "totalTokens" : 1344,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      } ],
+      "byStage" : [ {
+        "stage" : "GENERATE",
+        "calls" : 2,
+        "promptTokens" : 470,
+        "completionTokens" : 698,
+        "totalTokens" : 1168,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "stage" : "REVIEW",
+        "calls" : 2,
+        "promptTokens" : 2538,
+        "completionTokens" : 1289,
+        "totalTokens" : 3827,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "stage" : "SYNTHESIZE",
+        "calls" : 1,
+        "promptTokens" : 1144,
+        "completionTokens" : 437,
+        "totalTokens" : 1581,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "stage" : "VALIDATE",
+        "calls" : 1,
+        "promptTokens" : 1086,
+        "completionTokens" : 258,
+        "totalTokens" : 1344,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      } ]
+    },
+    "integrity" : {
+      "reduced" : false,
+      "preserveDissent" : true,
+      "sycophancyThreshold" : null,
+      "reviewsPerDraft" : 1,
+      "notes" : [ ]
+    }
+  }
+}

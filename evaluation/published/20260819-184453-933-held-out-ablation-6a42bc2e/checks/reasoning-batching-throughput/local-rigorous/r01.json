@@ -1,0 +1,7 @@
+[ {
+  "unitId" : "reasoning-batching-throughput:local-rigorous:r1",
+  "checkIndex" : 0,
+  "type" : "regex",
+  "status" : "FAIL",
+  "detail" : "Pattern condition failed: (?i)(10,?000\\s*(seconds|s\\b)|2\\.[78]\\s*hours|2 hours 4[67])"
+} ]

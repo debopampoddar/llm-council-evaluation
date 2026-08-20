@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-balanced:security-cors-credentials:r1:gemma-local:o2",
+  "pairId" : "direct-vs-balanced:security-cors-credentials:r1",
+  "comparisonId" : "direct-vs-balanced",
+  "caseId" : "security-cors-credentials",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-balanced",
+  "status" : "COMPLETED",
+  "winner" : "A",
+  "confidence" : 0.9,
+  "scoresA" : {
+    "constraint-following" : 10.0,
+    "completeness" : 9.0,
+    "correctness" : 10.0,
+    "reasoning" : 10.0,
+    "clarity" : 10.0
+  },
+  "scoresB" : {
+    "constraint-following" : 8.0,
+    "completeness" : 7.0,
+    "correctness" : 10.0,
+    "reasoning" : 6.0,
+    "clarity" : 7.0
+  },
+  "violationsA" : [ ],
+  "violationsB" : [ "Contains meta-commentary about 'drafts' and 'peer reviews' which were not provided in the prompt context." ],
+  "rationale" : "Candidate A provides a much cleaner and more direct response. Candidate B includes confusing references to 'drafts' and 'peer reviews' that do not exist in the provided context, making it appear as though it was hallucinating or pulling from an external source. Candidate A correctly identifies the risks associated with reflecting the Origin header with Allow-Credentials=true and the SameSite=None attribute. Both candidates correctly identify the need for an origin allowlist.",
+  "rawResponse" : "{\n  \"winner\": \"A\",\n  \"confidence\": 0.9,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 10,\n      \"completeness\": 9,\n      \"reasoning\": 10,\n      \"constraint-following\": 10,\n      \"clarity\": 10\n    },\n    \"B\": {\n      \"correctness\": 10,\n      \"completeness\": 7,\n      \"reasoning\": 6,\n      \"constraint-following\": 8,\n      \"clarity\": 7\n    }\n  },\n  \"violations\": {\n    \"A\": [],\n    \"B\": [\n      \"Contains meta-commentary about 'drafts' and 'peer reviews' which were not provided in the prompt context.\"\n    ]\n  },\n  \"rationale\": \"Candidate A provides a much cleaner and more direct response. Candidate B includes confusing references to 'drafts' and 'peer reviews' that do not exist in the provided context, making it appear as though it was hallucinating or pulling from an external source. Candidate A correctly identifies the risks associated with reflecting the Origin header with Allow-Credentials=true and the SameSite=None attribute. Both candidates correctly identify the need for an origin allowlist.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:11:32.449020Z",
+  "durationMs" : 14964,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1457,
+    "completionTokens" : 291,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

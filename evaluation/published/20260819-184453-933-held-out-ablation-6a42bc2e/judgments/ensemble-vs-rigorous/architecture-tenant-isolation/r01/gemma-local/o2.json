@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "ensemble-vs-rigorous:architecture-tenant-isolation:r1:gemma-local:o2",
+  "pairId" : "ensemble-vs-rigorous:architecture-tenant-isolation:r1",
+  "comparisonId" : "ensemble-vs-rigorous",
+  "caseId" : "architecture-tenant-isolation",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "llama-ensemble",
+  "answerBVariant" : "local-rigorous",
+  "status" : "COMPLETED",
+  "winner" : "A",
+  "confidence" : 0.8,
+  "scoresA" : {
+    "constraint-following" : 9.0,
+    "completeness" : 8.0,
+    "correctness" : 9.0,
+    "reasoning" : 8.0,
+    "clarity" : 9.0
+  },
+  "scoresB" : {
+    "constraint-following" : 5.0,
+    "completeness" : 6.0,
+    "correctness" : 4.0,
+    "reasoning" : 3.0,
+    "clarity" : 6.0
+  },
+  "violationsA" : [ ],
+  "violationsB" : [ "Failed to explicitly compare shared-schema vs. dedicated approaches as requested.", "The recommendation is contradictory: it claims to use a 'combination of database-level and instance-level isolation' but then suggests running 'each tenant on a separate PostgreSQL instance', which would be 900 instances—a red flag for a 6-person team." ],
+  "rationale" : "Candidate A provides a much more practical and coherent recommendation. It correctly identifies the need for a hybrid approach (multi-VC) to balance the operational constraints of a small team (6 people) with the hard requirements of the two enterprise customers. Candidate B, conversely, contains a major logical contradiction: it suggests running 'each tenant on a separate PostgreSQL instance' while also mentioning a 'multi-tenant' approach. Running 900 separate instances would be an operational nightmare for a 6-person team, which is a specific red flag in the prompt. Candidate A also does a better job of structuring the implementation plan, though both could have been more explicit in the direct comparison of the three models (shared-schema, shared-db, dedicated) as requested by the prompt.",
+  "rawResponse" : "{\n  \"winner\": \"A\",\n  \"confidence\": 0.8,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 9,\n      \"completeness\": 8,\n      \"reasoning\": 8,\n      \"constraint-following\": 9,\n      \"clarity\": 9\n    },\n    \"B\": {\n      \"correctness\": 4,\n      \"completeness\": 6,\n      \"reasoning\": 3,\n      \"constraint-following\": 5,\n      \"clarity\": 6\n    }\n  },\n  \"violations\": {\n    \"A\": [],\n    \"B\": [\n      \"Failed to explicitly compare shared-schema vs. dedicated approaches as requested.\",\n      \"The recommendation is contradictory: it claims to use a 'combination of database-level and instance-level isolation' but then suggests running 'each tenant on a separate PostgreSQL instance', which would be 900 instances—a red flag for a 6-person team.\"\n    ]\n  },\n  \"rationale\": \"Candidate A provides a much more practical and coherent recommendation. It correctly identifies the need for a hybrid approach (multi-VC) to balance the operational constraints of a small team (6 people) with the hard requirements of the two enterprise customers. Candidate B, conversely, contains a major logical contradiction: it suggests running 'each tenant on a separate PostgreSQL instance' while also mentioning a 'multi-tenant' approach. Running 900 separate instances would be an operational nightmare for a 6-person team, which is a specific red flag in the prompt. Candidate A also does a better job of structuring the implementation plan, though both could have been more explicit in the direct comparison of the three models (shared-schema, shared-db, dedicated) as requested by the prompt.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:51:39.277764Z",
+  "durationMs" : 20487,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1819,
+    "completionTokens" : 402,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

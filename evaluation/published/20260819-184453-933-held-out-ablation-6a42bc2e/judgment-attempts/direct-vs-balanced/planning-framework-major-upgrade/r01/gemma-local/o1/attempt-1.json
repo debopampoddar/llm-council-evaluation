@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-balanced:planning-framework-major-upgrade:r1:gemma-local:o1",
+  "pairId" : "direct-vs-balanced:planning-framework-major-upgrade:r1",
+  "comparisonId" : "direct-vs-balanced",
+  "caseId" : "planning-framework-major-upgrade",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 1,
+  "answerAVariant" : "local-balanced",
+  "answerBVariant" : "direct-llama",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "scoresB" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "violationsA" : [ "Failed to provide a plan; instead provided a meta-commentary/synthesis of two non-existent drafts.", "Ignored all specific requirements (sequencing, risk control, indicators of failure).", "Failed to address the 10-week freeze constraint." ],
+  "violationsB" : [ "Violated the requirement to sequence low-risk services first (it prioritized critical payment paths first).", "Violated the requirement to keep payment-path services out of the first wave.", "Failed to state that the plan does not fit the 10-week freeze (it scheduled the upgrade to end at week 20).", "Failed to treat untested services as a distinct risk requiring characterization tests first (it just listed 'implement automated tests' as a prep step)." ],
+  "rationale" : "Both candidates failed significantly. Candidate A is a 'hallucinated' synthesis of internal drafts that were not provided in the prompt, offering no actual plan. Candidate B provided a plan but violated almost every specific constraint: it prioritized the critical payment path first (violating the 'low-risk first' and 'keep payment-path out of first wave' rules), and it scheduled the work to take 20 weeks, ignoring the 10-week freeze constraint. Because both are functionally useless for the task, a tie is awarded.",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    },\n    \"B\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Failed to provide a plan; instead provided a meta-commentary/synthesis of two non-existent drafts.\",\n      \"Ignored all specific requirements (sequencing, risk control, indicators of failure).\",\n      \"Failed to address the 10-week freeze constraint.\"\n    ],\n    \"B\": [\n      \"Violated the requirement to sequence low-risk services first (it prioritized critical payment paths first).\",\n      \"Violated the requirement to keep payment-path services out of the first wave.\",\n      \"Failed to state that the plan does not fit the 10-week freeze (it scheduled the upgrade to end at week 20).\",\n      \"Failed to treat untested services as a distinct risk requiring characterization tests first (it just listed 'implement automated tests' as a prep step).\"\n    ]\n  },\n  \"rationale\": \"Both candidates failed significantly. Candidate A is a 'hallucinated' synthesis of internal drafts that were not provided in the prompt, offering no actual plan. Candidate B provided a plan but violated almost every specific constraint: it prioritized the critical payment path first (violating the 'low-risk first' and 'keep payment-path out of first wave' rules), and it scheduled the work to take 20 weeks, ignoring the 10-week freeze constraint. Because both are functionally useless for the task, a tie is awarded.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:16:24.394894Z",
+  "durationMs" : 22356,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1852,
+    "completionTokens" : 450,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-rigorous:architecture-saga-compensation:r1:gemma-local:o2",
+  "pairId" : "direct-vs-rigorous:architecture-saga-compensation:r1",
+  "comparisonId" : "direct-vs-rigorous",
+  "caseId" : "architecture-saga-compensation",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-rigorous",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "scoresB" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "violationsA" : [ "Violates the constraint 'Two-phase commit is unavailable across independently owned services' by proposing a 2PC flow.", "Fails to explain that compensation is semantic rather than a rollback.", "Fails to address the case where compensation itself fails.", "Fails to address the customer-visible intermediate state." ],
+  "violationsB" : [ "Fails to provide a concrete design for the booking flow (it refers to internal 'draft' IDs which are not provided in the context).", "Violates the constraint 'Two-phase commit is unavailable' by suggesting a 'two-phase booking process'.", "Fails to explain that compensation is semantic rather than a rollback.", "Fails to address the case where compensation itself fails.", "Fails to address the customer-visible intermediate state." ],
+  "rationale" : "Both candidates fail significantly on the core requirements and constraints. Candidate A proposes a Two-Phase Commit (2PC) protocol, which the context explicitly states is unavailable for independently owned services. Candidate B refers to internal 'draft' IDs that are not present in the prompt, making the answer nonsensical as a standalone response. Neither candidate correctly addresses the specific requirements regarding semantic compensation, handling failed compensations, or managing intermediate states. Both are essentially unusable for the given prompt.",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    },\n    \"B\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Violates the constraint 'Two-phase commit is unavailable across independently owned services' by proposing a 2PC flow.\",\n      \"Fails to explain that compensation is semantic rather than a rollback.\",\n      \"Fails to address the case where compensation itself fails.\",\n      \"Fails to address the customer-visible intermediate state.\"\n    ],\n    \"B\": [\n      \"Fails to provide a concrete design for the booking flow (it refers to internal 'draft' IDs which are not provided in the context).\",\n      \"Violates the constraint 'Two-phase commit is unavailable' by suggesting a 'two-phase booking process'.\",\n      \"Fails to explain that compensation is semantic rather than a rollback.\",\n      \"Fails to address the case where compensation itself fails.\",\n      \"Fails to address the customer-visible intermediate state.\"\n    ]\n  },\n  \"rationale\": \"Both candidates fail significantly on the core requirements and constraints. Candidate A proposes a Two-Phase Commit (2PC) protocol, which the context explicitly states is unavailable for independently owned services. Candidate B refers to internal 'draft' IDs that are not present in the prompt, making the answer nonsensical as a standalone response. Neither candidate correctly addresses the specific requirements regarding semantic compensation, handling failed compensations, or managing intermediate states. Both are essentially unusable for the given prompt.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:26:52.142262Z",
+  "durationMs" : 20373,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1718,
+    "completionTokens" : 441,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

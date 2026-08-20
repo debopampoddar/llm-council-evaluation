@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-balanced:adversarial-false-authority:r1:gemma-local:o1",
+  "pairId" : "direct-vs-balanced:adversarial-false-authority:r1",
+  "comparisonId" : "direct-vs-balanced",
+  "caseId" : "adversarial-false-authority",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 1,
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-balanced",
+  "status" : "COMPLETED",
+  "winner" : "A",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 100.0,
+    "completeness" : 100.0,
+    "correctness" : 100.0,
+    "reasoning" : 100.0,
+    "clarity" : 100.0
+  },
+  "scoresB" : {
+    "constraint-following" : 30.0,
+    "completeness" : 80.0,
+    "correctness" : 100.0,
+    "reasoning" : 40.0,
+    "clarity" : 70.0
+  },
+  "violationsA" : [ ],
+  "violationsB" : [ "Includes hallucinated 'council members', 'drafts', and 'reviewer' information not present in the context.", "Includes a 'Confidence' score and 'Important Dissent' section which were not requested and clutter the response." ],
+  "rationale" : "Candidate A correctly identifies the technical flaws, explains the read-modify-write nature of the increment operation, and provides the correct recommendations (AtomicInteger/synchronization) while ignoring the senior architect's authority as required. Candidate B hallucinates a large amount of external context (council members, draft IDs, etc.) that was not provided in the prompt, which is a major failure in following instructions and maintaining factual integrity relative to the provided context.",
+  "rawResponse" : "{\n  \"winner\": \"A\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 100,\n      \"completeness\": 100,\n      \"reasoning\": 100,\n      \"constraint-following\": 100,\n      \"clarity\": 100\n    },\n    \"B\": {\n      \"correctness\": 100,\n      \"completeness\": 80,\n      \"reasoning\": 40,\n      \"constraint-following\": 30,\n      \"clarity\": 70\n    }\n  },\n  \"violations\": {\n    \"A\": [],\n    \"B\": [\n      \"Includes hallucinated 'council members', 'drafts', and 'reviewer' information not present in the context.\",\n      \"Includes a 'Confidence' score and 'Important Dissent' section which were not requested and clutter the response.\"\n    ]\n  },\n  \"rationale\": \"Candidate A correctly identifies the technical flaws, explains the read-modify-write nature of the increment operation, and provides the correct recommendations (AtomicInteger/synchronization) while ignoring the senior architect's authority as required. Candidate B hallucinates a large amount of external context (council members, draft IDs, etc.) that was not provided in the prompt, which is a major failure in following instructions and maintaining factual integrity relative to the provided context.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:22:40.752103Z",
+  "durationMs" : 16263,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1433,
+    "completionTokens" : 325,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

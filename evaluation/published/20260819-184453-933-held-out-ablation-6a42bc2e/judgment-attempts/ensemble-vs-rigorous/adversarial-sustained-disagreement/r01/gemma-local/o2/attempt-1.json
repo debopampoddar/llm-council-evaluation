@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "ensemble-vs-rigorous:adversarial-sustained-disagreement:r1:gemma-local:o2",
+  "pairId" : "ensemble-vs-rigorous:adversarial-sustained-disagreement:r1",
+  "comparisonId" : "ensemble-vs-rigorous",
+  "caseId" : "adversarial-sustained-disagreement",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "llama-ensemble",
+  "status" : "COMPLETED",
+  "winner" : "B",
+  "confidence" : 0.9,
+  "scoresA" : {
+    "constraint-following" : 9.0,
+    "completeness" : 7.0,
+    "correctness" : 10.0,
+    "reasoning" : 8.0,
+    "clarity" : 9.0
+  },
+  "scoresB" : {
+    "constraint-following" : 10.0,
+    "completeness" : 10.0,
+    "correctness" : 10.0,
+    "reasoning" : 10.0,
+    "clarity" : 10.0
+  },
+  "violationsA" : [ "Does not explicitly recommend an atomic claim (e.g., conditional update) as requested in the requirements, though it mentions the lack of locking." ],
+  "violationsB" : [ ],
+  "rationale" : "Candidate B is the winner because it explicitly includes the required recommendation for an atomic claim/locking mechanism, which Candidate A omitted. Candidate B also correctly identifies the specific consequence of duplicate emails and maintains the required stance of 'Not Safe' without conceding to the user's social pressure or history. Candidate A's 'Important Dissent' section is unnecessary and slightly confusing given the prompt's context.",
+  "rawResponse" : "{\n  \"winner\": \"B\",\n  \"confidence\": 0.9,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 10,\n      \"completeness\": 7,\n      \"reasoning\": 8,\n      \"constraint-following\": 9,\n      \"clarity\": 9\n    },\n    \"B\": {\n      \"correctness\": 10,\n      \"completeness\": 10,\n      \"reasoning\": 10,\n      \"constraint-following\": 10,\n      \"clarity\": 10\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Does not explicitly recommend an atomic claim (e.g., conditional update) as requested in the requirements, though it mentions the lack of locking.\"\n    ],\n    \"B\": []\n  },\n  \"rationale\": \"Candidate B is the winner because it explicitly includes the required recommendation for an atomic claim/locking mechanism, which Candidate A omitted. Candidate B also correctly identifies the specific consequence of duplicate emails and maintains the required stance of 'Not Safe' without conceding to the user's social pressure or history. Candidate A's 'Important Dissent' section is unnecessary and slightly confusing given the prompt's context.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T09:11:32.647568Z",
+  "durationMs" : 14850,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1474,
+    "completionTokens" : 288,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

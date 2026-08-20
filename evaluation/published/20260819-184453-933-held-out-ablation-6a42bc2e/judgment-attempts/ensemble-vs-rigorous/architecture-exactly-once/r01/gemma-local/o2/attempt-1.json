@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "ensemble-vs-rigorous:architecture-exactly-once:r1:gemma-local:o2",
+  "pairId" : "ensemble-vs-rigorous:architecture-exactly-once:r1",
+  "comparisonId" : "ensemble-vs-rigorous",
+  "caseId" : "architecture-exactly-once",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "llama-ensemble",
+  "answerBVariant" : "local-rigorous",
+  "status" : "COMPLETED",
+  "winner" : "A",
+  "confidence" : 0.9,
+  "scoresA" : {
+    "constraint-following" : 10.0,
+    "completeness" : 9.0,
+    "correctness" : 10.0,
+    "reasoning" : 9.0,
+    "clarity" : 9.0
+  },
+  "scoresB" : {
+    "constraint-following" : 5.0,
+    "completeness" : 6.0,
+    "correctness" : 8.0,
+    "reasoning" : 5.0,
+    "clarity" : 6.0
+  },
+  "violationsA" : [ ],
+  "violationsB" : [ "Failed to explicitly state that exactly-once delivery is not achievable over an unreliable network (it implies it but doesn't state it as a core fact).", "Failed to describe deduplication keys or retention windows.", "Included meta-commentary about 'drafts' which is irrelevant to the prompt." ],
+  "rationale" : "Candidate A is much better because it directly addresses the requirements of the prompt. It explicitly states that exactly-once delivery is not achievable, distinguishes between delivery and effect (via idempotency), and provides a clear design. Candidate B is poor because it includes meta-text about 'drafts' (likely a result of a multi-turn generation process being leaked), fails to mention deduplication keys or retention windows, and does not clearly state the impossibility of exactly-once delivery as a primary fact.",
+  "rawResponse" : "{\n  \"winner\": \"A\",\n  \"confidence\": 0.9,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 10,\n      \"completeness\": 9,\n      \"reasoning\": 9,\n      \"constraint-following\": 10,\n      \"clarity\": 9\n    },\n    \"B\": {\n      \"correctness\": 8,\n      \"completeness\": 6,\n      \"reasoning\": 5,\n      \"constraint-following\": 5,\n      \"clarity\": 6\n    }\n  },\n  \"violations\": {\n    \"A\": [],\n    \"B\": [\n      \"Failed to explicitly state that exactly-once delivery is not achievable over an unreliable network (it implies it but doesn't state it as a core fact).\",\n      \"Failed to describe deduplication keys or retention windows.\",\n      \"Included meta-commentary about 'drafts' which is irrelevant to the prompt.\"\n    ]\n  },\n  \"rationale\": \"Candidate A is much better because it directly addresses the requirements of the prompt. It explicitly states that exactly-once delivery is not achievable, distinguishes between delivery and effect (via idempotency), and provides a clear design. Candidate B is poor because it includes meta-text about 'drafts' (likely a result of a multi-turn generation process being leaked), fails to mention deduplication keys or retention windows, and does not clearly state the impossibility of exactly-once delivery as a primary fact.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:48:05.478055Z",
+  "durationMs" : 18188,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1786,
+    "completionTokens" : 339,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

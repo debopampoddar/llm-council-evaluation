@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "balanced-vs-rigorous:architecture-exactly-once:r1:gemma-local:o1",
+  "pairId" : "balanced-vs-rigorous:architecture-exactly-once:r1",
+  "comparisonId" : "balanced-vs-rigorous",
+  "caseId" : "architecture-exactly-once",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 1,
+  "answerAVariant" : "local-balanced",
+  "answerBVariant" : "local-rigorous",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 10.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "scoresB" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 10.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "violationsA" : [ "Failed to state that exactly-once delivery is not achievable over an unreliable network.", "Failed to distinguish between delivery and processing/effect.", "Failed to describe deduplication keys or retention windows.", "Included irrelevant 'council' and 'draft' meta-talk which was not requested." ],
+  "violationsB" : [ "Failed to state that exactly-once delivery is not achievable over an unreliable network.", "Failed to distinguish between delivery and processing/effect.", "Failed to describe deduplication keys or retention windows.", "Included irrelevant 'council' and 'draft' meta-talk which was not requested." ],
+  "rationale" : "Both candidates failed significantly on almost every specific requirement. Neither candidate explicitly stated that exactly-once delivery is impossible over an unreliable network (a core requirement). Neither distinguished between delivery and processing/effect. Neither mentioned deduplication keys or retention windows. Both candidates also included strange 'meta-talk' about 'council members' and 'drafts' which were not part of the prompt and appear to be artifacts of a multi-agent generation process. Because both failed the core requirements equally, it is a tie.",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 10,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    },\n    \"B\": {\n      \"correctness\": 10,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Failed to state that exactly-once delivery is not achievable over an unreliable network.\",\n      \"Failed to distinguish between delivery and processing/effect.\",\n      \"Failed to describe deduplication keys or retention windows.\",\n      \"Included irrelevant 'council' and 'draft' meta-talk which was not requested.\"\n    ],\n    \"B\": [\n      \"Failed to state that exactly-once delivery is not achievable over an unreliable network.\",\n      \"Failed to distinguish between delivery and processing/effect.\",\n      \"Failed to describe deduplication keys or retention windows.\",\n      \"Included irrelevant 'council' and 'draft' meta-talk which was not requested.\"\n    ]\n  },\n  \"rationale\": \"Both candidates failed significantly on almost every specific requirement. Neither candidate explicitly stated that exactly-once delivery is impossible over an unreliable network (a core requirement). Neither distinguished between delivery and processing/effect. Neither mentioned deduplication keys or retention windows. Both candidates also included strange 'meta-talk' about 'council members' and 'drafts' which were not part of the prompt and appear to be artifacts of a multi-agent generation process. Because both failed the core requirements equally, it is a tie.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T09:11:53.182333Z",
+  "durationMs" : 20450,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1825,
+    "completionTokens" : 407,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

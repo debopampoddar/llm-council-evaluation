@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-rigorous:architecture-event-ordering:r1:gemma-local:o2",
+  "pairId" : "direct-vs-rigorous:architecture-event-ordering:r1",
+  "comparisonId" : "direct-vs-rigorous",
+  "caseId" : "architecture-event-ordering",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-rigorous",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "scoresB" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "violationsA" : [ "Failed to recommend partitioning by account key.", "Failed to state that per-entity ordering is what balance correctness actually requires.", "Failed to address rebalancing and hot keys.", "Proposed a design that attempts to maintain global ordering (centralized store/IDs) which contradicts the standard architectural solution for this specific problem (per-entity ordering)." ],
+  "violationsB" : [ "Failed to recommend partitioning by account key.", "Failed to state that per-entity ordering is what balance correctness actually requires.", "Failed to address rebalancing and hot keys.", "Proposed a consensus-based global ordering which, while technically a way to get global order, fails to address the specific requirement to explain the tension and provide the standard industry recommendation for this specific context (account balance updates)." ],
+  "rationale" : "Both candidates failed significantly on the core requirements of the prompt. Neither candidate identified that 'per-entity ordering' (partitioning by account key) is the correct solution to the tension between global ordering and horizontal scaling. Both candidates attempted to solve for 'strict global ordering' as requested in the prompt's first sentence without recognizing that the context (account balances) only requires per-entity ordering. Candidate A proposed a complex centralized store, and Candidate B proposed a consensus-based coordinator system; both are technically incorrect ways to handle 30,000 events/sec for 2 million accounts compared to simple key-based partitioning. Because both failed the primary requirements and the reference facts, they are tied at 0.",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    },\n    \"B\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Failed to recommend partitioning by account key.\",\n      \"Failed to state that per-entity ordering is what balance correctness actually requires.\",\n      \"Failed to address rebalancing and hot keys.\",\n      \"Proposed a design that attempts to maintain global ordering (centralized store/IDs) which contradicts the standard architectural solution for this specific problem (per-entity ordering).\"\n    ],\n    \"B\": [\n      \"Failed to recommend partitioning by account key.\",\n      \"Failed to state that per-entity ordering is what balance correctness actually requires.\",\n      \"Failed to address rebalancing and hot keys.\",\n      \"Proposed a consensus-based global ordering which, while technically a way to get global order, fails to address the specific requirement to explain the tension and provide the standard industry recommendation for this specific context (account balance updates).\"\n    ]\n  },\n  \"rationale\": \"Both candidates failed significantly on the core requirements of the prompt. Neither candidate identified that 'per-entity ordering' (partitioning by account key) is the correct solution to the tension between global ordering and horizontal scaling. Both candidates attempted to solve for 'strict global ordering' as requested in the prompt's first sentence without recognizing that the context (account balances) only requires per-entity ordering. Candidate A proposed a complex centralized store, and Candidate B proposed a consensus-based coordinator system; both are technically incorrect ways to handle 30,000 events/sec for 2 million accounts compared to simple key-based partitioning. Because both failed the primary requirements and the reference facts, they are tied at 0.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:26:10.865710Z",
+  "durationMs" : 21787,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1585,
+    "completionTokens" : 483,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

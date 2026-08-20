@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-rigorous:smoke-arithmetic:r1:gemma-local:o1",
+  "pairId" : "direct-vs-rigorous:smoke-arithmetic:r1",
+  "comparisonId" : "direct-vs-rigorous",
+  "caseId" : "smoke-arithmetic",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 1,
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "direct-llama",
+  "status" : "COMPLETED",
+  "winner" : "B",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "reasoning" : 100.0,
+    "correctness" : 100.0,
+    "completeness" : 100.0,
+    "constraint-following" : 100.0,
+    "clarity" : 80.0
+  },
+  "scoresB" : {
+    "reasoning" : 100.0,
+    "correctness" : 100.0,
+    "completeness" : 100.0,
+    "constraint-following" : 100.0,
+    "clarity" : 100.0
+  },
+  "violationsA" : [ "Excessive verbosity and unnecessary meta-commentary (simulated 'council' and 'draft' references)" ],
+  "violationsB" : [ ],
+  "rationale" : "Candidate B is the superior answer because it directly addresses the prompt with a clear, step-by-step calculation as requested. Candidate A includes a significant amount of unnecessary 'meta-talk' (simulated internal reasoning, council drafts, and dissent) that was not requested and makes the response much harder to read.",
+  "rawResponse" : "{\n  \"winner\": \"B\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 100,\n      \"completeness\": 100,\n      \"reasoning\": 100,\n      \"constraint-following\": 100,\n      \"clarity\": 80\n    },\n    \"B\": {\n      \"correctness\": 100,\n      \"completeness\": 100,\n      \"reasoning\": 100,\n      \"constraint-following\": 100,\n      \"clarity\": 100\n    }\n  },\n  \"violations\": {\n    \"A\": [\"Excessive verbosity and unnecessary meta-commentary (simulated 'council' and 'draft' references)\"],\n    \"B\": []\n  },\n  \"rationale\": \"Candidate B is the superior answer because it directly addresses the prompt with a clear, step-by-step calculation as requested. Candidate A includes a significant amount of unnecessary 'meta-talk' (simulated internal reasoning, council drafts, and dissent) that was not requested and makes the response much harder to read.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-19T18:32:44.283130Z",
+  "durationMs" : 16982,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1161,
+    "completionTokens" : 272,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

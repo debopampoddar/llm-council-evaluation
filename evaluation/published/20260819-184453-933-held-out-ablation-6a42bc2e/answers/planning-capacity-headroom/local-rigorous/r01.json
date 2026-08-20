@@ -1,0 +1,194 @@
+{
+  "unitId" : "planning-capacity-headroom:local-rigorous:r1",
+  "caseId" : "planning-capacity-headroom",
+  "variantId" : "local-rigorous",
+  "repetition" : 1,
+  "status" : "COMPLETED",
+  "answer" : "**Final Recommendation:**\n\nIncrease instances by 20% every quarter, with a minimum of 40 additional instances by the end of the first year. Implement a hybrid approach that maintains the current 30 instances for the base load, while also implementing a dynamic scaling solution to handle traffic spikes and potential cost savings. This approach assumes that the system can be dynamically scaled without significant latency or service disruptions, and that the cost of implementing this solution is justified by the potential cost savings.\n\n**Rationale:**\n\nThe synthesis of the council members' drafts and peer reviews indicates that a hybrid approach is the most suitable solution. Draft-B6168D4B's recommendation to increase instances by 20% every quarter is supported by the consistent 8% monthly growth rate and the expected marketing launch's unknown step change. However, this approach does not account for potential cost savings through dynamic scaling. Draft-A6005A40's hybrid approach addresses this concern, but its confidence level is lower due to the lack of specific data on the system's ability to handle dynamic scaling and the cost of implementation.\n\nDraft-B07AF9F9's recommendation to plan for 20,000 requests per second capacity is too aggressive, given the uncertainties surrounding the marketing launch's impact and traffic growth rates. The phased implementation plan is reasonable, but the expected capacity is not justified by the available data.\n\n**Important Dissent:**\n\nReviewer local-qwen's score for draft-B6168D4B highlights the importance of quantifying assumptions about the marketing launch's impact and addressing uncertainties about traffic growth and instance utilization. This concern is not fully addressed in the final recommendation, which relies on the hybrid approach to mitigate these risks.\n\n**Unresolved Risks:**\n\n1. The magnitude of the marketing launch's step change is still unknown, which may impact the effectiveness of the hybrid approach.\n2. Traffic growth rates may not continue at the same rate, potentially affecting the need for additional capacity.\n3. The system's ability to handle dynamic scaling without significant latency or service disruptions is still uncertain.\n\n**Confidence:**\n\nThe final recommendation has a confidence level of 80, based on the synthesis of the council members' drafts and peer reviews. The hybrid approach is the most suitable solution, but its effectiveness depends on the system's ability to handle dynamic scaling and the cost of implementation.",
+  "startedAt" : "2026-08-20T06:24:58.264366Z",
+  "completedAt" : "2026-08-20T06:45:57.069798Z",
+  "durationMs" : 1258805,
+  "usage" : {
+    "calls" : 8,
+    "promptTokens" : 7715,
+    "completionTokens" : 4227,
+    "estimatedCostUsd" : null,
+    "estimated" : false,
+    "partiallyPriced" : false
+  },
+  "failureCategory" : null,
+  "failureReason" : null,
+  "warnings" : [ ],
+  "componentAnswers" : [ ],
+  "councilResult" : {
+    "sessionId" : "e4b26618-ede7-425f-a0f1-b3d1b3a6839c",
+    "status" : "COMPLETED",
+    "profileId" : "local",
+    "depthMode" : "RIGOROUS",
+    "policyId" : "local-rigorous",
+    "protocolId" : "rigorous",
+    "answer" : "**Final Recommendation:**\n\nIncrease instances by 20% every quarter, with a minimum of 40 additional instances by the end of the first year. Implement a hybrid approach that maintains the current 30 instances for the base load, while also implementing a dynamic scaling solution to handle traffic spikes and potential cost savings. This approach assumes that the system can be dynamically scaled without significant latency or service disruptions, and that the cost of implementing this solution is justified by the potential cost savings.\n\n**Rationale:**\n\nThe synthesis of the council members' drafts and peer reviews indicates that a hybrid approach is the most suitable solution. Draft-B6168D4B's recommendation to increase instances by 20% every quarter is supported by the consistent 8% monthly growth rate and the expected marketing launch's unknown step change. However, this approach does not account for potential cost savings through dynamic scaling. Draft-A6005A40's hybrid approach addresses this concern, but its confidence level is lower due to the lack of specific data on the system's ability to handle dynamic scaling and the cost of implementation.\n\nDraft-B07AF9F9's recommendation to plan for 20,000 requests per second capacity is too aggressive, given the uncertainties surrounding the marketing launch's impact and traffic growth rates. The phased implementation plan is reasonable, but the expected capacity is not justified by the available data.\n\n**Important Dissent:**\n\nReviewer local-qwen's score for draft-B6168D4B highlights the importance of quantifying assumptions about the marketing launch's impact and addressing uncertainties about traffic growth and instance utilization. This concern is not fully addressed in the final recommendation, which relies on the hybrid approach to mitigate these risks.\n\n**Unresolved Risks:**\n\n1. The magnitude of the marketing launch's step change is still unknown, which may impact the effectiveness of the hybrid approach.\n2. Traffic growth rates may not continue at the same rate, potentially affecting the need for additional capacity.\n3. The system's ability to handle dynamic scaling without significant latency or service disruptions is still uncertain.\n\n**Confidence:**\n\nThe final recommendation has a confidence level of 80, based on the synthesis of the council members' drafts and peer reviews. The hybrid approach is the most suitable solution, but its effectiveness depends on the system's ability to handle dynamic scaling and the cost of implementation.",
+    "draftCount" : 3,
+    "reviewCount" : 6,
+    "debateRounds" : 0,
+    "participatingModels" : [ "local-llama3", "local-mistral", "local-qwen" ],
+    "excludedModels" : [ ],
+    "warnings" : [ ],
+    "sycophancyWarnings" : [ ],
+    "scoreSummary" : {
+      "scores" : [ {
+        "scorerId" : "confidence-weighted",
+        "draftId" : "draft-B6168D4B",
+        "dimensionScores" : {
+          "accuracy" : 82.8125,
+          "completeness" : 72.8125,
+          "reasoning" : 80.0,
+          "clarity" : 85.625,
+          "constructiveness" : 82.8125
+        },
+        "weightedTotal" : 79.37499999999999,
+        "label" : "initial"
+      }, {
+        "scorerId" : "confidence-weighted",
+        "draftId" : "draft-A6005A40",
+        "dimensionScores" : {
+          "accuracy" : 77.8125,
+          "completeness" : 77.1875,
+          "reasoning" : 82.8125,
+          "clarity" : 90.0,
+          "constructiveness" : 85.0
+        },
+        "weightedTotal" : 81.4375,
+        "label" : "initial"
+      }, {
+        "scorerId" : "confidence-weighted",
+        "draftId" : "draft-B07AF9F9",
+        "dimensionScores" : {
+          "accuracy" : 80.0,
+          "completeness" : 80.66666666666667,
+          "reasoning" : 82.66666666666667,
+          "clarity" : 88.0,
+          "constructiveness" : 85.33333333333333
+        },
+        "weightedTotal" : 82.39999999999999,
+        "label" : "initial"
+      } ],
+      "variance" : 1.5923263888888972,
+      "winningDraftId" : "draft-B07AF9F9",
+      "escalated" : false,
+      "escalationPolicy" : null,
+      "reviewerDisagreement" : 36.0,
+      "disagreementMeasurable" : true
+    },
+    "validation" : {
+      "validatorId" : "local-validator",
+      "approved" : true,
+      "confidence" : 0.8,
+      "issues" : [ ],
+      "recommendedFixes" : [ ],
+      "criteria" : {
+        "uncertainty" : "warn - The recommendation relies on assumptions about the marketing launch's impact and the system's ability to handle dynamic scaling.",
+        "correctness" : "pass - The recommendation provides a clear and feasible solution based on the provided context.",
+        "completeness" : "pass - The recommendation addresses the capacity needs for the next twelve months and includes a phased implementation plan.",
+        "actionability" : "pass - The recommendation provides a clear plan of action for increasing instances and implementing a dynamic scaling solution.",
+        "safety" : "warn - The recommendation assumes that the system can be dynamically scaled without significant latency or service disruptions, and that the cost of implementation is justified by the potential cost savings."
+      },
+      "requiresHumanReview" : false,
+      "rawText" : "{\n  \"approved\": true,\n  \"confidence\": 0.8,\n  \"issues\": [],\n  \"recommendedFixes\": [],\n  \"criteria\": {\n    \"correctness\": \"pass - The recommendation provides a clear and feasible solution based on the provided context.\",\n    \"completeness\": \"pass - The recommendation addresses the capacity needs for the next twelve months and includes a phased implementation plan.\",\n    \"uncertainty\": \"warn - The recommendation relies on assumptions about the marketing launch's impact and the system's ability to handle dynamic scaling.\",\n    \"safety\": \"warn - The recommendation assumes that the system can be dynamically scaled without significant latency or service disruptions, and that the cost of implementation is justified by the potential cost savings.\",\n    \"actionability\": \"pass - The recommendation provides a clear plan of action for increasing instances and implementing a dynamic scaling solution.\"\n  },\n  \"requiresHumanReview\": false\n}"
+    },
+    "validationIndependence" : "INDEPENDENT",
+    "failureReason" : null,
+    "failureCategory" : null,
+    "modelFailures" : [ ],
+    "usage" : {
+      "promptTokens" : 7715,
+      "completionTokens" : 4227,
+      "totalTokens" : 11942,
+      "calls" : 8,
+      "estimatedCostUsd" : null,
+      "estimated" : false,
+      "partiallyPriced" : false,
+      "byModel" : [ {
+        "modelId" : "local-mistral",
+        "calls" : 2,
+        "promptTokens" : 1860,
+        "completionTokens" : 1318,
+        "totalTokens" : 3178,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "modelId" : "local-llama3",
+        "calls" : 2,
+        "promptTokens" : 1536,
+        "completionTokens" : 1176,
+        "totalTokens" : 2712,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "modelId" : "local-qwen",
+        "calls" : 2,
+        "promptTokens" : 1583,
+        "completionTokens" : 1042,
+        "totalTokens" : 2625,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "modelId" : "local-chair",
+        "calls" : 1,
+        "promptTokens" : 1587,
+        "completionTokens" : 471,
+        "totalTokens" : 2058,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "modelId" : "local-validator",
+        "calls" : 1,
+        "promptTokens" : 1149,
+        "completionTokens" : 220,
+        "totalTokens" : 1369,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      } ],
+      "byStage" : [ {
+        "stage" : "GENERATE",
+        "calls" : 3,
+        "promptTokens" : 656,
+        "completionTokens" : 868,
+        "totalTokens" : 1524,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "stage" : "REVIEW",
+        "calls" : 3,
+        "promptTokens" : 4323,
+        "completionTokens" : 2668,
+        "totalTokens" : 6991,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "stage" : "SYNTHESIZE",
+        "calls" : 1,
+        "promptTokens" : 1587,
+        "completionTokens" : 471,
+        "totalTokens" : 2058,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "stage" : "VALIDATE",
+        "calls" : 1,
+        "promptTokens" : 1149,
+        "completionTokens" : 220,
+        "totalTokens" : 1369,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      } ]
+    },
+    "integrity" : {
+      "reduced" : false,
+      "preserveDissent" : true,
+      "sycophancyThreshold" : 0.7,
+      "reviewsPerDraft" : 2,
+      "notes" : [ ]
+    }
+  }
+}

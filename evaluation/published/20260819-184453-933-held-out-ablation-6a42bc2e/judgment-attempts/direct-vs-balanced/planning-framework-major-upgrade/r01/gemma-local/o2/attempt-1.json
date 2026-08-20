@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-balanced:planning-framework-major-upgrade:r1:gemma-local:o2",
+  "pairId" : "direct-vs-balanced:planning-framework-major-upgrade:r1",
+  "comparisonId" : "direct-vs-balanced",
+  "caseId" : "planning-framework-major-upgrade",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-balanced",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "scoresB" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "violationsA" : [ "Violates requirement to sequence low-risk services first (proposes payment path first).", "Violates requirement to keep payment-path services out of the first wave.", "Fails to state that the plan does not fit the 10-week freeze (it schedules the upgrade to end at week 20).", "Does not define explicit abort/rollback criteria (only mentions a 'plan' exists)." ],
+  "violationsB" : [ "Fails to provide a sequence, risk control plan, or failure indicators.", "Fails to address the specific requirements (sequencing, risk control, failure indicators).", "Contains meta-commentary about 'drafts' and 'review scores' which are not part of the prompt context." ],
+  "rationale" : "Both candidates fail significantly. Candidate A ignores almost every specific constraint: it prioritizes the critical payment path (violating the requirement to sequence low-risk first and keep payment-path out of the first wave), it fails to address the 10-week freeze deadline (scheduling it to week 20), and it lacks explicit abort/rollback criteria. Candidate B is essentially a hallucinated meta-analysis of a different conversation; it provides no actual plan, no sequence, and no risk control measures, instead discussing 'drafts' and 'review scores' that do not exist in the prompt. Since both are functionally useless for the task, a tie is awarded.",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    },\n    \"B\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Violates requirement to sequence low-risk services first (proposes payment path first).\",\n      \"Violates requirement to keep payment-path services out of the first wave.\",\n      \"Fails to state that the plan does not fit the 10-week freeze (it schedules the upgrade to end at week 20).\",\n      \"Does not define explicit abort/rollback criteria (only mentions a 'plan' exists).\"\n    ],\n    \"B\": [\n      \"Fails to provide a sequence, risk control plan, or failure indicators.\",\n      \"Fails to address the specific requirements (sequencing, risk control, failure indicators).\",\n      \"Contains meta-commentary about 'drafts' and 'review scores' which are not part of the prompt context.\"\n    ]\n  },\n  \"rationale\": \"Both candidates fail significantly. Candidate A ignores almost every specific constraint: it prioritizes the critical payment path (violating the requirement to sequence low-risk first and keep payment-path out of the first wave), it fails to address the 10-week freeze deadline (scheduling it to week 20), and it lacks explicit abort/rollback criteria. Candidate B is essentially a hallucinated meta-analysis of a different conversation; it provides no actual plan, no sequence, and no risk control measures, instead discussing 'drafts' and 'review scores' that do not exist in the prompt. Since both are functionally useless for the task, a tie is awarded.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:16:47.487813Z",
+  "durationMs" : 23037,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1852,
+    "completionTokens" : 468,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

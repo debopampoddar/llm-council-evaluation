@@ -1,0 +1,24 @@
+{
+  "unitId" : "planning-postmortem-structure:direct-llama:r1",
+  "caseId" : "planning-postmortem-structure",
+  "variantId" : "direct-llama",
+  "repetition" : 1,
+  "status" : "COMPLETED",
+  "answer" : "**Postmortem Structure:**\n\n1. **Summary**: Brief overview of the incident, including duration and impact.\n2. **Root Cause Analysis**: Investigation into the cause of the outage, including the config change and its relation to the unrelated task.\n3. **Contributing Factors**: Examination of the factors that contributed to the outage, such as:\n\t* Outdated runbook\n\t* Lack of monitoring alerts\n\t* Inadequate incident response processes\n4. **Action Items**: Specific, measurable, achievable, relevant, and time-bound (SMART) tasks to prevent similar incidents in the future.\n5. **Lessons Learned**: Key takeaways from the incident, including best practices and areas for improvement.\n\n**Criteria for Good Action Items:**\n\n1. **Specific**: Clearly define the task to be completed.\n2. **Measurable**: Quantify the outcome or metric to be achieved.\n3. **Achievable**: Ensure the task is realistic and feasible within the given timeframe.\n4. **Relevant**: Align the task with the organization's goals and objectives.\n5. **Time-bound**: Establish a specific deadline for completion.\n6. **Owner**: Assign a responsible person or team to complete the task.\n7. **Follow-up**: Schedule a review or check-in to track progress and ensure completion.\n\n**Example Action Items:**\n\n1. Update the runbook to reflect the latest changes and best practices.\n\t* Owner: Engineering Team\n\t* Deadline: 2 weeks\n\t* Metric: Runbook updated and reviewed by all teams.\n2. Implement monitoring alerts for similar config changes in the future.\n\t* Owner: DevOps Team\n\t* Deadline: 4 weeks\n\t* Metric: Alerts implemented and tested.\n3. Review and revise incident response processes to include automated approval steps.\n\t* Owner: Leadership Team\n\t* Deadline: 6 weeks\n\t* Metric: Revised processes implemented and reviewed by all teams.\n\n**Recommendation:**\n\nConduct a thorough postmortem analysis to identify the root cause of the outage and contributing factors. Develop specific, measurable, and achievable action items to prevent similar incidents in the future. Assign owners and deadlines to ensure timely completion and follow-up.",
+  "startedAt" : "2026-08-20T07:06:08.307266Z",
+  "completedAt" : "2026-08-20T07:06:22.549464Z",
+  "durationMs" : 14242,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 174,
+    "completionTokens" : 448,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  },
+  "failureCategory" : null,
+  "failureReason" : null,
+  "warnings" : [ ],
+  "componentAnswers" : [ ],
+  "councilResult" : null
+}

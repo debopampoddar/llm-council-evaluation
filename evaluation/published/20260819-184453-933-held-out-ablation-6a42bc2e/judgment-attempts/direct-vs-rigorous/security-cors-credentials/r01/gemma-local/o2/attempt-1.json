@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-rigorous:security-cors-credentials:r1:gemma-local:o2",
+  "pairId" : "direct-vs-rigorous:security-cors-credentials:r1",
+  "comparisonId" : "direct-vs-rigorous",
+  "caseId" : "security-cors-credentials",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-rigorous",
+  "status" : "COMPLETED",
+  "winner" : "A",
+  "confidence" : 0.9,
+  "scoresA" : {
+    "constraint-following" : 10.0,
+    "completeness" : 9.0,
+    "correctness" : 10.0,
+    "reasoning" : 9.0,
+    "clarity" : 9.0
+  },
+  "scoresB" : {
+    "constraint-following" : 8.0,
+    "completeness" : 8.0,
+    "correctness" : 7.0,
+    "reasoning" : 6.0,
+    "clarity" : 6.0
+  },
+  "violationsA" : [ ],
+  "violationsB" : [ "Includes hallucinated 'council members' and 'draft' scores which were not part of the prompt or context.", "Suggests SameSite=None as a protection measure (it is actually the cause of the risk in this context)." ],
+  "rationale" : "Candidate A correctly identifies the core risk: reflecting the Origin header while allowing credentials permits any site to make authenticated requests. It correctly identifies that SameSite=None removes the browser's default protection. Candidate B is significantly hampered by hallucinating a 'council' of reviewers and 'draft' scores that do not exist in the prompt. Furthermore, Candidate B incorrectly suggests SameSite=None as a protection measure in its recommendations, whereas the context states that SameSite=None is part of the current (vulnerable) configuration.",
+  "rawResponse" : "{\n  \"winner\": \"A\",\n  \"confidence\": 0.9,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 10,\n      \"completeness\": 9,\n      \"reasoning\": 9,\n      \"constraint-following\": 10,\n      \"clarity\": 9\n    },\n    \"B\": {\n      \"correctness\": 7,\n      \"completeness\": 8,\n      \"reasoning\": 6,\n      \"constraint-following\": 8,\n      \"clarity\": 6\n    }\n  },\n  \"violations\": {\n    \"A\": [],\n    \"B\": [\n      \"Includes hallucinated 'council members' and 'draft' scores which were not part of the prompt or context.\",\n      \"Suggests SameSite=None as a protection measure (it is actually the cause of the risk in this context).\"\n    ]\n  },\n  \"rationale\": \"Candidate A correctly identifies the core risk: reflecting the Origin header while allowing credentials permits any site to make authenticated requests. It correctly identifies that SameSite=None removes the browser's default protection. Candidate B is significantly hampered by hallucinating a 'council' of reviewers and 'draft' scores that do not exist in the prompt. Furthermore, Candidate B incorrectly suggests SameSite=None as a protection measure in its recommendations, whereas the context states that SameSite=None is part of the current (vulnerable) configuration.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:34:46.874588Z",
+  "durationMs" : 18138,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1876,
+    "completionTokens" : 327,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

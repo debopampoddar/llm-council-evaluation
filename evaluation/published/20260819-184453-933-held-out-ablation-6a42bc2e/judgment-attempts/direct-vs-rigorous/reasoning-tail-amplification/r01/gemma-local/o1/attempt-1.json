@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-rigorous:reasoning-tail-amplification:r1:gemma-local:o1",
+  "pairId" : "direct-vs-rigorous:reasoning-tail-amplification:r1",
+  "comparisonId" : "direct-vs-rigorous",
+  "caseId" : "reasoning-tail-amplification",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 1,
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-rigorous",
+  "status" : "COMPLETED",
+  "winner" : "A",
+  "confidence" : 0.9,
+  "scoresA" : {
+    "constraint-following" : 10.0,
+    "completeness" : 9.0,
+    "correctness" : 10.0,
+    "reasoning" : 10.0,
+    "clarity" : 10.0
+  },
+  "scoresB" : {
+    "constraint-following" : 0.0,
+    "completeness" : 5.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 5.0
+  },
+  "violationsA" : [ ],
+  "violationsB" : [ "Incorrect calculation: claims 26.4% despite correctly identifying 0.904 as the probability of no slow calls in its own text.", "Failed to report the specific required values (90.4% and 9.6%).", "Failed to explain that a per-call 99th percentile does not give a per-page 99th percentile." ],
+  "rationale" : "Candidate A correctly performs the calculation (1 - 0.99^10 ≈ 0.0956), which aligns with the requirements to report approximately 9.6% of pages having at least one slow call. While it didn't explicitly state the '90.4% no slow call' figure as a standalone sentence, it correctly derived the logic. Candidate B is factually incorrect; it identifies 0.904 as the probability of no slow calls but then hallucinated a 'correct' answer of 26.4% for no apparent mathematical reason, violating the core correctness of the prompt.",
+  "rawResponse" : "{\n  \"winner\": \"A\",\n  \"confidence\": 0.9,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 10,\n      \"completeness\": 9,\n      \"reasoning\": 10,\n      \"constraint-following\": 10,\n      \"clarity\": 10\n    },\n    \"B\": {\n      \"correctness\": 0,\n      \"completeness\": 5,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 5\n    }\n  },\n  \"violations\": {\n    \"A\": [],\n    \"B\": [\n      \"Incorrect calculation: claims 26.4% despite correctly identifying 0.904 as the probability of no slow calls in its own text.\",\n      \"Failed to report the specific required values (90.4% and 9.6%).\",\n      \"Failed to explain that a per-call 99th percentile does not give a per-page 99th percentile.\"\n    ]\n  },\n  \"rationale\": \"Candidate A correctly performs the calculation (1 - 0.99^10 ≈ 0.0956), which aligns with the requirements to report approximately 9.6% of pages having at least one slow call. While it didn't explicitly state the '90.4% no slow call' figure as a standalone sentence, it correctly derived the logic. Candidate B is factually incorrect; it identifies 0.904 as the probability of no slow calls but then hallucinated a 'correct' answer of 26.4% for no apparent mathematical reason, violating the core correctness of the prompt.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:38:16.765989Z",
+  "durationMs" : 19436,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1673,
+    "completionTokens" : 390,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

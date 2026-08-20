@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "balanced-vs-rigorous:underspecified-make-it-faster:r1:gemma-local:o1",
+  "pairId" : "balanced-vs-rigorous:underspecified-make-it-faster:r1",
+  "comparisonId" : "balanced-vs-rigorous",
+  "caseId" : "underspecified-make-it-faster",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 1,
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "local-balanced",
+  "status" : "COMPLETED",
+  "winner" : "B",
+  "confidence" : 0.9,
+  "scoresA" : {
+    "constraint-following" : 40.0,
+    "completeness" : 70.0,
+    "correctness" : 40.0,
+    "reasoning" : 50.0,
+    "clarity" : 80.0
+  },
+  "scoresB" : {
+    "constraint-following" : 100.0,
+    "completeness" : 90.0,
+    "correctness" : 90.0,
+    "reasoning" : 90.0,
+    "clarity" : 90.0
+  },
+  "violationsA" : [ "Prescribes specific changes (caching, database query reduction, async processing, CDN) without evidence, violating the 'Avoid inventing a bottleneck' and 'Decline to prescribe a specific change without measurement' requirements.", "Includes a 'Final Recommendation' that suggests actions before the required data is gathered." ],
+  "violationsB" : [ ],
+  "rationale" : "Candidate B correctly follows all instructions, specifically declining to prescribe specific changes (like caching or database tweaks) because no data has been provided. It correctly identifies the need for profiling, traffic analysis, dependency breakdown, and user feedback as the first steps. Candidate A fails significantly by prescribing specific technical changes (caching, async processing, CDN, etc.) despite the prompt's explicit instruction to avoid inventing bottlenecks and to decline prescribing changes without measurement.",
+  "rawResponse" : "{\n  \"winner\": \"B\",\n  \"confidence\": 0.9,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 40,\n      \"completeness\": 70,\n      \"reasoning\": 50,\n      \"constraint-following\": 40,\n      \"clarity\": 80\n    },\n    \"B\": {\n      \"correctness\": 90,\n      \"completeness\": 90,\n      \"reasoning\": 90,\n      \"constraint-following\": 100,\n      \"clarity\": 90\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Prescribes specific changes (caching, database query reduction, async processing, CDN) without evidence, violating the 'Avoid inventing a bottleneck' and 'Decline to prescribe a specific change without measurement' requirements.\",\n      \"Includes a 'Final Recommendation' that suggests actions before the required data is gathered.\"\n    ],\n    \"B\": []\n  },\n  \"rationale\": \"Candidate B correctly follows all instructions, specifically declining to prescribe specific changes (like caching or database tweaks) because no data has been provided. It correctly identifies the need for profiling, traffic analysis, dependency breakdown, and user feedback as the first steps. Candidate A fails significantly by prescribing specific technical changes (caching, async processing, CDN, etc.) despite the prompt's explicit instruction to avoid inventing bottlenecks and to decline prescribing changes without measurement.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T09:30:42.455114Z",
+  "durationMs" : 17654,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1737,
+    "completionTokens" : 333,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-rigorous:planning-feature-flag-debt:r1:gemma-local:o1",
+  "pairId" : "direct-vs-rigorous:planning-feature-flag-debt:r1",
+  "comparisonId" : "direct-vs-rigorous",
+  "caseId" : "planning-feature-flag-debt",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 1,
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-rigorous",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 3.0,
+    "completeness" : 4.0,
+    "correctness" : 3.0,
+    "reasoning" : 3.0,
+    "clarity" : 8.0
+  },
+  "scoresB" : {
+    "constraint-following" : 3.0,
+    "completeness" : 4.0,
+    "correctness" : 3.0,
+    "reasoning" : 3.0,
+    "clarity" : 7.0
+  },
+  "violationsA" : [ "Failed to distinguish between permanent operational switches and temporary release flags (required by prompt).", "Failed to mention using runtime evaluation telemetry to find dead flags (required by prompt).", "Failed to explicitly mention removing the losing branch (required by prompt).", "Failed to address the specific risk of incomplete features being enabled (required by prompt)." ],
+  "violationsB" : [ "Failed to distinguish between permanent operational switches and temporary release flags (required by prompt).", "Failed to mention using runtime evaluation telemetry to find dead flags (required by prompt).", "Failed to explicitly mention removing the losing branch (required by prompt).", "Failed to address the specific risk of incomplete features being enabled (required by prompt)." ],
+  "rationale" : "Both candidates failed significantly on the specific requirements provided in the prompt. Neither candidate mentioned using runtime evaluation telemetry to identify dead flags, neither explicitly instructed the removal of the 'losing branch' (which would leave unreachable code), and neither provided a specific strategy to ensure incomplete features are not accidentally enabled during the sequence. Both candidates also failed to explicitly distinguish between permanent operational switches (like the kill switch) and temporary release flags as requested. Because both failed the core requirements in a similar fashion, a tie is declared.",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 3,\n      \"completeness\": 4,\n      \"reasoning\": 3,\n      \"constraint-following\": 3,\n      \"clarity\": 8\n    },\n    \"B\": {\n      \"correctness\": 3,\n      \"completeness\": 4,\n      \"reasoning\": 3,\n      \"constraint-following\": 3,\n      \"clarity\": 7\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Failed to distinguish between permanent operational switches and temporary release flags (required by prompt).\",\n      \"Failed to mention using runtime evaluation telemetry to find dead flags (required by prompt).\",\n      \"Failed to explicitly mention removing the losing branch (required by prompt).\",\n      \"Failed to address the specific risk of incomplete features being enabled (required by prompt).\"\n    ],\n    \"B\": [\n      \"Failed to distinguish between permanent operational switches and temporary release flags (required by prompt).\",\n      \"Failed to mention using runtime evaluation telemetry to find dead flags (required by prompt).\",\n      \"Failed to explicitly mention removing the losing branch (required by prompt).\",\n      \"Failed to address the specific risk of incomplete features being enabled (required by prompt).\"\n    ]\n  },\n  \"rationale\": \"Both candidates failed significantly on the specific requirements provided in the prompt. Neither candidate mentioned using runtime evaluation telemetry to identify dead flags, neither explicitly instructed the removal of the 'losing branch' (which would leave unreachable code), and neither provided a specific strategy to ensure incomplete features are not accidentally enabled during the sequence. Both candidates also failed to explicitly distinguish between permanent operational switches (like the kill switch) and temporary release flags as requested. Because both failed the core requirements in a similar fashion, a tie is declared.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:41:05.645905Z",
+  "durationMs" : 21797,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1905,
+    "completionTokens" : 428,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

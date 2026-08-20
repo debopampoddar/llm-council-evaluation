@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-balanced:smoke-arithmetic:r1:gemma-local:o2",
+  "pairId" : "direct-vs-balanced:smoke-arithmetic:r1",
+  "comparisonId" : "direct-vs-balanced",
+  "caseId" : "smoke-arithmetic",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "local-balanced",
+  "answerBVariant" : "direct-llama",
+  "status" : "COMPLETED",
+  "winner" : "B",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "reasoning" : 100.0,
+    "correctness" : 100.0,
+    "completeness" : 100.0,
+    "constraint-following" : 100.0,
+    "clarity" : 70.0
+  },
+  "scoresB" : {
+    "reasoning" : 100.0,
+    "correctness" : 100.0,
+    "completeness" : 100.0,
+    "constraint-following" : 100.0,
+    "clarity" : 100.0
+  },
+  "violationsA" : [ "Includes unnecessary meta-commentary (council discussion, scores, and confidence levels) that was not requested." ],
+  "violationsB" : [ ],
+  "rationale" : "Candidate B is the superior answer because it directly addresses the prompt with a clear, step-by-step calculation without including extraneous, hallucinated meta-commentary. Candidate A includes a large amount of irrelevant 'council' discussion and internal scoring that was not part of the task, making it less clear and more cluttered.",
+  "rawResponse" : "{\n  \"winner\": \"B\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 100,\n      \"completeness\": 100,\n      \"reasoning\": 100,\n      \"constraint-following\": 100,\n      \"clarity\": 70\n    },\n    \"B\": {\n      \"correctness\": 100,\n      \"completeness\": 100,\n      \"reasoning\": 100,\n      \"constraint-following\": 100,\n      \"clarity\": 100\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Includes unnecessary meta-commentary (council discussion, scores, and confidence levels) that was not requested.\"\n    ],\n    \"B\": []\n  },\n  \"rationale\": \"Candidate B is the superior answer because it directly addresses the prompt with a clear, step-by-step calculation without including extraneous, hallucinated meta-commentary. Candidate A includes a large amount of irrelevant 'council' discussion and internal scoring that was not part of the task, making it less clear and more cluttered.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-19T18:31:50.589401Z",
+  "durationMs" : 17176,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1211,
+    "completionTokens" : 277,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

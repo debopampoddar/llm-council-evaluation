@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "ensemble-vs-rigorous:architecture-saga-compensation:r1:gemma-local:o1",
+  "pairId" : "ensemble-vs-rigorous:architecture-saga-compensation:r1",
+  "comparisonId" : "ensemble-vs-rigorous",
+  "caseId" : "architecture-saga-compensation",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 1,
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "llama-ensemble",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "scoresB" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "violationsA" : [ "The response is a meta-analysis of other drafts rather than a direct answer to the prompt.", "Fails to provide a specific design for the booking flow.", "Fails to explain the saga pattern or specific requirements like compensation failure or intermediate states." ],
+  "violationsB" : [ "The response incorrectly suggests a 'two-phase commit approach' (2PC) while the prompt explicitly states there is 'no distributed transaction manager' and the context notes 2PC is unavailable.", "Fails to explain that compensation is semantic rather than a rollback.", "Fails to address how to handle compensation that itself fails.", "Fails to address the customer-visible intermediate state." ],
+  "rationale" : "Both candidates fail significantly. Candidate A is a meta-commentary on internal drafts and does not actually provide a design. Candidate B provides a design but fundamentally violates the constraints: it suggests a Two-Phase Commit (2PC) which the context explicitly states is unavailable/impossible for these independently owned services. Furthermore, Candidate B fails to meet several specific requirements (semantic vs rollback, compensation failure handling, and intermediate states). Since both are non-functional for the prompt, a tie is declared.",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    },\n    \"B\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"The response is a meta-analysis of other drafts rather than a direct answer to the prompt.\",\n      \"Fails to provide a specific design for the booking flow.\",\n      \"Fails to explain the saga pattern or specific requirements like compensation failure or intermediate states.\"\n    ],\n    \"B\": [\n      \"The response incorrectly suggests a 'two-phase commit approach' (2PC) while the prompt explicitly states there is 'no distributed transaction manager' and the context notes 2PC is unavailable.\",\n      \"Fails to explain that compensation is semantic rather than a rollback.\",\n      \"Fails to address how to handle compensation that itself fails.\",\n      \"Fails to address the customer-visible intermediate state.\"\n    ]\n  },\n  \"rationale\": \"Both candidates fail significantly. Candidate A is a meta-commentary on internal drafts and does not actually provide a design. Candidate B provides a design but fundamentally violates the constraints: it suggests a Two-Phase Commit (2PC) which the context explicitly states is unavailable/impossible for these independently owned services. Furthermore, Candidate B fails to meet several specific requirements (semantic vs rollback, compensation failure handling, and intermediate states). Since both are non-functional for the prompt, a tie is declared.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:49:47.466029Z",
+  "durationMs" : 21286,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1900,
+    "completionTokens" : 417,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

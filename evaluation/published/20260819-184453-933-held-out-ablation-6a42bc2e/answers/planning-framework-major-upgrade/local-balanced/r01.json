@@ -1,0 +1,174 @@
+{
+  "unitId" : "planning-framework-major-upgrade:local-balanced:r1",
+  "caseId" : "planning-framework-major-upgrade",
+  "variantId" : "local-balanced",
+  "repetition" : 1,
+  "status" : "COMPLETED",
+  "answer" : "**Final Recommendation:**\n\nGiven the complexity of the upgrade and the constraints outlined in the context, we recommend a hybrid approach that balances the need for a phased upgrade with the urgency of the compliance freeze. We prioritize services based on their criticality and complexity, allocating resources accordingly. We also advocate for setting up a shared integration environment to facilitate testing and minimize conflicts. However, we acknowledge that the lack of automated tests in two teams and the uncertainty surrounding the compliance freeze duration pose significant risks.\n\n**Rationale:**\n\n1. **Breaking API changes and Java version bump**: The upgrade's impact on the critical payment path services and the lack of automated tests in two teams increase the risk of introducing errors or breaking existing functionality.\n2. **No shared integration environment**: This makes it difficult to test and validate the upgrade before deployment, increasing the likelihood of issues in production.\n3. **Compliance freeze**: The upcoming compliance freeze will limit the teams' ability to make changes, making it essential to complete the upgrade before then.\n4. **Phased approach**: Breaking the upgrade into smaller, manageable chunks will allow for more controlled risk management and easier identification of issues.\n\n**Important Dissent:**\n\nWhile the hybrid approach balances competing priorities, it is essential to acknowledge that the assessment of critical services may not be comprehensive or accurate. Additionally, the lack of automated tests in two teams may not be the only issue, and other teams may also have inadequate testing.\n\n**Unresolved Risks:**\n\n1. **Assessment of critical services**: The assessment of which services are on the critical payment path may not be comprehensive or accurate.\n2. **Automated testing**: The lack of automated tests in two teams may not be the only issue, and other teams may also have inadequate testing.\n3. **Compliance freeze duration**: The compliance freeze duration is uncertain, and its impact on the upgrade timeline is unknown.\n\n**Confidence:**\n\nWe have a moderate level of confidence in our recommendation, given the complexity of the upgrade and the constraints outlined in the context. However, we acknowledge that there are significant unresolved risks and uncertainties that could impact the success of the upgrade.\n\n**Weighting:**\n\nWe have weighted the positions based on their review scores, with draft-F0E56606 receiving a higher score (92) than draft-C61F874E (85.99999999999999). However, we have also considered the concerns raised by the reviewers and incorporated them into our final recommendation.\n\n**Synthesis:**\n\nOur final recommendation synthesizes the strongest reasoning from both drafts, correcting errors and addressing concerns raised by the reviewers. We have prioritized services based on their criticality and complexity, allocated resources accordingly, and advocated for setting up a shared integration environment. However, we have also acknowledged the significant unresolved risks and uncertainties that could impact the success of the upgrade.",
+  "startedAt" : "2026-08-20T04:27:17.670584Z",
+  "completedAt" : "2026-08-20T06:20:44.689866Z",
+  "durationMs" : 6807019,
+  "usage" : {
+    "calls" : 6,
+    "promptTokens" : 5816,
+    "completionTokens" : 2753,
+    "estimatedCostUsd" : null,
+    "estimated" : false,
+    "partiallyPriced" : false
+  },
+  "failureCategory" : null,
+  "failureReason" : null,
+  "warnings" : [ ],
+  "componentAnswers" : [ ],
+  "councilResult" : {
+    "sessionId" : "dc6fc626-9ca3-4774-9fa3-9f2d8c37dac1",
+    "status" : "COMPLETED",
+    "profileId" : "local",
+    "depthMode" : "BALANCED",
+    "policyId" : "local-balanced",
+    "protocolId" : "balanced",
+    "answer" : "**Final Recommendation:**\n\nGiven the complexity of the upgrade and the constraints outlined in the context, we recommend a hybrid approach that balances the need for a phased upgrade with the urgency of the compliance freeze. We prioritize services based on their criticality and complexity, allocating resources accordingly. We also advocate for setting up a shared integration environment to facilitate testing and minimize conflicts. However, we acknowledge that the lack of automated tests in two teams and the uncertainty surrounding the compliance freeze duration pose significant risks.\n\n**Rationale:**\n\n1. **Breaking API changes and Java version bump**: The upgrade's impact on the critical payment path services and the lack of automated tests in two teams increase the risk of introducing errors or breaking existing functionality.\n2. **No shared integration environment**: This makes it difficult to test and validate the upgrade before deployment, increasing the likelihood of issues in production.\n3. **Compliance freeze**: The upcoming compliance freeze will limit the teams' ability to make changes, making it essential to complete the upgrade before then.\n4. **Phased approach**: Breaking the upgrade into smaller, manageable chunks will allow for more controlled risk management and easier identification of issues.\n\n**Important Dissent:**\n\nWhile the hybrid approach balances competing priorities, it is essential to acknowledge that the assessment of critical services may not be comprehensive or accurate. Additionally, the lack of automated tests in two teams may not be the only issue, and other teams may also have inadequate testing.\n\n**Unresolved Risks:**\n\n1. **Assessment of critical services**: The assessment of which services are on the critical payment path may not be comprehensive or accurate.\n2. **Automated testing**: The lack of automated tests in two teams may not be the only issue, and other teams may also have inadequate testing.\n3. **Compliance freeze duration**: The compliance freeze duration is uncertain, and its impact on the upgrade timeline is unknown.\n\n**Confidence:**\n\nWe have a moderate level of confidence in our recommendation, given the complexity of the upgrade and the constraints outlined in the context. However, we acknowledge that there are significant unresolved risks and uncertainties that could impact the success of the upgrade.\n\n**Weighting:**\n\nWe have weighted the positions based on their review scores, with draft-F0E56606 receiving a higher score (92) than draft-C61F874E (85.99999999999999). However, we have also considered the concerns raised by the reviewers and incorporated them into our final recommendation.\n\n**Synthesis:**\n\nOur final recommendation synthesizes the strongest reasoning from both drafts, correcting errors and addressing concerns raised by the reviewers. We have prioritized services based on their criticality and complexity, allocated resources accordingly, and advocated for setting up a shared integration environment. However, we have also acknowledged the significant unresolved risks and uncertainties that could impact the success of the upgrade.",
+    "draftCount" : 2,
+    "reviewCount" : 2,
+    "debateRounds" : 0,
+    "participatingModels" : [ "local-llama3", "local-mistral" ],
+    "excludedModels" : [ ],
+    "warnings" : [ ],
+    "sycophancyWarnings" : [ ],
+    "scoreSummary" : {
+      "scores" : [ {
+        "scorerId" : "confidence-weighted",
+        "draftId" : "draft-C61F874E",
+        "dimensionScores" : {
+          "accuracy" : 90.0,
+          "completeness" : 80.0,
+          "reasoning" : 90.0,
+          "clarity" : 90.0,
+          "constructiveness" : 90.0
+        },
+        "weightedTotal" : 85.99999999999999,
+        "label" : "initial"
+      }, {
+        "scorerId" : "confidence-weighted",
+        "draftId" : "draft-F0E56606",
+        "dimensionScores" : {
+          "accuracy" : 90.0,
+          "completeness" : 95.0,
+          "reasoning" : 92.0,
+          "clarity" : 98.0,
+          "constructiveness" : 95.0
+        },
+        "weightedTotal" : 92.0,
+        "label" : "initial"
+      } ],
+      "variance" : 9.000000000000043,
+      "winningDraftId" : "draft-F0E56606",
+      "escalated" : false,
+      "escalationPolicy" : null,
+      "reviewerDisagreement" : 0.0,
+      "disagreementMeasurable" : false
+    },
+    "validation" : {
+      "validatorId" : "local-validator",
+      "approved" : true,
+      "confidence" : 0.8,
+      "issues" : [ ],
+      "recommendedFixes" : [ ],
+      "criteria" : {
+        "uncertainty" : "pass - The final answer acknowledges the uncertainties surrounding the assessment of critical services, the lack of automated tests, and the compliance freeze duration.",
+        "correctness" : "pass - The final answer provides a well-reasoned plan for the major framework upgrade, addressing the breaking API changes, Java version bump, lack of shared integration environment, and the upcoming compliance freeze.",
+        "completeness" : "pass - The final answer provides a comprehensive plan, including a phased approach, prioritization of services, and the recommendation to set up a shared integration environment.",
+        "actionability" : "pass - The final answer provides clear recommendations for the upgrade, including a phased approach, prioritization of services, and the recommendation to set up a shared integration environment.",
+        "safety" : "pass - The final answer considers the safety implications of the upgrade, such as the breaking API changes, the lack of automated tests, and the lack of a shared integration environment."
+      },
+      "requiresHumanReview" : false,
+      "rawText" : "{\n  \"approved\": true,\n  \"confidence\": 0.8,\n  \"issues\": [],\n  \"recommendedFixes\": [],\n  \"criteria\": {\n    \"correctness\": \"pass - The final answer provides a well-reasoned plan for the major framework upgrade, addressing the breaking API changes, Java version bump, lack of shared integration environment, and the upcoming compliance freeze.\",\n    \"completeness\": \"pass - The final answer provides a comprehensive plan, including a phased approach, prioritization of services, and the recommendation to set up a shared integration environment.\",\n    \"uncertainty\": \"pass - The final answer acknowledges the uncertainties surrounding the assessment of critical services, the lack of automated tests, and the compliance freeze duration.\",\n    \"safety\": \"pass - The final answer considers the safety implications of the upgrade, such as the breaking API changes, the lack of automated tests, and the lack of a shared integration environment.\",\n    \"actionability\": \"pass - The final answer provides clear recommendations for the upgrade, including a phased approach, prioritization of services, and the recommendation to set up a shared integration environment.\"\n  },\n  \"requiresHumanReview\": false\n}"
+    },
+    "validationIndependence" : "INDEPENDENT",
+    "failureReason" : null,
+    "failureCategory" : null,
+    "modelFailures" : [ ],
+    "usage" : {
+      "promptTokens" : 5816,
+      "completionTokens" : 2753,
+      "totalTokens" : 8569,
+      "calls" : 6,
+      "estimatedCostUsd" : null,
+      "estimated" : false,
+      "partiallyPriced" : false,
+      "byModel" : [ {
+        "modelId" : "local-mistral",
+        "calls" : 2,
+        "promptTokens" : 1767,
+        "completionTokens" : 939,
+        "totalTokens" : 2706,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "modelId" : "local-llama3",
+        "calls" : 2,
+        "promptTokens" : 1509,
+        "completionTokens" : 970,
+        "totalTokens" : 2479,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "modelId" : "local-chair",
+        "calls" : 1,
+        "promptTokens" : 1302,
+        "completionTokens" : 572,
+        "totalTokens" : 1874,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "modelId" : "local-validator",
+        "calls" : 1,
+        "promptTokens" : 1238,
+        "completionTokens" : 272,
+        "totalTokens" : 1510,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      } ],
+      "byStage" : [ {
+        "stage" : "GENERATE",
+        "calls" : 2,
+        "promptTokens" : 454,
+        "completionTokens" : 846,
+        "totalTokens" : 1300,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "stage" : "REVIEW",
+        "calls" : 2,
+        "promptTokens" : 2822,
+        "completionTokens" : 1063,
+        "totalTokens" : 3885,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "stage" : "SYNTHESIZE",
+        "calls" : 1,
+        "promptTokens" : 1302,
+        "completionTokens" : 572,
+        "totalTokens" : 1874,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "stage" : "VALIDATE",
+        "calls" : 1,
+        "promptTokens" : 1238,
+        "completionTokens" : 272,
+        "totalTokens" : 1510,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      } ]
+    },
+    "integrity" : {
+      "reduced" : false,
+      "preserveDissent" : true,
+      "sycophancyThreshold" : null,
+      "reviewsPerDraft" : 1,
+      "notes" : [ ]
+    }
+  }
+}

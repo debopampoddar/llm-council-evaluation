@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "ensemble-vs-rigorous:architecture-tenant-isolation:r1:gemma-local:o1",
+  "pairId" : "ensemble-vs-rigorous:architecture-tenant-isolation:r1",
+  "comparisonId" : "ensemble-vs-rigorous",
+  "caseId" : "architecture-tenant-isolation",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 1,
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "llama-ensemble",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 10.0,
+    "completeness" : 10.0,
+    "correctness" : 10.0,
+    "reasoning" : 10.0,
+    "clarity" : 10.0
+  },
+  "scoresB" : {
+    "constraint-following" : 10.0,
+    "completeness" : 10.0,
+    "correctness" : 10.0,
+    "reasoning" : 10.0,
+    "clarity" : 10.0
+  },
+  "violationsA" : [ ],
+  "violationsB" : [ ],
+  "rationale" : "Both models are essentially identical in their technical recommendation: a hybrid approach using 'Virtual Clusters' (VCs) to group tenants. Both correctly identify that a single shared-schema model cannot satisfy the non-co-residency requirement and that a 1:1 database-per-tenant model for 900 tenants is operationally infeasible for a 6-person team. Both address the noisy-neighbor problem via resource limits and load balancing. Neither model provides a significantly better explanation of the trade-offs between operational cost and isolation, but both satisfy all prompt requirements.",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 10,\n      \"completeness\": 10,\n      \"reasoning\": 10,\n      \"constraint-following\": 10,\n      \"clarity\": 10\n    },\n    \"B\": {\n      \"correctness\": 10,\n      \"completeness\": 10,\n      \"reasoning\": 10,\n      \"constraint-following\": 10,\n      \"clarity\": 10\n    }\n  },\n  \"violations\": {\n    \"A\": [],\n    \"B\": []\n  },\n  \"rationale\": \"Both models are essentially identical in their technical recommendation: a hybrid approach using 'Virtual Clusters' (VCs) to group tenants. Both correctly identify that a single shared-schema model cannot satisfy the non-co-residency requirement and that a 1:1 database-per-tenant model for 900 tenants is operationally infeasible for a 6-person team. Both address the noisy-neighbor problem via resource limits and load balancing. Neither model provides a significantly better explanation of the trade-offs between operational cost and isolation, but both satisfy all prompt requirements.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:51:18.718167Z",
+  "durationMs" : 16739,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1819,
+    "completionTokens" : 295,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

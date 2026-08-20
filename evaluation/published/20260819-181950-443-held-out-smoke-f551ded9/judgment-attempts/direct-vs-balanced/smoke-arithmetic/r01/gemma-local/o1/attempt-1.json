@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-balanced:smoke-arithmetic:r1:gemma-local:o1",
+  "pairId" : "direct-vs-balanced:smoke-arithmetic:r1",
+  "comparisonId" : "direct-vs-balanced",
+  "caseId" : "smoke-arithmetic",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 1,
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-balanced",
+  "status" : "COMPLETED",
+  "winner" : "A",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "reasoning" : 100.0,
+    "correctness" : 100.0,
+    "completeness" : 100.0,
+    "constraint-following" : 100.0,
+    "clarity" : 100.0
+  },
+  "scoresB" : {
+    "reasoning" : 50.0,
+    "correctness" : 100.0,
+    "completeness" : 80.0,
+    "constraint-following" : 40.0,
+    "clarity" : 60.0
+  },
+  "violationsA" : [ ],
+  "violationsB" : [ "Included unnecessary 'council' and 'draft' meta-commentary not requested by the prompt.", "Included a self-assigned score summary which was not requested." ],
+  "rationale" : "Candidate A provides a direct, clear, and accurate response that follows all instructions and requirements. Candidate B includes a large amount of irrelevant 'hallucinated' meta-commentary regarding a 'council' and 'drafts' that were not part of the prompt, and includes a self-assigned score summary which is unnecessary and distracting.",
+  "rawResponse" : "{\n  \"winner\": \"A\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 100,\n      \"completeness\": 100,\n      \"reasoning\": 100,\n      \"constraint-following\": 100,\n      \"clarity\": 100\n    },\n    \"B\": {\n      \"correctness\": 100,\n      \"completeness\": 80,\n      \"reasoning\": 50,\n      \"constraint-following\": 40,\n      \"clarity\": 60\n    }\n  },\n  \"violations\": {\n    \"A\": [],\n    \"B\": [\n      \"Included unnecessary 'council' and 'draft' meta-commentary not requested by the prompt.\",\n      \"Included a self-assigned score summary which was not requested.\"\n    ]\n  },\n  \"rationale\": \"Candidate A provides a direct, clear, and accurate response that follows all instructions and requirements. Candidate B includes a large amount of irrelevant 'hallucinated' meta-commentary regarding a 'council' and 'drafts' that were not part of the prompt, and includes a self-assigned score summary which is unnecessary and distracting.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-19T18:31:33.392307Z",
+  "durationMs" : 22371,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1211,
+    "completionTokens" : 290,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

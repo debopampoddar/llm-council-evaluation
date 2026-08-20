@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-rigorous:architecture-exactly-once:r1:gemma-local:o1",
+  "pairId" : "direct-vs-rigorous:architecture-exactly-once:r1",
+  "comparisonId" : "direct-vs-rigorous",
+  "caseId" : "architecture-exactly-once",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 1,
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-rigorous",
+  "status" : "COMPLETED",
+  "winner" : "A",
+  "confidence" : 0.8,
+  "scoresA" : {
+    "constraint-following" : 9.0,
+    "completeness" : 8.0,
+    "correctness" : 9.0,
+    "reasoning" : 8.0,
+    "clarity" : 9.0
+  },
+  "scoresB" : {
+    "constraint-following" : 3.0,
+    "completeness" : 4.0,
+    "correctness" : 5.0,
+    "reasoning" : 4.0,
+    "clarity" : 6.0
+  },
+  "violationsA" : [ "The design includes Two-Phase Commit (2PC), which is often overkill and complex for simple service-to-service messaging, but it technically satisfies the requirement of 'exactly-once effect' better than B's vague 'compensation' approach." ],
+  "violationsB" : [ "Fails to explicitly state that exactly-once delivery is not achievable over an unreliable network (it implies it by mentioning challenges but doesn't state it as a core fact).", "Fails to distinguish between delivery and processing/effect clearly.", "Fails to describe deduplication keys or retention windows.", "Includes 'Draft' references which are irrelevant to the user's prompt." ],
+  "rationale" : "Candidate A is significantly better because it follows the specific requirements of the prompt. It explicitly states that exactly-once delivery is not achievable over an unreliable network and provides a concrete design (Idempotency + Logging + Retries). While Candidate A suggests Two-Phase Commit (which is a heavy way to achieve the effect), it is technically sound for the 'exactly-once effect' requirement. Candidate B is very poor; it includes meta-commentary about 'drafts' that were not provided in the prompt, fails to state the impossibility of exactly-once delivery clearly, and fails to mention deduplication keys or retention windows as required.",
+  "rawResponse" : "{\n  \"winner\": \"A\",\n  \"confidence\": 0.8,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 9,\n      \"completeness\": 8,\n      \"reasoning\": 8,\n      \"constraint-following\": 9,\n      \"clarity\": 9\n    },\n    \"B\": {\n      \"correctness\": 5,\n      \"completeness\": 4,\n      \"reasoning\": 4,\n      \"constraint-following\": 3,\n      \"clarity\": 6\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"The design includes Two-Phase Commit (2PC), which is often overkill and complex for simple service-to-service messaging, but it technically satisfies the requirement of 'exactly-once effect' better than B's vague 'compensation' approach.\"\n    ],\n    \"B\": [\n      \"Fails to explicitly state that exactly-once delivery is not achievable over an unreliable network (it implies it by mentioning challenges but doesn't state it as a core fact).\",\n      \"Fails to distinguish between delivery and processing/effect clearly.\",\n      \"Fails to describe deduplication keys or retention windows.\",\n      \"Includes 'Draft' references which are irrelevant to the user's prompt.\"\n    ]\n  },\n  \"rationale\": \"Candidate A is significantly better because it follows the specific requirements of the prompt. It explicitly states that exactly-once delivery is not achievable over an unreliable network and provides a concrete design (Idempotency + Logging + Retries). While Candidate A suggests Two-Phase Commit (which is a heavy way to achieve the effect), it is technically sound for the 'exactly-once effect' requirement. Candidate B is very poor; it includes meta-commentary about 'drafts' that were not provided in the prompt, fails to state the impossibility of exactly-once delivery clearly, and fails to mention deduplication keys or retention windows as required.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:24:33.177722Z",
+  "durationMs" : 21560,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1762,
+    "completionTokens" : 440,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

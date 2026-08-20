@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-rigorous:smoke-arithmetic:r1:gemma-local:o2",
+  "pairId" : "direct-vs-rigorous:smoke-arithmetic:r1",
+  "comparisonId" : "direct-vs-rigorous",
+  "caseId" : "smoke-arithmetic",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-rigorous",
+  "status" : "COMPLETED",
+  "winner" : "A",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "reasoning" : 100.0,
+    "correctness" : 100.0,
+    "completeness" : 100.0,
+    "constraint-following" : 100.0,
+    "clarity" : 100.0
+  },
+  "scoresB" : {
+    "reasoning" : 80.0,
+    "correctness" : 100.0,
+    "completeness" : 100.0,
+    "constraint-following" : 100.0,
+    "clarity" : 70.0
+  },
+  "violationsA" : [ ],
+  "violationsB" : [ "Includes unnecessary verbosity and meta-commentary (simulated council drafts, confidence levels, etc.) not requested by the prompt." ],
+  "rationale" : "Candidate A provides a direct, clear, and accurate response that follows all instructions and requirements. Candidate B provides the correct answer but includes a significant amount of unnecessary 'meta-talk' (simulated council drafts, confidence scores, and irrelevant 'unresolved risks') that makes the response much longer and less clear than required.",
+  "rawResponse" : "{\n  \"winner\": \"A\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 100,\n      \"completeness\": 100,\n      \"reasoning\": 100,\n      \"constraint-following\": 100,\n      \"clarity\": 100\n    },\n    \"B\": {\n      \"correctness\": 100,\n      \"completeness\": 100,\n      \"reasoning\": 80,\n      \"constraint-following\": 100,\n      \"clarity\": 70\n    }\n  },\n  \"violations\": {\n    \"A\": [],\n    \"B\": [\n      \"Includes unnecessary verbosity and meta-commentary (simulated council drafts, confidence levels, etc.) not requested by the prompt.\"\n    ]\n  },\n  \"rationale\": \"Candidate A provides a direct, clear, and accurate response that follows all instructions and requirements. Candidate B provides the correct answer but includes a significant amount of unnecessary 'meta-talk' (simulated council drafts, confidence scores, and irrelevant 'unresolved risks') that makes the response much longer and less clear than required.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-19T18:33:02.086765Z",
+  "durationMs" : 17784,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1161,
+    "completionTokens" : 281,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

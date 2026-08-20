@@ -1,0 +1,577 @@
+[ {
+  "pairId" : "direct-vs-balanced:architecture-exactly-once:r1",
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-balanced"
+}, {
+  "pairId" : "direct-vs-balanced:architecture-cache-stampede:r1",
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-balanced"
+}, {
+  "pairId" : "direct-vs-balanced:architecture-event-ordering:r1",
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-balanced"
+}, {
+  "pairId" : "direct-vs-balanced:architecture-saga-compensation:r1",
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-balanced"
+}, {
+  "pairId" : "direct-vs-balanced:architecture-read-after-write:r1",
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-balanced"
+}, {
+  "pairId" : "direct-vs-balanced:architecture-tenant-isolation:r1",
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-balanced"
+}, {
+  "pairId" : "direct-vs-balanced:debugging-threadlocal-leak:r1",
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-balanced"
+}, {
+  "pairId" : "direct-vs-balanced:debugging-broken-double-checked-lock:r1",
+  "answerAVariant" : "local-balanced",
+  "answerBVariant" : "direct-llama"
+}, {
+  "pairId" : "direct-vs-balanced:debugging-lock-ordering-deadlock:r1",
+  "answerAVariant" : "local-balanced",
+  "answerBVariant" : "direct-llama"
+}, {
+  "pairId" : "direct-vs-balanced:debugging-connection-pool-exhaustion:r1",
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-balanced"
+}, {
+  "pairId" : "direct-vs-balanced:debugging-money-floating-point:r1",
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-balanced"
+}, {
+  "pairId" : "direct-vs-balanced:debugging-utc-boundary:r1",
+  "answerAVariant" : "local-balanced",
+  "answerBVariant" : "direct-llama"
+}, {
+  "pairId" : "direct-vs-balanced:security-path-traversal:r1",
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-balanced"
+}, {
+  "pairId" : "direct-vs-balanced:security-timing-safe-compare:r1",
+  "answerAVariant" : "local-balanced",
+  "answerBVariant" : "direct-llama"
+}, {
+  "pairId" : "direct-vs-balanced:security-untrusted-deserialization:r1",
+  "answerAVariant" : "local-balanced",
+  "answerBVariant" : "direct-llama"
+}, {
+  "pairId" : "direct-vs-balanced:security-cors-credentials:r1",
+  "answerAVariant" : "local-balanced",
+  "answerBVariant" : "direct-llama"
+}, {
+  "pairId" : "direct-vs-balanced:security-secrets-in-telemetry:r1",
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-balanced"
+}, {
+  "pairId" : "direct-vs-balanced:reasoning-spam-ppv:r1",
+  "answerAVariant" : "local-balanced",
+  "answerBVariant" : "direct-llama"
+}, {
+  "pairId" : "direct-vs-balanced:reasoning-retry-success:r1",
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-balanced"
+}, {
+  "pairId" : "direct-vs-balanced:reasoning-littles-law:r1",
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-balanced"
+}, {
+  "pairId" : "direct-vs-balanced:reasoning-serial-availability:r1",
+  "answerAVariant" : "local-balanced",
+  "answerBVariant" : "direct-llama"
+}, {
+  "pairId" : "direct-vs-balanced:reasoning-tail-amplification:r1",
+  "answerAVariant" : "local-balanced",
+  "answerBVariant" : "direct-llama"
+}, {
+  "pairId" : "direct-vs-balanced:reasoning-batching-throughput:r1",
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-balanced"
+}, {
+  "pairId" : "direct-vs-balanced:planning-framework-major-upgrade:r1",
+  "answerAVariant" : "local-balanced",
+  "answerBVariant" : "direct-llama"
+}, {
+  "pairId" : "direct-vs-balanced:planning-capacity-headroom:r1",
+  "answerAVariant" : "local-balanced",
+  "answerBVariant" : "direct-llama"
+}, {
+  "pairId" : "direct-vs-balanced:planning-feature-flag-debt:r1",
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-balanced"
+}, {
+  "pairId" : "direct-vs-balanced:planning-postmortem-structure:r1",
+  "answerAVariant" : "local-balanced",
+  "answerBVariant" : "direct-llama"
+}, {
+  "pairId" : "direct-vs-balanced:planning-retention-deletion:r1",
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-balanced"
+}, {
+  "pairId" : "direct-vs-balanced:underspecified-make-it-faster:r1",
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-balanced"
+}, {
+  "pairId" : "direct-vs-balanced:underspecified-database-choice:r1",
+  "answerAVariant" : "local-balanced",
+  "answerBVariant" : "direct-llama"
+}, {
+  "pairId" : "direct-vs-balanced:underspecified-early-stopping:r1",
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-balanced"
+}, {
+  "pairId" : "direct-vs-balanced:underspecified-will-it-scale:r1",
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-balanced"
+}, {
+  "pairId" : "direct-vs-balanced:adversarial-embedded-instruction:r1",
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-balanced"
+}, {
+  "pairId" : "direct-vs-balanced:adversarial-false-authority:r1",
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-balanced"
+}, {
+  "pairId" : "direct-vs-balanced:adversarial-fabricated-citation:r1",
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-balanced"
+}, {
+  "pairId" : "direct-vs-balanced:adversarial-sustained-disagreement:r1",
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-balanced"
+}, {
+  "pairId" : "direct-vs-rigorous:architecture-exactly-once:r1",
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-rigorous"
+}, {
+  "pairId" : "direct-vs-rigorous:architecture-cache-stampede:r1",
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-rigorous"
+}, {
+  "pairId" : "direct-vs-rigorous:architecture-event-ordering:r1",
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "direct-llama"
+}, {
+  "pairId" : "direct-vs-rigorous:architecture-saga-compensation:r1",
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "direct-llama"
+}, {
+  "pairId" : "direct-vs-rigorous:architecture-read-after-write:r1",
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "direct-llama"
+}, {
+  "pairId" : "direct-vs-rigorous:architecture-tenant-isolation:r1",
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "direct-llama"
+}, {
+  "pairId" : "direct-vs-rigorous:debugging-threadlocal-leak:r1",
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-rigorous"
+}, {
+  "pairId" : "direct-vs-rigorous:debugging-broken-double-checked-lock:r1",
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-rigorous"
+}, {
+  "pairId" : "direct-vs-rigorous:debugging-lock-ordering-deadlock:r1",
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-rigorous"
+}, {
+  "pairId" : "direct-vs-rigorous:debugging-connection-pool-exhaustion:r1",
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-rigorous"
+}, {
+  "pairId" : "direct-vs-rigorous:debugging-money-floating-point:r1",
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-rigorous"
+}, {
+  "pairId" : "direct-vs-rigorous:debugging-utc-boundary:r1",
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-rigorous"
+}, {
+  "pairId" : "direct-vs-rigorous:security-path-traversal:r1",
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "direct-llama"
+}, {
+  "pairId" : "direct-vs-rigorous:security-timing-safe-compare:r1",
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-rigorous"
+}, {
+  "pairId" : "direct-vs-rigorous:security-untrusted-deserialization:r1",
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "direct-llama"
+}, {
+  "pairId" : "direct-vs-rigorous:security-cors-credentials:r1",
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "direct-llama"
+}, {
+  "pairId" : "direct-vs-rigorous:security-secrets-in-telemetry:r1",
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "direct-llama"
+}, {
+  "pairId" : "direct-vs-rigorous:reasoning-spam-ppv:r1",
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "direct-llama"
+}, {
+  "pairId" : "direct-vs-rigorous:reasoning-retry-success:r1",
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-rigorous"
+}, {
+  "pairId" : "direct-vs-rigorous:reasoning-littles-law:r1",
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "direct-llama"
+}, {
+  "pairId" : "direct-vs-rigorous:reasoning-serial-availability:r1",
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "direct-llama"
+}, {
+  "pairId" : "direct-vs-rigorous:reasoning-tail-amplification:r1",
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-rigorous"
+}, {
+  "pairId" : "direct-vs-rigorous:reasoning-batching-throughput:r1",
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "direct-llama"
+}, {
+  "pairId" : "direct-vs-rigorous:planning-framework-major-upgrade:r1",
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "direct-llama"
+}, {
+  "pairId" : "direct-vs-rigorous:planning-capacity-headroom:r1",
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "direct-llama"
+}, {
+  "pairId" : "direct-vs-rigorous:planning-feature-flag-debt:r1",
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-rigorous"
+}, {
+  "pairId" : "direct-vs-rigorous:planning-postmortem-structure:r1",
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-rigorous"
+}, {
+  "pairId" : "direct-vs-rigorous:planning-retention-deletion:r1",
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "direct-llama"
+}, {
+  "pairId" : "direct-vs-rigorous:underspecified-make-it-faster:r1",
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "direct-llama"
+}, {
+  "pairId" : "direct-vs-rigorous:underspecified-database-choice:r1",
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "direct-llama"
+}, {
+  "pairId" : "direct-vs-rigorous:underspecified-early-stopping:r1",
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "direct-llama"
+}, {
+  "pairId" : "direct-vs-rigorous:underspecified-will-it-scale:r1",
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-rigorous"
+}, {
+  "pairId" : "direct-vs-rigorous:adversarial-embedded-instruction:r1",
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-rigorous"
+}, {
+  "pairId" : "direct-vs-rigorous:adversarial-false-authority:r1",
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-rigorous"
+}, {
+  "pairId" : "direct-vs-rigorous:adversarial-fabricated-citation:r1",
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-rigorous"
+}, {
+  "pairId" : "direct-vs-rigorous:adversarial-sustained-disagreement:r1",
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "direct-llama"
+}, {
+  "pairId" : "ensemble-vs-rigorous:architecture-exactly-once:r1",
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "llama-ensemble"
+}, {
+  "pairId" : "ensemble-vs-rigorous:architecture-cache-stampede:r1",
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "llama-ensemble"
+}, {
+  "pairId" : "ensemble-vs-rigorous:architecture-event-ordering:r1",
+  "answerAVariant" : "llama-ensemble",
+  "answerBVariant" : "local-rigorous"
+}, {
+  "pairId" : "ensemble-vs-rigorous:architecture-saga-compensation:r1",
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "llama-ensemble"
+}, {
+  "pairId" : "ensemble-vs-rigorous:architecture-read-after-write:r1",
+  "answerAVariant" : "llama-ensemble",
+  "answerBVariant" : "local-rigorous"
+}, {
+  "pairId" : "ensemble-vs-rigorous:architecture-tenant-isolation:r1",
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "llama-ensemble"
+}, {
+  "pairId" : "ensemble-vs-rigorous:debugging-threadlocal-leak:r1",
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "llama-ensemble"
+}, {
+  "pairId" : "ensemble-vs-rigorous:debugging-broken-double-checked-lock:r1",
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "llama-ensemble"
+}, {
+  "pairId" : "ensemble-vs-rigorous:debugging-lock-ordering-deadlock:r1",
+  "answerAVariant" : "llama-ensemble",
+  "answerBVariant" : "local-rigorous"
+}, {
+  "pairId" : "ensemble-vs-rigorous:debugging-connection-pool-exhaustion:r1",
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "llama-ensemble"
+}, {
+  "pairId" : "ensemble-vs-rigorous:debugging-money-floating-point:r1",
+  "answerAVariant" : "llama-ensemble",
+  "answerBVariant" : "local-rigorous"
+}, {
+  "pairId" : "ensemble-vs-rigorous:debugging-utc-boundary:r1",
+  "answerAVariant" : "llama-ensemble",
+  "answerBVariant" : "local-rigorous"
+}, {
+  "pairId" : "ensemble-vs-rigorous:security-path-traversal:r1",
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "llama-ensemble"
+}, {
+  "pairId" : "ensemble-vs-rigorous:security-timing-safe-compare:r1",
+  "answerAVariant" : "llama-ensemble",
+  "answerBVariant" : "local-rigorous"
+}, {
+  "pairId" : "ensemble-vs-rigorous:security-untrusted-deserialization:r1",
+  "answerAVariant" : "llama-ensemble",
+  "answerBVariant" : "local-rigorous"
+}, {
+  "pairId" : "ensemble-vs-rigorous:security-cors-credentials:r1",
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "llama-ensemble"
+}, {
+  "pairId" : "ensemble-vs-rigorous:security-secrets-in-telemetry:r1",
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "llama-ensemble"
+}, {
+  "pairId" : "ensemble-vs-rigorous:reasoning-spam-ppv:r1",
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "llama-ensemble"
+}, {
+  "pairId" : "ensemble-vs-rigorous:reasoning-retry-success:r1",
+  "answerAVariant" : "llama-ensemble",
+  "answerBVariant" : "local-rigorous"
+}, {
+  "pairId" : "ensemble-vs-rigorous:reasoning-littles-law:r1",
+  "answerAVariant" : "llama-ensemble",
+  "answerBVariant" : "local-rigorous"
+}, {
+  "pairId" : "ensemble-vs-rigorous:reasoning-serial-availability:r1",
+  "answerAVariant" : "llama-ensemble",
+  "answerBVariant" : "local-rigorous"
+}, {
+  "pairId" : "ensemble-vs-rigorous:reasoning-tail-amplification:r1",
+  "answerAVariant" : "llama-ensemble",
+  "answerBVariant" : "local-rigorous"
+}, {
+  "pairId" : "ensemble-vs-rigorous:reasoning-batching-throughput:r1",
+  "answerAVariant" : "llama-ensemble",
+  "answerBVariant" : "local-rigorous"
+}, {
+  "pairId" : "ensemble-vs-rigorous:planning-framework-major-upgrade:r1",
+  "answerAVariant" : "llama-ensemble",
+  "answerBVariant" : "local-rigorous"
+}, {
+  "pairId" : "ensemble-vs-rigorous:planning-capacity-headroom:r1",
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "llama-ensemble"
+}, {
+  "pairId" : "ensemble-vs-rigorous:planning-feature-flag-debt:r1",
+  "answerAVariant" : "llama-ensemble",
+  "answerBVariant" : "local-rigorous"
+}, {
+  "pairId" : "ensemble-vs-rigorous:planning-postmortem-structure:r1",
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "llama-ensemble"
+}, {
+  "pairId" : "ensemble-vs-rigorous:planning-retention-deletion:r1",
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "llama-ensemble"
+}, {
+  "pairId" : "ensemble-vs-rigorous:underspecified-make-it-faster:r1",
+  "answerAVariant" : "llama-ensemble",
+  "answerBVariant" : "local-rigorous"
+}, {
+  "pairId" : "ensemble-vs-rigorous:underspecified-database-choice:r1",
+  "answerAVariant" : "llama-ensemble",
+  "answerBVariant" : "local-rigorous"
+}, {
+  "pairId" : "ensemble-vs-rigorous:underspecified-early-stopping:r1",
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "llama-ensemble"
+}, {
+  "pairId" : "ensemble-vs-rigorous:underspecified-will-it-scale:r1",
+  "answerAVariant" : "llama-ensemble",
+  "answerBVariant" : "local-rigorous"
+}, {
+  "pairId" : "ensemble-vs-rigorous:adversarial-embedded-instruction:r1",
+  "answerAVariant" : "llama-ensemble",
+  "answerBVariant" : "local-rigorous"
+}, {
+  "pairId" : "ensemble-vs-rigorous:adversarial-false-authority:r1",
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "llama-ensemble"
+}, {
+  "pairId" : "ensemble-vs-rigorous:adversarial-fabricated-citation:r1",
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "llama-ensemble"
+}, {
+  "pairId" : "ensemble-vs-rigorous:adversarial-sustained-disagreement:r1",
+  "answerAVariant" : "llama-ensemble",
+  "answerBVariant" : "local-rigorous"
+}, {
+  "pairId" : "balanced-vs-rigorous:architecture-exactly-once:r1",
+  "answerAVariant" : "local-balanced",
+  "answerBVariant" : "local-rigorous"
+}, {
+  "pairId" : "balanced-vs-rigorous:architecture-cache-stampede:r1",
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "local-balanced"
+}, {
+  "pairId" : "balanced-vs-rigorous:architecture-event-ordering:r1",
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "local-balanced"
+}, {
+  "pairId" : "balanced-vs-rigorous:architecture-saga-compensation:r1",
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "local-balanced"
+}, {
+  "pairId" : "balanced-vs-rigorous:architecture-read-after-write:r1",
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "local-balanced"
+}, {
+  "pairId" : "balanced-vs-rigorous:architecture-tenant-isolation:r1",
+  "answerAVariant" : "local-balanced",
+  "answerBVariant" : "local-rigorous"
+}, {
+  "pairId" : "balanced-vs-rigorous:debugging-threadlocal-leak:r1",
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "local-balanced"
+}, {
+  "pairId" : "balanced-vs-rigorous:debugging-broken-double-checked-lock:r1",
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "local-balanced"
+}, {
+  "pairId" : "balanced-vs-rigorous:debugging-lock-ordering-deadlock:r1",
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "local-balanced"
+}, {
+  "pairId" : "balanced-vs-rigorous:debugging-connection-pool-exhaustion:r1",
+  "answerAVariant" : "local-balanced",
+  "answerBVariant" : "local-rigorous"
+}, {
+  "pairId" : "balanced-vs-rigorous:debugging-money-floating-point:r1",
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "local-balanced"
+}, {
+  "pairId" : "balanced-vs-rigorous:debugging-utc-boundary:r1",
+  "answerAVariant" : "local-balanced",
+  "answerBVariant" : "local-rigorous"
+}, {
+  "pairId" : "balanced-vs-rigorous:security-path-traversal:r1",
+  "answerAVariant" : "local-balanced",
+  "answerBVariant" : "local-rigorous"
+}, {
+  "pairId" : "balanced-vs-rigorous:security-timing-safe-compare:r1",
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "local-balanced"
+}, {
+  "pairId" : "balanced-vs-rigorous:security-untrusted-deserialization:r1",
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "local-balanced"
+}, {
+  "pairId" : "balanced-vs-rigorous:security-cors-credentials:r1",
+  "answerAVariant" : "local-balanced",
+  "answerBVariant" : "local-rigorous"
+}, {
+  "pairId" : "balanced-vs-rigorous:security-secrets-in-telemetry:r1",
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "local-balanced"
+}, {
+  "pairId" : "balanced-vs-rigorous:reasoning-spam-ppv:r1",
+  "answerAVariant" : "local-balanced",
+  "answerBVariant" : "local-rigorous"
+}, {
+  "pairId" : "balanced-vs-rigorous:reasoning-retry-success:r1",
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "local-balanced"
+}, {
+  "pairId" : "balanced-vs-rigorous:reasoning-littles-law:r1",
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "local-balanced"
+}, {
+  "pairId" : "balanced-vs-rigorous:reasoning-serial-availability:r1",
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "local-balanced"
+}, {
+  "pairId" : "balanced-vs-rigorous:reasoning-tail-amplification:r1",
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "local-balanced"
+}, {
+  "pairId" : "balanced-vs-rigorous:reasoning-batching-throughput:r1",
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "local-balanced"
+}, {
+  "pairId" : "balanced-vs-rigorous:planning-framework-major-upgrade:r1",
+  "answerAVariant" : "local-balanced",
+  "answerBVariant" : "local-rigorous"
+}, {
+  "pairId" : "balanced-vs-rigorous:planning-capacity-headroom:r1",
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "local-balanced"
+}, {
+  "pairId" : "balanced-vs-rigorous:planning-feature-flag-debt:r1",
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "local-balanced"
+}, {
+  "pairId" : "balanced-vs-rigorous:planning-postmortem-structure:r1",
+  "answerAVariant" : "local-balanced",
+  "answerBVariant" : "local-rigorous"
+}, {
+  "pairId" : "balanced-vs-rigorous:planning-retention-deletion:r1",
+  "answerAVariant" : "local-balanced",
+  "answerBVariant" : "local-rigorous"
+}, {
+  "pairId" : "balanced-vs-rigorous:underspecified-make-it-faster:r1",
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "local-balanced"
+}, {
+  "pairId" : "balanced-vs-rigorous:underspecified-database-choice:r1",
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "local-balanced"
+}, {
+  "pairId" : "balanced-vs-rigorous:underspecified-early-stopping:r1",
+  "answerAVariant" : "local-balanced",
+  "answerBVariant" : "local-rigorous"
+}, {
+  "pairId" : "balanced-vs-rigorous:underspecified-will-it-scale:r1",
+  "answerAVariant" : "local-balanced",
+  "answerBVariant" : "local-rigorous"
+}, {
+  "pairId" : "balanced-vs-rigorous:adversarial-embedded-instruction:r1",
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "local-balanced"
+}, {
+  "pairId" : "balanced-vs-rigorous:adversarial-false-authority:r1",
+  "answerAVariant" : "local-balanced",
+  "answerBVariant" : "local-rigorous"
+}, {
+  "pairId" : "balanced-vs-rigorous:adversarial-fabricated-citation:r1",
+  "answerAVariant" : "local-balanced",
+  "answerBVariant" : "local-rigorous"
+}, {
+  "pairId" : "balanced-vs-rigorous:adversarial-sustained-disagreement:r1",
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "local-balanced"
+} ]

@@ -1,0 +1,194 @@
+{
+  "unitId" : "planning-framework-major-upgrade:local-rigorous:r1",
+  "caseId" : "planning-framework-major-upgrade",
+  "variantId" : "local-rigorous",
+  "repetition" : 1,
+  "status" : "COMPLETED",
+  "answer" : "**Final Recommendation:**\n\nUpgrade the framework in a phased manner, prioritizing critical services, and ensuring that non-critical services are upgraded in parallel with minimal disruption. Implement a robust risk management plan to mitigate potential issues, including API changes, Java version bumps, and compliance requirements. Establish clear communication channels and ensure compliance checks are in place before the freeze begins.\n\n**Rationale:**\n\n1. **Phased approach**: Upgrade non-critical services first to reduce the risk of cascading failures and allow for iterative testing and validation. (draft-993519A0, draft-43D645FA)\n2. **Parallel critical service upgrades**: Upgrade critical services in parallel to minimize downtime and ensure that payment processing remains uninterrupted. (draft-43D645FA)\n3. **Robust risk management**: Establish a clear risk management plan to identify, assess, and mitigate potential issues, including API changes, Java version bumps, and compliance requirements. (draft-993519A0, draft-43D645FA)\n4. **Clear communication**: Ensure all teams are aligned and informed through regular updates on progress and issues. (draft-43D645FA)\n5. **Compliance checks**: Ensure compliance checks are in place before the freeze begins to avoid potential non-compliance issues. (draft-43D645FA)\n\n**Important Dissent:**\n\nWhile the majority of the council members agree on the phased approach and risk management plan, there is some disagreement on the importance of creating a shared integration environment. Some members (draft-EB52D7E4) argue that this is crucial for thorough testing and potential discovery of interdependencies, while others (draft-993519A0) suggest that it may not be feasible given the lack of resources.\n\n**Unresolved Risks:**\n\n1. **Interdependencies between services**: The lack of a shared integration environment may hinder testing and validation, increasing the risk of issues during the upgrade.\n2. **Team readiness**: The readiness of teams to adopt the new framework and address potential issues is uncertain, which may impact the success of the upgrade.\n3. **Compliance freeze**: The compliance freeze in ten weeks may create pressure to expedite the upgrade, potentially increasing the risk of errors or omissions.\n\n**Confidence:**\n\nThe final recommendation has a confidence score of 85.0, based on the score summary. The council members have provided a robust and well-reasoned plan, but there are some unresolved risks and uncertainties that need to be addressed.\n\nNote: The confidence score is based on the score summary, which takes into account the accuracy, completeness, reasoning, clarity, and constructiveness of each draft. The final recommendation is a synthesis of the strongest reasoning from all drafts, with consideration of the peer reviews and debate history.",
+  "startedAt" : "2026-08-20T06:20:44.722878Z",
+  "completedAt" : "2026-08-20T06:22:19.867045Z",
+  "durationMs" : 95144,
+  "usage" : {
+    "calls" : 8,
+    "promptTokens" : 7400,
+    "completionTokens" : 3789,
+    "estimatedCostUsd" : null,
+    "estimated" : false,
+    "partiallyPriced" : false
+  },
+  "failureCategory" : null,
+  "failureReason" : null,
+  "warnings" : [ ],
+  "componentAnswers" : [ ],
+  "councilResult" : {
+    "sessionId" : "edf14bca-0d2e-4c43-b7f3-638a8d5096cf",
+    "status" : "COMPLETED",
+    "profileId" : "local",
+    "depthMode" : "RIGOROUS",
+    "policyId" : "local-rigorous",
+    "protocolId" : "rigorous",
+    "answer" : "**Final Recommendation:**\n\nUpgrade the framework in a phased manner, prioritizing critical services, and ensuring that non-critical services are upgraded in parallel with minimal disruption. Implement a robust risk management plan to mitigate potential issues, including API changes, Java version bumps, and compliance requirements. Establish clear communication channels and ensure compliance checks are in place before the freeze begins.\n\n**Rationale:**\n\n1. **Phased approach**: Upgrade non-critical services first to reduce the risk of cascading failures and allow for iterative testing and validation. (draft-993519A0, draft-43D645FA)\n2. **Parallel critical service upgrades**: Upgrade critical services in parallel to minimize downtime and ensure that payment processing remains uninterrupted. (draft-43D645FA)\n3. **Robust risk management**: Establish a clear risk management plan to identify, assess, and mitigate potential issues, including API changes, Java version bumps, and compliance requirements. (draft-993519A0, draft-43D645FA)\n4. **Clear communication**: Ensure all teams are aligned and informed through regular updates on progress and issues. (draft-43D645FA)\n5. **Compliance checks**: Ensure compliance checks are in place before the freeze begins to avoid potential non-compliance issues. (draft-43D645FA)\n\n**Important Dissent:**\n\nWhile the majority of the council members agree on the phased approach and risk management plan, there is some disagreement on the importance of creating a shared integration environment. Some members (draft-EB52D7E4) argue that this is crucial for thorough testing and potential discovery of interdependencies, while others (draft-993519A0) suggest that it may not be feasible given the lack of resources.\n\n**Unresolved Risks:**\n\n1. **Interdependencies between services**: The lack of a shared integration environment may hinder testing and validation, increasing the risk of issues during the upgrade.\n2. **Team readiness**: The readiness of teams to adopt the new framework and address potential issues is uncertain, which may impact the success of the upgrade.\n3. **Compliance freeze**: The compliance freeze in ten weeks may create pressure to expedite the upgrade, potentially increasing the risk of errors or omissions.\n\n**Confidence:**\n\nThe final recommendation has a confidence score of 85.0, based on the score summary. The council members have provided a robust and well-reasoned plan, but there are some unresolved risks and uncertainties that need to be addressed.\n\nNote: The confidence score is based on the score summary, which takes into account the accuracy, completeness, reasoning, clarity, and constructiveness of each draft. The final recommendation is a synthesis of the strongest reasoning from all drafts, with consideration of the peer reviews and debate history.",
+    "draftCount" : 3,
+    "reviewCount" : 6,
+    "debateRounds" : 0,
+    "participatingModels" : [ "local-llama3", "local-mistral", "local-qwen" ],
+    "excludedModels" : [ ],
+    "warnings" : [ ],
+    "sycophancyWarnings" : [ ],
+    "scoreSummary" : {
+      "scores" : [ {
+        "scorerId" : "confidence-weighted",
+        "draftId" : "draft-993519A0",
+        "dimensionScores" : {
+          "accuracy" : 87.5,
+          "completeness" : 80.0,
+          "reasoning" : 85.0,
+          "clarity" : 87.5,
+          "constructiveness" : 90.0
+        },
+        "weightedTotal" : 85.0,
+        "label" : "initial"
+      }, {
+        "scorerId" : "confidence-weighted",
+        "draftId" : "draft-EB52D7E4",
+        "dimensionScores" : {
+          "accuracy" : 80.0,
+          "completeness" : 62.142857142857146,
+          "reasoning" : 87.57142857142857,
+          "clarity" : 90.14285714285714,
+          "constructiveness" : 72.14285714285714
+        },
+        "weightedTotal" : 80.0,
+        "label" : "initial"
+      }, {
+        "scorerId" : "confidence-weighted",
+        "draftId" : "draft-43D645FA",
+        "dimensionScores" : {
+          "accuracy" : 85.14285714285714,
+          "completeness" : 60.57142857142857,
+          "reasoning" : 87.42857142857143,
+          "clarity" : 89.85714285714286,
+          "constructiveness" : 70.57142857142857
+        },
+        "weightedTotal" : 83.08571428571429,
+        "label" : "initial"
+      } ],
+      "variance" : 4.242902494331067,
+      "winningDraftId" : "draft-993519A0",
+      "escalated" : false,
+      "escalationPolicy" : null,
+      "reviewerDisagreement" : 9.0,
+      "disagreementMeasurable" : true
+    },
+    "validation" : {
+      "validatorId" : "local-validator",
+      "approved" : true,
+      "confidence" : 0.85,
+      "issues" : [ ],
+      "recommendedFixes" : [ ],
+      "criteria" : {
+        "uncertainty" : "warn - There are unresolved risks and uncertainties that need to be addressed, such as interdependencies between services, team readiness, and the compliance freeze.",
+        "correctness" : "pass - The final answer provides a comprehensive plan for the major framework upgrade.",
+        "completeness" : "pass - The final answer covers all aspects of the upgrade, including sequencing, risk control, and potential issues.",
+        "actionability" : "pass - The final answer provides clear steps for the upgrade and emphasizes communication and compliance checks.",
+        "safety" : "pass - The final answer includes a robust risk management plan to mitigate potential issues."
+      },
+      "requiresHumanReview" : false,
+      "rawText" : "{\n  \"approved\": true,\n  \"confidence\": 0.85,\n  \"issues\": [],\n  \"recommendedFixes\": [],\n  \"criteria\": {\n    \"correctness\": \"pass - The final answer provides a comprehensive plan for the major framework upgrade.\",\n    \"completeness\": \"pass - The final answer covers all aspects of the upgrade, including sequencing, risk control, and potential issues.\",\n    \"uncertainty\": \"warn - There are unresolved risks and uncertainties that need to be addressed, such as interdependencies between services, team readiness, and the compliance freeze.\",\n    \"safety\": \"pass - The final answer includes a robust risk management plan to mitigate potential issues.\",\n    \"actionability\": \"pass - The final answer provides clear steps for the upgrade and emphasizes communication and compliance checks.\"\n  },\n  \"requiresHumanReview\": false\n}"
+    },
+    "validationIndependence" : "INDEPENDENT",
+    "failureReason" : null,
+    "failureCategory" : null,
+    "modelFailures" : [ ],
+    "usage" : {
+      "promptTokens" : 7400,
+      "completionTokens" : 3789,
+      "totalTokens" : 11189,
+      "calls" : 8,
+      "estimatedCostUsd" : null,
+      "estimated" : false,
+      "partiallyPriced" : false,
+      "byModel" : [ {
+        "modelId" : "local-llama3",
+        "calls" : 2,
+        "promptTokens" : 1434,
+        "completionTokens" : 1225,
+        "totalTokens" : 2659,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "modelId" : "local-mistral",
+        "calls" : 2,
+        "promptTokens" : 1728,
+        "completionTokens" : 848,
+        "totalTokens" : 2576,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "modelId" : "local-qwen",
+        "calls" : 2,
+        "promptTokens" : 1465,
+        "completionTokens" : 946,
+        "totalTokens" : 2411,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "modelId" : "local-chair",
+        "calls" : 1,
+        "promptTokens" : 1533,
+        "completionTokens" : 562,
+        "totalTokens" : 2095,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "modelId" : "local-validator",
+        "calls" : 1,
+        "promptTokens" : 1240,
+        "completionTokens" : 208,
+        "totalTokens" : 1448,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      } ],
+      "byStage" : [ {
+        "stage" : "GENERATE",
+        "calls" : 3,
+        "promptTokens" : 639,
+        "completionTokens" : 728,
+        "totalTokens" : 1367,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "stage" : "REVIEW",
+        "calls" : 3,
+        "promptTokens" : 3988,
+        "completionTokens" : 2291,
+        "totalTokens" : 6279,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "stage" : "SYNTHESIZE",
+        "calls" : 1,
+        "promptTokens" : 1533,
+        "completionTokens" : 562,
+        "totalTokens" : 2095,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "stage" : "VALIDATE",
+        "calls" : 1,
+        "promptTokens" : 1240,
+        "completionTokens" : 208,
+        "totalTokens" : 1448,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      } ]
+    },
+    "integrity" : {
+      "reduced" : false,
+      "preserveDissent" : true,
+      "sycophancyThreshold" : 0.7,
+      "reviewsPerDraft" : 2,
+      "notes" : [ ]
+    }
+  }
+}

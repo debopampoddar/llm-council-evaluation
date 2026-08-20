@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-balanced:architecture-cache-stampede:r1:gemma-local:o1",
+  "pairId" : "direct-vs-balanced:architecture-cache-stampede:r1",
+  "comparisonId" : "direct-vs-balanced",
+  "caseId" : "architecture-cache-stampede",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 1,
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-balanced",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "scoresB" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "violationsA" : [ "Failed to name the 'cache stampede' pattern explicitly in the diagnosis (though it mentioned it in the description, it didn't clearly identify it as the required term).", "Failed to include 'TTL jitter' as a requirement.", "Failed to include 'single-flight or a lock' as a requirement.", "Failed to include 'serving stale while revalidating' as a requirement.", "Recommended 'sharding' which was not requested and doesn't solve the specific stampede problem described." ],
+  "violationsB" : [ "Failed to name the 'cache stampede' pattern.", "Failed to include 'TTL jitter' as a requirement.", "Failed to include 'single-flight or a lock' as a requirement.", "Failed to include 'serving stale while revalidating' as a requirement.", "Did not provide a diagnosis of the pattern as requested." ],
+  "rationale" : "Both candidates failed significantly on the specific requirements provided in the prompt. Neither candidate correctly identified the 'cache stampede' pattern by name (though A mentioned it in the text, it didn't follow the structured requirement to name it clearly as the diagnosis). More importantly, both candidates completely failed to include the three specific technical requirements: single-flight/locking, TTL jitter, and stale-while-revalidating. Candidate A provided some general cache advice (sharding, warm-up) that was not requested, while Candidate B provided a generic cache hierarchy recommendation that did not address the specific mechanics of the stampede. Since both failed the core requirements equally, it is a tie.",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    },\n    \"B\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Failed to name the 'cache stampede' pattern explicitly in the diagnosis (though it mentioned it in the description, it didn't clearly identify it as the required term).\",\n      \"Failed to include 'TTL jitter' as a requirement.\",\n      \"Failed to include 'single-flight or a lock' as a requirement.\",\n      \"Failed to include 'serving stale while revalidating' as a requirement.\",\n      \"Recommended 'sharding' which was not requested and doesn't solve the specific stampede problem described.\"\n    ],\n    \"B\": [\n      \"Failed to name the 'cache stampede' pattern.\",\n      \"Failed to include 'TTL jitter' as a requirement.\",\n      \"Failed to include 'single-flight or a lock' as a requirement.\",\n      \"Failed to include 'serving stale while revalidating' as a requirement.\",\n      \"Did not provide a diagnosis of the pattern as requested.\"\n    ]\n  },\n  \"rationale\": \"Both candidates failed significantly on the specific requirements provided in the prompt. Neither candidate correctly identified the 'cache stampede' pattern by name (though A mentioned it in the text, it didn't follow the structured requirement to name it clearly as the diagnosis). More importantly, both candidates completely failed to include the three specific technical requirements: single-flight/locking, TTL jitter, and stale-while-revalidating. Candidate A provided some general cache advice (sharding, warm-up) that was not requested, while Candidate B provided a generic cache hierarchy recommendation that did not address the specific mechanics of the stampede. Since both failed the core requirements equally, it is a tie.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:02:01.532918Z",
+  "durationMs" : 24911,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1623,
+    "completionTokens" : 503,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

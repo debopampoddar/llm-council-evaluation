@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-rigorous:planning-framework-major-upgrade:r1:gemma-local:o1",
+  "pairId" : "direct-vs-rigorous:planning-framework-major-upgrade:r1",
+  "comparisonId" : "direct-vs-rigorous",
+  "caseId" : "planning-framework-major-upgrade",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 1,
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "direct-llama",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "scoresB" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "violationsA" : [ "Failed to provide a specific sequence (failed requirement).", "Failed to treat untested services as a distinct risk requiring characterization tests (failed requirement).", "Failed to keep payment-path services out of the first wave (failed requirement).", "Failed to define explicit abort/rollback criteria (failed requirement).", "Failed to state if the plan fits the 10-week freeze (failed requirement).", "Included 'Parallel critical service upgrades' which is a red flag." ],
+  "violationsB" : [ "Failed to sequence low-risk services first (failed requirement).", "Failed to keep payment-path services out of the first wave (failed requirement).", "Failed to define explicit abort/rollback criteria (failed requirement).", "Failed to state if the plan fits the 10-week freeze (failed requirement).", "Proposed upgrading critical payment path services first (red flag)." ],
+  "rationale" : "Both candidates failed significantly on almost every specific requirement provided in the prompt. \n\nCandidate A is essentially a generic summary that ignores the specific constraints (sequencing, untested services, payment path exclusion, and the 10-week deadline). It even suggests upgrading critical services in parallel, which is a red flag.\n\nCandidate B fails the sequencing requirements by proposing to upgrade the critical payment path first (a red flag) and failing to sequence low-risk services first. It also fails to provide explicit abort/rollback criteria or address the 10-week freeze constraint properly. \n\nBecause both candidates failed to follow the core instructions and requirements of the prompt, they are tied at a zero/fail level.",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    },\n    \"B\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Failed to provide a specific sequence (failed requirement).\",\n      \"Failed to treat untested services as a distinct risk requiring characterization tests (failed requirement).\",\n      \"Failed to keep payment-path services out of the first wave (failed requirement).\",\n      \"Failed to define explicit abort/rollback criteria (failed requirement).\",\n      \"Failed to state if the plan fits the 10-week freeze (failed requirement).\",\n      \"Included 'Parallel critical service upgrades' which is a red flag.\"\n    ],\n    \"B\": [\n      \"Failed to sequence low-risk services first (failed requirement).\",\n      \"Failed to keep payment-path services out of the first wave (failed requirement).\",\n      \"Failed to define explicit abort/rollback criteria (failed requirement).\",\n      \"Failed to state if the plan fits the 10-week freeze (failed requirement).\",\n      \"Proposed upgrading critical payment path services first (red flag).\"\n    ]\n  },\n  \"rationale\": \"Both candidates failed significantly on almost every specific requirement provided in the prompt. \\n\\nCandidate A is essentially a generic summary that ignores the specific constraints (sequencing, untested services, payment path exclusion, and the 10-week deadline). It even suggests upgrading critical services in parallel, which is a red flag.\\n\\nCandidate B fails the sequencing requirements by proposing to upgrade the critical payment path first (a red flag) and failing to sequence low-risk services first. It also fails to provide explicit abort/rollback criteria or address the 10-week freeze constraint properly. \\n\\nBecause both candidates failed to follow the core instructions and requirements of the prompt, they are tied at a zero/fail level.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:39:36.934760Z",
+  "durationMs" : 24799,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1851,
+    "completionTokens" : 520,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

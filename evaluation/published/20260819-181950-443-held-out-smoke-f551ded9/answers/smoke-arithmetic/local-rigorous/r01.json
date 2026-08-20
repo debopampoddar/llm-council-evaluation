@@ -1,0 +1,218 @@
+{
+  "unitId" : "smoke-arithmetic:local-rigorous:r1",
+  "caseId" : "smoke-arithmetic",
+  "variantId" : "local-rigorous",
+  "repetition" : 1,
+  "status" : "COMPLETED",
+  "answer" : "**Final Answer:**\n\nThere are 34 valid records remaining.\n\n**Rationale:**\n\nThe calculation is straightforward and accurate under the given conditions. The context explicitly states that the percentage of invalid records is exact and records are indivisible. Based on this, 15% of 40 records are invalid, leaving 85% valid, or 40 - 6 = 34.\n\n**Important Dissent:**\n\nWhile the calculation is accurate under the given conditions, it is essential to acknowledge the potential for edge cases and real-world complexities. In practical scenarios, it is crucial to consider the potential margin of error and the possibility of records containing mixed data.\n\n**Unresolved Risks:**\n\n1. The assumption of exact percentage and indivisible records might not hold true in all cases.\n2. The potential margin of error in the percentage of invalid records could result in a range of valid records from 33 to 35.\n\n**Confidence:**\n\nThe confidence level is 92, reflecting the accuracy of the calculation under the given conditions while acknowledging the need for broader consideration in more complex scenarios.\n\nThe synthesis of the final answer is based on the following:\n\n* The calculation is accurate under the given conditions, as supported by the majority of the council members (draft-15670A0F, draft-F3B8429D, and draft-2E411B58).\n* The context explicitly states that the percentage of invalid records is exact and records are indivisible, which supports the straightforward calculation.\n* The potential for edge cases and real-world complexities is acknowledged, but not directly applicable to this specific problem.\n* The confidence level is 92, reflecting the accuracy of the calculation under the given conditions while acknowledging the need for broader consideration in more complex scenarios.\n\nThe final answer is a synthesis of the strongest reasoning from all drafts, correcting any errors identified in reviews, and weighting positions by their review scores where available.",
+  "startedAt" : "2026-08-19T18:21:24.293965Z",
+  "completedAt" : "2026-08-19T18:27:06.089804Z",
+  "durationMs" : 341795,
+  "usage" : {
+    "calls" : 20,
+    "promptTokens" : 37669,
+    "completionTokens" : 9011,
+    "estimatedCostUsd" : null,
+    "estimated" : false,
+    "partiallyPriced" : false
+  },
+  "failureCategory" : null,
+  "failureReason" : null,
+  "warnings" : [ "Confidence was unreadable for 1 of 3 members in debate round 0; they are excluded from convergence and sycophancy analysis.", "Confidence was unreadable for 1 of 3 members in debate round 1; they are excluded from convergence and sycophancy analysis." ],
+  "componentAnswers" : [ ],
+  "councilResult" : {
+    "sessionId" : "b99e9d5f-85db-4336-82bd-878e79aee087",
+    "status" : "COMPLETED",
+    "profileId" : "local",
+    "depthMode" : "RIGOROUS",
+    "policyId" : "local-rigorous",
+    "protocolId" : "rigorous",
+    "answer" : "**Final Answer:**\n\nThere are 34 valid records remaining.\n\n**Rationale:**\n\nThe calculation is straightforward and accurate under the given conditions. The context explicitly states that the percentage of invalid records is exact and records are indivisible. Based on this, 15% of 40 records are invalid, leaving 85% valid, or 40 - 6 = 34.\n\n**Important Dissent:**\n\nWhile the calculation is accurate under the given conditions, it is essential to acknowledge the potential for edge cases and real-world complexities. In practical scenarios, it is crucial to consider the potential margin of error and the possibility of records containing mixed data.\n\n**Unresolved Risks:**\n\n1. The assumption of exact percentage and indivisible records might not hold true in all cases.\n2. The potential margin of error in the percentage of invalid records could result in a range of valid records from 33 to 35.\n\n**Confidence:**\n\nThe confidence level is 92, reflecting the accuracy of the calculation under the given conditions while acknowledging the need for broader consideration in more complex scenarios.\n\nThe synthesis of the final answer is based on the following:\n\n* The calculation is accurate under the given conditions, as supported by the majority of the council members (draft-15670A0F, draft-F3B8429D, and draft-2E411B58).\n* The context explicitly states that the percentage of invalid records is exact and records are indivisible, which supports the straightforward calculation.\n* The potential for edge cases and real-world complexities is acknowledged, but not directly applicable to this specific problem.\n* The confidence level is 92, reflecting the accuracy of the calculation under the given conditions while acknowledging the need for broader consideration in more complex scenarios.\n\nThe final answer is a synthesis of the strongest reasoning from all drafts, correcting any errors identified in reviews, and weighting positions by their review scores where available.",
+    "draftCount" : 3,
+    "reviewCount" : 12,
+    "debateRounds" : 2,
+    "participatingModels" : [ "local-llama3", "local-mistral", "local-qwen" ],
+    "excludedModels" : [ ],
+    "warnings" : [ "Confidence was unreadable for 1 of 3 members in debate round 0; they are excluded from convergence and sycophancy analysis.", "Confidence was unreadable for 1 of 3 members in debate round 1; they are excluded from convergence and sycophancy analysis." ],
+    "sycophancyWarnings" : [ ],
+    "scoreSummary" : {
+      "scores" : [ {
+        "scorerId" : "confidence-weighted",
+        "draftId" : "draft-15670A0F",
+        "dimensionScores" : {
+          "accuracy" : 97.5,
+          "completeness" : 85.0,
+          "reasoning" : 90.0,
+          "clarity" : 92.49999999999999,
+          "constructiveness" : 90.0
+        },
+        "weightedTotal" : 90.00000000000001,
+        "label" : "post-debate"
+      }, {
+        "scorerId" : "confidence-weighted",
+        "draftId" : "draft-F3B8429D",
+        "dimensionScores" : {
+          "accuracy" : 92.52808988764045,
+          "completeness" : 85.0561797752809,
+          "reasoning" : 87.52808988764045,
+          "clarity" : 92.52808988764045,
+          "constructiveness" : 89.99999999999999
+        },
+        "weightedTotal" : 89.01123595505618,
+        "label" : "post-debate"
+      }, {
+        "scorerId" : "confidence-weighted",
+        "draftId" : "draft-2E411B58",
+        "dimensionScores" : {
+          "accuracy" : 92.58928571428572,
+          "completeness" : 79.99999999999999,
+          "reasoning" : 85.0595238095238,
+          "clarity" : 87.52976190476191,
+          "constructiveness" : 87.52976190476191
+        },
+        "weightedTotal" : 85.52976190476191,
+        "label" : "post-debate"
+      } ],
+      "variance" : 3.6757049475071155,
+      "winningDraftId" : "draft-15670A0F",
+      "escalated" : false,
+      "escalationPolicy" : null,
+      "reviewerDisagreement" : 6.25,
+      "disagreementMeasurable" : true
+    },
+    "validation" : {
+      "validatorId" : "local-validator",
+      "approved" : true,
+      "confidence" : 0.92,
+      "issues" : [ ],
+      "recommendedFixes" : [ ],
+      "criteria" : {
+        "uncertainty" : "pass - The answer acknowledges the potential margin of error in real-world scenarios.",
+        "safety" : "pass - The calculation is safe under the given conditions.",
+        "actionability" : "pass - The answer provides a clear and concise solution to the problem.",
+        "completeness" : "pass - The answer provides the calculation and acknowledges potential edge cases.",
+        "correctness" : "pass - The calculation is accurate under the given conditions."
+      },
+      "requiresHumanReview" : false,
+      "rawText" : "{\n  \"approved\": true,\n  \"confidence\": 0.92,\n  \"issues\": [],\n  \"recommendedFixes\": [],\n  \"criteria\": {\n    \"correctness\": \"pass - The calculation is accurate under the given conditions.\",\n    \"completeness\": \"pass - The answer provides the calculation and acknowledges potential edge cases.\",\n    \"uncertainty\": \"pass - The answer acknowledges the potential margin of error in real-world scenarios.\",\n    \"safety\": \"pass - The calculation is safe under the given conditions.\",\n    \"actionability\": \"pass - The answer provides a clear and concise solution to the problem.\"\n  },\n  \"requiresHumanReview\": false\n}"
+    },
+    "validationIndependence" : "INDEPENDENT",
+    "failureReason" : null,
+    "failureCategory" : null,
+    "modelFailures" : [ ],
+    "usage" : {
+      "promptTokens" : 37669,
+      "completionTokens" : 9011,
+      "totalTokens" : 46680,
+      "calls" : 20,
+      "estimatedCostUsd" : null,
+      "estimated" : false,
+      "partiallyPriced" : false,
+      "byModel" : [ {
+        "modelId" : "local-mistral",
+        "calls" : 6,
+        "promptTokens" : 11991,
+        "completionTokens" : 2905,
+        "totalTokens" : 14896,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "modelId" : "local-qwen",
+        "calls" : 6,
+        "promptTokens" : 10415,
+        "completionTokens" : 2893,
+        "totalTokens" : 13308,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "modelId" : "local-llama3",
+        "calls" : 6,
+        "promptTokens" : 10001,
+        "completionTokens" : 2661,
+        "totalTokens" : 12662,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "modelId" : "local-chair",
+        "calls" : 1,
+        "promptTokens" : 4276,
+        "completionTokens" : 385,
+        "totalTokens" : 4661,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "modelId" : "local-validator",
+        "calls" : 1,
+        "promptTokens" : 986,
+        "completionTokens" : 167,
+        "totalTokens" : 1153,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      } ],
+      "byStage" : [ {
+        "stage" : "GENERATE",
+        "calls" : 3,
+        "promptTokens" : 513,
+        "completionTokens" : 604,
+        "totalTokens" : 1117,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "stage" : "REVIEW",
+        "calls" : 3,
+        "promptTokens" : 3548,
+        "completionTokens" : 2019,
+        "totalTokens" : 5567,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "stage" : "DEBATE",
+        "calls" : 6,
+        "promptTokens" : 8546,
+        "completionTokens" : 2235,
+        "totalTokens" : 10781,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "stage" : "REVISE",
+        "calls" : 3,
+        "promptTokens" : 8167,
+        "completionTokens" : 899,
+        "totalTokens" : 9066,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "stage" : "REVIEW_POST_DEBATE",
+        "calls" : 3,
+        "promptTokens" : 11633,
+        "completionTokens" : 2702,
+        "totalTokens" : 14335,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "stage" : "SYNTHESIZE",
+        "calls" : 1,
+        "promptTokens" : 4276,
+        "completionTokens" : 385,
+        "totalTokens" : 4661,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "stage" : "VALIDATE",
+        "calls" : 1,
+        "promptTokens" : 986,
+        "completionTokens" : 167,
+        "totalTokens" : 1153,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      } ]
+    },
+    "integrity" : {
+      "reduced" : false,
+      "preserveDissent" : true,
+      "sycophancyThreshold" : 0.7,
+      "reviewsPerDraft" : 2,
+      "notes" : [ ]
+    }
+  }
+}

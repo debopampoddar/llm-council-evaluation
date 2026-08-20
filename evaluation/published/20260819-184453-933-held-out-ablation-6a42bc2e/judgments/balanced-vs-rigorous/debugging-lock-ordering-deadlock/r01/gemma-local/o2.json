@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "balanced-vs-rigorous:debugging-lock-ordering-deadlock:r1:gemma-local:o2",
+  "pairId" : "balanced-vs-rigorous:debugging-lock-ordering-deadlock:r1",
+  "comparisonId" : "balanced-vs-rigorous",
+  "caseId" : "debugging-lock-ordering-deadlock",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "local-balanced",
+  "answerBVariant" : "local-rigorous",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "scoresB" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "violationsA" : [ "Failed to provide a concrete interleaving.", "Failed to propose a global lock ordering (e.g., by ID).", "Proposed a global lock which violates the requirement to preserve per-account locking.", "Failed to address the equal-identifier case." ],
+  "violationsB" : [ "Failed to provide a concrete interleaving where a deadlock actually occurs (it describes a sequential execution).", "Failed to propose a global lock ordering (e.g., by ID).", "The provided code example is logically incorrect: it creates new locks inside the method scope, meaning it doesn't lock the actual accounts, and it still locks them in the order of the arguments (from then to), which is the exact cause of the deadlock.", "Failed to address the equal-identifier case." ],
+  "rationale" : "Both candidates failed significantly on almost every requirement. \n\nCandidate A failed to provide the interleaving, failed to propose a lock ordering, and suggested a global lock which violates the 'preserve per-account locking' constraint. \n\nCandidate B failed to provide a deadlock interleaving (it described a successful sequence), failed to propose a lock ordering, and provided a code example that is fundamentally broken (it instantiates new locks inside the method instead of locking the account objects, and it maintains the same order of acquisition that causes the deadlock). \n\nNeither candidate followed the instructions or the reference facts.",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    },\n    \"B\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Failed to provide a concrete interleaving.\",\n      \"Failed to propose a global lock ordering (e.g., by ID).\",\n      \"Proposed a global lock which violates the requirement to preserve per-account locking.\",\n      \"Failed to address the equal-identifier case.\"\n    ],\n    \"B\": [\n      \"Failed to provide a concrete interleaving where a deadlock actually occurs (it describes a sequential execution).\",\n      \"Failed to propose a global lock ordering (e.g., by ID).\",\n      \"The provided code example is logically incorrect: it creates new locks inside the method scope, meaning it doesn't lock the actual accounts, and it still locks them in the order of the arguments (from then to), which is the exact cause of the deadlock.\",\n      \"Failed to address the equal-identifier case.\"\n    ]\n  },\n  \"rationale\": \"Both candidates failed significantly on almost every requirement. \\n\\nCandidate A failed to provide the interleaving, failed to propose a lock ordering, and suggested a global lock which violates the 'preserve per-account locking' constraint. \\n\\nCandidate B failed to provide a deadlock interleaving (it described a successful sequence), failed to propose a lock ordering, and provided a code example that is fundamentally broken (it instantiates new locks inside the method instead of locking the account objects, and it maintains the same order of acquisition that causes the deadlock). \\n\\nNeither candidate followed the instructions or the reference facts.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T09:17:43.633493Z",
+  "durationMs" : 23183,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1906,
+    "completionTokens" : 468,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-balanced:planning-retention-deletion:r1:gemma-local:o2",
+  "pairId" : "direct-vs-balanced:planning-retention-deletion:r1",
+  "comparisonId" : "direct-vs-balanced",
+  "caseId" : "planning-retention-deletion",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "local-balanced",
+  "answerBVariant" : "direct-llama",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 40.0,
+    "completeness" : 50.0,
+    "correctness" : 40.0,
+    "reasoning" : 40.0,
+    "clarity" : 80.0
+  },
+  "scoresB" : {
+    "constraint-following" : 40.0,
+    "completeness" : 50.0,
+    "correctness" : 40.0,
+    "reasoning" : 40.0,
+    "clarity" : 80.0
+  },
+  "violationsA" : [ "Violates red flag: Proposes deleting user records from immutable backups within 30 days (impossible by definition of immutability).", "Fails to propose a verifiable completion signal (best-effort fan-out).", "Fails to clearly distinguish between row-level deletion and aggregate derivation (suggests deleting aggregates)." ],
+  "violationsB" : [ "Violates red flag: Proposes updating/editing immutable backup snapshots in place.", "Fails to propose a verifiable completion signal (best-effort fan-out).", "Fails to clearly distinguish between row-level deletion and aggregate derivation." ],
+  "rationale" : "Both candidates failed significantly on the core technical constraints provided in the prompt. Specifically, both candidates proposed editing immutable backups in place, which is a stated red flag and technically impossible. Both candidates also failed to provide a 'verifiable completion signal' (e.g., a status table or audit log tracking the state of deletion across all systems), instead proposing a 'best-effort' queue/fan-out approach. Both failed to correctly address the distinction between row-level data and aggregates (aggregates that cannot identify individuals should not necessarily be deleted). Because both failed the primary technical constraints and red flags in a similar manner, they are tied.",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 40,\n      \"completeness\": 50,\n      \"reasoning\": 40,\n      \"constraint-following\": 40,\n      \"clarity\": 80\n    },\n    \"B\": {\n      \"correctness\": 40,\n      \"completeness\": 50,\n      \"reasoning\": 40,\n      \"constraint-following\": 40,\n      \"clarity\": 80\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Violates red flag: Proposes deleting user records from immutable backups within 30 days (impossible by definition of immutability).\",\n      \"Fails to propose a verifiable completion signal (best-effort fan-out).\",\n      \"Fails to clearly distinguish between row-level deletion and aggregate derivation (suggests deleting aggregates).\"\n    ],\n    \"B\": [\n      \"Violates red flag: Proposes updating/editing immutable backup snapshots in place.\",\n      \"Fails to propose a verifiable completion signal (best-effort fan-out).\",\n      \"Fails to clearly distinguish between row-level deletion and aggregate derivation.\"\n    ]\n  },\n  \"rationale\": \"Both candidates failed significantly on the core technical constraints provided in the prompt. Specifically, both candidates proposed editing immutable backups in place, which is a stated red flag and technically impossible. Both candidates also failed to provide a 'verifiable completion signal' (e.g., a status table or audit log tracking the state of deletion across all systems), instead proposing a 'best-effort' queue/fan-out approach. Both failed to correctly address the distinction between row-level data and aggregates (aggregates that cannot identify individuals should not necessarily be deleted). Because both failed the primary technical constraints and red flags in a similar manner, they are tied.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:19:39.311490Z",
+  "durationMs" : 20400,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1751,
+    "completionTokens" : 442,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

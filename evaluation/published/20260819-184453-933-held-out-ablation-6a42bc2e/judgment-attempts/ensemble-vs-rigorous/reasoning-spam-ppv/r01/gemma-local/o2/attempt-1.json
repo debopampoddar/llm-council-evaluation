@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "ensemble-vs-rigorous:reasoning-spam-ppv:r1:gemma-local:o2",
+  "pairId" : "ensemble-vs-rigorous:reasoning-spam-ppv:r1",
+  "comparisonId" : "ensemble-vs-rigorous",
+  "caseId" : "reasoning-spam-ppv",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "llama-ensemble",
+  "answerBVariant" : "local-rigorous",
+  "status" : "COMPLETED",
+  "winner" : "B",
+  "confidence" : 0.9,
+  "scoresA" : {
+    "constraint-following" : 100.0,
+    "completeness" : 90.0,
+    "correctness" : 100.0,
+    "reasoning" : 90.0,
+    "clarity" : 100.0
+  },
+  "scoresB" : {
+    "constraint-following" : 100.0,
+    "completeness" : 100.0,
+    "correctness" : 100.0,
+    "reasoning" : 100.0,
+    "clarity" : 100.0
+  },
+  "violationsA" : [ ],
+  "violationsB" : [ ],
+  "rationale" : "Both candidates correctly identify the probability as approximately 81.8%. Candidate B is slightly superior because it explicitly shows the mathematical reasoning (Bayes' Theorem) and the calculation steps, whereas Candidate A provides the counts but skips the explicit calculation steps. Candidate B also includes a more thorough discussion of risks and context.",
+  "rawResponse" : "{\n  \"winner\": \"B\",\n  \"confidence\": 0.9,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 100,\n      \"completeness\": 90,\n      \"reasoning\": 90,\n      \"constraint-following\": 100,\n      \"clarity\": 100\n    },\n    \"B\": {\n      \"correctness\": 100,\n      \"completeness\": 100,\n      \"reasoning\": 100,\n      \"constraint-following\": 100,\n      \"clarity\": 100\n    }\n  },\n  \"violations\": {\n    \"A\": [],\n    \"B\": []\n  },\n  \"rationale\": \"Both candidates correctly identify the probability as approximately 81.8%. Candidate B is slightly superior because it explicitly shows the mathematical reasoning (Bayes' Theorem) and the calculation steps, whereas Candidate A provides the counts but skips the explicit calculation steps. Candidate B also includes a more thorough discussion of risks and context.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:59:38.291542Z",
+  "durationMs" : 13116,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1336,
+    "completionTokens" : 248,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

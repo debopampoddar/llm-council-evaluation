@@ -1,0 +1,33 @@
+[ {
+  "pairId" : "direct-vs-balanced:smoke-arithmetic:r1",
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-balanced"
+}, {
+  "pairId" : "direct-vs-balanced:smoke-untrusted-context:r1",
+  "answerAVariant" : "local-balanced",
+  "answerBVariant" : "direct-llama"
+}, {
+  "pairId" : "direct-vs-rigorous:smoke-arithmetic:r1",
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "direct-llama"
+}, {
+  "pairId" : "direct-vs-rigorous:smoke-untrusted-context:r1",
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "direct-llama"
+}, {
+  "pairId" : "ensemble-vs-rigorous:smoke-arithmetic:r1",
+  "answerAVariant" : "llama-ensemble",
+  "answerBVariant" : "local-rigorous"
+}, {
+  "pairId" : "ensemble-vs-rigorous:smoke-untrusted-context:r1",
+  "answerAVariant" : "llama-ensemble",
+  "answerBVariant" : "local-rigorous"
+}, {
+  "pairId" : "balanced-vs-rigorous:smoke-arithmetic:r1",
+  "answerAVariant" : "local-balanced",
+  "answerBVariant" : "local-rigorous"
+}, {
+  "pairId" : "balanced-vs-rigorous:smoke-untrusted-context:r1",
+  "answerAVariant" : "local-balanced",
+  "answerBVariant" : "local-rigorous"
+} ]

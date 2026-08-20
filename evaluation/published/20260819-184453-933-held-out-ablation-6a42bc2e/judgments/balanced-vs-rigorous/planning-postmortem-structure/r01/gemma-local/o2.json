@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "balanced-vs-rigorous:planning-postmortem-structure:r1:gemma-local:o2",
+  "pairId" : "balanced-vs-rigorous:planning-postmortem-structure:r1",
+  "comparisonId" : "balanced-vs-rigorous",
+  "caseId" : "planning-postmortem-structure",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "local-balanced",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "scoresB" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "violationsA" : [ "Failed to provide a structure for the postmortem.", "Failed to provide criteria for action items.", "Failed to separate trigger from underlying cause.", "Failed to treat missing alert as a distinct finding.", "Failed to note that approvals are a weak control.", "Included 'assign accountability' which contradicts the blameless requirement." ],
+  "violationsB" : [ "Failed to provide a structure for the postmortem.", "Failed to provide criteria for action items.", "Failed to separate trigger from underlying cause.", "Failed to treat missing alert as a distinct finding.", "Failed to note that approvals are a weak control.", "Included 'engineer is likely responsible' which violates the blameless requirement." ],
+  "rationale" : "Both candidates failed significantly on almost every specific requirement of the prompt. Neither provided a 'structure' for the postmortem nor 'criteria' for action items. Both failed to separate the trigger (config change) from the underlying cause (outdated runbook). Both failed to treat the monitoring gap as a distinct finding. Most importantly, both failed the 'blameless' constraint: Candidate A mentions 'assigning accountability' and Candidate B explicitly states the engineer is 'likely responsible'. Both also failed to mention the specific instruction regarding the weakness of approval gates. Since both are equally non-compliant and fail to provide the requested content, a tie is the only appropriate score.",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    },\n    \"B\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Failed to provide a structure for the postmortem.\",\n      \"Failed to provide criteria for action items.\",\n      \"Failed to separate trigger from underlying cause.\",\n      \"Failed to treat missing alert as a distinct finding.\",\n      \"Failed to note that approvals are a weak control.\",\n      \"Included 'assign accountability' which contradicts the blameless requirement.\"\n    ],\n    \"B\": [\n      \"Failed to provide a structure for the postmortem.\",\n      \"Failed to provide criteria for action items.\",\n      \"Failed to separate trigger from underlying cause.\",\n      \"Failed to treat missing alert as a distinct finding.\",\n      \"Failed to note that approvals are a weak control.\",\n      \"Included 'engineer is likely responsible' which violates the blameless requirement.\"\n    ]\n  },\n  \"rationale\": \"Both candidates failed significantly on almost every specific requirement of the prompt. Neither provided a 'structure' for the postmortem nor 'criteria' for action items. Both failed to separate the trigger (config change) from the underlying cause (outdated runbook). Both failed to treat the monitoring gap as a distinct finding. Most importantly, both failed the 'blameless' constraint: Candidate A mentions 'assigning accountability' and Candidate B explicitly states the engineer is 'likely responsible'. Both also failed to mention the specific instruction regarding the weakness of approval gates. Since both are equally non-compliant and fail to provide the requested content, a tie is the only appropriate score.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T09:29:38.535231Z",
+  "durationMs" : 21138,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1633,
+    "completionTokens" : 464,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

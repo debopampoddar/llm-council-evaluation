@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-rigorous:architecture-cache-stampede:r1:gemma-local:o1",
+  "pairId" : "direct-vs-rigorous:architecture-cache-stampede:r1",
+  "comparisonId" : "direct-vs-rigorous",
+  "caseId" : "architecture-cache-stampede",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 1,
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-rigorous",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 3.0,
+    "completeness" : 4.0,
+    "correctness" : 4.0,
+    "reasoning" : 3.0,
+    "clarity" : 8.0
+  },
+  "scoresB" : {
+    "constraint-following" : 3.0,
+    "completeness" : 4.0,
+    "correctness" : 4.0,
+    "reasoning" : 3.0,
+    "clarity" : 8.0
+  },
+  "violationsA" : [ "Failed to name the 'cache stampede' pattern explicitly in the diagnosis (though it mentioned it in the first sentence, it failed to address the specific requirements for jitter and stale-while-revalidate).", "Failed to include TTL jitter.", "Failed to include stale-while-revalidate." ],
+  "violationsB" : [ "Failed to name the 'cache stampede' pattern.", "Failed to include TTL jitter.", "Failed to include stale-while-revalidate." ],
+  "rationale" : "Both candidates failed significantly on the specific requirements provided in the prompt. Neither candidate mentioned 'TTL jitter' or 'serving stale while revalidating', which were explicit requirements. Both candidates also failed to clearly identify the pattern as a 'cache stampede' in a way that satisfied the prompt's structure (Candidate A mentioned it in the first sentence, but Candidate B missed it entirely). Candidate A's suggestions (sharding, granular TTL) are less effective than the requested fixes (locks/single-flight, jitter, stale-while-revalidate). Because both failed the core requirements equally, it is a tie.",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 4,\n      \"completeness\": 4,\n      \"reasoning\": 3,\n      \"constraint-following\": 3,\n      \"clarity\": 8\n    },\n    \"B\": {\n      \"correctness\": 4,\n      \"completeness\": 4,\n      \"reasoning\": 3,\n      \"constraint-following\": 3,\n      \"clarity\": 8\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Failed to name the 'cache stampede' pattern explicitly in the diagnosis (though it mentioned it in the first sentence, it failed to address the specific requirements for jitter and stale-while-revalidate).\",\n      \"Failed to include TTL jitter.\",\n      \"Failed to include stale-while-revalidate.\"\n    ],\n    \"B\": [\n      \"Failed to name the 'cache stampede' pattern.\",\n      \"Failed to include TTL jitter.\",\n      \"Failed to include stale-while-revalidate.\"\n    ]\n  },\n  \"rationale\": \"Both candidates failed significantly on the specific requirements provided in the prompt. Neither candidate mentioned 'TTL jitter' or 'serving stale while revalidating', which were explicit requirements. Both candidates also failed to clearly identify the pattern as a 'cache stampede' in a way that satisfied the prompt's structure (Candidate A mentioned it in the first sentence, but Candidate B missed it entirely). Candidate A's suggestions (sharding, granular TTL) are less effective than the requested fixes (locks/single-flight, jitter, stale-while-revalidate). Because both failed the core requirements equally, it is a tie.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:25:10.060705Z",
+  "durationMs" : 19570,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1590,
+    "completionTokens" : 402,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

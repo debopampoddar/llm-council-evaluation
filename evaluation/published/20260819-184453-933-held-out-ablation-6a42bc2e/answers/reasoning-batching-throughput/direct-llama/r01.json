@@ -1,0 +1,24 @@
+{
+  "unitId" : "reasoning-batching-throughput:direct-llama:r1",
+  "caseId" : "reasoning-batching-throughput",
+  "variantId" : "direct-llama",
+  "repetition" : 1,
+  "status" : "COMPLETED",
+  "answer" : "The current implementation performs one database round trip per record, taking 4 milliseconds per record. For 2,500,000 records, the total wall-clock time is:\n\n2,500,000 records × 4 milliseconds/record = 10,000,000 milliseconds\n\nConverting this to seconds:\n\n10,000,000 milliseconds / 1000 = 10,000 seconds\n\nThe proposed batched approach performs one database round trip per batch of 500 records, taking 20 milliseconds per batch. For 2,500,000 records, the number of batches is:\n\n2,500,000 records / 500 records/batch = 5,000 batches\n\nThe total wall-clock time for the batched approach is:\n\n5,000 batches × 20 milliseconds/batch = 100,000 milliseconds\n\nConverting this to seconds:\n\n100,000 milliseconds / 1000 = 100 seconds\n\nThe speed-up of the batched approach over the current per-record approach is:\n\n10,000 seconds / 100 seconds = 100 times faster\n\nThe key reasons for this speed-up are:\n\n* Reduced number of database round trips: The batched approach reduces the number of round trips from 2,500,000 (per-record) to 5,000 (batched).\n* Improved database performance: The batched approach takes advantage of the fact that databases are optimized for batch operations, which can be performed more efficiently than individual record operations.\n\nImportant assumptions:\n\n* The database round trip time is the dominant factor in the total wall-clock time.\n* The batched approach does not introduce any additional overhead, such as network latency or processing time.\n\nMaterial uncertainties:\n\n* The actual database round trip time may vary depending on the specific database and hardware configuration.\n* The batched approach may introduce additional overhead due to factors such as network latency or processing time, which are not accounted for in this analysis.",
+  "startedAt" : "2026-08-20T04:26:13.884661Z",
+  "completedAt" : "2026-08-20T04:26:27.164757Z",
+  "durationMs" : 13280,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 168,
+    "completionTokens" : 385,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  },
+  "failureCategory" : null,
+  "failureReason" : null,
+  "warnings" : [ ],
+  "componentAnswers" : [ ],
+  "councilResult" : null
+}

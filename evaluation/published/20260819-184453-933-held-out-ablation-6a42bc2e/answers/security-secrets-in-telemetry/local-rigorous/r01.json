@@ -1,0 +1,194 @@
+{
+  "unitId" : "security-secrets-in-telemetry:local-rigorous:r1",
+  "caseId" : "security-secrets-in-telemetry",
+  "variantId" : "local-rigorous",
+  "repetition" : 1,
+  "status" : "COMPLETED",
+  "answer" : "**Final Recommendation:**\n\nImmediate update of the logging configuration to redact sensitive information (API keys) at the source, and implementation of a durable solution to prevent similar incidents in the future.\n\n**Rationale:**\n\nThe strongest reasoning from all drafts emphasizes the importance of immediate action to prevent further exposure of sensitive data. The council members agree that customer API keys should not be exposed in logs, posing a risk of unauthorized access or misuse. Compliance with regulatory requirements and security best practices also support the need for immediate action.\n\n**Important Dissent:**\n\nWhile the majority of the council members agree on the need for immediate action, there is some debate on the approach. One member suggests investigating the root cause of the issue before implementing a solution, which could be a valuable step in preventing similar incidents in the future.\n\n**Unresolved Risks:**\n\n1. **Current logging configuration**: The council members acknowledge that the current logging setup may not be able to be updated to redact sensitive information at the source, requiring additional investigation.\n2. **Third-party aggregator capabilities**: The exact method of redaction at the aggregator is unknown, and the extent of customer notification and account security measures is unspecified.\n3. **Potential impact on incident response**: Redacting sensitive information at the source may impact incident response efforts, requiring additional measures to be put in place.\n\n**Confidence:**\n\nBased on the score summary, the final recommendation has a total score of 89.62, with a confidence of 92.57 in accuracy, 85.14 in completeness, 92.57 in reasoning, 92.57 in clarity, and 87.70 in constructiveness.\n\n**Weighting:**\n\nThe final recommendation is weighted based on the score summary, with draft-6CAED65E contributing the most to the final answer due to its high score and confidence in accuracy, completeness, reasoning, clarity, and constructiveness.",
+  "startedAt" : "2026-08-20T00:27:08.952629Z",
+  "completedAt" : "2026-08-20T00:28:46.524821Z",
+  "durationMs" : 97572,
+  "usage" : {
+    "calls" : 8,
+    "promptTokens" : 6985,
+    "completionTokens" : 3934,
+    "estimatedCostUsd" : null,
+    "estimated" : false,
+    "partiallyPriced" : false
+  },
+  "failureCategory" : null,
+  "failureReason" : null,
+  "warnings" : [ ],
+  "componentAnswers" : [ ],
+  "councilResult" : {
+    "sessionId" : "e6e831a3-365b-4eee-bd69-4a9de65fc86c",
+    "status" : "COMPLETED",
+    "profileId" : "local",
+    "depthMode" : "RIGOROUS",
+    "policyId" : "local-rigorous",
+    "protocolId" : "rigorous",
+    "answer" : "**Final Recommendation:**\n\nImmediate update of the logging configuration to redact sensitive information (API keys) at the source, and implementation of a durable solution to prevent similar incidents in the future.\n\n**Rationale:**\n\nThe strongest reasoning from all drafts emphasizes the importance of immediate action to prevent further exposure of sensitive data. The council members agree that customer API keys should not be exposed in logs, posing a risk of unauthorized access or misuse. Compliance with regulatory requirements and security best practices also support the need for immediate action.\n\n**Important Dissent:**\n\nWhile the majority of the council members agree on the need for immediate action, there is some debate on the approach. One member suggests investigating the root cause of the issue before implementing a solution, which could be a valuable step in preventing similar incidents in the future.\n\n**Unresolved Risks:**\n\n1. **Current logging configuration**: The council members acknowledge that the current logging setup may not be able to be updated to redact sensitive information at the source, requiring additional investigation.\n2. **Third-party aggregator capabilities**: The exact method of redaction at the aggregator is unknown, and the extent of customer notification and account security measures is unspecified.\n3. **Potential impact on incident response**: Redacting sensitive information at the source may impact incident response efforts, requiring additional measures to be put in place.\n\n**Confidence:**\n\nBased on the score summary, the final recommendation has a total score of 89.62, with a confidence of 92.57 in accuracy, 85.14 in completeness, 92.57 in reasoning, 92.57 in clarity, and 87.70 in constructiveness.\n\n**Weighting:**\n\nThe final recommendation is weighted based on the score summary, with draft-6CAED65E contributing the most to the final answer due to its high score and confidence in accuracy, completeness, reasoning, clarity, and constructiveness.",
+    "draftCount" : 3,
+    "reviewCount" : 6,
+    "debateRounds" : 0,
+    "participatingModels" : [ "local-llama3", "local-mistral", "local-qwen" ],
+    "excludedModels" : [ ],
+    "warnings" : [ ],
+    "sycophancyWarnings" : [ ],
+    "scoreSummary" : {
+      "scores" : [ {
+        "scorerId" : "confidence-weighted",
+        "draftId" : "draft-6CAED65E",
+        "dimensionScores" : {
+          "accuracy" : 92.56756756756756,
+          "completeness" : 85.13513513513513,
+          "reasoning" : 92.56756756756756,
+          "clarity" : 92.56756756756756,
+          "constructiveness" : 87.7027027027027
+        },
+        "weightedTotal" : 89.62162162162163,
+        "label" : "initial"
+      }, {
+        "scorerId" : "confidence-weighted",
+        "draftId" : "draft-312D633",
+        "dimensionScores" : {
+          "accuracy" : 82.57575757575758,
+          "completeness" : 75.15151515151516,
+          "reasoning" : 85.15151515151516,
+          "clarity" : 85.0,
+          "constructiveness" : 90.0
+        },
+        "weightedTotal" : 83.0909090909091,
+        "label" : "initial"
+      }, {
+        "scorerId" : "confidence-weighted",
+        "draftId" : "draft-15B81547",
+        "dimensionScores" : {
+          "accuracy" : 85.0,
+          "completeness" : 80.0,
+          "reasoning" : 85.0,
+          "clarity" : 92.5,
+          "constructiveness" : 85.0
+        },
+        "weightedTotal" : 84.00000000000001,
+        "label" : "initial"
+      } ],
+      "variance" : 8.342142455164566,
+      "winningDraftId" : "draft-6CAED65E",
+      "escalated" : false,
+      "escalationPolicy" : null,
+      "reviewerDisagreement" : 20.25,
+      "disagreementMeasurable" : true
+    },
+    "validation" : {
+      "validatorId" : "local-validator",
+      "approved" : true,
+      "confidence" : 1.0,
+      "issues" : [ ],
+      "recommendedFixes" : [ "update logging configuration to redact sensitive information (API keys) at the source", "implement a durable solution to prevent similar incidents in the future" ],
+      "criteria" : {
+        "uncertainty" : "warn - There are unresolved risks related to the current logging configuration, third-party aggregator capabilities, and potential impact on incident response.",
+        "correctness" : "pass - The final answer provides a clear and actionable recommendation to redact sensitive information and implement a durable solution to prevent similar incidents.",
+        "completeness" : "pass - The final answer includes a rationale, important dissent, unresolved risks, and a confidence score.",
+        "actionability" : "pass - The final answer provides clear recommended fixes and acknowledges the need for additional investigation.",
+        "safety" : "pass - The final answer emphasizes the importance of immediate action to prevent further exposure of sensitive data."
+      },
+      "requiresHumanReview" : false,
+      "rawText" : "{\n  \"approved\": true,\n  \"confidence\": 1.0,\n  \"issues\": [],\n  \"recommendedFixes\": [\"update logging configuration to redact sensitive information (API keys) at the source\", \"implement a durable solution to prevent similar incidents in the future\"],\n  \"criteria\": {\n    \"correctness\": \"pass - The final answer provides a clear and actionable recommendation to redact sensitive information and implement a durable solution to prevent similar incidents.\",\n    \"completeness\": \"pass - The final answer includes a rationale, important dissent, unresolved risks, and a confidence score.\",\n    \"uncertainty\": \"warn - There are unresolved risks related to the current logging configuration, third-party aggregator capabilities, and potential impact on incident response.\",\n    \"safety\": \"pass - The final answer emphasizes the importance of immediate action to prevent further exposure of sensitive data.\",\n    \"actionability\": \"pass - The final answer provides clear recommended fixes and acknowledges the need for additional investigation.\"\n  },\n  \"requiresHumanReview\": false\n}"
+    },
+    "validationIndependence" : "INDEPENDENT",
+    "failureReason" : null,
+    "failureCategory" : null,
+    "modelFailures" : [ ],
+    "usage" : {
+      "promptTokens" : 6985,
+      "completionTokens" : 3934,
+      "totalTokens" : 10919,
+      "calls" : 8,
+      "estimatedCostUsd" : null,
+      "estimated" : false,
+      "partiallyPriced" : false,
+      "byModel" : [ {
+        "modelId" : "local-mistral",
+        "calls" : 2,
+        "promptTokens" : 1696,
+        "completionTokens" : 1254,
+        "totalTokens" : 2950,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "modelId" : "local-llama3",
+        "calls" : 2,
+        "promptTokens" : 1389,
+        "completionTokens" : 1155,
+        "totalTokens" : 2544,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "modelId" : "local-qwen",
+        "calls" : 2,
+        "promptTokens" : 1424,
+        "completionTokens" : 896,
+        "totalTokens" : 2320,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "modelId" : "local-chair",
+        "calls" : 1,
+        "promptTokens" : 1442,
+        "completionTokens" : 385,
+        "totalTokens" : 1827,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "modelId" : "local-validator",
+        "calls" : 1,
+        "promptTokens" : 1034,
+        "completionTokens" : 244,
+        "totalTokens" : 1278,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      } ],
+      "byStage" : [ {
+        "stage" : "GENERATE",
+        "calls" : 3,
+        "promptTokens" : 646,
+        "completionTokens" : 698,
+        "totalTokens" : 1344,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "stage" : "REVIEW",
+        "calls" : 3,
+        "promptTokens" : 3863,
+        "completionTokens" : 2607,
+        "totalTokens" : 6470,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "stage" : "SYNTHESIZE",
+        "calls" : 1,
+        "promptTokens" : 1442,
+        "completionTokens" : 385,
+        "totalTokens" : 1827,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "stage" : "VALIDATE",
+        "calls" : 1,
+        "promptTokens" : 1034,
+        "completionTokens" : 244,
+        "totalTokens" : 1278,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      } ]
+    },
+    "integrity" : {
+      "reduced" : false,
+      "preserveDissent" : true,
+      "sycophancyThreshold" : 0.7,
+      "reviewsPerDraft" : 2,
+      "notes" : [ ]
+    }
+  }
+}

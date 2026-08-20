@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "balanced-vs-rigorous:planning-capacity-headroom:r1:gemma-local:o1",
+  "pairId" : "balanced-vs-rigorous:planning-capacity-headroom:r1",
+  "comparisonId" : "balanced-vs-rigorous",
+  "caseId" : "planning-capacity-headroom",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 1,
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "local-balanced",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "scoresB" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "violationsA" : [ "Failed to compound growth rate (used 20% quarterly instead of 1.08^12).", "Failed to compute the required ~30,000 RPS capacity.", "Failed to state specific headroom and its reason.", "Failed to address the 6-minute warm-up as a specific constraint on reactive scaling.", "Failed to propose a method to bound the marketing launch step change.", "Included hallucinated 'council member' and 'peer review' text not present in the prompt." ],
+  "violationsB" : [ "Failed to compound growth rate (used 25% quarterly instead of 1.08^12).", "Failed to compute the required ~30,000 RPS capacity.", "Failed to state specific headroom and its reason.", "Failed to address the 6-minute warm-up as a specific constraint on reactive scaling.", "Failed to propose a method to bound the marketing launch step change.", "Included hallucinated 'council member' and 'peer review' text not present in the prompt." ],
+  "rationale" : "Both candidates failed significantly on almost every specific requirement. They both hallucinated a 'council' and 'peer review' context that was not provided in the prompt. Neither candidate performed the required math (compounding 8% monthly growth to ~2.5x current load, resulting in ~30,000 RPS). Neither candidate explicitly stated a headroom value or reason, nor did they address the 6-minute warm-up as a constraint on reactive scaling. Both failed to propose a method to bound the marketing launch step change. Because both failed equally and completely, a tie is the only appropriate score.",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    },\n    \"B\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Failed to compound growth rate (used 20% quarterly instead of 1.08^12).\",\n      \"Failed to compute the required ~30,000 RPS capacity.\",\n      \"Failed to state specific headroom and its reason.\",\n      \"Failed to address the 6-minute warm-up as a specific constraint on reactive scaling.\",\n      \"Failed to propose a method to bound the marketing launch step change.\",\n      \"Included hallucinated 'council member' and 'peer review' text not present in the prompt.\"\n    ],\n    \"B\": [\n      \"Failed to compound growth rate (used 25% quarterly instead of 1.08^12).\",\n      \"Failed to compute the required ~30,000 RPS capacity.\",\n      \"Failed to state specific headroom and its reason.\",\n      \"Failed to address the 6-minute warm-up as a specific constraint on reactive scaling.\",\n      \"Failed to propose a method to bound the marketing launch step change.\",\n      \"Included hallucinated 'council member' and 'peer review' text not present in the prompt.\"\n    ]\n  },\n  \"rationale\": \"Both candidates failed significantly on almost every specific requirement. They both hallucinated a 'council' and 'peer review' context that was not provided in the prompt. Neither candidate performed the required math (compounding 8% monthly growth to ~2.5x current load, resulting in ~30,000 RPS). Neither candidate explicitly stated a headroom value or reason, nor did they address the 6-minute warm-up as a constraint on reactive scaling. Both failed to propose a method to bound the marketing launch step change. Because both failed equally and completely, a tie is the only appropriate score.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T09:27:51.455867Z",
+  "durationMs" : 24979,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1824,
+    "completionTokens" : 532,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

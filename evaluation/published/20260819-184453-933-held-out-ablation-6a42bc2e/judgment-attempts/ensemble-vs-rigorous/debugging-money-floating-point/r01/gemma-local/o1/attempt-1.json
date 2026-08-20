@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "ensemble-vs-rigorous:debugging-money-floating-point:r1:gemma-local:o1",
+  "pairId" : "ensemble-vs-rigorous:debugging-money-floating-point:r1",
+  "comparisonId" : "ensemble-vs-rigorous",
+  "caseId" : "debugging-money-floating-point",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 1,
+  "answerAVariant" : "llama-ensemble",
+  "answerBVariant" : "local-rigorous",
+  "status" : "COMPLETED",
+  "winner" : "A",
+  "confidence" : 0.9,
+  "scoresA" : {
+    "constraint-following" : 10.0,
+    "completeness" : 10.0,
+    "correctness" : 10.0,
+    "reasoning" : 10.0,
+    "clarity" : 10.0
+  },
+  "scoresB" : {
+    "constraint-following" : 10.0,
+    "completeness" : 8.0,
+    "correctness" : 10.0,
+    "reasoning" : 9.0,
+    "clarity" : 9.0
+  },
+  "violationsA" : [ ],
+  "violationsB" : [ ],
+  "rationale" : "Candidate A provides a more structured and comprehensive explanation of the technical cause (binary floating point limitations and accumulation of errors). It explicitly addresses the 'non-reproducibility' aspect mentioned in the context and requirements more clearly than Candidate B. Candidate B includes a lot of meta-commentary about 'council members' and 'drafts' which was not requested and clutters the response. Candidate A correctly identifies the need for BigDecimal/Decimal and specific rounding modes for both the application and the database.",
+  "rawResponse" : "{\n  \"winner\": \"A\",\n  \"confidence\": 0.9,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 10,\n      \"completeness\": 10,\n      \"reasoning\": 10,\n      \"constraint-following\": 10,\n      \"clarity\": 10\n    },\n    \"B\": {\n      \"correctness\": 10,\n      \"completeness\": 8,\n      \"reasoning\": 9,\n      \"constraint-following\": 10,\n      \"clarity\": 9\n    }\n  },\n  \"violations\": {\n    \"A\": [],\n    \"B\": []\n  },\n  \"rationale\": \"Candidate A provides a more structured and comprehensive explanation of the technical cause (binary floating point limitations and accumulation of errors). It explicitly addresses the 'non-reproducibility' aspect mentioned in the context and requirements more clearly than Candidate B. Candidate B includes a lot of meta-commentary about 'council members' and 'drafts' which was not requested and clutters the response. Candidate A correctly identifies the need for BigDecimal/Decimal and specific rounding modes for both the application and the database.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:54:51.731256Z",
+  "durationMs" : 15994,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1823,
+    "completionTokens" : 275,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

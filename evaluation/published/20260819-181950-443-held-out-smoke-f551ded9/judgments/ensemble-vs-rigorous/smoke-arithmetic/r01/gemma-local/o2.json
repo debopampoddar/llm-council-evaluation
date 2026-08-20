@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "ensemble-vs-rigorous:smoke-arithmetic:r1:gemma-local:o2",
+  "pairId" : "ensemble-vs-rigorous:smoke-arithmetic:r1",
+  "comparisonId" : "ensemble-vs-rigorous",
+  "caseId" : "smoke-arithmetic",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "llama-ensemble",
+  "status" : "COMPLETED",
+  "winner" : "B",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "reasoning" : 100.0,
+    "correctness" : 100.0,
+    "completeness" : 100.0,
+    "constraint-following" : 100.0,
+    "clarity" : 80.0
+  },
+  "scoresB" : {
+    "reasoning" : 100.0,
+    "correctness" : 100.0,
+    "completeness" : 100.0,
+    "constraint-following" : 100.0,
+    "clarity" : 100.0
+  },
+  "violationsA" : [ "Includes unnecessary meta-commentary (Rationale, Important Dissent, Unresolved Risks, Confidence, Synthesis) which makes the response less clear and more verbose than required." ],
+  "violationsB" : [ ],
+  "rationale" : "Candidate B is the better response because it directly answers the prompt with the required calculation and result without including unnecessary meta-commentary. Candidate A includes a large amount of 'hallucinated' internal reasoning (referencing 'council members' and 'drafts') and 'Important Dissent' sections that were not part of the prompt or context, making it significantly less clear and more verbose than necessary.",
+  "rawResponse" : "{\n  \"winner\": \"B\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 100,\n      \"completeness\": 100,\n      \"reasoning\": 100,\n      \"constraint-following\": 100,\n      \"clarity\": 80\n    },\n    \"B\": {\n      \"correctness\": 100,\n      \"completeness\": 100,\n      \"reasoning\": 100,\n      \"constraint-following\": 100,\n      \"clarity\": 100\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Includes unnecessary meta-commentary (Rationale, Important Dissent, Unresolved Risks, Confidence, Synthesis) which makes the response less clear and more verbose than required.\"\n    ],\n    \"B\": []\n  },\n  \"rationale\": \"Candidate B is the better response because it directly answers the prompt with the required calculation and result without including unnecessary meta-commentary. Candidate A includes a large amount of 'hallucinated' internal reasoning (referencing 'council members' and 'drafts') and 'Important Dissent' sections that were not part of the prompt or context, making it significantly less clear and more verbose than necessary.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-19T18:34:16.681107Z",
+  "durationMs" : 16986,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1242,
+    "completionTokens" : 305,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

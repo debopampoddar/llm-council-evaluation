@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "ensemble-vs-rigorous:debugging-money-floating-point:r1:gemma-local:o2",
+  "pairId" : "ensemble-vs-rigorous:debugging-money-floating-point:r1",
+  "comparisonId" : "ensemble-vs-rigorous",
+  "caseId" : "debugging-money-floating-point",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "llama-ensemble",
+  "status" : "COMPLETED",
+  "winner" : "B",
+  "confidence" : 0.9,
+  "scoresA" : {
+    "constraint-following" : 10.0,
+    "completeness" : 8.0,
+    "correctness" : 10.0,
+    "reasoning" : 9.0,
+    "clarity" : 8.0
+  },
+  "scoresB" : {
+    "constraint-following" : 10.0,
+    "completeness" : 10.0,
+    "correctness" : 10.0,
+    "reasoning" : 10.0,
+    "clarity" : 10.0
+  },
+  "violationsA" : [ "The response includes meta-commentary about a 'council' and 'drafts' which was not part of the prompt and makes the answer less direct." ],
+  "violationsB" : [ ],
+  "rationale" : "Candidate B is the better response because it directly answers the prompt without including the meta-commentary (references to 'council members', 'drafts', and 'review scores') found in Candidate A. Candidate B clearly addresses all requirements: identifying binary floating point limitations, explaining accumulated error, recommending BigDecimal/Integer minor units, specifying rounding modes, and addressing both Java and Database types. Candidate A's inclusion of internal evaluation logic makes it less clear and less professional as a direct answer.",
+  "rawResponse" : "{\n  \"winner\": \"B\",\n  \"confidence\": 0.9,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 10,\n      \"completeness\": 8,\n      \"reasoning\": 9,\n      \"constraint-following\": 10,\n      \"clarity\": 8\n    },\n    \"B\": {\n      \"correctness\": 10,\n      \"completeness\": 10,\n      \"reasoning\": 10,\n      \"constraint-following\": 10,\n      \"clarity\": 10\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"The response includes meta-commentary about a 'council' and 'drafts' which was not part of the prompt and makes the answer less direct.\"\n    ],\n    \"B\": []\n  },\n  \"rationale\": \"Candidate B is the better response because it directly answers the prompt without including the meta-commentary (references to 'council members', 'drafts', and 'review scores') found in Candidate A. Candidate B clearly addresses all requirements: identifying binary floating point limitations, explaining accumulated error, recommending BigDecimal/Integer minor units, specifying rounding modes, and addressing both Java and Database types. Candidate A's inclusion of internal evaluation logic makes it less clear and less professional as a direct answer.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:55:09.016666Z",
+  "durationMs" : 17208,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1823,
+    "completionTokens" : 308,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

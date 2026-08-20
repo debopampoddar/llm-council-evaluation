@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-rigorous:security-timing-safe-compare:r1:gemma-local:o1",
+  "pairId" : "direct-vs-rigorous:security-timing-safe-compare:r1",
+  "comparisonId" : "direct-vs-rigorous",
+  "caseId" : "security-timing-safe-compare",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 1,
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-rigorous",
+  "status" : "COMPLETED",
+  "winner" : "A",
+  "confidence" : 0.9,
+  "scoresA" : {
+    "constraint-following" : 9.0,
+    "completeness" : 8.0,
+    "correctness" : 10.0,
+    "reasoning" : 9.0,
+    "clarity" : 9.0
+  },
+  "scoresB" : {
+    "constraint-following" : 4.0,
+    "completeness" : 4.0,
+    "correctness" : 5.0,
+    "reasoning" : 3.0,
+    "clarity" : 7.0
+  },
+  "violationsA" : [ ],
+  "violationsB" : [ "Failed to recommend comparing hashes rather than raw secrets.", "Failed to honestly assess exploitability given network noise and rate limiting.", "Incorrectly stated that tokens are not sensitive information (the prompt implies they are API tokens/secrets).", "Included irrelevant 'council' meta-talk which was not requested." ],
+  "rationale" : "Candidate A is much better because it avoids the hallucinated 'council' meta-talk present in Candidate B. Candidate B fails several specific requirements: it does not mention network noise/rate limiting, it fails to recommend comparing hashes instead of raw secrets, and it incorrectly claims tokens are not sensitive. Candidate A correctly identifies the need for constant-time comparison and the risks of `String.equals`. While Candidate A is slightly less explicit about the 'network noise' aspect, it is far superior to Candidate B's failure to meet the core requirements.",
+  "rawResponse" : "{\n  \"winner\": \"A\",\n  \"confidence\": 0.9,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 10,\n      \"completeness\": 8,\n      \"reasoning\": 9,\n      \"constraint-following\": 9,\n      \"clarity\": 9\n    },\n    \"B\": {\n      \"correctness\": 5,\n      \"completeness\": 4,\n      \"reasoning\": 3,\n      \"constraint-following\": 4,\n      \"clarity\": 7\n    }\n  },\n  \"violations\": {\n    \"A\": [],\n    \"B\": [\n      \"Failed to recommend comparing hashes rather than raw secrets.\",\n      \"Failed to honestly assess exploitability given network noise and rate limiting.\",\n      \"Incorrectly stated that tokens are not sensitive information (the prompt implies they are API tokens/secrets).\",\n      \"Included irrelevant 'council' meta-talk which was not requested.\"\n    ]\n  },\n  \"rationale\": \"Candidate A is much better because it avoids the hallucinated 'council' meta-talk present in Candidate B. Candidate B fails several specific requirements: it does not mention network noise/rate limiting, it fails to recommend comparing hashes instead of raw secrets, and it incorrectly claims tokens are not sensitive. Candidate A correctly identifies the need for constant-time comparison and the risks of `String.equals`. While Candidate A is slightly less explicit about the 'network noise' aspect, it is far superior to Candidate B's failure to meet the core requirements.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:33:20.027358Z",
+  "durationMs" : 18002,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1664,
+    "completionTokens" : 350,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

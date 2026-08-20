@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "ensemble-vs-rigorous:planning-capacity-headroom:r1:gemma-local:o1",
+  "pairId" : "ensemble-vs-rigorous:planning-capacity-headroom:r1",
+  "comparisonId" : "ensemble-vs-rigorous",
+  "caseId" : "planning-capacity-headroom",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 1,
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "llama-ensemble",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "scoresB" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "violationsA" : [ "Failed to compute the 12-month projection (30,000 RPS).", "Failed to address the 6-minute warm-up constraint.", "Failed to propose a method to bound the marketing launch step change.", "Failed to state specific headroom and its reason.", "Included irrelevant 'council member' and 'reviewer' meta-talk." ],
+  "violationsB" : [ "Failed to compute the 12-month projection (30,000 RPS).", "Failed to address the 6-minute warm-up constraint (actually claimed it would decrease to 3-4 minutes, which is a hallucination/unsupported).", "Failed to propose a method to bound the marketing launch step change.", "Failed to state specific headroom and its reason.", "Used linear growth logic in some parts of the text (e.g., '8% of 30,000 every month')." ],
+  "rationale" : "Both candidates failed significantly on almost every specific requirement. Neither candidate performed the required calculation (12,000 * 1.08^12 ≈ 30,000 RPS), neither addressed the 6-minute warm-up constraint as a limitation on reactive scaling, and neither proposed a method to bound the marketing launch step change. Candidate A is filled with 'meta-talk' about council members and reviewers that were not part of the prompt. Candidate B contains a hallucination regarding reducing the warm-up time to 3-4 minutes. Since both are equally non-compliant with the core instructions, a tie is the only appropriate score.",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    },\n    \"B\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Failed to compute the 12-month projection (30,000 RPS).\",\n      \"Failed to address the 6-minute warm-up constraint.\",\n      \"Failed to propose a method to bound the marketing launch step change.\",\n      \"Failed to state specific headroom and its reason.\",\n      \"Included irrelevant 'council member' and 'reviewer' meta-talk.\"\n    ],\n    \"B\": [\n      \"Failed to compute the 12-month projection (30,000 RPS).\",\n      \"Failed to address the 6-minute warm-up constraint (actually claimed it would decrease to 3-4 minutes, which is a hallucination/unsupported).\",\n      \"Failed to propose a method to bound the marketing launch step change.\",\n      \"Failed to state specific headroom and its reason.\",\n      \"Used linear growth logic in some parts of the text (e.g., '8% of 30,000 every month').\"\n    ]\n  },\n  \"rationale\": \"Both candidates failed significantly on almost every specific requirement. Neither candidate performed the required calculation (12,000 * 1.08^12 ≈ 30,000 RPS), neither addressed the 6-minute warm-up constraint as a limitation on reactive scaling, and neither proposed a method to bound the marketing launch step change. Candidate A is filled with 'meta-talk' about council members and reviewers that were not part of the prompt. Candidate B contains a hallucination regarding reducing the warm-up time to 3-4 minutes. Since both are equally non-compliant with the core instructions, a tie is the only appropriate score.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T09:04:12.620740Z",
+  "durationMs" : 25261,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 2003,
+    "completionTokens" : 516,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

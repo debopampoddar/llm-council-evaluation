@@ -1,0 +1,7 @@
+[ {
+  "unitId" : "architecture-cache-stampede:local-rigorous:r1",
+  "checkIndex" : 0,
+  "type" : "regex",
+  "status" : "FAIL",
+  "detail" : "Pattern condition failed: (?i)(stampede|thundering herd|single.?flight|coalesc)"
+} ]

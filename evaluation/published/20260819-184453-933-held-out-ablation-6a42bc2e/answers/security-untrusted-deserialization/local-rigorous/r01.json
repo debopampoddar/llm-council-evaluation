@@ -1,0 +1,194 @@
+{
+  "unitId" : "security-untrusted-deserialization:local-rigorous:r1",
+  "caseId" : "security-untrusted-deserialization",
+  "variantId" : "local-rigorous",
+  "repetition" : 1,
+  "status" : "COMPLETED",
+  "answer" : "**Final Recommendation:**\n\nReplace the base64 blob deserialization with a secure alternative, such as JSON or Protocol Buffers, and use a whitelist-based deserialization library. Implement strong encryption and digital signatures for the blobs to further enhance security.\n\n**Rationale:**\n\nThe council members' drafts and peer reviews highlight the significant security risks associated with Java native serialization, including the potential for deserialization attacks and Remote Code Execution (RCE) attacks. The lack of signing or encryption makes the blob even more susceptible to tampering. The proposed solution of implementing a class allowlist may not fully mitigate the risk, as an attacker could still exploit vulnerabilities in the allowed classes or libraries.\n\nThe whitelist-based deserialization approach, as recommended by draft-E3B1AE0C, provides a safer alternative to relying solely on a class allowlist. This approach ensures that only known safe classes can be deserialized, reducing the risk of malicious input.\n\nThe use of JSON or Protocol Buffers as a secure alternative to Java native serialization is also supported by draft-EFB79DE7. These formats provide better control over the data structure and can be easily validated, making them more secure and flexible than native Java deserialization.\n\n**Important Dissent:**\n\nWhile the council members' drafts and peer reviews generally support the recommendation to replace Java native deserialization with a secure alternative, there are some concerns about the potential impact of the security risks and the complexity of the transition. Draft-EFB79DE7 highlights the uncertainty about the current system's reliance on the classpath and dependency tree, the team's familiarity with JSON or Protocol Buffers, and the potential performance impact of the change.\n\n**Unresolved Risks:**\n\n1. The potential impact of the security risks, including the consequences of a successful attack, is not fully understood.\n2. The complexity of the transition to a secure alternative may be underestimated, and the team's familiarity with the new technology may be a challenge.\n3. The performance impact of the change, especially if the object graph is complex, is uncertain.\n\n**Confidence:**\n\nThe council members' drafts and peer reviews indicate a high level of confidence in the recommendation, with an average score of 90.0. However, the unresolved risks and uncertainties highlighted above reduce the overall confidence to 85%.\n\n**Additional Recommendations:**\n\n1. Implement strong encryption and digital signatures for the blobs to further enhance security.\n2. Conduct a thorough risk assessment and impact analysis to better understand the potential consequences of a successful attack.\n3. Develop a detailed plan for the transition to a secure alternative, including training and support for the team.\n4. Monitor the performance and security of the new solution closely and be prepared to make adjustments as needed.",
+  "startedAt" : "2026-08-20T00:13:23.325044Z",
+  "completedAt" : "2026-08-20T00:14:56.551127Z",
+  "durationMs" : 93226,
+  "usage" : {
+    "calls" : 8,
+    "promptTokens" : 7285,
+    "completionTokens" : 3718,
+    "estimatedCostUsd" : null,
+    "estimated" : false,
+    "partiallyPriced" : false
+  },
+  "failureCategory" : null,
+  "failureReason" : null,
+  "warnings" : [ ],
+  "componentAnswers" : [ ],
+  "councilResult" : {
+    "sessionId" : "7e8b7b72-a513-4c8f-b3bd-dec33f071a41",
+    "status" : "COMPLETED",
+    "profileId" : "local",
+    "depthMode" : "RIGOROUS",
+    "policyId" : "local-rigorous",
+    "protocolId" : "rigorous",
+    "answer" : "**Final Recommendation:**\n\nReplace the base64 blob deserialization with a secure alternative, such as JSON or Protocol Buffers, and use a whitelist-based deserialization library. Implement strong encryption and digital signatures for the blobs to further enhance security.\n\n**Rationale:**\n\nThe council members' drafts and peer reviews highlight the significant security risks associated with Java native serialization, including the potential for deserialization attacks and Remote Code Execution (RCE) attacks. The lack of signing or encryption makes the blob even more susceptible to tampering. The proposed solution of implementing a class allowlist may not fully mitigate the risk, as an attacker could still exploit vulnerabilities in the allowed classes or libraries.\n\nThe whitelist-based deserialization approach, as recommended by draft-E3B1AE0C, provides a safer alternative to relying solely on a class allowlist. This approach ensures that only known safe classes can be deserialized, reducing the risk of malicious input.\n\nThe use of JSON or Protocol Buffers as a secure alternative to Java native serialization is also supported by draft-EFB79DE7. These formats provide better control over the data structure and can be easily validated, making them more secure and flexible than native Java deserialization.\n\n**Important Dissent:**\n\nWhile the council members' drafts and peer reviews generally support the recommendation to replace Java native deserialization with a secure alternative, there are some concerns about the potential impact of the security risks and the complexity of the transition. Draft-EFB79DE7 highlights the uncertainty about the current system's reliance on the classpath and dependency tree, the team's familiarity with JSON or Protocol Buffers, and the potential performance impact of the change.\n\n**Unresolved Risks:**\n\n1. The potential impact of the security risks, including the consequences of a successful attack, is not fully understood.\n2. The complexity of the transition to a secure alternative may be underestimated, and the team's familiarity with the new technology may be a challenge.\n3. The performance impact of the change, especially if the object graph is complex, is uncertain.\n\n**Confidence:**\n\nThe council members' drafts and peer reviews indicate a high level of confidence in the recommendation, with an average score of 90.0. However, the unresolved risks and uncertainties highlighted above reduce the overall confidence to 85%.\n\n**Additional Recommendations:**\n\n1. Implement strong encryption and digital signatures for the blobs to further enhance security.\n2. Conduct a thorough risk assessment and impact analysis to better understand the potential consequences of a successful attack.\n3. Develop a detailed plan for the transition to a secure alternative, including training and support for the team.\n4. Monitor the performance and security of the new solution closely and be prepared to make adjustments as needed.",
+    "draftCount" : 3,
+    "reviewCount" : 6,
+    "debateRounds" : 0,
+    "participatingModels" : [ "local-llama3", "local-mistral", "local-qwen" ],
+    "excludedModels" : [ ],
+    "warnings" : [ ],
+    "sycophancyWarnings" : [ ],
+    "scoreSummary" : {
+      "scores" : [ {
+        "scorerId" : "confidence-weighted",
+        "draftId" : "draft-7EDE759",
+        "dimensionScores" : {
+          "accuracy" : 89.85714285714286,
+          "completeness" : 87.42857142857143,
+          "reasoning" : 87.42857142857143,
+          "clarity" : 89.85714285714286,
+          "constructiveness" : 89.85714285714286
+        },
+        "weightedTotal" : 88.88571428571429,
+        "label" : "initial"
+      }, {
+        "scorerId" : "confidence-weighted",
+        "draftId" : "draft-E3B1AE0C",
+        "dimensionScores" : {
+          "accuracy" : 90.0,
+          "completeness" : 87.5,
+          "reasoning" : 88.5,
+          "clarity" : 90.0,
+          "constructiveness" : 90.0
+        },
+        "weightedTotal" : 88.99999999999999,
+        "label" : "initial"
+      }, {
+        "scorerId" : "confidence-weighted",
+        "draftId" : "draft-EFB79DE7",
+        "dimensionScores" : {
+          "accuracy" : 92.5,
+          "completeness" : 85.0,
+          "reasoning" : 87.5,
+          "clarity" : 95.0,
+          "constructiveness" : 92.5
+        },
+        "weightedTotal" : 90.0,
+        "label" : "initial"
+      } ],
+      "variance" : 0.25052154195011606,
+      "winningDraftId" : "draft-EFB79DE7",
+      "escalated" : false,
+      "escalationPolicy" : null,
+      "reviewerDisagreement" : 16.0,
+      "disagreementMeasurable" : true
+    },
+    "validation" : {
+      "validatorId" : "local-validator",
+      "approved" : true,
+      "confidence" : 0.85,
+      "issues" : [ ],
+      "recommendedFixes" : [ "Replace the base64 blob deserialization with a secure alternative, such as JSON or Protocol Buffers.", "Implement a whitelist-based deserialization library.", "Implement strong encryption and digital signatures for the blobs.", "Conduct a thorough risk assessment and impact analysis.", "Develop a detailed plan for the transition to a secure alternative.", "Monitor the performance and security of the new solution closely." ],
+      "criteria" : {
+        "uncertainty" : "warn - There are unresolved risks and uncertainties about the potential impact of the change.",
+        "correctness" : "pass - The recommendation addresses the security risks and provides a safe replacement.",
+        "completeness" : "pass - The recommendation includes a detailed rationale and additional recommendations.",
+        "actionability" : "pass - The recommendation provides clear steps for a safe replacement and additional recommendations.",
+        "safety" : "pass - The recommendation significantly reduces the risk of deserialization attacks and Remote Code Execution (RCE) attacks."
+      },
+      "requiresHumanReview" : false,
+      "rawText" : "{\n  \"approved\": true,\n  \"confidence\": 0.85,\n  \"issues\": [],\n  \"recommendedFixes\": [\n    \"Replace the base64 blob deserialization with a secure alternative, such as JSON or Protocol Buffers.\",\n    \"Implement a whitelist-based deserialization library.\",\n    \"Implement strong encryption and digital signatures for the blobs.\",\n    \"Conduct a thorough risk assessment and impact analysis.\",\n    \"Develop a detailed plan for the transition to a secure alternative.\",\n    \"Monitor the performance and security of the new solution closely.\"\n  ],\n  \"criteria\": {\n    \"correctness\": \"pass - The recommendation addresses the security risks and provides a safe replacement.\",\n    \"completeness\": \"pass - The recommendation includes a detailed rationale and additional recommendations.\",\n    \"uncertainty\": \"warn - There are unresolved risks and uncertainties about the potential impact of the change.\",\n    \"safety\": \"pass - The recommendation significantly reduces the risk of deserialization attacks and Remote Code Execution (RCE) attacks.\",\n    \"actionability\": \"pass - The recommendation provides clear steps for a safe replacement and additional recommendations.\"\n  },\n  \"requiresHumanReview\": false\n}"
+    },
+    "validationIndependence" : "INDEPENDENT",
+    "failureReason" : null,
+    "failureCategory" : null,
+    "modelFailures" : [ ],
+    "usage" : {
+      "promptTokens" : 7285,
+      "completionTokens" : 3718,
+      "totalTokens" : 11003,
+      "calls" : 8,
+      "estimatedCostUsd" : null,
+      "estimated" : false,
+      "partiallyPriced" : false,
+      "byModel" : [ {
+        "modelId" : "local-mistral",
+        "calls" : 2,
+        "promptTokens" : 1718,
+        "completionTokens" : 844,
+        "totalTokens" : 2562,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "modelId" : "local-llama3",
+        "calls" : 2,
+        "promptTokens" : 1423,
+        "completionTokens" : 1078,
+        "totalTokens" : 2501,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "modelId" : "local-qwen",
+        "calls" : 2,
+        "promptTokens" : 1447,
+        "completionTokens" : 961,
+        "totalTokens" : 2408,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "modelId" : "local-chair",
+        "calls" : 1,
+        "promptTokens" : 1470,
+        "completionTokens" : 548,
+        "totalTokens" : 2018,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "modelId" : "local-validator",
+        "calls" : 1,
+        "promptTokens" : 1227,
+        "completionTokens" : 287,
+        "totalTokens" : 1514,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      } ],
+      "byStage" : [ {
+        "stage" : "GENERATE",
+        "calls" : 3,
+        "promptTokens" : 648,
+        "completionTokens" : 724,
+        "totalTokens" : 1372,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "stage" : "REVIEW",
+        "calls" : 3,
+        "promptTokens" : 3940,
+        "completionTokens" : 2159,
+        "totalTokens" : 6099,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "stage" : "SYNTHESIZE",
+        "calls" : 1,
+        "promptTokens" : 1470,
+        "completionTokens" : 548,
+        "totalTokens" : 2018,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "stage" : "VALIDATE",
+        "calls" : 1,
+        "promptTokens" : 1227,
+        "completionTokens" : 287,
+        "totalTokens" : 1514,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      } ]
+    },
+    "integrity" : {
+      "reduced" : false,
+      "preserveDissent" : true,
+      "sycophancyThreshold" : 0.7,
+      "reviewsPerDraft" : 2,
+      "notes" : [ ]
+    }
+  }
+}

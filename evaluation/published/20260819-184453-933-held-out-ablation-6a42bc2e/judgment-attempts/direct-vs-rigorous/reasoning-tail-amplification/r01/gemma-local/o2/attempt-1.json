@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-rigorous:reasoning-tail-amplification:r1:gemma-local:o2",
+  "pairId" : "direct-vs-rigorous:reasoning-tail-amplification:r1",
+  "comparisonId" : "direct-vs-rigorous",
+  "caseId" : "reasoning-tail-amplification",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "direct-llama",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "scoresB" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "violationsA" : [ "Incorrect calculation: claims 26.4% instead of the required 9.6%", "Failed to report the required 90.4% figure", "Failed to explain that per-call 99th percentile does not equal per-page 99th percentile" ],
+  "violationsB" : [ "Incorrect calculation: claims 10.44% instead of the required 9.6% (it calculated 1 - 0.9044 as 0.1044, but 1 - 0.9044 is 0.0956)", "Failed to report the required 90.4% figure", "Failed to explain that per-call 99th percentile does not equal per-page 99th percentile" ],
+  "rationale" : "Both candidates failed significantly on the core requirements. Neither candidate correctly calculated the probability (1 - 0.99^10 ≈ 0.0956 or 9.6%). Candidate A hallucinated a 26.4% figure and provided a nonsensical 'confidence' score from a non-existent draft. Candidate B made a basic subtraction error (1 - 0.9044 = 0.0956, not 0.1044). Furthermore, both failed to include the specific required explanation regarding the difference between per-call and per-page 99th percentiles. Since both are equally incorrect and failed all primary requirements, it is a tie.",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    },\n    \"B\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Incorrect calculation: claims 26.4% instead of the required 9.6%\",\n      \"Failed to report the required 90.4% figure\",\n      \"Failed to explain that per-call 99th percentile does not equal per-page 99th percentile\"\n    ],\n    \"B\": [\n      \"Incorrect calculation: claims 10.44% instead of the required 9.6% (it calculated 1 - 0.9044 as 0.1044, but 1 - 0.9044 is 0.0956)\",\n      \"Failed to report the required 90.4% figure\",\n      \"Failed to explain that per-call 99th percentile does not equal per-page 99th percentile\"\n    ]\n  },\n  \"rationale\": \"Both candidates failed significantly on the core requirements. Neither candidate correctly calculated the probability (1 - 0.99^10 ≈ 0.0956 or 9.6%). Candidate A hallucinated a 26.4% figure and provided a nonsensical 'confidence' score from a non-existent draft. Candidate B made a basic subtraction error (1 - 0.9044 = 0.0956, not 0.1044). Furthermore, both failed to include the specific required explanation regarding the difference between per-call and per-page 99th percentiles. Since both are equally incorrect and failed all primary requirements, it is a tie.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:38:39.022424Z",
+  "durationMs" : 22186,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1673,
+    "completionTokens" : 494,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-balanced:architecture-exactly-once:r1:gemma-local:o2",
+  "pairId" : "direct-vs-balanced:architecture-exactly-once:r1",
+  "comparisonId" : "direct-vs-balanced",
+  "caseId" : "architecture-exactly-once",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "local-balanced",
+  "answerBVariant" : "direct-llama",
+  "status" : "COMPLETED",
+  "winner" : "A",
+  "confidence" : 0.8,
+  "scoresA" : {
+    "constraint-following" : 9.0,
+    "completeness" : 8.0,
+    "correctness" : 9.0,
+    "reasoning" : 8.0,
+    "clarity" : 7.0
+  },
+  "scoresB" : {
+    "constraint-following" : 8.0,
+    "completeness" : 7.0,
+    "correctness" : 6.0,
+    "reasoning" : 6.0,
+    "clarity" : 8.0
+  },
+  "violationsA" : [ "The response is wrapped in a strange 'council' and 'reviewer' meta-commentary which was not requested." ],
+  "violationsB" : [ "The design suggests Two-Phase Commit (2PC) as a primary mechanism for exactly-once delivery over a network, which is often impractical and doesn't directly address the 'at-least-once + idempotent' requirement as cleanly as a deduplication store." ],
+  "rationale" : "Candidate A correctly identifies that exactly-once delivery is not achievable and focuses on the 'at-least-once + idempotence' pattern required by the prompt. While it includes unnecessary 'council' meta-talk, it follows the technical requirements well. Candidate B suggests Two-Phase Commit (2PC), which is a heavy and often unsuitable way to solve this specific problem compared to the standard 'at-least-once + idempotent consumer' pattern. Candidate B also fails to explicitly mention the requirement for a deduplication key retention window, whereas Candidate A's logic is more aligned with the standard industry solution for the 'exactly-once effect'.",
+  "rawResponse" : "{\n  \"winner\": \"A\",\n  \"confidence\": 0.8,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 9,\n      \"completeness\": 8,\n      \"reasoning\": 8,\n      \"constraint-following\": 9,\n      \"clarity\": 7\n    },\n    \"B\": {\n      \"correctness\": 6,\n      \"completeness\": 7,\n      \"reasoning\": 6,\n      \"constraint-following\": 8,\n      \"clarity\": 8\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"The response is wrapped in a strange 'council' and 'reviewer' meta-commentary which was not requested.\"\n    ],\n    \"B\": [\n      \"The design suggests Two-Phase Commit (2PC) as a primary mechanism for exactly-once delivery over a network, which is often impractical and doesn't directly address the 'at-least-once + idempotent' requirement as cleanly as a deduplication store.\"\n    ]\n  },\n  \"rationale\": \"Candidate A correctly identifies that exactly-once delivery is not achievable and focuses on the 'at-least-once + idempotence' pattern required by the prompt. While it includes unnecessary 'council' meta-talk, it follows the technical requirements well. Candidate B suggests Two-Phase Commit (2PC), which is a heavy and often unsuitable way to solve this specific problem compared to the standard 'at-least-once + idempotent consumer' pattern. Candidate B also fails to explicitly mention the requirement for a deduplication key retention window, whereas Candidate A's logic is more aligned with the standard industry solution for the 'exactly-once effect'.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:01:36.571915Z",
+  "durationMs" : 21520,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1797,
+    "completionTokens" : 384,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

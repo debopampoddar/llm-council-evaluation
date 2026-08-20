@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-rigorous:architecture-tenant-isolation:r1:gemma-local:o2",
+  "pairId" : "direct-vs-rigorous:architecture-tenant-isolation:r1",
+  "comparisonId" : "direct-vs-rigorous",
+  "caseId" : "architecture-tenant-isolation",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-rigorous",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 3.0,
+    "completeness" : 4.0,
+    "correctness" : 3.0,
+    "reasoning" : 3.0,
+    "clarity" : 5.0
+  },
+  "scoresB" : {
+    "constraint-following" : 3.0,
+    "completeness" : 4.0,
+    "correctness" : 3.0,
+    "reasoning" : 3.0,
+    "clarity" : 5.0
+  },
+  "violationsA" : [ "Failed to explicitly compare shared-schema vs. dedicated approaches as requested.", "Failed to propose a hybrid model (it suggests a complex VC architecture that doesn't clearly distinguish between the pooled and dedicated requirements).", "Does not adequately address the operational burden on a 6-person team." ],
+  "violationsB" : [ "Failed to explicitly compare shared-schema vs. dedicated approaches as requested.", "Failed to propose a hybrid model (it suggests a VC architecture that is essentially a complex way of doing dedicated/sharded instances).", "Does not adequately address the operational burden on a 6-person team." ],
+  "rationale" : "Both candidates failed significantly on the core requirements of the prompt. Neither candidate provided a comparison of the three requested models (shared-schema, shared-database, dedicated), nor did either candidate propose a 'hybrid' model as explicitly requested (e.g., a shared-database model for the 898 smaller tenants and dedicated instances for the 2 enterprise customers). Both candidates instead hallucinated a 'Multi-VC' architecture which is not a standard PostgreSQL term and doesn't solve the operational constraint of a 6-person team. Because both failed the primary instructions in nearly the same way, they are tied at a low score.",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 3,\n      \"completeness\": 4,\n      \"reasoning\": 3,\n      \"constraint-following\": 3,\n      \"clarity\": 5\n    },\n    \"B\": {\n      \"correctness\": 3,\n      \"completeness\": 4,\n      \"reasoning\": 3,\n      \"constraint-following\": 3,\n      \"clarity\": 5\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Failed to explicitly compare shared-schema vs. dedicated approaches as requested.\",\n      \"Failed to propose a hybrid model (it suggests a complex VC architecture that doesn't clearly distinguish between the pooled and dedicated requirements).\",\n      \"Does not adequately address the operational burden on a 6-person team.\"\n    ],\n    \"B\": [\n      \"Failed to explicitly compare shared-schema vs. dedicated approaches as requested.\",\n      \"Failed to propose a hybrid model (it suggests a VC architecture that is essentially a complex way of doing dedicated/sharded instances).\",\n      \"Does not adequately address the operational burden on a 6-person team.\"\n    ]\n  },\n  \"rationale\": \"Both candidates failed significantly on the core requirements of the prompt. Neither candidate provided a comparison of the three requested models (shared-schema, shared-database, dedicated), nor did either candidate propose a 'hybrid' model as explicitly requested (e.g., a shared-database model for the 898 smaller tenants and dedicated instances for the 2 enterprise customers). Both candidates instead hallucinated a 'Multi-VC' architecture which is not a standard PostgreSQL term and doesn't solve the operational constraint of a 6-person team. Because both failed the primary instructions in nearly the same way, they are tied at a low score.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:28:13.530657Z",
+  "durationMs" : 21908,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1865,
+    "completionTokens" : 433,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

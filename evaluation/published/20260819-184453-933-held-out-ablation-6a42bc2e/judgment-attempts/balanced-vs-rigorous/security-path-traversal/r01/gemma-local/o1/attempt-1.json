@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "balanced-vs-rigorous:security-path-traversal:r1:gemma-local:o1",
+  "pairId" : "balanced-vs-rigorous:security-path-traversal:r1",
+  "comparisonId" : "balanced-vs-rigorous",
+  "caseId" : "security-path-traversal",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 1,
+  "answerAVariant" : "local-balanced",
+  "answerBVariant" : "local-rigorous",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 2.0,
+    "completeness" : 3.0,
+    "correctness" : 4.0,
+    "reasoning" : 3.0,
+    "clarity" : 8.0
+  },
+  "scoresB" : {
+    "constraint-following" : 2.0,
+    "completeness" : 3.0,
+    "correctness" : 4.0,
+    "reasoning" : 3.0,
+    "clarity" : 8.0
+  },
+  "violationsA" : [ "Fails to mention canonical resolution before containment check.", "Fails to address the TOCTOU (Time-of-Check to Time-of-Use) risk for symlinks.", "Fails to mention URL decoding before validation.", "Does not explicitly mention rejecting rather than sanitizing." ],
+  "violationsB" : [ "Fails to mention canonical resolution before containment check.", "Fails to address the TOCTOU (Time-of-Check to Time-of-Use) risk for symlinks.", "Fails to mention URL decoding before validation.", "Does not explicitly mention rejecting rather than sanitizing." ],
+  "rationale" : "Both candidates perform poorly against the specific technical requirements provided in the prompt. Neither candidate explicitly addresses the requirement to perform URL decoding before validation, nor do they address the critical TOCTOU (Time-of-Check to Time-of-Use) race condition for symbolic links (which requires descriptor-relative or no-follow access). Both candidates provide generic advice about path normalization and joining, but fail to provide the specific 'design' requested that incorporates the mandatory constraints (canonical resolution, rejection over sanitization, and TOCTOU prevention). Because both failed the core technical requirements equally, it is a tie.",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 4,\n      \"completeness\": 3,\n      \"reasoning\": 3,\n      \"constraint-following\": 2,\n      \"clarity\": 8\n    },\n    \"B\": {\n      \"correctness\": 4,\n      \"completeness\": 3,\n      \"reasoning\": 3,\n      \"constraint-following\": 2,\n      \"clarity\": 8\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Fails to mention canonical resolution before containment check.\",\n      \"Fails to address the TOCTOU (Time-of-Check to Time-of-Use) risk for symlinks.\",\n      \"Fails to mention URL decoding before validation.\",\n      \"Does not explicitly mention rejecting rather than sanitizing.\"\n    ],\n    \"B\": [\n      \"Fails to mention canonical resolution before containment check.\",\n      \"Fails to address the TOCTOU (Time-of-Check to Time-of-Use) risk for symlinks.\",\n      \"Fails to mention URL decoding before validation.\",\n      \"Does not explicitly mention rejecting rather than sanitizing.\"\n    ]\n  },\n  \"rationale\": \"Both candidates perform poorly against the specific technical requirements provided in the prompt. Neither candidate explicitly addresses the requirement to perform URL decoding before validation, nor do they address the critical TOCTOU (Time-of-Check to Time-of-Use) race condition for symbolic links (which requires descriptor-relative or no-follow access). Both candidates provide generic advice about path normalization and joining, but fail to provide the specific 'design' requested that incorporates the mandatory constraints (canonical resolution, rejection over sanitization, and TOCTOU prevention). Because both failed the core technical requirements equally, it is a tie.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T09:19:55.573042Z",
+  "durationMs" : 20791,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1673,
+    "completionTokens" : 429,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

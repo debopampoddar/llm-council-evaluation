@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-rigorous:security-untrusted-deserialization:r1:gemma-local:o2",
+  "pairId" : "direct-vs-rigorous:security-untrusted-deserialization:r1",
+  "comparisonId" : "direct-vs-rigorous",
+  "caseId" : "security-untrusted-deserialization",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-rigorous",
+  "status" : "COMPLETED",
+  "winner" : "A",
+  "confidence" : 0.9,
+  "scoresA" : {
+    "constraint-following" : 10.0,
+    "completeness" : 9.0,
+    "correctness" : 10.0,
+    "reasoning" : 9.0,
+    "clarity" : 9.0
+  },
+  "scoresB" : {
+    "constraint-following" : 9.0,
+    "completeness" : 8.0,
+    "correctness" : 8.0,
+    "reasoning" : 6.0,
+    "clarity" : 7.0
+  },
+  "violationsA" : [ ],
+  "violationsB" : [ "Includes hallucinated references to 'council members', 'draft-E3B1AE0C', and 'draft-EFB79DE7' which are not in the context." ],
+  "rationale" : "Candidate A provides a much cleaner and more accurate assessment. Candidate B contains significant hallucinations, referencing 'council members' and specific 'draft' IDs that do not exist in the provided context. Candidate A correctly identifies the RCE risk, explains the danger of the classpath/gadget chains, and correctly identifies the fragility of the allowlist. Candidate A also correctly recommends a data-only format (JSON/XML) and integrity protection. Candidate B's reasoning is muddied by its hallucinated structure.",
+  "rawResponse" : "{\n  \"winner\": \"A\",\n  \"confidence\": 0.9,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 10,\n      \"completeness\": 9,\n      \"reasoning\": 9,\n      \"constraint-following\": 10,\n      \"clarity\": 9\n    },\n    \"B\": {\n      \"correctness\": 8,\n      \"completeness\": 8,\n      \"reasoning\": 6,\n      \"constraint-following\": 9,\n      \"clarity\": 7\n    }\n  },\n  \"violations\": {\n    \"A\": [],\n    \"B\": [\n      \"Includes hallucinated references to 'council members', 'draft-E3B1AE0C', and 'draft-EFB79DE7' which are not in the context.\"\n    ]\n  },\n  \"rationale\": \"Candidate A provides a much cleaner and more accurate assessment. Candidate B contains significant hallucinations, referencing 'council members' and specific 'draft' IDs that do not exist in the provided context. Candidate A correctly identifies the RCE risk, explains the danger of the classpath/gadget chains, and correctly identifies the fragility of the allowlist. Candidate A also correctly recommends a data-only format (JSON/XML) and integrity protection. Candidate B's reasoning is muddied by its hallucinated structure.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:34:10.819159Z",
+  "durationMs" : 15802,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1698,
+    "completionTokens" : 313,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

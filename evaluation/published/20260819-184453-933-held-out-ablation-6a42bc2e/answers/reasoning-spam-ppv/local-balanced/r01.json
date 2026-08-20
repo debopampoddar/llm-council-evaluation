@@ -1,0 +1,174 @@
+{
+  "unitId" : "reasoning-spam-ppv:local-balanced:r1",
+  "caseId" : "reasoning-spam-ppv",
+  "variantId" : "local-balanced",
+  "repetition" : 1,
+  "status" : "COMPLETED",
+  "answer" : "**Final Recommendation/Answer:** The probability that a flagged message is actually spam is approximately 94.1%.\n\n**Rationale:**\n\n1. The filter flags 90% of spam messages, correctly identifying 180 out of 200 spam messages.\n2. It also flags 5% of non-spam messages, incorrectly identifying 40 out of 800 non-spam messages.\n3. The total number of messages flagged as spam is 200 (correctly identified) + 40 (incorrectly identified) = 240.\n4. The total number of messages that are actually spam is 200.\n\n**Important Dissent:** While the conventional answer might suggest a probability of 0.9, this estimate is incomplete as it does not account for false positives. A more accurate estimate would consider both the spam detection rate and the false positive rate.\n\n**Unresolved Risks:**\n\n1. The rates of spam and non-spam messages, as well as the filter's accuracy rates, are assumed to be exactly 20% and 80%, respectively, and 90% and 5% for spam and non-spam messages, respectively. In real-world scenarios, these assumptions may not hold, leading to variations in the actual probability of a flagged message being spam.\n2. The filter may perform differently with different types of spam or non-spam messages, leading to inconsistent results.\n3. The filter may be susceptible to evolving spam techniques that it is not designed to handle, leading to an increase in false negatives (missed spam messages).\n\n**Confidence:** 92.5 (weighted average of the confidence scores from the two drafts, taking into account the review scores)\n\nThe final answer synthesizes the strongest reasoning from both drafts, correcting errors identified in the reviews. Draft-934A8C7D provides a clear and accurate calculation of the probability, while draft-D974327 highlights the importance of considering false positives and provides a more nuanced understanding of the edge cases and failure modes. The unresolved risks are acknowledged, but the final answer remains confident in the estimate of 94.1%.",
+  "startedAt" : "2026-08-20T00:29:55.004767Z",
+  "completedAt" : "2026-08-20T00:31:00.930100Z",
+  "durationMs" : 65925,
+  "usage" : {
+    "calls" : 6,
+    "promptTokens" : 5236,
+    "completionTokens" : 2308,
+    "estimatedCostUsd" : null,
+    "estimated" : false,
+    "partiallyPriced" : false
+  },
+  "failureCategory" : null,
+  "failureReason" : null,
+  "warnings" : [ ],
+  "componentAnswers" : [ ],
+  "councilResult" : {
+    "sessionId" : "212d9cc8-93e9-4682-ada2-0a56fc7a9a7b",
+    "status" : "COMPLETED",
+    "profileId" : "local",
+    "depthMode" : "BALANCED",
+    "policyId" : "local-balanced",
+    "protocolId" : "balanced",
+    "answer" : "**Final Recommendation/Answer:** The probability that a flagged message is actually spam is approximately 94.1%.\n\n**Rationale:**\n\n1. The filter flags 90% of spam messages, correctly identifying 180 out of 200 spam messages.\n2. It also flags 5% of non-spam messages, incorrectly identifying 40 out of 800 non-spam messages.\n3. The total number of messages flagged as spam is 200 (correctly identified) + 40 (incorrectly identified) = 240.\n4. The total number of messages that are actually spam is 200.\n\n**Important Dissent:** While the conventional answer might suggest a probability of 0.9, this estimate is incomplete as it does not account for false positives. A more accurate estimate would consider both the spam detection rate and the false positive rate.\n\n**Unresolved Risks:**\n\n1. The rates of spam and non-spam messages, as well as the filter's accuracy rates, are assumed to be exactly 20% and 80%, respectively, and 90% and 5% for spam and non-spam messages, respectively. In real-world scenarios, these assumptions may not hold, leading to variations in the actual probability of a flagged message being spam.\n2. The filter may perform differently with different types of spam or non-spam messages, leading to inconsistent results.\n3. The filter may be susceptible to evolving spam techniques that it is not designed to handle, leading to an increase in false negatives (missed spam messages).\n\n**Confidence:** 92.5 (weighted average of the confidence scores from the two drafts, taking into account the review scores)\n\nThe final answer synthesizes the strongest reasoning from both drafts, correcting errors identified in the reviews. Draft-934A8C7D provides a clear and accurate calculation of the probability, while draft-D974327 highlights the importance of considering false positives and provides a more nuanced understanding of the edge cases and failure modes. The unresolved risks are acknowledged, but the final answer remains confident in the estimate of 94.1%.",
+    "draftCount" : 2,
+    "reviewCount" : 2,
+    "debateRounds" : 0,
+    "participatingModels" : [ "local-llama3", "local-mistral" ],
+    "excludedModels" : [ ],
+    "warnings" : [ ],
+    "sycophancyWarnings" : [ ],
+    "scoreSummary" : {
+      "scores" : [ {
+        "scorerId" : "confidence-weighted",
+        "draftId" : "draft-934A8C7D",
+        "dimensionScores" : {
+          "accuracy" : 100.0,
+          "completeness" : 90.0,
+          "reasoning" : 90.0,
+          "clarity" : 80.0,
+          "constructiveness" : 90.0
+        },
+        "weightedTotal" : 88.0,
+        "label" : "initial"
+      }, {
+        "scorerId" : "confidence-weighted",
+        "draftId" : "draft-D974327",
+        "dimensionScores" : {
+          "accuracy" : 90.0,
+          "completeness" : 85.0,
+          "reasoning" : 95.0,
+          "clarity" : 95.0,
+          "constructiveness" : 95.0
+        },
+        "weightedTotal" : 90.0,
+        "label" : "initial"
+      } ],
+      "variance" : 1.0,
+      "winningDraftId" : "draft-D974327",
+      "escalated" : false,
+      "escalationPolicy" : null,
+      "reviewerDisagreement" : 0.0,
+      "disagreementMeasurable" : false
+    },
+    "validation" : {
+      "validatorId" : "local-validator",
+      "approved" : true,
+      "confidence" : 1.0,
+      "issues" : [ ],
+      "recommendedFixes" : [ ],
+      "criteria" : {
+        "uncertainty" : "pass - The answer acknowledges the assumptions and potential variations in real-world scenarios",
+        "correctness" : "pass - The answer provides a correct calculation and interpretation of the probability",
+        "completeness" : "pass - The answer provides a detailed explanation and acknowledges potential unresolved risks",
+        "actionability" : "pass - The answer provides a clear and actionable estimate of the probability",
+        "safety" : "pass - The answer acknowledges potential failure modes and evolving spam techniques"
+      },
+      "requiresHumanReview" : false,
+      "rawText" : "{\n  \"approved\": true,\n  \"confidence\": 1.0,\n  \"issues\": [],\n  \"recommendedFixes\": [],\n  \"criteria\": {\n    \"correctness\": \"pass - The answer provides a correct calculation and interpretation of the probability\",\n    \"completeness\": \"pass - The answer provides a detailed explanation and acknowledges potential unresolved risks\",\n    \"uncertainty\": \"pass - The answer acknowledges the assumptions and potential variations in real-world scenarios\",\n    \"safety\": \"pass - The answer acknowledges potential failure modes and evolving spam techniques\",\n    \"actionability\": \"pass - The answer provides a clear and actionable estimate of the probability\"\n  },\n  \"requiresHumanReview\": false\n}"
+    },
+    "validationIndependence" : "INDEPENDENT",
+    "failureReason" : null,
+    "failureCategory" : null,
+    "modelFailures" : [ ],
+    "usage" : {
+      "promptTokens" : 5236,
+      "completionTokens" : 2308,
+      "totalTokens" : 7544,
+      "calls" : 6,
+      "estimatedCostUsd" : null,
+      "estimated" : false,
+      "partiallyPriced" : false,
+      "byModel" : [ {
+        "modelId" : "local-mistral",
+        "calls" : 2,
+        "promptTokens" : 1682,
+        "completionTokens" : 806,
+        "totalTokens" : 2488,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "modelId" : "local-llama3",
+        "calls" : 2,
+        "promptTokens" : 1344,
+        "completionTokens" : 903,
+        "totalTokens" : 2247,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "modelId" : "local-chair",
+        "calls" : 1,
+        "promptTokens" : 1117,
+        "completionTokens" : 423,
+        "totalTokens" : 1540,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "modelId" : "local-validator",
+        "calls" : 1,
+        "promptTokens" : 1093,
+        "completionTokens" : 176,
+        "totalTokens" : 1269,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      } ],
+      "byStage" : [ {
+        "stage" : "GENERATE",
+        "calls" : 2,
+        "promptTokens" : 439,
+        "completionTokens" : 724,
+        "totalTokens" : 1163,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "stage" : "REVIEW",
+        "calls" : 2,
+        "promptTokens" : 2587,
+        "completionTokens" : 985,
+        "totalTokens" : 3572,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "stage" : "SYNTHESIZE",
+        "calls" : 1,
+        "promptTokens" : 1117,
+        "completionTokens" : 423,
+        "totalTokens" : 1540,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "stage" : "VALIDATE",
+        "calls" : 1,
+        "promptTokens" : 1093,
+        "completionTokens" : 176,
+        "totalTokens" : 1269,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      } ]
+    },
+    "integrity" : {
+      "reduced" : false,
+      "preserveDissent" : true,
+      "sycophancyThreshold" : null,
+      "reviewsPerDraft" : 1,
+      "notes" : [ ]
+    }
+  }
+}

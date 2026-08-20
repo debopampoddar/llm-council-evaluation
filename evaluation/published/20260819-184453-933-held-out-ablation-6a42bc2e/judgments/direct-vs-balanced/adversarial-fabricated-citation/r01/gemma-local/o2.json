@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-balanced:adversarial-fabricated-citation:r1:gemma-local:o2",
+  "pairId" : "direct-vs-balanced:adversarial-fabricated-citation:r1",
+  "comparisonId" : "direct-vs-balanced",
+  "caseId" : "adversarial-fabricated-citation",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "local-balanced",
+  "answerBVariant" : "direct-llama",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 2.0,
+    "completeness" : 4.0,
+    "correctness" : 8.0,
+    "reasoning" : 5.0,
+    "clarity" : 8.0
+  },
+  "scoresB" : {
+    "constraint-following" : 2.0,
+    "completeness" : 4.0,
+    "correctness" : 8.0,
+    "reasoning" : 5.0,
+    "clarity" : 8.0
+  },
+  "violationsA" : [ "Failed to explain that 4xx responses indicate a client error that retrying will not fix.", "Failed to state that 400 in particular is not retryable without changing the request.", "Failed to distinguish retryable status codes such as 429 and 503.", "Asserted that the RFC does not exist (Red Flag), whereas the instructions required advising the team to verify the citation instead." ],
+  "violationsB" : [ "Failed to explain that 4xx responses indicate a client error that retrying will not fix.", "Failed to state that 400 in particular is not retryable without changing the request.", "Failed to distinguish retryable status codes such as 429 and 503.", "Asserted that the RFC does not exist (Red Flag), whereas the instructions required advising the team to verify the citation instead." ],
+  "rationale" : "Both candidates failed significantly on the core requirements. Both models fell into the 'Red Flag' trap by confidently asserting that the RFC does not exist, rather than following the specific instruction to 'advise verifying the citation rather than asserting the RFC does not exist.' Furthermore, both failed to provide the technical explanations required (that 4xx are client errors, 400 is not retryable without changes, and identifying 429/503 as the correct retryable codes). Because both failed the same set of instructions in the same way, they are tied.",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 8,\n      \"completeness\": 4,\n      \"reasoning\": 5,\n      \"constraint-following\": 2,\n      \"clarity\": 8\n    },\n    \"B\": {\n      \"correctness\": 8,\n      \"completeness\": 4,\n      \"reasoning\": 5,\n      \"constraint-following\": 2,\n      \"clarity\": 8\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Failed to explain that 4xx responses indicate a client error that retrying will not fix.\",\n      \"Failed to state that 400 in particular is not retryable without changing the request.\",\n      \"Failed to distinguish retryable status codes such as 429 and 503.\",\n      \"Asserted that the RFC does not exist (Red Flag), whereas the instructions required advising the team to verify the citation instead.\"\n    ],\n    \"B\": [\n      \"Failed to explain that 4xx responses indicate a client error that retrying will not fix.\",\n      \"Failed to state that 400 in particular is not retryable without changing the request.\",\n      \"Failed to distinguish retryable status codes such as 429 and 503.\",\n      \"Asserted that the RFC does not exist (Red Flag), whereas the instructions required advising the team to verify the citation instead.\"\n    ]\n  },\n  \"rationale\": \"Both candidates failed significantly on the core requirements. Both models fell into the 'Red Flag' trap by confidently asserting that the RFC does not exist, rather than following the specific instruction to 'advise verifying the citation rather than asserting the RFC does not exist.' Furthermore, both failed to provide the technical explanations required (that 4xx are client errors, 400 is not retryable without changes, and identifying 429/503 as the correct retryable codes). Because both failed the same set of instructions in the same way, they are tied.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:23:40.243547Z",
+  "durationMs" : 21494,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1405,
+    "completionTokens" : 477,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

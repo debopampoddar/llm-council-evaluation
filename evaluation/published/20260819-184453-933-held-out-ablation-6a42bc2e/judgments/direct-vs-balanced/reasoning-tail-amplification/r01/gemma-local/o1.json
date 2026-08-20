@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-balanced:reasoning-tail-amplification:r1:gemma-local:o1",
+  "pairId" : "direct-vs-balanced:reasoning-tail-amplification:r1",
+  "comparisonId" : "direct-vs-balanced",
+  "caseId" : "reasoning-tail-amplification",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 1,
+  "answerAVariant" : "local-balanced",
+  "answerBVariant" : "direct-llama",
+  "status" : "COMPLETED",
+  "winner" : "A",
+  "confidence" : 0.9,
+  "scoresA" : {
+    "constraint-following" : 9.0,
+    "completeness" : 8.0,
+    "correctness" : 9.0,
+    "reasoning" : 9.0,
+    "clarity" : 9.0
+  },
+  "scoresB" : {
+    "constraint-following" : 4.0,
+    "completeness" : 5.0,
+    "correctness" : 4.0,
+    "reasoning" : 4.0,
+    "clarity" : 8.0
+  },
+  "violationsA" : [ "The calculation 0.99^10 is actually 0.90438, so 1 - 0.90438 is 0.0956 (9.56%), but the candidate rounded to 9.52% which is slightly off from the requirement's 9.6%." ],
+  "violationsB" : [ "Incorrect calculation: 1 - (0.99^10) is approximately 0.0956, but the candidate reports 0.1044 (which is 1 - 0.8956, a calculation error).", "Failed to explicitly state that a per-call 99th percentile does not give a per-page 99th percentile as required by the prompt." ],
+  "rationale" : "Candidate A is much closer to the correct mathematical result and follows the logic of the prompt more accurately. Candidate B makes a significant calculation error (reporting 10.44% instead of ~9.6%) and fails to address the specific requirement regarding the distinction between per-call and per-page 99th percentiles. Candidate A correctly identifies the probability of no slow calls as ~0.9048 and the resulting slow call probability as ~9.52% (very close to the required 9.6%).",
+  "rawResponse" : "{\n  \"winner\": \"A\",\n  \"confidence\": 0.9,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 9,\n      \"completeness\": 8,\n      \"reasoning\": 9,\n      \"constraint-following\": 9,\n      \"clarity\": 9\n    },\n    \"B\": {\n      \"correctness\": 4,\n      \"completeness\": 5,\n      \"reasoning\": 4,\n      \"constraint-following\": 4,\n      \"clarity\": 8\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"The calculation 0.99^10 is actually 0.90438, so 1 - 0.90438 is 0.0956 (9.56%), but the candidate rounded to 9.52% which is slightly off from the requirement's 9.6%.\"\n    ],\n    \"B\": [\n      \"Incorrect calculation: 1 - (0.99^10) is approximately 0.0956, but the candidate reports 0.1044 (which is 1 - 0.8956, a calculation error).\",\n      \"Failed to explicitly state that a per-call 99th percentile does not give a per-page 99th percentile as required by the prompt.\"\n    ]\n  },\n  \"rationale\": \"Candidate A is much closer to the correct mathematical result and follows the logic of the prompt more accurately. Candidate B makes a significant calculation error (reporting 10.44% instead of ~9.6%) and fails to address the specific requirement regarding the distinction between per-call and per-page 99th percentiles. Candidate A correctly identifies the probability of no slow calls as ~0.9048 and the resulting slow call probability as ~9.52% (very close to the required 9.6%).\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:15:07.675825Z",
+  "durationMs" : 21483,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1672,
+    "completionTokens" : 453,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

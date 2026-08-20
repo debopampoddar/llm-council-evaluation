@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-balanced:architecture-tenant-isolation:r1:gemma-local:o1",
+  "pairId" : "direct-vs-balanced:architecture-tenant-isolation:r1",
+  "comparisonId" : "direct-vs-balanced",
+  "caseId" : "architecture-tenant-isolation",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 1,
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-balanced",
+  "status" : "COMPLETED",
+  "winner" : "B",
+  "confidence" : 0.9,
+  "scoresA" : {
+    "constraint-following" : 80.0,
+    "completeness" : 70.0,
+    "correctness" : 60.0,
+    "reasoning" : 60.0,
+    "clarity" : 80.0
+  },
+  "scoresB" : {
+    "constraint-following" : 100.0,
+    "completeness" : 90.0,
+    "correctness" : 90.0,
+    "reasoning" : 90.0,
+    "clarity" : 90.0
+  },
+  "violationsA" : [ "Fails to explicitly compare the three requested models (shared-schema, shared-database, dedicated) as a distinct step.", "Does not clearly address the operational cost/burden on a small 6-person team as requested." ],
+  "violationsB" : [ ],
+  "rationale" : "Candidate B is the winner because it directly addresses all requirements of the prompt, specifically the need for a hybrid model and the explicit contractual isolation for the two enterprise customers. Candidate A proposes a 'Multi-VC' architecture which is somewhat vague and doesn't clearly distinguish between the three requested models (shared-schema vs shared-database vs dedicated). Candidate B correctly identifies that the enterprise customers need dedicated databases/servers to satisfy non-co-residency, while the remaining 898 tenants can be pooled in a shared-schema model to keep operational costs manageable for a small 6-person team. Candidate B also better addresses the 'noisy neighbor' problem via load balancing and VC sizing.",
+  "rawResponse" : "{\n  \"winner\": \"B\",\n  \"confidence\": 0.9,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 60,\n      \"completeness\": 70,\n      \"reasoning\": 60,\n      \"constraint-following\": 80,\n      \"clarity\": 80\n    },\n    \"B\": {\n      \"correctness\": 90,\n      \"completeness\": 90,\n      \"reasoning\": 90,\n      \"constraint-following\": 100,\n      \"clarity\": 90\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Fails to explicitly compare the three requested models (shared-schema, shared-database, dedicated) as a distinct step.\",\n      \"Does not clearly address the operational cost/burden on a small 6-person team as requested.\"\n    ],\n    \"B\": []\n  },\n  \"rationale\": \"Candidate B is the winner because it directly addresses all requirements of the prompt, specifically the need for a hybrid model and the explicit contractual isolation for the two enterprise customers. Candidate A proposes a 'Multi-VC' architecture which is somewhat vague and doesn't clearly distinguish between the three requested models (shared-schema vs shared-database vs dedicated). Candidate B correctly identifies that the enterprise customers need dedicated databases/servers to satisfy non-co-residency, while the remaining 898 tenants can be pooled in a shared-schema model to keep operational costs manageable for a small 6-person team. Candidate B also better addresses the 'noisy neighbor' problem via load balancing and VC sizing.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:04:50.927507Z",
+  "durationMs" : 20967,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1803,
+    "completionTokens" : 372,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

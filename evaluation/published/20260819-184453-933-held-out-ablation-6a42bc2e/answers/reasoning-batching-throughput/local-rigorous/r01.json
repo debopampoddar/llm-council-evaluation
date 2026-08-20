@@ -1,0 +1,194 @@
+{
+  "unitId" : "reasoning-batching-throughput:local-rigorous:r1",
+  "caseId" : "reasoning-batching-throughput",
+  "variantId" : "local-rigorous",
+  "repetition" : 1,
+  "status" : "COMPLETED",
+  "answer" : "**Final Recommendation/Answer:**\nThe batched approach will take approximately 10% less time than the current per-record approach.\n\n**Rationale:**\nThe analysis from draft-7BFACA3D provides a clear and accurate calculation of the speed-up, considering the number of batches and the database round trip time. This draft has the highest score and confidence among the three, indicating a high level of accuracy and completeness. The other drafts, while providing valuable insights, have significant issues and uncertainties that affect their credibility.\n\n**Important Dissent:**\nWhile the majority of the council members agree that the batched approach will be faster, there is some dissent regarding the actual speed-up. Draft-31449CE1 suggests that the speed-up could be less due to factors such as network latency, CPU processing, memory usage, and the overhead of managing the batches. This dissent highlights the importance of considering these factors in a real-world scenario.\n\n**Unresolved Risks:**\nThe analysis assumes that the primary bottleneck is the database round trip time and that the batching process does not introduce significant additional overhead. However, as mentioned in draft-31449CE1, other factors such as network latency, CPU processing, and memory usage might also play a significant role. Additionally, the overhead of processing a batch, as pointed out in the review of draft-7BFACA3D, could significantly affect the performance of the batched approach.\n\n**Confidence:**\nBased on the score summary and the analysis from draft-7BFACA3D, the confidence level for this final answer is 95%.",
+  "startedAt" : "2026-08-20T03:37:22.152337Z",
+  "completedAt" : "2026-08-20T04:26:13.829389Z",
+  "durationMs" : 2931677,
+  "usage" : {
+    "calls" : 8,
+    "promptTokens" : 8104,
+    "completionTokens" : 3825,
+    "estimatedCostUsd" : null,
+    "estimated" : false,
+    "partiallyPriced" : false
+  },
+  "failureCategory" : null,
+  "failureReason" : null,
+  "warnings" : [ ],
+  "componentAnswers" : [ ],
+  "councilResult" : {
+    "sessionId" : "1313a692-3514-4ed9-92d9-19176f7b781c",
+    "status" : "COMPLETED",
+    "profileId" : "local",
+    "depthMode" : "RIGOROUS",
+    "policyId" : "local-rigorous",
+    "protocolId" : "rigorous",
+    "answer" : "**Final Recommendation/Answer:**\nThe batched approach will take approximately 10% less time than the current per-record approach.\n\n**Rationale:**\nThe analysis from draft-7BFACA3D provides a clear and accurate calculation of the speed-up, considering the number of batches and the database round trip time. This draft has the highest score and confidence among the three, indicating a high level of accuracy and completeness. The other drafts, while providing valuable insights, have significant issues and uncertainties that affect their credibility.\n\n**Important Dissent:**\nWhile the majority of the council members agree that the batched approach will be faster, there is some dissent regarding the actual speed-up. Draft-31449CE1 suggests that the speed-up could be less due to factors such as network latency, CPU processing, memory usage, and the overhead of managing the batches. This dissent highlights the importance of considering these factors in a real-world scenario.\n\n**Unresolved Risks:**\nThe analysis assumes that the primary bottleneck is the database round trip time and that the batching process does not introduce significant additional overhead. However, as mentioned in draft-31449CE1, other factors such as network latency, CPU processing, and memory usage might also play a significant role. Additionally, the overhead of processing a batch, as pointed out in the review of draft-7BFACA3D, could significantly affect the performance of the batched approach.\n\n**Confidence:**\nBased on the score summary and the analysis from draft-7BFACA3D, the confidence level for this final answer is 95%.",
+    "draftCount" : 3,
+    "reviewCount" : 6,
+    "debateRounds" : 0,
+    "participatingModels" : [ "local-llama3", "local-mistral", "local-qwen" ],
+    "excludedModels" : [ ],
+    "warnings" : [ ],
+    "sycophancyWarnings" : [ ],
+    "scoreSummary" : {
+      "scores" : [ {
+        "scorerId" : "confidence-weighted",
+        "draftId" : "draft-BB602E5C",
+        "dimensionScores" : {
+          "accuracy" : 69.41176470588235,
+          "completeness" : 84.70588235294117,
+          "reasoning" : 79.41176470588235,
+          "clarity" : 87.35294117647058,
+          "constructiveness" : 82.6470588235294
+        },
+        "weightedTotal" : 77.6470588235294,
+        "label" : "initial"
+      }, {
+        "scorerId" : "confidence-weighted",
+        "draftId" : "draft-31449CE1",
+        "dimensionScores" : {
+          "accuracy" : 65.625,
+          "completeness" : 82.8125,
+          "reasoning" : 72.8125,
+          "clarity" : 85.0,
+          "constructiveness" : 87.1875
+        },
+        "weightedTotal" : 75.125,
+        "label" : "initial"
+      }, {
+        "scorerId" : "confidence-weighted",
+        "draftId" : "draft-7BFACA3D",
+        "dimensionScores" : {
+          "accuracy" : 95.0,
+          "completeness" : 90.0,
+          "reasoning" : 92.5,
+          "clarity" : 94.0,
+          "constructiveness" : 92.5
+        },
+        "weightedTotal" : 93.99999999999999,
+        "label" : "initial"
+      } ],
+      "variance" : 70.00501009227212,
+      "winningDraftId" : "draft-7BFACA3D",
+      "escalated" : false,
+      "escalationPolicy" : null,
+      "reviewerDisagreement" : 36.0,
+      "disagreementMeasurable" : true
+    },
+    "validation" : {
+      "validatorId" : "local-validator",
+      "approved" : true,
+      "confidence" : 0.95,
+      "issues" : [ ],
+      "recommendedFixes" : [ ],
+      "criteria" : {
+        "uncertainty" : "warn - Although the confidence level is high, there are unresolved risks related to other factors such as network latency, CPU processing, memory usage, and batch processing overhead.",
+        "correctness" : "pass - The final answer correctly compares the total wall-clock time of the current per-record approach with a batched approach and states the speed-up.",
+        "completeness" : "pass - The final answer provides a detailed rationale, important dissent, and unresolved risks.",
+        "actionability" : "pass - The final answer is clear and actionable, providing a comparison of the two approaches and a speed-up estimate.",
+        "safety" : "pass - The final answer does not contain any security-sensitive information."
+      },
+      "requiresHumanReview" : false,
+      "rawText" : "{\n  \"approved\": true,\n  \"confidence\": 0.95,\n  \"issues\": [],\n  \"recommendedFixes\": [],\n  \"criteria\": {\n    \"correctness\": \"pass - The final answer correctly compares the total wall-clock time of the current per-record approach with a batched approach and states the speed-up.\",\n    \"completeness\": \"pass - The final answer provides a detailed rationale, important dissent, and unresolved risks.\",\n    \"uncertainty\": \"warn - Although the confidence level is high, there are unresolved risks related to other factors such as network latency, CPU processing, memory usage, and batch processing overhead.\",\n    \"safety\": \"pass - The final answer does not contain any security-sensitive information.\",\n    \"actionability\": \"pass - The final answer is clear and actionable, providing a comparison of the two approaches and a speed-up estimate.\"\n  },\n  \"requiresHumanReview\": false\n}"
+    },
+    "validationIndependence" : "INDEPENDENT",
+    "failureReason" : null,
+    "failureCategory" : null,
+    "modelFailures" : [ ],
+    "usage" : {
+      "promptTokens" : 8104,
+      "completionTokens" : 3825,
+      "totalTokens" : 11929,
+      "calls" : 8,
+      "estimatedCostUsd" : null,
+      "estimated" : false,
+      "partiallyPriced" : false,
+      "byModel" : [ {
+        "modelId" : "local-mistral",
+        "calls" : 2,
+        "promptTokens" : 2037,
+        "completionTokens" : 1001,
+        "totalTokens" : 3038,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "modelId" : "local-qwen",
+        "calls" : 2,
+        "promptTokens" : 1758,
+        "completionTokens" : 1195,
+        "totalTokens" : 2953,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "modelId" : "local-llama3",
+        "calls" : 2,
+        "promptTokens" : 1626,
+        "completionTokens" : 1081,
+        "totalTokens" : 2707,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "modelId" : "local-chair",
+        "calls" : 1,
+        "promptTokens" : 1721,
+        "completionTokens" : 321,
+        "totalTokens" : 2042,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "modelId" : "local-validator",
+        "calls" : 1,
+        "promptTokens" : 962,
+        "completionTokens" : 227,
+        "totalTokens" : 1189,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      } ],
+      "byStage" : [ {
+        "stage" : "GENERATE",
+        "calls" : 3,
+        "promptTokens" : 655,
+        "completionTokens" : 1018,
+        "totalTokens" : 1673,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "stage" : "REVIEW",
+        "calls" : 3,
+        "promptTokens" : 4766,
+        "completionTokens" : 2259,
+        "totalTokens" : 7025,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "stage" : "SYNTHESIZE",
+        "calls" : 1,
+        "promptTokens" : 1721,
+        "completionTokens" : 321,
+        "totalTokens" : 2042,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "stage" : "VALIDATE",
+        "calls" : 1,
+        "promptTokens" : 962,
+        "completionTokens" : 227,
+        "totalTokens" : 1189,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      } ]
+    },
+    "integrity" : {
+      "reduced" : false,
+      "preserveDissent" : true,
+      "sycophancyThreshold" : 0.7,
+      "reviewsPerDraft" : 2,
+      "notes" : [ ]
+    }
+  }
+}

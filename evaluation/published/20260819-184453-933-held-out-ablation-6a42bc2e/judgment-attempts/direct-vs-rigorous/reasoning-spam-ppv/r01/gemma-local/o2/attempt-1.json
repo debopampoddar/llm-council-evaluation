@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-rigorous:reasoning-spam-ppv:r1:gemma-local:o2",
+  "pairId" : "direct-vs-rigorous:reasoning-spam-ppv:r1",
+  "comparisonId" : "direct-vs-rigorous",
+  "caseId" : "reasoning-spam-ppv",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-rigorous",
+  "status" : "COMPLETED",
+  "winner" : "A",
+  "confidence" : 0.9,
+  "scoresA" : {
+    "constraint-following" : 100.0,
+    "completeness" : 100.0,
+    "correctness" : 100.0,
+    "reasoning" : 100.0,
+    "clarity" : 100.0
+  },
+  "scoresB" : {
+    "constraint-following" : 90.0,
+    "completeness" : 80.0,
+    "correctness" : 100.0,
+    "reasoning" : 90.0,
+    "clarity" : 80.0
+  },
+  "violationsA" : [ ],
+  "violationsB" : [ "Includes unnecessary 'Important Dissent' and 'Unresolved Risks' sections which are not requested and contain hallucinated 'council member' references." ],
+  "rationale" : "Candidate A provides a clear, step-by-step derivation of the probability using Bayes' Theorem and explicitly lists all the expected counts as requested by the prompt. Candidate B provides the correct answer but includes a significant amount of irrelevant 'hallucinated' meta-commentary (referencing council members and draft IDs) which was not part of the prompt or context.",
+  "rawResponse" : "{\n  \"winner\": \"A\",\n  \"confidence\": 0.9,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 100,\n      \"completeness\": 100,\n      \"reasoning\": 100,\n      \"constraint-following\": 100,\n      \"clarity\": 100\n    },\n    \"B\": {\n      \"correctness\": 100,\n      \"completeness\": 80,\n      \"reasoning\": 90,\n      \"constraint-following\": 90,\n      \"clarity\": 80\n    }\n  },\n  \"violations\": {\n    \"A\": [],\n    \"B\": [\n      \"Includes unnecessary 'Important Dissent' and 'Unresolved Risks' sections which are not requested and contain hallucinated 'council member' references.\"\n    ]\n  },\n  \"rationale\": \"Candidate A provides a clear, step-by-step derivation of the probability using Bayes' Theorem and explicitly lists all the expected counts as requested by the prompt. Candidate B provides the correct answer but includes a significant amount of irrelevant 'hallucinated' meta-commentary (referencing council members and draft IDs) which was not part of the prompt or context.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:35:57.396218Z",
+  "durationMs" : 14952,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1627,
+    "completionTokens" : 290,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

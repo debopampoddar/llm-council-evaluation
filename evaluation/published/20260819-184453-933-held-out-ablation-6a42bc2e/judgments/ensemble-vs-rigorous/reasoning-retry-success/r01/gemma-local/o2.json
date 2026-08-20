@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "ensemble-vs-rigorous:reasoning-retry-success:r1:gemma-local:o2",
+  "pairId" : "ensemble-vs-rigorous:reasoning-retry-success:r1",
+  "comparisonId" : "ensemble-vs-rigorous",
+  "caseId" : "reasoning-retry-success",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "llama-ensemble",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "scoresB" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "violationsA" : [ "Incorrect calculation: The operation is limited to three attempts, not an infinite geometric series.", "Failed to report the specific required values (0.4 cubed, 1 - 0.064, 93.6%).", "Incorrect final probability (0.888)." ],
+  "violationsB" : [ "Incorrect calculation: The probability of success is 1 - (0.4^3) = 0.936, not 0.986.", "Failed to report the specific required values (0.4 cubed, 1 - 0.064, 93.6%).", "Incorrect final probability (0.986)." ],
+  "rationale" : "Both candidates failed significantly. They both failed to follow the specific requirements (calculating 0.4 cubed, reporting 1 - 0.064, and stating 93.6%). Candidate A incorrectly treated the problem as an infinite geometric series, while Candidate B provided an incorrect numerical result (0.986) and failed to perform the required steps. Since both are completely incorrect and fail all requirements, they are tied at 0.",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    },\n    \"B\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Incorrect calculation: The operation is limited to three attempts, not an infinite geometric series.\",\n      \"Failed to report the specific required values (0.4 cubed, 1 - 0.064, 93.6%).\",\n      \"Incorrect final probability (0.888).\"\n    ],\n    \"B\": [\n      \"Incorrect calculation: The probability of success is 1 - (0.4^3) = 0.936, not 0.986.\",\n      \"Failed to report the specific required values (0.4 cubed, 1 - 0.064, 93.6%).\",\n      \"Incorrect final probability (0.986).\"\n    ]\n  },\n  \"rationale\": \"Both candidates failed significantly. They both failed to follow the specific requirements (calculating 0.4 cubed, reporting 1 - 0.064, and stating 93.6%). Candidate A incorrectly treated the problem as an infinite geometric series, while Candidate B provided an incorrect numerical result (0.986) and failed to perform the required steps. Since both are completely incorrect and fail all requirements, they are tied at 0.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T09:00:16.164524Z",
+  "durationMs" : 18834,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1304,
+    "completionTokens" : 416,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

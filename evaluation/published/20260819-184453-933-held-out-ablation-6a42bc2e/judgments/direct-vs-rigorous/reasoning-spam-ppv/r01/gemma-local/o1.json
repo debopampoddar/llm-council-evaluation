@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-rigorous:reasoning-spam-ppv:r1:gemma-local:o1",
+  "pairId" : "direct-vs-rigorous:reasoning-spam-ppv:r1",
+  "comparisonId" : "direct-vs-rigorous",
+  "caseId" : "reasoning-spam-ppv",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 1,
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "direct-llama",
+  "status" : "COMPLETED",
+  "winner" : "B",
+  "confidence" : 0.9,
+  "scoresA" : {
+    "constraint-following" : 10.0,
+    "completeness" : 8.0,
+    "correctness" : 10.0,
+    "reasoning" : 10.0,
+    "clarity" : 9.0
+  },
+  "scoresB" : {
+    "constraint-following" : 10.0,
+    "completeness" : 10.0,
+    "correctness" : 10.0,
+    "reasoning" : 10.0,
+    "clarity" : 10.0
+  },
+  "violationsA" : [ ],
+  "violationsB" : [ ],
+  "rationale" : "Both candidates correctly identify the probability as approximately 81.8%. However, Candidate B is superior because it explicitly provides the 'expected counts' as requested by the prompt (180 flagged spam, 40 flagged non-spam, etc.), whereas Candidate A only includes the counts as part of the denominator in its formula without listing them as a distinct set of expected counts.",
+  "rawResponse" : "{\n  \"winner\": \"B\",\n  \"confidence\": 0.9,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 10,\n      \"completeness\": 8,\n      \"reasoning\": 10,\n      \"constraint-following\": 10,\n      \"clarity\": 9\n    },\n    \"B\": {\n      \"correctness\": 10,\n      \"completeness\": 10,\n      \"reasoning\": 10,\n      \"constraint-following\": 10,\n      \"clarity\": 10\n    }\n  },\n  \"violations\": {\n    \"A\": [],\n    \"B\": []\n  },\n  \"rationale\": \"Both candidates correctly identify the probability as approximately 81.8%. However, Candidate B is superior because it explicitly provides the 'expected counts' as requested by the prompt (180 flagged spam, 40 flagged non-spam, etc.), whereas Candidate A only includes the counts as part of the denominator in its formula without listing them as a distinct set of expected counts.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:35:42.378563Z",
+  "durationMs" : 14384,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1627,
+    "completionTokens" : 252,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

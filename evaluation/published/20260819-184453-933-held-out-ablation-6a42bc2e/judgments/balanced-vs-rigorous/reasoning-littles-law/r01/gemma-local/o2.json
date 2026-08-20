@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "balanced-vs-rigorous:reasoning-littles-law:r1:gemma-local:o2",
+  "pairId" : "balanced-vs-rigorous:reasoning-littles-law:r1",
+  "comparisonId" : "balanced-vs-rigorous",
+  "caseId" : "reasoning-littles-law",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "local-balanced",
+  "answerBVariant" : "local-rigorous",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "scoresB" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "violationsA" : [ "Incorrectly calculated concurrent requests as 40 (it should be 50).", "Failed to use Little's Law as requested.", "Did not state the correct concurrency of 50." ],
+  "violationsB" : [ "Incorrectly calculated concurrent requests as 80 (it used 4 seconds instead of 0.25 seconds).", "Failed to use Little's Law as requested.", "Did not state the correct concurrency of 50." ],
+  "rationale" : "Both candidates failed the primary mathematical requirement of the prompt. The correct calculation using Little's Law (L = λW) is 200 requests/sec * 0.25 seconds = 50 concurrent requests. Candidate A incorrectly stated 40 concurrent requests. Candidate B incorrectly stated 80 concurrent requests (by using 4 seconds instead of 0.25 seconds). Since both failed the core factual/mathematical requirement and the specific instruction to compute 50 concurrent requests, they are tied at a failing score.",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    },\n    \"B\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Incorrectly calculated concurrent requests as 40 (it should be 50).\",\n      \"Failed to use Little's Law as requested.\",\n      \"Did not state the correct concurrency of 50.\"\n    ],\n    \"B\": [\n      \"Incorrectly calculated concurrent requests as 80 (it used 4 seconds instead of 0.25 seconds).\",\n      \"Failed to use Little's Law as requested.\",\n      \"Did not state the correct concurrency of 50.\"\n    ]\n  },\n  \"rationale\": \"Both candidates failed the primary mathematical requirement of the prompt. The correct calculation using Little's Law (L = λW) is 200 requests/sec * 0.25 seconds = 50 concurrent requests. Candidate A incorrectly stated 40 concurrent requests. Candidate B incorrectly stated 80 concurrent requests (by using 4 seconds instead of 0.25 seconds). Since both failed the core factual/mathematical requirement and the specific instruction to compute 50 concurrent requests, they are tied at a failing score.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T09:24:43.440432Z",
+  "durationMs" : 18447,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1603,
+    "completionTokens" : 388,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

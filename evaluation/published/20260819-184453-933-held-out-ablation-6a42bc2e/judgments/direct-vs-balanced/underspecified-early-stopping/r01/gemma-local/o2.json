@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-balanced:underspecified-early-stopping:r1:gemma-local:o2",
+  "pairId" : "direct-vs-balanced:underspecified-early-stopping:r1",
+  "comparisonId" : "direct-vs-balanced",
+  "caseId" : "underspecified-early-stopping",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "local-balanced",
+  "answerBVariant" : "direct-llama",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 4.0,
+    "completeness" : 4.0,
+    "correctness" : 3.0,
+    "reasoning" : 4.0,
+    "clarity" : 5.0
+  },
+  "scoresB" : {
+    "constraint-following" : 4.0,
+    "completeness" : 4.0,
+    "correctness" : 3.0,
+    "reasoning" : 4.0,
+    "clarity" : 5.0
+  },
+  "violationsA" : [ "Failed to explicitly mention 'regression to the mean'.", "Failed to offer a specific valid alternative like a pre-registered sequential test." ],
+  "violationsB" : [ "Failed to explicitly mention 'regression to the mean'.", "Failed to offer a specific valid alternative like a pre-registered sequential test." ],
+  "rationale" : "Both candidates correctly advise against stopping the test and identify the core issues (insufficient duration, lack of pre-registered rules, and lack of sample size/CI). However, both failed to meet two specific requirements: they did not mention 'regression to the mean' and they did not offer a specific valid alternative such as a 'pre-registered sequential test'. Because both failed the same specific requirements and provided similar quality of reasoning otherwise, it is a tie.",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 3,\n      \"completeness\": 4,\n      \"reasoning\": 4,\n      \"constraint-following\": 4,\n      \"clarity\": 5\n    },\n    \"B\": {\n      \"correctness\": 3,\n      \"completeness\": 4,\n      \"reasoning\": 4,\n      \"constraint-following\": 4,\n      \"clarity\": 5\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Failed to explicitly mention 'regression to the mean'.\",\n      \"Failed to offer a specific valid alternative like a pre-registered sequential test.\"\n    ],\n    \"B\": [\n      \"Failed to explicitly mention 'regression to the mean'.\",\n      \"Failed to offer a specific valid alternative like a pre-registered sequential test.\"\n    ]\n  },\n  \"rationale\": \"Both candidates correctly advise against stopping the test and identify the core issues (insufficient duration, lack of pre-registered rules, and lack of sample size/CI). However, both failed to meet two specific requirements: they did not mention 'regression to the mean' and they did not offer a specific valid alternative such as a 'pre-registered sequential test'. Because both failed the same specific requirements and provided similar quality of reasoning otherwise, it is a tie.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:21:16.662420Z",
+  "durationMs" : 16077,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1379,
+    "completionTokens" : 330,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

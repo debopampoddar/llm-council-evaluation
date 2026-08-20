@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "ensemble-vs-rigorous:planning-framework-major-upgrade:r1:gemma-local:o2",
+  "pairId" : "ensemble-vs-rigorous:planning-framework-major-upgrade:r1",
+  "comparisonId" : "ensemble-vs-rigorous",
+  "caseId" : "planning-framework-major-upgrade",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "llama-ensemble",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "scoresB" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "violationsA" : [ "Failed to provide a specific sequence (e.g., Wave 1, 2, 3).", "Failed to address the specific requirement to treat untested services as a distinct risk requiring characterization tests first.", "Failed to define explicit abort and rollback criteria.", "Failed to state whether the plan fits the 10-week freeze (it just mentions the freeze exists).", "Contradicts requirements by suggesting parallel upgrades of critical services (requirement says keep them out of the first wave)." ],
+  "violationsB" : [ "Failed to provide a specific sequence (e.g., Wave 1, 2, 3).", "Failed to address the specific requirement to treat untested services as a distinct risk requiring characterization tests first.", "Failed to define explicit abort and rollback criteria.", "Failed to state whether the plan fits the 10-week freeze.", "Contradicts requirements by suggesting prioritizing services with no automated tests or on the critical payment path (requirement says keep payment-path out of the first wave)." ],
+  "rationale" : "Both candidates failed significantly on almost every specific requirement provided in the prompt. Neither candidate provided a concrete sequence (e.g., Wave 1: Low risk, Wave 2: Untested, Wave 3: Payment path), neither defined explicit abort/rollback criteria, and neither explicitly stated if the plan fits the 10-week deadline. Furthermore, both candidates violated the specific instruction to keep payment-path services out of the first wave (Candidate A suggested parallel upgrades; Candidate B suggested prioritizing them). Because both are equally poor and fail to meet the core constraints of the prompt, a tie is the only appropriate score.",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    },\n    \"B\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Failed to provide a specific sequence (e.g., Wave 1, 2, 3).\",\n      \"Failed to address the specific requirement to treat untested services as a distinct risk requiring characterization tests first.\",\n      \"Failed to define explicit abort and rollback criteria.\",\n      \"Failed to state whether the plan fits the 10-week freeze (it just mentions the freeze exists).\",\n      \"Contradicts requirements by suggesting parallel upgrades of critical services (requirement says keep them out of the first wave).\"\n    ],\n    \"B\": [\n      \"Failed to provide a specific sequence (e.g., Wave 1, 2, 3).\",\n      \"Failed to address the specific requirement to treat untested services as a distinct risk requiring characterization tests first.\",\n      \"Failed to define explicit abort and rollback criteria.\",\n      \"Failed to state whether the plan fits the 10-week freeze.\",\n      \"Contradicts requirements by suggesting prioritizing services with no automated tests or on the critical payment path (requirement says keep payment-path out of the first wave).\"\n    ]\n  },\n  \"rationale\": \"Both candidates failed significantly on almost every specific requirement provided in the prompt. Neither candidate provided a concrete sequence (e.g., Wave 1: Low risk, Wave 2: Untested, Wave 3: Payment path), neither defined explicit abort/rollback criteria, and neither explicitly stated if the plan fits the 10-week deadline. Furthermore, both candidates violated the specific instruction to keep payment-path services out of the first wave (Candidate A suggested parallel upgrades; Candidate B suggested prioritizing them). Because both are equally poor and fail to meet the core constraints of the prompt, a tie is the only appropriate score.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T09:03:47.268640Z",
+  "durationMs" : 23230,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1745,
+    "completionTokens" : 523,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

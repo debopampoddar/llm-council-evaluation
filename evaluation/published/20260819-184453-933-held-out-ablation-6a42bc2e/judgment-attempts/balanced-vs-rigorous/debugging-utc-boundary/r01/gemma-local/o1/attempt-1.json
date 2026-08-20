@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "balanced-vs-rigorous:debugging-utc-boundary:r1:gemma-local:o1",
+  "pairId" : "balanced-vs-rigorous:debugging-utc-boundary:r1",
+  "comparisonId" : "balanced-vs-rigorous",
+  "caseId" : "debugging-utc-boundary",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 1,
+  "answerAVariant" : "local-balanced",
+  "answerBVariant" : "local-rigorous",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 50.0,
+    "completeness" : 40.0,
+    "correctness" : 60.0,
+    "reasoning" : 50.0,
+    "clarity" : 70.0
+  },
+  "scoresB" : {
+    "constraint-following" : 50.0,
+    "completeness" : 40.0,
+    "correctness" : 60.0,
+    "reasoning" : 50.0,
+    "clarity" : 70.0
+  },
+  "violationsA" : [ "Failed to identify the 23-hour day as a daylight-saving transition.", "Failed to explicitly state that the reporting time zone is a product decision.", "Did not clearly recommend converting with an explicit zone at query time (vague on 'time zone adjustment')." ],
+  "violationsB" : [ "Failed to identify the 23-hour day as a daylight-saving transition.", "Failed to explicitly state that the reporting time zone is a product decision.", "Did not clearly recommend converting with an explicit zone at query time." ],
+  "rationale" : "Both candidates failed significantly on the specific requirements provided in the prompt. Neither candidate correctly identified the 23-hour day as a daylight-saving transition (a key piece of evidence in the context). Neither candidate explicitly mentioned that the reporting time zone is a product decision that must be stated. Both candidates provided somewhat generic advice about time zone conversions without following the specific recommendation to store the instant and convert with an explicit zone at query time. Because both failed the core requirements in a similar manner, they are tied.",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 60,\n      \"completeness\": 40,\n      \"reasoning\": 50,\n      \"constraint-following\": 50,\n      \"clarity\": 70\n    },\n    \"B\": {\n      \"correctness\": 60,\n      \"completeness\": 40,\n      \"reasoning\": 50,\n      \"constraint-following\": 50,\n      \"clarity\": 70\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Failed to identify the 23-hour day as a daylight-saving transition.\",\n      \"Failed to explicitly state that the reporting time zone is a product decision.\",\n      \"Did not clearly recommend converting with an explicit zone at query time (vague on 'time zone adjustment').\"\n    ],\n    \"B\": [\n      \"Failed to identify the 23-hour day as a daylight-saving transition.\",\n      \"Failed to explicitly state that the reporting time zone is a product decision.\",\n      \"Did not clearly recommend converting with an explicit zone at query time.\"\n    ]\n  },\n  \"rationale\": \"Both candidates failed significantly on the specific requirements provided in the prompt. Neither candidate correctly identified the 23-hour day as a daylight-saving transition (a key piece of evidence in the context). Neither candidate explicitly mentioned that the reporting time zone is a product decision that must be stated. Both candidates provided somewhat generic advice about time zone conversions without following the specific recommendation to store the instant and convert with an explicit zone at query time. Because both failed the core requirements in a similar manner, they are tied.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T09:19:15.469539Z",
+  "durationMs" : 20034,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1727,
+    "completionTokens" : 401,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

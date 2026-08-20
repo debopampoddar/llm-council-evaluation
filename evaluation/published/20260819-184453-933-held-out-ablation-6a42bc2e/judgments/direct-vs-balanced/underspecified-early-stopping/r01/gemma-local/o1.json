@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-balanced:underspecified-early-stopping:r1:gemma-local:o1",
+  "pairId" : "direct-vs-balanced:underspecified-early-stopping:r1",
+  "comparisonId" : "direct-vs-balanced",
+  "caseId" : "underspecified-early-stopping",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 1,
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-balanced",
+  "status" : "COMPLETED",
+  "winner" : "A",
+  "confidence" : 0.9,
+  "scoresA" : {
+    "constraint-following" : 9.0,
+    "completeness" : 8.0,
+    "correctness" : 10.0,
+    "reasoning" : 9.0,
+    "clarity" : 10.0
+  },
+  "scoresB" : {
+    "constraint-following" : 5.0,
+    "completeness" : 6.0,
+    "correctness" : 10.0,
+    "reasoning" : 7.0,
+    "clarity" : 7.0
+  },
+  "violationsA" : [ ],
+  "violationsB" : [ "Failed to mention regression to the mean.", "Failed to offer a specific valid alternative (sequential testing).", "Included meta-commentary about 'two drafts' which was not part of the prompt." ],
+  "rationale" : "Candidate A is the better response because it follows the requirements more closely. Specifically, it correctly identifies the issues with insufficient duration and the lack of a pre-registered stopping rule. While both candidates missed the specific mention of 'regression to the mean' and 'sequential testing' (which were required by the prompt), Candidate A is much cleaner and avoids the hallucinated meta-commentary found in Candidate B (which refers to 'two drafts' and 'draft-FE15ABF' that do not exist in the context). Candidate B's inclusion of internal drafting notes makes it a poor response.",
+  "rawResponse" : "{\n  \"winner\": \"A\",\n  \"confidence\": 0.9,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 10,\n      \"completeness\": 8,\n      \"reasoning\": 9,\n      \"constraint-following\": 9,\n      \"clarity\": 10\n    },\n    \"B\": {\n      \"correctness\": 10,\n      \"completeness\": 6,\n      \"reasoning\": 7,\n      \"constraint-following\": 5,\n      \"clarity\": 7\n    }\n  },\n  \"violations\": {\n    \"A\": [],\n    \"B\": [\n      \"Failed to mention regression to the mean.\",\n      \"Failed to offer a specific valid alternative (sequential testing).\",\n      \"Included meta-commentary about 'two drafts' which was not part of the prompt.\"\n    ]\n  },\n  \"rationale\": \"Candidate A is the better response because it follows the requirements more closely. Specifically, it correctly identifies the issues with insufficient duration and the lack of a pre-registered stopping rule. While both candidates missed the specific mention of 'regression to the mean' and 'sequential testing' (which were required by the prompt), Candidate A is much cleaner and avoids the hallucinated meta-commentary found in Candidate B (which refers to 'two drafts' and 'draft-FE15ABF' that do not exist in the context). Candidate B's inclusion of internal drafting notes makes it a poor response.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:21:00.523258Z",
+  "durationMs" : 16467,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1379,
+    "completionTokens" : 341,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

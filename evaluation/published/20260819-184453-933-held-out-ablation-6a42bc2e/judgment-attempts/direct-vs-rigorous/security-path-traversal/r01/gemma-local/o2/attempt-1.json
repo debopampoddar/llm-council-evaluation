@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-rigorous:security-path-traversal:r1:gemma-local:o2",
+  "pairId" : "direct-vs-rigorous:security-path-traversal:r1",
+  "comparisonId" : "direct-vs-rigorous",
+  "caseId" : "security-path-traversal",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-rigorous",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 20.0,
+    "completeness" : 30.0,
+    "correctness" : 40.0,
+    "reasoning" : 30.0,
+    "clarity" : 80.0
+  },
+  "scoresB" : {
+    "constraint-following" : 20.0,
+    "completeness" : 30.0,
+    "correctness" : 40.0,
+    "reasoning" : 30.0,
+    "clarity" : 70.0
+  },
+  "violationsA" : [ "Fails to address the requirement to handle URL decoding before validation.", "Fails to address the requirement to prevent symlink replacement between validation and open (TOCTOU).", "The code provided uses `path.join` and `path.resolve` in a way that does not strictly follow the 'reject rather than sanitise' requirement for the input.", "Does not explicitly mention canonical resolution as a requirement." ],
+  "violationsB" : [ "Fails to address the requirement to handle URL decoding before validation.", "Fails to address the requirement to prevent symlink replacement between validation and open (TOCTOU).", "Fails to address the requirement to reject rather than sanitise.", "Does not provide a concrete design/implementation, only a high-level summary of a 'council' discussion." ],
+  "rationale" : "Both candidates fail significantly on the specific security requirements provided in the prompt. Neither candidate addresses the requirement to handle URL decoding before validation, nor do they address the Time-of-Check to Time-of-Use (TOCTOU) race condition regarding symlink replacement (which requires descriptor-relative or no-follow access). Candidate A provides a code example, but it is flawed as it doesn't handle the 'reject rather than sanitise' rule properly and misses the canonical resolution nuances. Candidate B is essentially a meta-commentary on a 'council' of drafts that were not provided, making it useless as a design response. Because both fail to meet the core security constraints (URL decoding, TOCTOU prevention, and rejection vs. sanitization), they are tied in their lack of utility.",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 40,\n      \"completeness\": 30,\n      \"reasoning\": 30,\n      \"constraint-following\": 20,\n      \"clarity\": 80\n    },\n    \"B\": {\n      \"correctness\": 40,\n      \"completeness\": 30,\n      \"reasoning\": 30,\n      \"constraint-following\": 20,\n      \"clarity\": 70\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Fails to address the requirement to handle URL decoding before validation.\",\n      \"Fails to address the requirement to prevent symlink replacement between validation and open (TOCTOU).\",\n      \"The code provided uses `path.join` and `path.resolve` in a way that does not strictly follow the 'reject rather than sanitise' requirement for the input.\",\n      \"Does not explicitly mention canonical resolution as a requirement.\"\n    ],\n    \"B\": [\n      \"Fails to address the requirement to handle URL decoding before validation.\",\n      \"Fails to address the requirement to prevent symlink replacement between validation and open (TOCTOU).\",\n      \"Fails to address the requirement to reject rather than sanitise.\",\n      \"Does not provide a concrete design/implementation, only a high-level summary of a 'council' discussion.\"\n    ]\n  },\n  \"rationale\": \"Both candidates fail significantly on the specific security requirements provided in the prompt. Neither candidate addresses the requirement to handle URL decoding before validation, nor do they address the Time-of-Check to Time-of-Use (TOCTOU) race condition regarding symlink replacement (which requires descriptor-relative or no-follow access). Candidate A provides a code example, but it is flawed as it doesn't handle the 'reject rather than sanitise' rule properly and misses the canonical resolution nuances. Candidate B is essentially a meta-commentary on a 'council' of drafts that were not provided, making it useless as a design response. Because both fail to meet the core security constraints (URL decoding, TOCTOU prevention, and rejection vs. sanitization), they are tied in their lack of utility.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:33:01.959452Z",
+  "durationMs" : 23159,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1768,
+    "completionTokens" : 519,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

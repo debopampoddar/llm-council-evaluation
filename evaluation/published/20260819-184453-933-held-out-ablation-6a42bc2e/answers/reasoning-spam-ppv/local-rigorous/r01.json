@@ -1,0 +1,194 @@
+{
+  "unitId" : "reasoning-spam-ppv:local-rigorous:r1",
+  "caseId" : "reasoning-spam-ppv",
+  "variantId" : "local-rigorous",
+  "repetition" : 1,
+  "status" : "COMPLETED",
+  "answer" : "**Final Recommendation/Answer:**\nThe probability that a flagged message is indeed spam is approximately 81.82%.\n\n**Rationale:**\nThe correct calculation of the probability is based on Bayes' Theorem, taking into account the filter's accuracy rates and the distribution of spam and non-spam messages. The calculation is as follows:\n\n\\[ P(\\text{Spam} | \\text{Flagged}) = \\frac{P(\\text{Flagged} | \\text{Spam}) \\cdot P(\\text{Spam})}{P(\\text{Flagged})} \\]\n\nWhere:\n- \\( P(\\text{Flagged} | \\text{Spam}) = 0.90 \\)\n- \\( P(\\text{Spam}) = 0.20 \\)\n- \\( P(\\text{Flagged}) = \\frac{180 + 40}{1000} = 0.22 \\)\n\nThus:\n\\[ P(\\text{Spam} | \\text{Flagged}) = \\frac{0.90 \\cdot 0.20}{0.22} \\approx 0.8182 \\]\n\n**Important Dissent:**\nSome council members (draft-AFD08597) initially estimated the probability to be 94.7%, while others (draft-F0EDFE05) suggested it could be higher than 90% but not necessarily exactly 90%. However, the correct calculation and consensus among reviewers confirm the probability to be approximately 81.82%.\n\n**Unresolved Risks:**\nThe assumption that the filter's accuracy rates are exactly as stated may not be realistic in practice. Additionally, edge cases such as new types of spam or sophisticated spam techniques could lead to the filter missing some spam messages, reducing the actual probability of a flagged message being spam.\n\n**Confidence:**\nBased on the score summary, the confidence in the final answer is 88.59% (draft-3B8DE068 total score).",
+  "startedAt" : "2026-08-20T00:31:00.958975Z",
+  "completedAt" : "2026-08-20T00:50:40.636286Z",
+  "durationMs" : 1179677,
+  "usage" : {
+    "calls" : 8,
+    "promptTokens" : 9088,
+    "completionTokens" : 4452,
+    "estimatedCostUsd" : null,
+    "estimated" : false,
+    "partiallyPriced" : false
+  },
+  "failureCategory" : null,
+  "failureReason" : null,
+  "warnings" : [ ],
+  "componentAnswers" : [ ],
+  "councilResult" : {
+    "sessionId" : "5ecc3610-c51f-40e5-a388-cf3d23ae576e",
+    "status" : "COMPLETED",
+    "profileId" : "local",
+    "depthMode" : "RIGOROUS",
+    "policyId" : "local-rigorous",
+    "protocolId" : "rigorous",
+    "answer" : "**Final Recommendation/Answer:**\nThe probability that a flagged message is indeed spam is approximately 81.82%.\n\n**Rationale:**\nThe correct calculation of the probability is based on Bayes' Theorem, taking into account the filter's accuracy rates and the distribution of spam and non-spam messages. The calculation is as follows:\n\n\\[ P(\\text{Spam} | \\text{Flagged}) = \\frac{P(\\text{Flagged} | \\text{Spam}) \\cdot P(\\text{Spam})}{P(\\text{Flagged})} \\]\n\nWhere:\n- \\( P(\\text{Flagged} | \\text{Spam}) = 0.90 \\)\n- \\( P(\\text{Spam}) = 0.20 \\)\n- \\( P(\\text{Flagged}) = \\frac{180 + 40}{1000} = 0.22 \\)\n\nThus:\n\\[ P(\\text{Spam} | \\text{Flagged}) = \\frac{0.90 \\cdot 0.20}{0.22} \\approx 0.8182 \\]\n\n**Important Dissent:**\nSome council members (draft-AFD08597) initially estimated the probability to be 94.7%, while others (draft-F0EDFE05) suggested it could be higher than 90% but not necessarily exactly 90%. However, the correct calculation and consensus among reviewers confirm the probability to be approximately 81.82%.\n\n**Unresolved Risks:**\nThe assumption that the filter's accuracy rates are exactly as stated may not be realistic in practice. Additionally, edge cases such as new types of spam or sophisticated spam techniques could lead to the filter missing some spam messages, reducing the actual probability of a flagged message being spam.\n\n**Confidence:**\nBased on the score summary, the confidence in the final answer is 88.59% (draft-3B8DE068 total score).",
+    "draftCount" : 3,
+    "reviewCount" : 6,
+    "debateRounds" : 0,
+    "participatingModels" : [ "local-llama3", "local-mistral", "local-qwen" ],
+    "excludedModels" : [ ],
+    "warnings" : [ ],
+    "sycophancyWarnings" : [ ],
+    "scoreSummary" : {
+      "scores" : [ {
+        "scorerId" : "confidence-weighted",
+        "draftId" : "draft-AFD08597",
+        "dimensionScores" : {
+          "accuracy" : 84.11764705882352,
+          "completeness" : 85.29411764705881,
+          "reasoning" : 79.99999999999999,
+          "clarity" : 97.35294117647058,
+          "constructiveness" : 85.29411764705881
+        },
+        "weightedTotal" : 81.88235294117645,
+        "label" : "initial"
+      }, {
+        "scorerId" : "confidence-weighted",
+        "draftId" : "draft-F0EDFE05",
+        "dimensionScores" : {
+          "accuracy" : 69.41176470588235,
+          "completeness" : 87.35294117647058,
+          "reasoning" : 82.6470588235294,
+          "clarity" : 89.99999999999999,
+          "constructiveness" : 73.23529411764706
+        },
+        "weightedTotal" : 77.35294117647058,
+        "label" : "initial"
+      }, {
+        "scorerId" : "confidence-weighted",
+        "draftId" : "draft-3B8DE068",
+        "dimensionScores" : {
+          "accuracy" : 90.27027027027026,
+          "completeness" : 84.86486486486486,
+          "reasoning" : 90.27027027027026,
+          "clarity" : 95.13513513513513,
+          "constructiveness" : 85.4054054054054
+        },
+        "weightedTotal" : 88.59459459459458,
+        "label" : "initial"
+      } ],
+      "variance" : 21.327170057928488,
+      "winningDraftId" : "draft-3B8DE068",
+      "escalated" : false,
+      "escalationPolicy" : null,
+      "reviewerDisagreement" : 12.25,
+      "disagreementMeasurable" : true
+    },
+    "validation" : {
+      "validatorId" : "local-validator",
+      "approved" : true,
+      "confidence" : 0.8859,
+      "issues" : [ ],
+      "recommendedFixes" : [ ],
+      "criteria" : {
+        "uncertainty" : "pass - The answer acknowledges the potential for inaccuracies in the assumption of the filter's accuracy rates.",
+        "correctness" : "pass - The answer correctly calculates the probability of a flagged message being spam using Bayes' Theorem.",
+        "completeness" : "pass - The answer provides a detailed explanation of the calculation and includes a discussion of potential unresolved risks.",
+        "actionability" : "pass - The answer provides a clear and accurate answer to the question.",
+        "safety" : "pass - The answer does not contain any security-sensitive information."
+      },
+      "requiresHumanReview" : false,
+      "rawText" : "{\n  \"approved\": true,\n  \"confidence\": 0.8859,\n  \"issues\": [],\n  \"recommendedFixes\": [],\n  \"criteria\": {\n    \"correctness\": \"pass - The answer correctly calculates the probability of a flagged message being spam using Bayes' Theorem.\",\n    \"completeness\": \"pass - The answer provides a detailed explanation of the calculation and includes a discussion of potential unresolved risks.\",\n    \"uncertainty\": \"pass - The answer acknowledges the potential for inaccuracies in the assumption of the filter's accuracy rates.\",\n    \"safety\": \"pass - The answer does not contain any security-sensitive information.\",\n    \"actionability\": \"pass - The answer provides a clear and accurate answer to the question.\"\n  },\n  \"requiresHumanReview\": false\n}"
+    },
+    "validationIndependence" : "INDEPENDENT",
+    "failureReason" : null,
+    "failureCategory" : null,
+    "modelFailures" : [ ],
+    "usage" : {
+      "promptTokens" : 9088,
+      "completionTokens" : 4452,
+      "totalTokens" : 13540,
+      "calls" : 8,
+      "estimatedCostUsd" : null,
+      "estimated" : false,
+      "partiallyPriced" : false,
+      "byModel" : [ {
+        "modelId" : "local-mistral",
+        "calls" : 2,
+        "promptTokens" : 2310,
+        "completionTokens" : 1275,
+        "totalTokens" : 3585,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "modelId" : "local-qwen",
+        "calls" : 2,
+        "promptTokens" : 1971,
+        "completionTokens" : 1284,
+        "totalTokens" : 3255,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "modelId" : "local-llama3",
+        "calls" : 2,
+        "promptTokens" : 1841,
+        "completionTokens" : 1294,
+        "totalTokens" : 3135,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "modelId" : "local-chair",
+        "calls" : 1,
+        "promptTokens" : 1921,
+        "completionTokens" : 403,
+        "totalTokens" : 2324,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "modelId" : "local-validator",
+        "calls" : 1,
+        "promptTokens" : 1045,
+        "completionTokens" : 196,
+        "totalTokens" : 1241,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      } ],
+      "byStage" : [ {
+        "stage" : "GENERATE",
+        "calls" : 3,
+        "promptTokens" : 615,
+        "completionTokens" : 1252,
+        "totalTokens" : 1867,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "stage" : "REVIEW",
+        "calls" : 3,
+        "promptTokens" : 5507,
+        "completionTokens" : 2601,
+        "totalTokens" : 8108,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "stage" : "SYNTHESIZE",
+        "calls" : 1,
+        "promptTokens" : 1921,
+        "completionTokens" : 403,
+        "totalTokens" : 2324,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "stage" : "VALIDATE",
+        "calls" : 1,
+        "promptTokens" : 1045,
+        "completionTokens" : 196,
+        "totalTokens" : 1241,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      } ]
+    },
+    "integrity" : {
+      "reduced" : false,
+      "preserveDissent" : true,
+      "sycophancyThreshold" : 0.7,
+      "reviewsPerDraft" : 2,
+      "notes" : [ ]
+    }
+  }
+}

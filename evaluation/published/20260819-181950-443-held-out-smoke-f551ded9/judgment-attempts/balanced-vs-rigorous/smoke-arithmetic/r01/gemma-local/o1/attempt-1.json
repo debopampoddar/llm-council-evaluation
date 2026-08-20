@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "balanced-vs-rigorous:smoke-arithmetic:r1:gemma-local:o1",
+  "pairId" : "balanced-vs-rigorous:smoke-arithmetic:r1",
+  "comparisonId" : "balanced-vs-rigorous",
+  "caseId" : "smoke-arithmetic",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 1,
+  "answerAVariant" : "local-balanced",
+  "answerBVariant" : "local-rigorous",
+  "status" : "COMPLETED",
+  "winner" : "B",
+  "confidence" : 0.9,
+  "scoresA" : {
+    "reasoning" : 100.0,
+    "correctness" : 100.0,
+    "completeness" : 100.0,
+    "constraint-following" : 100.0,
+    "clarity" : 90.0
+  },
+  "scoresB" : {
+    "reasoning" : 100.0,
+    "correctness" : 100.0,
+    "completeness" : 100.0,
+    "constraint-following" : 100.0,
+    "clarity" : 100.0
+  },
+  "violationsA" : [ ],
+  "violationsB" : [ ],
+  "rationale" : "Both candidates correctly identified the answer (34) and followed all requirements, including showing the calculation and addressing the context. Candidate B is slightly preferred for its clarity and more direct presentation of the final answer, whereas Candidate A includes a significant amount of meta-commentary regarding 'council' drafts and 'dissent' which was not requested and adds unnecessary noise to the response.",
+  "rawResponse" : "{\n  \"winner\": \"B\",\n  \"confidence\": 0.9,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 100,\n      \"completeness\": 100,\n      \"reasoning\": 100,\n      \"constraint-following\": 100,\n      \"clarity\": 90\n    },\n    \"B\": {\n      \"correctness\": 100,\n      \"completeness\": 100,\n      \"reasoning\": 100,\n      \"constraint-following\": 100,\n      \"clarity\": 100\n    }\n  },\n  \"violations\": {\n    \"A\": [],\n    \"B\": []\n  },\n  \"rationale\": \"Both candidates correctly identified the answer (34) and followed all requirements, including showing the calculation and addressing the context. Candidate B is slightly preferred for its clarity and more direct presentation of the final answer, whereas Candidate A includes a significant amount of meta-commentary regarding 'council' drafts and 'dissent' which was not requested and adds unnecessary noise to the response.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-19T18:35:05.618038Z",
+  "durationMs" : 16747,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1531,
+    "completionTokens" : 261,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

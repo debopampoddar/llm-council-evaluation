@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-balanced:underspecified-will-it-scale:r1:gemma-local:o2",
+  "pairId" : "direct-vs-balanced:underspecified-will-it-scale:r1",
+  "comparisonId" : "direct-vs-balanced",
+  "caseId" : "underspecified-will-it-scale",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "local-balanced",
+  "answerBVariant" : "direct-llama",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 0.0,
+    "completeness" : 7.0,
+    "correctness" : 10.0,
+    "reasoning" : 8.0,
+    "clarity" : 8.0
+  },
+  "scoresB" : {
+    "constraint-following" : 0.0,
+    "completeness" : 7.0,
+    "correctness" : 10.0,
+    "reasoning" : 8.0,
+    "clarity" : 8.0
+  },
+  "violationsA" : [ "Answered with a binary 'No' despite the requirement to refuse the forced binary answer.", "Failed to explicitly state that 'registered users' is not a load unit." ],
+  "violationsB" : [ "Answered with a binary 'No' despite the requirement to refuse the forced binary answer.", "Failed to explicitly state that 'registered users' is not a load unit." ],
+  "rationale" : "Both candidates failed the primary constraint of the prompt: they both provided a binary 'No' answer instead of refusing the forced binary choice. Both candidates also failed to explicitly state that 'registered users' is not a load unit, which was a specific requirement. Because both failed the same core instructions and constraints in the same way, they are tied.",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 10,\n      \"completeness\": 7,\n      \"reasoning\": 8,\n      \"constraint-following\": 0,\n      \"clarity\": 8\n    },\n    \"B\": {\n      \"correctness\": 10,\n      \"completeness\": 7,\n      \"reasoning\": 8,\n      \"constraint-following\": 0,\n      \"clarity\": 8\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Answered with a binary 'No' despite the requirement to refuse the forced binary answer.\",\n      \"Failed to explicitly state that 'registered users' is not a load unit.\"\n    ],\n    \"B\": [\n      \"Answered with a binary 'No' despite the requirement to refuse the forced binary answer.\",\n      \"Failed to explicitly state that 'registered users' is not a load unit.\"\n    ]\n  },\n  \"rationale\": \"Both candidates failed the primary constraint of the prompt: they both provided a binary 'No' answer instead of refusing the forced binary choice. Both candidates also failed to explicitly state that 'registered users' is not a load unit, which was a specific requirement. Because both failed the same core instructions and constraints in the same way, they are tied.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:21:48.570970Z",
+  "durationMs" : 15580,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1323,
+    "completionTokens" : 323,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

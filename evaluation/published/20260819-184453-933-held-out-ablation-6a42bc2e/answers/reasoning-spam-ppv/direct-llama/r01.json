@@ -1,0 +1,24 @@
+{
+  "unitId" : "reasoning-spam-ppv:direct-llama:r1",
+  "caseId" : "reasoning-spam-ppv",
+  "variantId" : "direct-llama",
+  "repetition" : 1,
+  "status" : "COMPLETED",
+  "answer" : "To estimate the probability that a flagged message is actually spam, we can use Bayes' theorem. Let's define the events:\n\n* S: the message is spam\n* F: the filter flags the message as spam\n\nWe are given:\n\n* P(S) = 0.2 (20% of messages are spam)\n* P(F|S) = 0.9 (90% of spam messages are flagged)\n* P(F|S') = 0.05 (5% of non-spam messages are flagged)\n\nWe want to find P(S|F), the probability that a flagged message is actually spam.\n\nUsing Bayes' theorem:\n\nP(S|F) = P(F|S) \\* P(S) / P(F)\n\nFirst, let's calculate P(F), the probability that a message is flagged:\n\nP(F) = P(F|S) \\* P(S) + P(F|S') \\* P(S')\n= 0.9 \\* 0.2 + 0.05 \\* 0.8\n= 0.18 + 0.04\n= 0.22\n\nNow, we can plug in the values:\n\nP(S|F) = 0.9 \\* 0.2 / 0.22\n= 0.8181 (approximately)\n\nSo, the probability that a flagged message is actually spam is approximately 81.81%.\n\nExpected counts:\n\n* Flagged spam messages: 0.9 \\* 0.2 \\* 1000 = 180\n* Flagged non-spam messages: 0.05 \\* 0.8 \\* 1000 = 40\n* Total flagged messages: 180 + 40 = 220\n* Actual spam messages: 0.2 \\* 1000 = 200\n* Actual non-spam messages: 0.8 \\* 1000 = 800",
+  "startedAt" : "2026-08-20T00:50:40.669723Z",
+  "completedAt" : "2026-08-20T00:50:50.695340Z",
+  "durationMs" : 10025,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 158,
+    "completionTokens" : 399,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  },
+  "failureCategory" : null,
+  "failureReason" : null,
+  "warnings" : [ ],
+  "componentAnswers" : [ ],
+  "councilResult" : null
+}

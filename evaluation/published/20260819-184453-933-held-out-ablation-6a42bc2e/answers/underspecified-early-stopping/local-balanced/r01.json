@@ -1,0 +1,174 @@
+{
+  "unitId" : "underspecified-early-stopping:local-balanced:r1",
+  "caseId" : "underspecified-early-stopping",
+  "variantId" : "local-balanced",
+  "repetition" : 1,
+  "status" : "COMPLETED",
+  "answer" : "**Final Recommendation/Answer:** No, do not stop the test and ship the winner yet.\n\n**Rationale:**\n\n1. **Insufficient duration**: The test has only been running for two days, which is a very short period, especially considering the 3% lift might be due to random variation.\n2. **No pre-registered stopping rule**: Without a pre-defined stopping rule, it's difficult to determine when to stop the test and declare a winner.\n3. **Lack of statistical analysis**: No confidence interval or sample size is provided, making it challenging to assess the significance of the observed lift.\n4. **Potential for bias**: The team checking the dashboard several times a day could inadvertently introduce selection bias, as they might be more likely to notice and focus on results that seem significant.\n\n**Important Dissent:** None significant enough to change the final recommendation.\n\n**Unresolved Risks:**\n\n1. **Random variation**: The observed 3% lift might be due to random variation, which could be more pronounced in a short test duration.\n2. **Confounding variables**: There might be unknown confounding variables that are influencing the test results.\n3. **Test design**: The test design might not be optimal, which could lead to biased results.\n\n**Confidence:** 92 (Based on the synthesis of the two drafts, taking into account the lack of pre-registered stopping rule, confidence interval, and sample size, as well as the potential for bias and random variation.)\n\nThe final recommendation is based on the synthesis of the two drafts, with a higher weight given to draft-FE15ABF due to its higher score and confidence. The importance of continuing the test for a more extended period, collecting more data, and performing a proper statistical analysis to ensure the results are statistically significant and not due to random chance or bias is emphasized.",
+  "startedAt" : "2026-08-20T07:27:39.734003Z",
+  "completedAt" : "2026-08-20T07:28:43.961602Z",
+  "durationMs" : 64227,
+  "usage" : {
+    "calls" : 6,
+    "promptTokens" : 4999,
+    "completionTokens" : 2202,
+    "estimatedCostUsd" : null,
+    "estimated" : false,
+    "partiallyPriced" : false
+  },
+  "failureCategory" : null,
+  "failureReason" : null,
+  "warnings" : [ ],
+  "componentAnswers" : [ ],
+  "councilResult" : {
+    "sessionId" : "e44430db-2744-4ec5-b719-fbcb19cdf0ef",
+    "status" : "COMPLETED",
+    "profileId" : "local",
+    "depthMode" : "BALANCED",
+    "policyId" : "local-balanced",
+    "protocolId" : "balanced",
+    "answer" : "**Final Recommendation/Answer:** No, do not stop the test and ship the winner yet.\n\n**Rationale:**\n\n1. **Insufficient duration**: The test has only been running for two days, which is a very short period, especially considering the 3% lift might be due to random variation.\n2. **No pre-registered stopping rule**: Without a pre-defined stopping rule, it's difficult to determine when to stop the test and declare a winner.\n3. **Lack of statistical analysis**: No confidence interval or sample size is provided, making it challenging to assess the significance of the observed lift.\n4. **Potential for bias**: The team checking the dashboard several times a day could inadvertently introduce selection bias, as they might be more likely to notice and focus on results that seem significant.\n\n**Important Dissent:** None significant enough to change the final recommendation.\n\n**Unresolved Risks:**\n\n1. **Random variation**: The observed 3% lift might be due to random variation, which could be more pronounced in a short test duration.\n2. **Confounding variables**: There might be unknown confounding variables that are influencing the test results.\n3. **Test design**: The test design might not be optimal, which could lead to biased results.\n\n**Confidence:** 92 (Based on the synthesis of the two drafts, taking into account the lack of pre-registered stopping rule, confidence interval, and sample size, as well as the potential for bias and random variation.)\n\nThe final recommendation is based on the synthesis of the two drafts, with a higher weight given to draft-FE15ABF due to its higher score and confidence. The importance of continuing the test for a more extended period, collecting more data, and performing a proper statistical analysis to ensure the results are statistically significant and not due to random chance or bias is emphasized.",
+    "draftCount" : 2,
+    "reviewCount" : 2,
+    "debateRounds" : 0,
+    "participatingModels" : [ "local-llama3", "local-mistral" ],
+    "excludedModels" : [ ],
+    "warnings" : [ ],
+    "sycophancyWarnings" : [ ],
+    "scoreSummary" : {
+      "scores" : [ {
+        "scorerId" : "confidence-weighted",
+        "draftId" : "draft-150AB29",
+        "dimensionScores" : {
+          "accuracy" : 90.0,
+          "completeness" : 80.0,
+          "reasoning" : 90.0,
+          "clarity" : 90.0,
+          "constructiveness" : 90.0
+        },
+        "weightedTotal" : 86.0,
+        "label" : "initial"
+      }, {
+        "scorerId" : "confidence-weighted",
+        "draftId" : "draft-FE15ABF",
+        "dimensionScores" : {
+          "accuracy" : 95.0,
+          "completeness" : 90.0,
+          "reasoning" : 95.0,
+          "clarity" : 98.0,
+          "constructiveness" : 95.0
+        },
+        "weightedTotal" : 94.0,
+        "label" : "initial"
+      } ],
+      "variance" : 16.0,
+      "winningDraftId" : "draft-FE15ABF",
+      "escalated" : false,
+      "escalationPolicy" : null,
+      "reviewerDisagreement" : 0.0,
+      "disagreementMeasurable" : false
+    },
+    "validation" : {
+      "validatorId" : "local-validator",
+      "approved" : true,
+      "confidence" : 0.92,
+      "issues" : [ ],
+      "recommendedFixes" : [ ],
+      "criteria" : {
+        "uncertainty" : "pass - The final answer acknowledges the potential for random variation and other uncertainties in the test results.",
+        "correctness" : "pass - The final answer correctly advises against stopping the test and shipping the winner based on the provided context.",
+        "completeness" : "pass - The final answer provides a comprehensive rationale for its recommendation.",
+        "actionability" : "pass - The final answer provides clear guidance on what actions should not be taken (stopping the test and shipping the winner) based on the current context.",
+        "safety" : "pass - The final answer considers the potential for bias in the test results and recommends continuing the test to ensure the results are not due to bias."
+      },
+      "requiresHumanReview" : false,
+      "rawText" : "{\n  \"approved\": true,\n  \"confidence\": 0.92,\n  \"issues\": [],\n  \"recommendedFixes\": [],\n  \"criteria\": {\n    \"correctness\": \"pass - The final answer correctly advises against stopping the test and shipping the winner based on the provided context.\",\n    \"completeness\": \"pass - The final answer provides a comprehensive rationale for its recommendation.\",\n    \"uncertainty\": \"pass - The final answer acknowledges the potential for random variation and other uncertainties in the test results.\",\n    \"safety\": \"pass - The final answer considers the potential for bias in the test results and recommends continuing the test to ensure the results are not due to bias.\",\n    \"actionability\": \"pass - The final answer provides clear guidance on what actions should not be taken (stopping the test and shipping the winner) based on the current context.\"\n  },\n  \"requiresHumanReview\": false\n}"
+    },
+    "validationIndependence" : "INDEPENDENT",
+    "failureReason" : null,
+    "failureCategory" : null,
+    "modelFailures" : [ ],
+    "usage" : {
+      "promptTokens" : 4999,
+      "completionTokens" : 2202,
+      "totalTokens" : 7201,
+      "calls" : 6,
+      "estimatedCostUsd" : null,
+      "estimated" : false,
+      "partiallyPriced" : false,
+      "byModel" : [ {
+        "modelId" : "local-mistral",
+        "calls" : 2,
+        "promptTokens" : 1583,
+        "completionTokens" : 817,
+        "totalTokens" : 2400,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "modelId" : "local-llama3",
+        "calls" : 2,
+        "promptTokens" : 1334,
+        "completionTokens" : 791,
+        "totalTokens" : 2125,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "modelId" : "local-chair",
+        "calls" : 1,
+        "promptTokens" : 1090,
+        "completionTokens" : 375,
+        "totalTokens" : 1465,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "modelId" : "local-validator",
+        "calls" : 1,
+        "promptTokens" : 992,
+        "completionTokens" : 219,
+        "totalTokens" : 1211,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      } ],
+      "byStage" : [ {
+        "stage" : "GENERATE",
+        "calls" : 2,
+        "promptTokens" : 431,
+        "completionTokens" : 695,
+        "totalTokens" : 1126,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "stage" : "REVIEW",
+        "calls" : 2,
+        "promptTokens" : 2486,
+        "completionTokens" : 913,
+        "totalTokens" : 3399,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "stage" : "SYNTHESIZE",
+        "calls" : 1,
+        "promptTokens" : 1090,
+        "completionTokens" : 375,
+        "totalTokens" : 1465,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "stage" : "VALIDATE",
+        "calls" : 1,
+        "promptTokens" : 992,
+        "completionTokens" : 219,
+        "totalTokens" : 1211,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      } ]
+    },
+    "integrity" : {
+      "reduced" : false,
+      "preserveDissent" : true,
+      "sycophancyThreshold" : null,
+      "reviewsPerDraft" : 1,
+      "notes" : [ ]
+    }
+  }
+}

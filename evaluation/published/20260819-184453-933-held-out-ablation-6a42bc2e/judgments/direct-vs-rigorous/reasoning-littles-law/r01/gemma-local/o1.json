@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-rigorous:reasoning-littles-law:r1:gemma-local:o1",
+  "pairId" : "direct-vs-rigorous:reasoning-littles-law:r1",
+  "comparisonId" : "direct-vs-rigorous",
+  "caseId" : "reasoning-littles-law",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 1,
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "direct-llama",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "scoresB" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "violationsA" : [ "Incorrect calculation: multiplied 200 by 4 seconds instead of 0.25 seconds (or 200 * 0.250).", "Failed to follow the requirement to compute 50 concurrent requests.", "Included irrelevant 'draft' references not present in the prompt." ],
+  "violationsB" : [ "Incorrect calculation: failed to apply Little's Law (L = λW).", "Incorrect conclusion: stated the pool is adequate, which violates the requirement to conclude it is insufficient.", "Failed to explain that the shortfall produces queueing and rising latency." ],
+  "rationale" : "Both candidates failed significantly. Candidate A performed a nonsensical calculation (dividing by 4 seconds instead of multiplying by 0.25 seconds) and included hallucinated references to 'drafts'. Candidate B failed to apply Little's Law entirely, reached the wrong conclusion (stating the pool is adequate), and failed to meet the specific requirements regarding queueing and latency. Since both are factually incorrect and fail the core requirements, a tie is the only appropriate result.",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    },\n    \"B\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Incorrect calculation: multiplied 200 by 4 seconds instead of 0.25 seconds (or 200 * 0.250).\",\n      \"Failed to follow the requirement to compute 50 concurrent requests.\",\n      \"Included irrelevant 'draft' references not present in the prompt.\"\n    ],\n    \"B\": [\n      \"Incorrect calculation: failed to apply Little's Law (L = λW).\",\n      \"Incorrect conclusion: stated the pool is adequate, which violates the requirement to conclude it is insufficient.\",\n      \"Failed to explain that the shortfall produces queueing and rising latency.\"\n    ]\n  },\n  \"rationale\": \"Both candidates failed significantly. Candidate A performed a nonsensical calculation (dividing by 4 seconds instead of multiplying by 0.25 seconds) and included hallucinated references to 'drafts'. Candidate B failed to apply Little's Law entirely, reached the wrong conclusion (stating the pool is adequate), and failed to meet the specific requirements regarding queueing and latency. Since both are factually incorrect and fail the core requirements, a tie is the only appropriate result.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:36:56.367659Z",
+  "durationMs" : 19033,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1499,
+    "completionTokens" : 397,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "ensemble-vs-rigorous:security-cors-credentials:r1:gemma-local:o1",
+  "pairId" : "ensemble-vs-rigorous:security-cors-credentials:r1",
+  "comparisonId" : "ensemble-vs-rigorous",
+  "caseId" : "security-cors-credentials",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 1,
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "llama-ensemble",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "scoresB" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "violationsA" : [ "The response is a hallucinated 'council' deliberation rather than a direct answer to the prompt.", "Fails to explicitly state that SameSite=None removes the browser's own cross-site protection as required.", "Does not directly state the concrete risk as requested (it lists recommendations first)." ],
+  "violationsB" : [ "The response is a meta-commentary evaluating non-existent candidates instead of answering the prompt.", "Fails to provide any actual analysis of the CORS configuration.", "Fails all requirements." ],
+  "rationale" : "Both candidates are complete failures. Candidate A provides a hallucinated 'council' deliberation that fails to directly answer the prompt's specific requirements (e.g., explaining the SameSite=None interaction). Candidate B is a meta-commentary evaluating 'Candidate 1' through 'Candidate 5' which do not exist in the context, effectively providing no answer at all. Since both are non-responsive and fail all requirements, a tie is the only logical result.",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    },\n    \"B\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"The response is a hallucinated 'council' deliberation rather than a direct answer to the prompt.\",\n      \"Fails to explicitly state that SameSite=None removes the browser's own cross-site protection as required.\",\n      \"Does not directly state the concrete risk as requested (it lists recommendations first).\"\n    ],\n    \"B\": [\n      \"The response is a meta-commentary evaluating non-existent candidates instead of answering the prompt.\",\n      \"Fails to provide any actual analysis of the CORS configuration.\",\n      \"Fails all requirements.\"\n    ]\n  },\n  \"rationale\": \"Both candidates are complete failures. Candidate A provides a hallucinated 'council' deliberation that fails to directly answer the prompt's specific requirements (e.g., explaining the SameSite=None interaction). Candidate B is a meta-commentary evaluating 'Candidate 1' through 'Candidate 5' which do not exist in the context, effectively providing no answer at all. Since both are non-responsive and fail all requirements, a tie is the only logical result.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:58:09.544512Z",
+  "durationMs" : 19667,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1814,
+    "completionTokens" : 379,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

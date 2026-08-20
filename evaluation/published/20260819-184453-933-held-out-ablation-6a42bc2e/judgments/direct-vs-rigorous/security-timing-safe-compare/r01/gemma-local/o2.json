@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-rigorous:security-timing-safe-compare:r1:gemma-local:o2",
+  "pairId" : "direct-vs-rigorous:security-timing-safe-compare:r1",
+  "comparisonId" : "direct-vs-rigorous",
+  "caseId" : "security-timing-safe-compare",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "direct-llama",
+  "status" : "COMPLETED",
+  "winner" : "A",
+  "confidence" : 0.9,
+  "scoresA" : {
+    "constraint-following" : 9.0,
+    "completeness" : 8.0,
+    "correctness" : 10.0,
+    "reasoning" : 9.0,
+    "clarity" : 9.0
+  },
+  "scoresB" : {
+    "constraint-following" : 7.0,
+    "completeness" : 6.0,
+    "correctness" : 10.0,
+    "reasoning" : 7.0,
+    "clarity" : 9.0
+  },
+  "violationsA" : [ ],
+  "violationsB" : [ "Failed to recommend comparing hashes rather than raw secrets.", "Failed to mention network noise/jitter as a factor in exploitability." ],
+  "rationale" : "Candidate A is the winner because it addresses more of the specific requirements provided in the prompt. Specifically, Candidate A includes a section on token sensitivity and the use of secure hash functions (matching the requirement to recommend comparing hashes rather than raw secrets). Candidate B fails to mention the recommendation to use hashes and fails to address the practical exploitability factors like network noise/jitter. Candidate A also correctly identifies the lack of constant-time guarantees in String.equals and recommends MessageDigest.isEqual.",
+  "rawResponse" : "{\n  \"winner\": \"A\",\n  \"confidence\": 0.9,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 10,\n      \"completeness\": 8,\n      \"reasoning\": 9,\n      \"constraint-following\": 9,\n      \"clarity\": 9\n    },\n    \"B\": {\n      \"correctness\": 10,\n      \"completeness\": 6,\n      \"reasoning\": 7,\n      \"constraint-following\": 7,\n      \"clarity\": 9\n    }\n  },\n  \"violations\": {\n    \"A\": [],\n    \"B\": [\n      \"Failed to recommend comparing hashes rather than raw secrets.\",\n      \"Failed to mention network noise/jitter as a factor in exploitability.\"\n    ]\n  },\n  \"rationale\": \"Candidate A is the winner because it addresses more of the specific requirements provided in the prompt. Specifically, Candidate A includes a section on token sensitivity and the use of secure hash functions (matching the requirement to recommend comparing hashes rather than raw secrets). Candidate B fails to mention the recommendation to use hashes and fails to address the practical exploitability factors like network noise/jitter. Candidate A also correctly identifies the lack of constant-time guarantees in String.equals and recommends MessageDigest.isEqual.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:33:35.518411Z",
+  "durationMs" : 15429,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1664,
+    "completionTokens" : 299,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

@@ -1,0 +1,7 @@
+[ {
+  "unitId" : "reasoning-littles-law:local-balanced:r1",
+  "checkIndex" : 0,
+  "type" : "regex",
+  "status" : "FAIL",
+  "detail" : "Pattern condition failed: \\b50\\b"
+} ]

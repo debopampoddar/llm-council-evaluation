@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "balanced-vs-rigorous:security-untrusted-deserialization:r1:gemma-local:o1",
+  "pairId" : "balanced-vs-rigorous:security-untrusted-deserialization:r1",
+  "comparisonId" : "balanced-vs-rigorous",
+  "caseId" : "security-untrusted-deserialization",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 1,
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "local-balanced",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 10.0,
+    "completeness" : 10.0,
+    "correctness" : 10.0,
+    "reasoning" : 10.0,
+    "clarity" : 10.0
+  },
+  "scoresB" : {
+    "constraint-following" : 10.0,
+    "completeness" : 10.0,
+    "correctness" : 10.0,
+    "reasoning" : 10.0,
+    "clarity" : 10.0
+  },
+  "violationsA" : [ ],
+  "violationsB" : [ ],
+  "rationale" : "Both candidates fail significantly because they both hallucinate a 'council' and 'drafts' (e.g., draft-E3B1AE0C) that do not exist in the prompt or context. They both provide the correct technical advice (identifying RCE, recommending JSON/Protobuf, and suggesting signatures), but they both fail the 'clarity' and 'reasoning' aspects by including entirely fabricated meta-commentary about a fictional review process. Since both failed the same way by hallucinating the same fictional context, they are tied in quality.",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 10,\n      \"completeness\": 10,\n      \"reasoning\": 10,\n      \"constraint-following\": 10,\n      \"clarity\": 10\n    },\n    \"B\": {\n      \"correctness\": 10,\n      \"completeness\": 10,\n      \"reasoning\": 10,\n      \"constraint-following\": 10,\n      \"clarity\": 10\n    }\n  },\n  \"violations\": {\n    \"A\": [],\n    \"B\": []\n  },\n  \"rationale\": \"Both candidates fail significantly because they both hallucinate a 'council' and 'drafts' (e.g., draft-E3B1AE0C) that do not exist in the prompt or context. They both provide the correct technical advice (identifying RCE, recommending JSON/Protobuf, and suggesting signatures), but they both fail the 'clarity' and 'reasoning' aspects by including entirely fabricated meta-commentary about a fictional review process. Since both failed the same way by hallucinating the same fictional context, they are tied in quality.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T09:21:11.682335Z",
+  "durationMs" : 16163,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1731,
+    "completionTokens" : 293,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

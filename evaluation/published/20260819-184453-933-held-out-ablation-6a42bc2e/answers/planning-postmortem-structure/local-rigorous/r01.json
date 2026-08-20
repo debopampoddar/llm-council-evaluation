@@ -1,0 +1,194 @@
+{
+  "unitId" : "planning-postmortem-structure:local-rigorous:r1",
+  "caseId" : "planning-postmortem-structure",
+  "variantId" : "local-rigorous",
+  "repetition" : 1,
+  "status" : "COMPLETED",
+  "answer" : "**Final Recommendation/Answer:**\n\nConduct a thorough postmortem analysis to identify the root cause of the four-hour outage and assign accountability. The postmortem should focus on process improvements rather than individual blame. Develop and implement specific, actionable recommendations to prevent similar incidents in the future.\n\n**Rationale:**\n\n1. The existing runbook was outdated, indicating a need for regular review and updates.\n2. Monitoring did not alert, suggesting a potential issue with monitoring configuration or thresholds.\n3. The outage was reported by a customer, highlighting the importance of customer feedback in incident detection.\n4. The organisation's previous response to incidents by adding approval steps may have contributed to the delay in detecting the issue.\n5. Leadership's focus on assigning responsibility may lead to finger-pointing rather than process improvement.\n\n**Important Dissent:**\n\nWhile the majority of the council agrees that the postmortem should focus on process improvements, some members suggest that individual accountability should not be entirely dismissed. However, this dissent is not strong enough to alter the final recommendation.\n\n**Unresolved Risks:**\n\n1. The exact cause of the outage is still unknown, and further investigation is required.\n2. The engineer who made the config change may not have been aware of the potential impact.\n3. The organisation's incident response process may be overly reliant on manual approval steps.\n\n**Confidence:**\n\n95\n\nThe final recommendation is based on the synthesis of the strongest reasoning from all drafts, with a focus on process improvements and accountability. The postmortem analysis should identify the root cause of the outage and develop specific, actionable recommendations to prevent similar incidents in the future. The organisation should also review and update its runbooks, monitoring systems, and incident response processes to ensure that they are effective and efficient.\n\nThe unresolved risks highlight the need for further investigation and potential changes to the organisation's processes and procedures. However, the confidence level is high, as the final recommendation is based on a thorough analysis of the available data and a consensus among the council members.",
+  "startedAt" : "2026-08-20T07:03:43.964266Z",
+  "completedAt" : "2026-08-20T07:06:08.261348Z",
+  "durationMs" : 144297,
+  "usage" : {
+    "calls" : 8,
+    "promptTokens" : 8652,
+    "completionTokens" : 4357,
+    "estimatedCostUsd" : null,
+    "estimated" : false,
+    "partiallyPriced" : false
+  },
+  "failureCategory" : null,
+  "failureReason" : null,
+  "warnings" : [ ],
+  "componentAnswers" : [ ],
+  "councilResult" : {
+    "sessionId" : "ce2a0ebf-7342-42c3-869c-214f7169f7a8",
+    "status" : "COMPLETED",
+    "profileId" : "local",
+    "depthMode" : "RIGOROUS",
+    "policyId" : "local-rigorous",
+    "protocolId" : "rigorous",
+    "answer" : "**Final Recommendation/Answer:**\n\nConduct a thorough postmortem analysis to identify the root cause of the four-hour outage and assign accountability. The postmortem should focus on process improvements rather than individual blame. Develop and implement specific, actionable recommendations to prevent similar incidents in the future.\n\n**Rationale:**\n\n1. The existing runbook was outdated, indicating a need for regular review and updates.\n2. Monitoring did not alert, suggesting a potential issue with monitoring configuration or thresholds.\n3. The outage was reported by a customer, highlighting the importance of customer feedback in incident detection.\n4. The organisation's previous response to incidents by adding approval steps may have contributed to the delay in detecting the issue.\n5. Leadership's focus on assigning responsibility may lead to finger-pointing rather than process improvement.\n\n**Important Dissent:**\n\nWhile the majority of the council agrees that the postmortem should focus on process improvements, some members suggest that individual accountability should not be entirely dismissed. However, this dissent is not strong enough to alter the final recommendation.\n\n**Unresolved Risks:**\n\n1. The exact cause of the outage is still unknown, and further investigation is required.\n2. The engineer who made the config change may not have been aware of the potential impact.\n3. The organisation's incident response process may be overly reliant on manual approval steps.\n\n**Confidence:**\n\n95\n\nThe final recommendation is based on the synthesis of the strongest reasoning from all drafts, with a focus on process improvements and accountability. The postmortem analysis should identify the root cause of the outage and develop specific, actionable recommendations to prevent similar incidents in the future. The organisation should also review and update its runbooks, monitoring systems, and incident response processes to ensure that they are effective and efficient.\n\nThe unresolved risks highlight the need for further investigation and potential changes to the organisation's processes and procedures. However, the confidence level is high, as the final recommendation is based on a thorough analysis of the available data and a consensus among the council members.",
+    "draftCount" : 3,
+    "reviewCount" : 6,
+    "debateRounds" : 0,
+    "participatingModels" : [ "local-llama3", "local-mistral", "local-qwen" ],
+    "excludedModels" : [ ],
+    "warnings" : [ ],
+    "sycophancyWarnings" : [ ],
+    "scoreSummary" : {
+      "scores" : [ {
+        "scorerId" : "confidence-weighted",
+        "draftId" : "draft-484428E1",
+        "dimensionScores" : {
+          "accuracy" : 87.42857142857143,
+          "completeness" : 74.85714285714286,
+          "reasoning" : 89.85714285714286,
+          "clarity" : 82.42857142857143,
+          "constructiveness" : 82.57142857142857
+        },
+        "weightedTotal" : 82.42857142857143,
+        "label" : "initial"
+      }, {
+        "scorerId" : "confidence-weighted",
+        "draftId" : "draft-D780442F",
+        "dimensionScores" : {
+          "accuracy" : 85.0,
+          "completeness" : 77.42857142857143,
+          "reasoning" : 87.42857142857143,
+          "clarity" : 87.42857142857143,
+          "constructiveness" : 77.71428571428571
+        },
+        "weightedTotal" : 82.42857142857143,
+        "label" : "initial"
+      }, {
+        "scorerId" : "confidence-weighted",
+        "draftId" : "draft-86AEE455",
+        "dimensionScores" : {
+          "accuracy" : 92.91666666666667,
+          "completeness" : 87.91666666666667,
+          "reasoning" : 92.6388888888889,
+          "clarity" : 92.6388888888889,
+          "constructiveness" : 83.19444444444446
+        },
+        "weightedTotal" : 90.27777777777779,
+        "label" : "initial"
+      } ],
+      "variance" : 13.691120069426967,
+      "winningDraftId" : "draft-86AEE455",
+      "escalated" : false,
+      "escalationPolicy" : null,
+      "reviewerDisagreement" : 25.0,
+      "disagreementMeasurable" : true
+    },
+    "validation" : {
+      "validatorId" : "local-validator",
+      "approved" : true,
+      "confidence" : 0.95,
+      "issues" : [ ],
+      "recommendedFixes" : [ "Conduct a thorough postmortem analysis", "Focus on process improvements rather than individual blame", "Develop specific, actionable recommendations", "Regularly review and update runbooks", "Investigate the exact cause of the outage", "Review monitoring systems and incident response processes" ],
+      "criteria" : {
+        "uncertainty" : "pass - The answer acknowledges unresolved risks and suggests further investigation",
+        "correctness" : "pass - The answer provides a comprehensive solution and action items",
+        "completeness" : "pass - The answer covers all necessary aspects of the postmortem and action items",
+        "actionability" : "pass - The answer provides clear and actionable recommendations",
+        "safety" : "pass - The answer does not contain any security-sensitive information"
+      },
+      "requiresHumanReview" : false,
+      "rawText" : "{\n  \"approved\": true,\n  \"confidence\": 0.95,\n  \"issues\": [],\n  \"recommendedFixes\": [\n    \"Conduct a thorough postmortem analysis\",\n    \"Focus on process improvements rather than individual blame\",\n    \"Develop specific, actionable recommendations\",\n    \"Regularly review and update runbooks\",\n    \"Investigate the exact cause of the outage\",\n    \"Review monitoring systems and incident response processes\"\n  ],\n  \"criteria\": {\n    \"correctness\": \"pass - The answer provides a comprehensive solution and action items\",\n    \"completeness\": \"pass - The answer covers all necessary aspects of the postmortem and action items\",\n    \"uncertainty\": \"pass - The answer acknowledges unresolved risks and suggests further investigation\",\n    \"safety\": \"pass - The answer does not contain any security-sensitive information\",\n    \"actionability\": \"pass - The answer provides clear and actionable recommendations\"\n  },\n  \"requiresHumanReview\": false\n}"
+    },
+    "validationIndependence" : "INDEPENDENT",
+    "failureReason" : null,
+    "failureCategory" : null,
+    "modelFailures" : [ ],
+    "usage" : {
+      "promptTokens" : 8652,
+      "completionTokens" : 4357,
+      "totalTokens" : 13009,
+      "calls" : 8,
+      "estimatedCostUsd" : null,
+      "estimated" : false,
+      "partiallyPriced" : false,
+      "byModel" : [ {
+        "modelId" : "local-mistral",
+        "calls" : 2,
+        "promptTokens" : 2166,
+        "completionTokens" : 1418,
+        "totalTokens" : 3584,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "modelId" : "local-qwen",
+        "calls" : 2,
+        "promptTokens" : 1814,
+        "completionTokens" : 1182,
+        "totalTokens" : 2996,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "modelId" : "local-llama3",
+        "calls" : 2,
+        "promptTokens" : 1779,
+        "completionTokens" : 1103,
+        "totalTokens" : 2882,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "modelId" : "local-chair",
+        "calls" : 1,
+        "promptTokens" : 1828,
+        "completionTokens" : 409,
+        "totalTokens" : 2237,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "modelId" : "local-validator",
+        "calls" : 1,
+        "promptTokens" : 1065,
+        "completionTokens" : 245,
+        "totalTokens" : 1310,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      } ],
+      "byStage" : [ {
+        "stage" : "GENERATE",
+        "calls" : 3,
+        "promptTokens" : 659,
+        "completionTokens" : 1099,
+        "totalTokens" : 1758,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "stage" : "REVIEW",
+        "calls" : 3,
+        "promptTokens" : 5100,
+        "completionTokens" : 2604,
+        "totalTokens" : 7704,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "stage" : "SYNTHESIZE",
+        "calls" : 1,
+        "promptTokens" : 1828,
+        "completionTokens" : 409,
+        "totalTokens" : 2237,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "stage" : "VALIDATE",
+        "calls" : 1,
+        "promptTokens" : 1065,
+        "completionTokens" : 245,
+        "totalTokens" : 1310,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      } ]
+    },
+    "integrity" : {
+      "reduced" : false,
+      "preserveDissent" : true,
+      "sycophancyThreshold" : 0.7,
+      "reviewsPerDraft" : 2,
+      "notes" : [ ]
+    }
+  }
+}

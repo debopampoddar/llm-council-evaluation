@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "ensemble-vs-rigorous:architecture-event-ordering:r1:gemma-local:o2",
+  "pairId" : "ensemble-vs-rigorous:architecture-event-ordering:r1",
+  "comparisonId" : "ensemble-vs-rigorous",
+  "caseId" : "architecture-event-ordering",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "llama-ensemble",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "scoresB" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "violationsA" : [ "Failed to explain the tension between global ordering and horizontal scaling.", "Failed to recommend partitioning by account key.", "Failed to state that per-entity ordering is sufficient for balance correctness.", "Failed to address rebalancing and hot keys.", "Incorrectly claims that Paxos/Raft allows for horizontal scaling of global ordering (it provides consensus, but a single ordered log is still a bottleneck)." ],
+  "violationsB" : [ "Failed to explain the tension between global ordering and horizontal scaling.", "Failed to recommend partitioning by account key.", "Failed to state that per-entity ordering is sufficient for balance correctness.", "Failed to address rebalancing and hot keys.", "Proposes a logically flawed architecture where a global store is updated by a partitioned pipeline, which does not solve the ordering problem for the consumers." ],
+  "rationale" : "Both candidates failed significantly on almost every requirement. Neither candidate correctly identified the core architectural trade-off: that strict global ordering requires a single partition (bottleneck), whereas horizontal scaling requires multiple partitions. Neither candidate recommended the correct solution (partitioning by account key), which satisfies the requirement for balance correctness while allowing horizontal scaling. Both candidates attempted to solve for 'global' ordering in a way that contradicts the goal of horizontal scaling or the provided context/facts.",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    },\n    \"B\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Failed to explain the tension between global ordering and horizontal scaling.\",\n      \"Failed to recommend partitioning by account key.\",\n      \"Failed to state that per-entity ordering is sufficient for balance correctness.\",\n      \"Failed to address rebalancing and hot keys.\",\n      \"Incorrectly claims that Paxos/Raft allows for horizontal scaling of global ordering (it provides consensus, but a single ordered log is still a bottleneck).\"\n    ],\n    \"B\": [\n      \"Failed to explain the tension between global ordering and horizontal scaling.\",\n      \"Failed to recommend partitioning by account key.\",\n      \"Failed to state that per-entity ordering is sufficient for balance correctness.\",\n      \"Failed to address rebalancing and hot keys.\",\n      \"Proposes a logically flawed architecture where a global store is updated by a partitioned pipeline, which does not solve the ordering problem for the consumers.\"\n    ]\n  },\n  \"rationale\": \"Both candidates failed significantly on almost every requirement. Neither candidate correctly identified the core architectural trade-off: that strict global ordering requires a single partition (bottleneck), whereas horizontal scaling requires multiple partitions. Neither candidate recommended the correct solution (partitioning by account key), which satisfies the requirement for balance correctness while allowing horizontal scaling. Both candidates attempted to solve for 'global' ordering in a way that contradicts the goal of horizontal scaling or the provided context/facts.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:49:26.097874Z",
+  "durationMs" : 20339,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1640,
+    "completionTokens" : 440,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "ensemble-vs-rigorous:security-cors-credentials:r1:gemma-local:o2",
+  "pairId" : "ensemble-vs-rigorous:security-cors-credentials:r1",
+  "comparisonId" : "ensemble-vs-rigorous",
+  "caseId" : "security-cors-credentials",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "llama-ensemble",
+  "answerBVariant" : "local-rigorous",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "scoresB" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "violationsA" : [ "The candidate failed to provide an actual answer to the prompt. Instead, it provided a meta-commentary/evaluation of hypothetical 'candidates' (Candidate 1-5) that do not exist in the prompt context.", "Failed to identify the risk, explain SameSite=None, recommend an allowlist, or mention CSRF defense." ],
+  "violationsB" : [ "The candidate failed to provide a direct answer to the prompt. Instead, it provided a meta-commentary/evaluation of hypothetical 'council members' and 'drafts' that do not exist in the prompt context.", "Failed to identify the risk, explain SameSite=None, recommend an allowlist, or mention CSRF defense." ],
+  "rationale" : "Both candidates are completely non-responsive to the user's prompt. They both appear to be 'hallucinated' meta-evaluations of internal processes or non-existent candidates rather than actual answers to the security review question. Since both are equally useless and fail all requirements, a tie is the only logical result.",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    },\n    \"B\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"The candidate failed to provide an actual answer to the prompt. Instead, it provided a meta-commentary/evaluation of hypothetical 'candidates' (Candidate 1-5) that do not exist in the prompt context.\",\n      \"Failed to identify the risk, explain SameSite=None, recommend an allowlist, or mention CSRF defense.\"\n    ],\n    \"B\": [\n      \"The candidate failed to provide a direct answer to the prompt. Instead, it provided a meta-commentary/evaluation of hypothetical 'council members' and 'drafts' that do not exist in the prompt context.\",\n      \"Failed to identify the risk, explain SameSite=None, recommend an allowlist, or mention CSRF defense.\"\n    ]\n  },\n  \"rationale\": \"Both candidates are completely non-responsive to the user's prompt. They both appear to be 'hallucinated' meta-evaluations of internal processes or non-existent candidates rather than actual answers to the security review question. Since both are equally useless and fail all requirements, a tie is the only logical result.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:58:29.611930Z",
+  "durationMs" : 19984,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1814,
+    "completionTokens" : 384,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

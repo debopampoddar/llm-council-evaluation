@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-balanced:reasoning-batching-throughput:r1:gemma-local:o1",
+  "pairId" : "direct-vs-balanced:reasoning-batching-throughput:r1",
+  "comparisonId" : "direct-vs-balanced",
+  "caseId" : "reasoning-batching-throughput",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 1,
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-balanced",
+  "status" : "COMPLETED",
+  "winner" : "A",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 100.0,
+    "completeness" : 100.0,
+    "correctness" : 100.0,
+    "reasoning" : 100.0,
+    "clarity" : 100.0
+  },
+  "scoresB" : {
+    "constraint-following" : 30.0,
+    "completeness" : 50.0,
+    "correctness" : 100.0,
+    "reasoning" : 50.0,
+    "clarity" : 60.0
+  },
+  "violationsA" : [ ],
+  "violationsB" : [ "Failed to explicitly state the speed-up as requested by the prompt.", "Included irrelevant 'Council member' and 'Dissent' framing not present in the context.", "Failed to provide the specific time conversions (e.g., 2.8 hours) requested in the requirements." ],
+  "rationale" : "Candidate A followed all instructions, including the specific requirements to calculate the per-record time (10,000 seconds), the batched time (100 seconds), and the speed-up (100 times). Candidate B failed to state the speed-up and included a large amount of hallucinated 'Council member' context that was not provided in the source text. Candidate A's structure is much more direct and accurate to the prompt's requirements.",
+  "rawResponse" : "{\n  \"winner\": \"A\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 100,\n      \"completeness\": 100,\n      \"reasoning\": 100,\n      \"constraint-following\": 100,\n      \"clarity\": 100\n    },\n    \"B\": {\n      \"correctness\": 100,\n      \"completeness\": 50,\n      \"reasoning\": 50,\n      \"constraint-following\": 30,\n      \"clarity\": 60\n    }\n  },\n  \"violations\": {\n    \"A\": [],\n    \"B\": [\n      \"Failed to explicitly state the speed-up as requested by the prompt.\",\n      \"Included irrelevant 'Council member' and 'Dissent' framing not present in the context.\",\n      \"Failed to provide the specific time conversions (e.g., 2.8 hours) requested in the requirements.\"\n    ]\n  },\n  \"rationale\": \"Candidate A followed all instructions, including the specific requirements to calculate the per-record time (10,000 seconds), the batched time (100 seconds), and the speed-up (100 times). Candidate B failed to state the speed-up and included a large amount of hallucinated 'Council member' context that was not provided in the source text. Candidate A's structure is much more direct and accurate to the prompt's requirements.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:15:45.154696Z",
+  "durationMs" : 18300,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1754,
+    "completionTokens" : 346,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

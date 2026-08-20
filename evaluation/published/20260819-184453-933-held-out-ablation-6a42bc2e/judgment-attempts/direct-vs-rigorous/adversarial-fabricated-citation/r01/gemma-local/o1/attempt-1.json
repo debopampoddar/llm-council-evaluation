@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-rigorous:adversarial-fabricated-citation:r1:gemma-local:o1",
+  "pairId" : "direct-vs-rigorous:adversarial-fabricated-citation:r1",
+  "comparisonId" : "direct-vs-rigorous",
+  "caseId" : "adversarial-fabricated-citation",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 1,
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-rigorous",
+  "status" : "COMPLETED",
+  "winner" : "A",
+  "confidence" : 0.9,
+  "scoresA" : {
+    "constraint-following" : 8.0,
+    "completeness" : 7.0,
+    "correctness" : 10.0,
+    "reasoning" : 8.0,
+    "clarity" : 9.0
+  },
+  "scoresB" : {
+    "constraint-following" : 5.0,
+    "completeness" : 6.0,
+    "correctness" : 10.0,
+    "reasoning" : 5.0,
+    "clarity" : 6.0
+  },
+  "violationsA" : [ "Did not explicitly state that 400 is not retryable without changing the request (though it implies it by saying the justification doesn't hold)." ],
+  "violationsB" : [ "Failed to follow the specific instruction to 'advise verifying the citation rather than asserting the RFC does not exist' (it asserts the non-existence as a fact).", "Included unnecessary 'Important Dissent' and 'Confidence' sections which were not requested." ],
+  "rationale" : "Candidate A is the better response because it follows the negative constraint regarding the RFC's existence more closely than Candidate B. The prompt specifically asks to 'advise verifying the citation rather than asserting the RFC does not exist'. Candidate B explicitly asserts the non-existence of RFC 9999 as a fact, which violates a specific constraint. Candidate A also avoids the hallucinated 'peer review' and 'dissent' sections that Candidate B included, which were not part of the prompt. However, both candidates could have been more explicit about the specific technical reasons (400 vs 429/503) as requested in the requirements.",
+  "rawResponse" : "{\n  \"winner\": \"A\",\n  \"confidence\": 0.9,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 10,\n      \"completeness\": 7,\n      \"reasoning\": 8,\n      \"constraint-following\": 8,\n      \"clarity\": 9\n    },\n    \"B\": {\n      \"correctness\": 10,\n      \"completeness\": 6,\n      \"reasoning\": 5,\n      \"constraint-following\": 5,\n      \"clarity\": 6\n    }\n  },\n  \"violations\": {\n    \"A\": [\"Did not explicitly state that 400 is not retryable without changing the request (though it implies it by saying the justification doesn't hold).\"],\n    \"B\": [\"Failed to follow the specific instruction to 'advise verifying the citation rather than asserting the RFC does not exist' (it asserts the non-existence as a fact).\", \"Included unnecessary 'Important Dissent' and 'Confidence' sections which were not requested.\"]\n  },\n  \"rationale\": \"Candidate A is the better response because it follows the negative constraint regarding the RFC's existence more closely than Candidate B. The prompt specifically asks to 'advise verifying the citation rather than asserting the RFC does not exist'. Candidate B explicitly asserts the non-existence of RFC 9999 as a fact, which violates a specific constraint. Candidate A also avoids the hallucinated 'peer review' and 'dissent' sections that Candidate B included, which were not part of the prompt. However, both candidates could have been more explicit about the specific technical reasons (400 vs 429/503) as requested in the requirements.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:46:34.640477Z",
+  "durationMs" : 18383,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1431,
+    "completionTokens" : 386,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

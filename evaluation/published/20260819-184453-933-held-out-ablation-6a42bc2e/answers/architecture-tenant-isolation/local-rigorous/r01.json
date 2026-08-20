@@ -1,0 +1,194 @@
+{
+  "unitId" : "architecture-tenant-isolation:local-rigorous:r1",
+  "caseId" : "architecture-tenant-isolation",
+  "variantId" : "local-rigorous",
+  "repetition" : 1,
+  "status" : "COMPLETED",
+  "answer" : "**Final Recommendation:**\n\nImplement a multi-tenant, multi-VC (Virtual Cluster) PostgreSQL architecture with a combination of database-level and instance-level isolation, as proposed in draft-7467AC82. This approach ensures that each tenant's data is isolated within a single database instance, and each tenant is run on a separate PostgreSQL instance with its own set of resources, preventing query load from one tenant impacting others.\n\n**Rationale:**\n\n1. **Database-level isolation**: PostgreSQL's built-in features, such as tablespaces and table partitioning, can be used to isolate each tenant's data within a single database instance.\n2. **Instance-level isolation**: Running each tenant on a separate PostgreSQL instance with its own resources ensures that query loads do not impact other tenants.\n3. **VC-based architecture**: Organizing instances into Virtual Clusters (VCs) allows for efficient resource allocation, monitoring, and management.\n4. **Load balancing and resource allocation**: Implementing a load balancer to distribute query loads across instances within a VC, and allocating resources based on tenant requirements, ensures optimal performance.\n\n**Important Dissent:**\n\nWhile the majority of the council members agree on the multi-tenant, multi-VC approach, some concerns remain:\n\n* Reviewer local-qwen on draft-7467AC82 suggests considering alternative data isolation models, such as MT-VPD or Federation, which could be more suitable for large-scale B2B products.\n* Reviewer local-mistral on draft-7467AC82 suggests expanding the uncertainties and assumptions section to address potential challenges in implementing the proposed solution.\n\n**Unresolved Risks:**\n\n1. **Tenant size distribution**: Further analysis is needed to determine the actual size distribution and its impact on resource allocation.\n2. **Enterprise customer requirements**: The two enterprise customers require co-residency guarantees, but it is unclear whether this requirement applies to all tenants or only these two customers.\n3. **Engineering team capacity**: The engineering team's capacity to manage multiple clusters and implement the proposed solution is uncertain.\n\n**Confidence:**\n\nThe final recommendation has a confidence score of 85, based on the weighted average of the council members' scores and confidence levels.\n\nNote: The final answer synthesizes the strongest reasoning from all drafts, corrects errors identified in reviews, and weights positions by their review scores where available. The final recommendation is a compromise between the different proposals, taking into account the concerns and uncertainties raised by the council members.",
+  "startedAt" : "2026-08-19T19:20:00.493481Z",
+  "completedAt" : "2026-08-19T19:23:43.266537Z",
+  "durationMs" : 222773,
+  "usage" : {
+    "calls" : 8,
+    "promptTokens" : 7777,
+    "completionTokens" : 4321,
+    "estimatedCostUsd" : null,
+    "estimated" : false,
+    "partiallyPriced" : false
+  },
+  "failureCategory" : null,
+  "failureReason" : null,
+  "warnings" : [ ],
+  "componentAnswers" : [ ],
+  "councilResult" : {
+    "sessionId" : "f3e8abc1-3049-458b-9eeb-a2500765854b",
+    "status" : "COMPLETED",
+    "profileId" : "local",
+    "depthMode" : "RIGOROUS",
+    "policyId" : "local-rigorous",
+    "protocolId" : "rigorous",
+    "answer" : "**Final Recommendation:**\n\nImplement a multi-tenant, multi-VC (Virtual Cluster) PostgreSQL architecture with a combination of database-level and instance-level isolation, as proposed in draft-7467AC82. This approach ensures that each tenant's data is isolated within a single database instance, and each tenant is run on a separate PostgreSQL instance with its own set of resources, preventing query load from one tenant impacting others.\n\n**Rationale:**\n\n1. **Database-level isolation**: PostgreSQL's built-in features, such as tablespaces and table partitioning, can be used to isolate each tenant's data within a single database instance.\n2. **Instance-level isolation**: Running each tenant on a separate PostgreSQL instance with its own resources ensures that query loads do not impact other tenants.\n3. **VC-based architecture**: Organizing instances into Virtual Clusters (VCs) allows for efficient resource allocation, monitoring, and management.\n4. **Load balancing and resource allocation**: Implementing a load balancer to distribute query loads across instances within a VC, and allocating resources based on tenant requirements, ensures optimal performance.\n\n**Important Dissent:**\n\nWhile the majority of the council members agree on the multi-tenant, multi-VC approach, some concerns remain:\n\n* Reviewer local-qwen on draft-7467AC82 suggests considering alternative data isolation models, such as MT-VPD or Federation, which could be more suitable for large-scale B2B products.\n* Reviewer local-mistral on draft-7467AC82 suggests expanding the uncertainties and assumptions section to address potential challenges in implementing the proposed solution.\n\n**Unresolved Risks:**\n\n1. **Tenant size distribution**: Further analysis is needed to determine the actual size distribution and its impact on resource allocation.\n2. **Enterprise customer requirements**: The two enterprise customers require co-residency guarantees, but it is unclear whether this requirement applies to all tenants or only these two customers.\n3. **Engineering team capacity**: The engineering team's capacity to manage multiple clusters and implement the proposed solution is uncertain.\n\n**Confidence:**\n\nThe final recommendation has a confidence score of 85, based on the weighted average of the council members' scores and confidence levels.\n\nNote: The final answer synthesizes the strongest reasoning from all drafts, corrects errors identified in reviews, and weights positions by their review scores where available. The final recommendation is a compromise between the different proposals, taking into account the concerns and uncertainties raised by the council members.",
+    "draftCount" : 3,
+    "reviewCount" : 6,
+    "debateRounds" : 0,
+    "participatingModels" : [ "local-llama3", "local-mistral", "local-qwen" ],
+    "excludedModels" : [ ],
+    "warnings" : [ ],
+    "sycophancyWarnings" : [ ],
+    "scoreSummary" : {
+      "scores" : [ {
+        "scorerId" : "confidence-weighted",
+        "draftId" : "draft-7467AC82",
+        "dimensionScores" : {
+          "accuracy" : 87.35294117647058,
+          "completeness" : 79.99999999999999,
+          "reasoning" : 87.35294117647058,
+          "clarity" : 89.99999999999999,
+          "constructiveness" : 82.6470588235294
+        },
+        "weightedTotal" : 85.47058823529412,
+        "label" : "initial"
+      }, {
+        "scorerId" : "confidence-weighted",
+        "draftId" : "draft-F9B82D32",
+        "dimensionScores" : {
+          "accuracy" : 77.94117647058823,
+          "completeness" : 70.58823529411764,
+          "reasoning" : 82.6470588235294,
+          "clarity" : 89.99999999999999,
+          "constructiveness" : 82.6470588235294
+        },
+        "weightedTotal" : 80.29411764705881,
+        "label" : "initial"
+      }, {
+        "scorerId" : "confidence-weighted",
+        "draftId" : "draft-18A8EADF",
+        "dimensionScores" : {
+          "accuracy" : 87.42424242424242,
+          "completeness" : 77.42424242424242,
+          "reasoning" : 80.0,
+          "clarity" : 92.57575757575758,
+          "constructiveness" : 82.57575757575758
+        },
+        "weightedTotal" : 82.96969696969698,
+        "label" : "initial"
+      } ],
+      "variance" : 4.467669953881569,
+      "winningDraftId" : "draft-7467AC82",
+      "escalated" : false,
+      "escalationPolicy" : null,
+      "reviewerDisagreement" : 25.0,
+      "disagreementMeasurable" : true
+    },
+    "validation" : {
+      "validatorId" : "local-validator",
+      "approved" : true,
+      "confidence" : 0.85,
+      "issues" : [ ],
+      "recommendedFixes" : [ ],
+      "criteria" : {
+        "uncertainty" : "pass - The answer identifies unresolved risks and uncertainties related to tenant size distribution, enterprise customer requirements, and engineering team capacity.",
+        "correctness" : "pass - The recommendation provides a detailed and feasible data isolation model for the given context.",
+        "completeness" : "pass - The recommendation includes a rationale, addresses potential concerns, and acknowledges unresolved risks.",
+        "actionability" : "pass - The recommendation provides a clear and actionable final recommendation, as well as alternative data isolation models for further consideration.",
+        "safety" : "pass - The recommendation considers potential attacker actions, such as query load degradation, and proposes a solution to mitigate these risks."
+      },
+      "requiresHumanReview" : false,
+      "rawText" : "{\n  \"approved\": true,\n  \"confidence\": 0.85,\n  \"issues\": [],\n  \"recommendedFixes\": [],\n  \"criteria\": {\n    \"correctness\": \"pass - The recommendation provides a detailed and feasible data isolation model for the given context.\",\n    \"completeness\": \"pass - The recommendation includes a rationale, addresses potential concerns, and acknowledges unresolved risks.\",\n    \"uncertainty\": \"pass - The answer identifies unresolved risks and uncertainties related to tenant size distribution, enterprise customer requirements, and engineering team capacity.\",\n    \"safety\": \"pass - The recommendation considers potential attacker actions, such as query load degradation, and proposes a solution to mitigate these risks.\",\n    \"actionability\": \"pass - The recommendation provides a clear and actionable final recommendation, as well as alternative data isolation models for further consideration.\"\n  },\n  \"requiresHumanReview\": false\n}"
+    },
+    "validationIndependence" : "INDEPENDENT",
+    "failureReason" : null,
+    "failureCategory" : null,
+    "modelFailures" : [ ],
+    "usage" : {
+      "promptTokens" : 7777,
+      "completionTokens" : 4321,
+      "totalTokens" : 12098,
+      "calls" : 8,
+      "estimatedCostUsd" : null,
+      "estimated" : false,
+      "partiallyPriced" : false,
+      "byModel" : [ {
+        "modelId" : "local-mistral",
+        "calls" : 2,
+        "promptTokens" : 1851,
+        "completionTokens" : 1216,
+        "totalTokens" : 3067,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "modelId" : "local-llama3",
+        "calls" : 2,
+        "promptTokens" : 1525,
+        "completionTokens" : 1330,
+        "totalTokens" : 2855,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "modelId" : "local-qwen",
+        "calls" : 2,
+        "promptTokens" : 1558,
+        "completionTokens" : 1058,
+        "totalTokens" : 2616,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "modelId" : "local-chair",
+        "calls" : 1,
+        "promptTokens" : 1672,
+        "completionTokens" : 498,
+        "totalTokens" : 2170,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "modelId" : "local-validator",
+        "calls" : 1,
+        "promptTokens" : 1171,
+        "completionTokens" : 219,
+        "totalTokens" : 1390,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      } ],
+      "byStage" : [ {
+        "stage" : "GENERATE",
+        "calls" : 3,
+        "promptTokens" : 643,
+        "completionTokens" : 824,
+        "totalTokens" : 1467,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "stage" : "REVIEW",
+        "calls" : 3,
+        "promptTokens" : 4291,
+        "completionTokens" : 2780,
+        "totalTokens" : 7071,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "stage" : "SYNTHESIZE",
+        "calls" : 1,
+        "promptTokens" : 1672,
+        "completionTokens" : 498,
+        "totalTokens" : 2170,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "stage" : "VALIDATE",
+        "calls" : 1,
+        "promptTokens" : 1171,
+        "completionTokens" : 219,
+        "totalTokens" : 1390,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      } ]
+    },
+    "integrity" : {
+      "reduced" : false,
+      "preserveDissent" : true,
+      "sycophancyThreshold" : 0.7,
+      "reviewsPerDraft" : 2,
+      "notes" : [ ]
+    }
+  }
+}

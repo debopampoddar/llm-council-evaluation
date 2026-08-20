@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-balanced:debugging-threadlocal-leak:r1:gemma-local:o2",
+  "pairId" : "direct-vs-balanced:debugging-threadlocal-leak:r1",
+  "comparisonId" : "direct-vs-balanced",
+  "caseId" : "debugging-threadlocal-leak",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "local-balanced",
+  "answerBVariant" : "direct-llama",
+  "status" : "COMPLETED",
+  "winner" : "B",
+  "confidence" : 0.9,
+  "scoresA" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 5.0
+  },
+  "scoresB" : {
+    "constraint-following" : 10.0,
+    "completeness" : 10.0,
+    "correctness" : 10.0,
+    "reasoning" : 10.0,
+    "clarity" : 10.0
+  },
+  "violationsA" : [ "Incorrectly identifies the fix: WeakHashMap does not solve the leak of the Map object itself held by the ThreadLocal in a pooled thread environment.", "Fails to mention the requirement to use a finally block.", "Fails to explain that pooled threads are reused and never terminate.", "Provides a solution that doesn't address the fact that the Map itself is never removed from the ThreadLocal." ],
+  "violationsB" : [ ],
+  "rationale" : "Candidate A provides an incorrect fix. Using a WeakHashMap inside a ThreadLocal does not prevent the leak in a pooled thread environment because the ThreadLocal still holds a strong reference to the Map object itself. Candidate B correctly identifies that the ThreadLocal must be cleared (removed) to prevent the Map from persisting across requests on reused threads. Candidate B also correctly explains the growth over time due to thread reuse and the lack of cleanup.",
+  "rawResponse" : "{\n  \"winner\": \"B\",\n  \"confidence\": 0.9,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 5\n    },\n    \"B\": {\n      \"correctness\": 10,\n      \"completeness\": 10,\n      \"reasoning\": 10,\n      \"constraint-following\": 10,\n      \"clarity\": 10\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Incorrectly identifies the fix: WeakHashMap does not solve the leak of the Map object itself held by the ThreadLocal in a pooled thread environment.\",\n      \"Fails to mention the requirement to use a finally block.\",\n      \"Fails to explain that pooled threads are reused and never terminate.\",\n      \"Provides a solution that doesn't address the fact that the Map itself is never removed from the ThreadLocal.\"\n    ],\n    \"B\": []\n  },\n  \"rationale\": \"Candidate A provides an incorrect fix. Using a WeakHashMap inside a ThreadLocal does not prevent the leak in a pooled thread environment because the ThreadLocal still holds a strong reference to the Map object itself. Candidate B correctly identifies that the ThreadLocal must be cleared (removed) to prevent the Map from persisting across requests on reused threads. Candidate B also correctly explains the growth over time due to thread reuse and the lack of cleanup.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:05:47.756336Z",
+  "durationMs" : 17034,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1599,
+    "completionTokens" : 348,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

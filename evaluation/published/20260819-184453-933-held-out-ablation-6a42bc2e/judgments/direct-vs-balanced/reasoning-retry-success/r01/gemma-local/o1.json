@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-balanced:reasoning-retry-success:r1:gemma-local:o1",
+  "pairId" : "direct-vs-balanced:reasoning-retry-success:r1",
+  "comparisonId" : "direct-vs-balanced",
+  "caseId" : "reasoning-retry-success",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 1,
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-balanced",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "scoresB" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "violationsA" : [ "Incorrect calculation: (1-0.6)^3 is 0.4^3 = 0.064, not 0.032.", "Failed to report success as 1 minus 0.064.", "Failed to state approximately 93.6 percent." ],
+  "violationsB" : [ "Incorrect calculation: claims probability is approximately 0.81.", "Failed to report success as 1 minus 0.064.", "Failed to state approximately 93.6 percent.", "Incorrect logic: claims probability of success in first attempt is the same as the probability of the operation eventually succeeding." ],
+  "rationale" : "Both candidates failed significantly on the core mathematical requirements. The correct calculation is 1 - (0.4^3) = 1 - 0.064 = 0.936. Candidate A calculated 0.4^3 as 0.032 (a basic arithmetic error) and failed to provide the specific required values. Candidate B provided an incorrect probability (0.81) and nonsensical reasoning. Since both failed the primary task and the specific formatting/content requirements, it is a tie.",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    },\n    \"B\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Incorrect calculation: (1-0.6)^3 is 0.4^3 = 0.064, not 0.032.\",\n      \"Failed to report success as 1 minus 0.064.\",\n      \"Failed to state approximately 93.6 percent.\"\n    ],\n    \"B\": [\n      \"Incorrect calculation: claims probability is approximately 0.81.\",\n      \"Failed to report success as 1 minus 0.064.\",\n      \"Failed to state approximately 93.6 percent.\",\n      \"Incorrect logic: claims probability of success in first attempt is the same as the probability of the operation eventually succeeding.\"\n    ]\n  },\n  \"rationale\": \"Both candidates failed significantly on the core mathematical requirements. The correct calculation is 1 - (0.4^3) = 1 - 0.064 = 0.936. Candidate A calculated 0.4^3 as 0.032 (a basic arithmetic error) and failed to provide the specific required values. Candidate B provided an incorrect probability (0.81) and nonsensical reasoning. Since both failed the primary task and the specific formatting/content requirements, it is a tie.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:13:09.628328Z",
+  "durationMs" : 21325,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1422,
+    "completionTokens" : 425,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

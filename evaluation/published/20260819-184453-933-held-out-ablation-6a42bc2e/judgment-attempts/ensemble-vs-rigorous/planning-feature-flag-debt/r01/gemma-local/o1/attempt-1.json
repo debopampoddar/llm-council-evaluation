@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "ensemble-vs-rigorous:planning-feature-flag-debt:r1:gemma-local:o1",
+  "pairId" : "ensemble-vs-rigorous:planning-feature-flag-debt:r1",
+  "comparisonId" : "ensemble-vs-rigorous",
+  "caseId" : "planning-feature-flag-debt",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 1,
+  "answerAVariant" : "llama-ensemble",
+  "answerBVariant" : "local-rigorous",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "scoresB" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "violationsA" : [ "Violates red flag: Recommends removing emergency kill switches first (the prompt and facts state these are permanent operational controls and should not be removed).", "Fails to use runtime evaluation telemetry as a specific method for finding dead flags.", "Fails to explicitly mention removing the losing branch together with the check." ],
+  "violationsB" : [ "Fails to use runtime evaluation telemetry as a specific method for finding dead flags.", "Fails to explicitly mention removing the losing branch together with the check.", "Does not explicitly mention the requirement to classify flags before removing any (though it mentions audit)." ],
+  "rationale" : "Both candidates fail significantly on several specific requirements and red flags. \n\nCandidate A contains a major red flag violation: it recommends removing 'emergency kill switches' first, whereas the reference facts state these are permanent operational controls and the red flags explicitly forbid removing them. It also fails to incorporate the specific technical requirements (telemetry for dead flags, removing the losing branch).\n\nCandidate B is also insufficient as it fails to incorporate the specific technical requirements (telemetry for dead flags, removing the losing branch) and does not clearly address the classification requirement. \n\nBecause both models failed to incorporate the specific technical constraints provided in the prompt (telemetry, losing branch removal) and Candidate A failed a critical red flag, neither provides a high-quality response. However, since both are equally inadequate at following the specific instructions provided in the context/requirements, a tie is declared.",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    },\n    \"B\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Violates red flag: Recommends removing emergency kill switches first (the prompt and facts state these are permanent operational controls and should not be removed).\",\n      \"Fails to use runtime evaluation telemetry as a specific method for finding dead flags.\",\n      \"Fails to explicitly mention removing the losing branch together with the check.\"\n    ],\n    \"B\": [\n      \"Fails to use runtime evaluation telemetry as a specific method for finding dead flags.\",\n      \"Fails to explicitly mention removing the losing branch together with the check.\",\n      \"Does not explicitly mention the requirement to classify flags before removing any (though it mentions audit).\"\n    ]\n  },\n  \"rationale\": \"Both candidates fail significantly on several specific requirements and red flags. \\n\\nCandidate A contains a major red flag violation: it recommends removing 'emergency kill switches' first, whereas the reference facts state these are permanent operational controls and the red flags explicitly forbid removing them. It also fails to incorporate the specific technical requirements (telemetry for dead flags, removing the losing branch).\\n\\nCandidate B is also insufficient as it fails to incorporate the specific technical requirements (telemetry for dead flags, removing the losing branch) and does not clearly address the classification requirement. \\n\\nBecause both models failed to incorporate the specific technical constraints provided in the prompt (telemetry, losing branch removal) and Candidate A failed a critical red flag, neither provides a high-quality response. However, since both are equally inadequate at following the specific instructions provided in the context/requirements, a tie is declared.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T09:04:59.547608Z",
+  "durationMs" : 24414,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 2107,
+    "completionTokens" : 481,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

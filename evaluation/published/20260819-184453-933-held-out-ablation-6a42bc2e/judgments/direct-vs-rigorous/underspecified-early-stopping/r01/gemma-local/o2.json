@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-rigorous:underspecified-early-stopping:r1:gemma-local:o2",
+  "pairId" : "direct-vs-rigorous:underspecified-early-stopping:r1",
+  "comparisonId" : "direct-vs-rigorous",
+  "caseId" : "underspecified-early-stopping",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-rigorous",
+  "status" : "COMPLETED",
+  "winner" : "A",
+  "confidence" : 0.9,
+  "scoresA" : {
+    "constraint-following" : 9.0,
+    "completeness" : 8.0,
+    "correctness" : 10.0,
+    "reasoning" : 9.0,
+    "clarity" : 10.0
+  },
+  "scoresB" : {
+    "constraint-following" : 6.0,
+    "completeness" : 6.0,
+    "correctness" : 10.0,
+    "reasoning" : 7.0,
+    "clarity" : 8.0
+  },
+  "violationsA" : [ ],
+  "violationsB" : [ "Failed to offer a valid alternative such as a pre-registered sequential test.", "Failed to explicitly mention regression to the mean." ],
+  "rationale" : "Candidate A is the better response because it follows the instructions more closely. While both candidates correctly advise against stopping the test and identify the issues with frequent checking and lack of sample size, Candidate A provides a clearer structure. Candidate B fails to include the specific requirement to offer a valid alternative (sequential testing) and fails to mention regression to the mean, both of which were explicitly requested in the prompt. Candidate B also includes unnecessary meta-commentary about 'Reviewer local-qwen' which was not part of the prompt's requirements.",
+  "rawResponse" : "{\n  \"winner\": \"A\",\n  \"confidence\": 0.9,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 10,\n      \"completeness\": 8,\n      \"reasoning\": 9,\n      \"constraint-following\": 9,\n      \"clarity\": 10\n    },\n    \"B\": {\n      \"correctness\": 10,\n      \"completeness\": 6,\n      \"reasoning\": 7,\n      \"constraint-following\": 6,\n      \"clarity\": 8\n    }\n  },\n  \"violations\": {\n    \"A\": [],\n    \"B\": [\n      \"Failed to offer a valid alternative such as a pre-registered sequential test.\",\n      \"Failed to explicitly mention regression to the mean.\"\n    ]\n  },\n  \"rationale\": \"Candidate A is the better response because it follows the instructions more closely. While both candidates correctly advise against stopping the test and identify the issues with frequent checking and lack of sample size, Candidate A provides a clearer structure. Candidate B fails to include the specific requirement to offer a valid alternative (sequential testing) and fails to mention regression to the mean, both of which were explicitly requested in the prompt. Candidate B also includes unnecessary meta-commentary about 'Reviewer local-qwen' which was not part of the prompt's requirements.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:44:35.997035Z",
+  "durationMs" : 15453,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1410,
+    "completionTokens" : 311,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-rigorous:debugging-threadlocal-leak:r1:gemma-local:o1",
+  "pairId" : "direct-vs-rigorous:debugging-threadlocal-leak:r1",
+  "comparisonId" : "direct-vs-rigorous",
+  "caseId" : "debugging-threadlocal-leak",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 1,
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-rigorous",
+  "status" : "COMPLETED",
+  "winner" : "A",
+  "confidence" : 0.9,
+  "scoresA" : {
+    "constraint-following" : 10.0,
+    "completeness" : 9.0,
+    "correctness" : 10.0,
+    "reasoning" : 10.0,
+    "clarity" : 10.0
+  },
+  "scoresB" : {
+    "constraint-following" : 5.0,
+    "completeness" : 5.0,
+    "correctness" : 0.0,
+    "reasoning" : 5.0,
+    "clarity" : 8.0
+  },
+  "violationsA" : [ ],
+  "violationsB" : [ "The provided fix is logically incorrect: calling map.clear() inside put() would wipe out the state for the current request immediately after it is set, making the state useless.", "Failed to explicitly mention the 'finally' block requirement for the fix." ],
+  "rationale" : "Candidate A correctly identifies the defect and provides a logically sound fix (providing a clear/remove method to be called in a finally block). Candidate B provides a fundamentally broken fix: it calls `map.clear()` inside the `put()` method, which would delete the data the user just tried to save. Candidate B also fails to mention the 'finally' block requirement specified in the prompt.",
+  "rawResponse" : "{\n  \"winner\": \"A\",\n  \"confidence\": 0.9,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 10,\n      \"completeness\": 9,\n      \"reasoning\": 10,\n      \"constraint-following\": 10,\n      \"clarity\": 10\n    },\n    \"B\": {\n      \"correctness\": 0,\n      \"completeness\": 5,\n      \"reasoning\": 5,\n      \"constraint-following\": 5,\n      \"clarity\": 8\n    }\n  },\n  \"violations\": {\n    \"A\": [],\n    \"B\": [\n      \"The provided fix is logically incorrect: calling map.clear() inside put() would wipe out the state for the current request immediately after it is set, making the state useless.\",\n      \"Failed to explicitly mention the 'finally' block requirement for the fix.\"\n    ]\n  },\n  \"rationale\": \"Candidate A correctly identifies the defect and provides a logically sound fix (providing a clear/remove method to be called in a finally block). Candidate B provides a fundamentally broken fix: it calls `map.clear()` inside the `put()` method, which would delete the data the user just tried to save. Candidate B also fails to mention the 'finally' block requirement specified in the prompt.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:28:30.224107Z",
+  "durationMs" : 16633,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1678,
+    "completionTokens" : 307,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

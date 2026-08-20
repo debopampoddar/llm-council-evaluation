@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-balanced:reasoning-spam-ppv:r1:gemma-local:o1",
+  "pairId" : "direct-vs-balanced:reasoning-spam-ppv:r1",
+  "comparisonId" : "direct-vs-balanced",
+  "caseId" : "reasoning-spam-ppv",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 1,
+  "answerAVariant" : "local-balanced",
+  "answerBVariant" : "direct-llama",
+  "status" : "COMPLETED",
+  "winner" : "B",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "scoresB" : {
+    "constraint-following" : 100.0,
+    "completeness" : 100.0,
+    "correctness" : 100.0,
+    "reasoning" : 100.0,
+    "clarity" : 100.0
+  },
+  "violationsA" : [ "Incorrect calculation: The candidate claims the probability is 94.1%, but the correct calculation (180/220) is approximately 81.8%.", "Incorrect logic: The candidate incorrectly identifies the total flagged messages as 240 in step 3, while the correct sum of flagged spam (180) and flagged non-spam (40) is 220." ],
+  "violationsB" : [ ],
+  "rationale" : "Candidate B correctly follows all instructions, including the specific requirements to compute the expected counts (180 flagged spam, 40 flagged non-spam) and the final probability (approximately 81.8%). Candidate A fails the primary calculation, providing an incorrect probability of 94.1% and an incorrect total of flagged messages (240 instead of 220).",
+  "rawResponse" : "{\n  \"winner\": \"B\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    },\n    \"B\": {\n      \"correctness\": 100,\n      \"completeness\": 100,\n      \"reasoning\": 100,\n      \"constraint-following\": 100,\n      \"clarity\": 100\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Incorrect calculation: The candidate claims the probability is 94.1%, but the correct calculation (180/220) is approximately 81.8%.\",\n      \"Incorrect logic: The candidate incorrectly identifies the total flagged messages as 240 in step 3, while the correct sum of flagged spam (180) and flagged non-spam (40) is 220.\"\n    ],\n    \"B\": []\n  },\n  \"rationale\": \"Candidate B correctly follows all instructions, including the specific requirements to compute the expected counts (180 flagged spam, 40 flagged non-spam) and the final probability (approximately 81.8%). Candidate A fails the primary calculation, providing an incorrect probability of 94.1% and an incorrect total of flagged messages (240 instead of 220).\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:12:31.341324Z",
+  "durationMs" : 19443,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1654,
+    "completionTokens" : 350,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

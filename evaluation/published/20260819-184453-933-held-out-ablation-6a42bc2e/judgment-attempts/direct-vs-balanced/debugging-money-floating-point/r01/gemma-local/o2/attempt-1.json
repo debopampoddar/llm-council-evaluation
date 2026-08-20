@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-balanced:debugging-money-floating-point:r1:gemma-local:o2",
+  "pairId" : "direct-vs-balanced:debugging-money-floating-point:r1",
+  "comparisonId" : "direct-vs-balanced",
+  "caseId" : "debugging-money-floating-point",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "local-balanced",
+  "answerBVariant" : "direct-llama",
+  "status" : "COMPLETED",
+  "winner" : "B",
+  "confidence" : 0.9,
+  "scoresA" : {
+    "constraint-following" : 8.0,
+    "completeness" : 7.0,
+    "correctness" : 10.0,
+    "reasoning" : 8.0,
+    "clarity" : 9.0
+  },
+  "scoresB" : {
+    "constraint-following" : 10.0,
+    "completeness" : 10.0,
+    "correctness" : 10.0,
+    "reasoning" : 10.0,
+    "clarity" : 10.0
+  },
+  "violationsA" : [ "The response includes a meta-commentary section ('Final Recommendation/Answer', 'Rationale', 'Important Dissent', 'Unresolved Risks') which was not requested and makes the answer less direct.", "It fails to explicitly mention the 'integer minor units' alternative requested in the requirements." ],
+  "violationsB" : [ ],
+  "rationale" : "Candidate B is the superior answer because it directly addresses all requirements of the prompt without including unnecessary meta-commentary or 'council' dialogue. Candidate B correctly identifies the binary floating-point issue, the accumulation of errors, and provides the specific technical recommendations (BigDecimal, DECIMAL/NUMERIC, and specific RoundingModes). Candidate A includes a lot of fluff and fails to mention the 'integer minor units' strategy explicitly requested in the requirements.",
+  "rawResponse" : "{\n  \"winner\": \"B\",\n  \"confidence\": 0.9,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 10,\n      \"completeness\": 7,\n      \"reasoning\": 8,\n      \"constraint-following\": 8,\n      \"clarity\": 9\n    },\n    \"B\": {\n      \"correctness\": 10,\n      \"completeness\": 10,\n      \"reasoning\": 10,\n      \"constraint-following\": 10,\n      \"clarity\": 10\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"The response includes a meta-commentary section ('Final Recommendation/Answer', 'Rationale', 'Important Dissent', 'Unresolved Risks') which was not requested and makes the answer less direct.\",\n      \"It fails to explicitly mention the 'integer minor units' alternative requested in the requirements.\"\n    ],\n    \"B\": []\n  },\n  \"rationale\": \"Candidate B is the superior answer because it directly addresses all requirements of the prompt without including unnecessary meta-commentary or 'council' dialogue. Candidate B correctly identifies the binary floating-point issue, the accumulation of errors, and provides the specific technical recommendations (BigDecimal, DECIMAL/NUMERIC, and specific RoundingModes). Candidate A includes a lot of fluff and fails to mention the 'integer minor units' strategy explicitly requested in the requirements.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:08:20.018167Z",
+  "durationMs" : 16314,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1567,
+    "completionTokens" : 326,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

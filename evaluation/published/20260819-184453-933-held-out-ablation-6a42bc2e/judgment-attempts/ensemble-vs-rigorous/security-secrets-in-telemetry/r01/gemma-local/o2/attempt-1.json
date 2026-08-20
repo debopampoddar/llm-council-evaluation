@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "ensemble-vs-rigorous:security-secrets-in-telemetry:r1:gemma-local:o2",
+  "pairId" : "ensemble-vs-rigorous:security-secrets-in-telemetry:r1",
+  "comparisonId" : "ensemble-vs-rigorous",
+  "caseId" : "security-secrets-in-telemetry",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "llama-ensemble",
+  "answerBVariant" : "local-rigorous",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "scoresB" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "violationsA" : [ "Failed to treat exposed keys as compromised and require rotation.", "Failed to reject aggregator-side redaction as sufficient (actually recommended it).", "Failed to recommend pre-emission scanning.", "Failed to address the 400-day retention/deletion request specifically." ],
+  "violationsB" : [ "Failed to treat exposed keys as compromised and require rotation.", "Failed to reject aggregator-side redaction as sufficient.", "Failed to recommend pre-emission scanning.", "Failed to address the 400-day retention/deletion request specifically.", "The response is meta-commentary about a 'council' and 'drafts' rather than a direct answer to the prompt." ],
+  "rationale" : "Both candidates failed significantly on almost every specific requirement provided in the prompt. Neither candidate mentioned the mandatory requirement to rotate the keys (the only way to restore security), neither rejected the aggregator-side redaction (both failed to acknowledge it as insufficient), and neither mentioned pre-emission scanning or specific deletion requests for the 400-day retention. Candidate A actually recommended the forbidden aggregator-side redaction. Candidate B provided a meta-analysis of 'council members' and 'drafts' instead of answering the prompt. Since both are functionally useless for the specific constraints provided, it is a tie.",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    },\n    \"B\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Failed to treat exposed keys as compromised and require rotation.\",\n      \"Failed to reject aggregator-side redaction as sufficient (actually recommended it).\",\n      \"Failed to recommend pre-emission scanning.\",\n      \"Failed to address the 400-day retention/deletion request specifically.\"\n    ],\n    \"B\": [\n      \"Failed to treat exposed keys as compromised and require rotation.\",\n      \"Failed to reject aggregator-side redaction as sufficient.\",\n      \"Failed to recommend pre-emission scanning.\",\n      \"Failed to address the 400-day retention/deletion request specifically.\",\n      \"The response is meta-commentary about a 'council' and 'drafts' rather than a direct answer to the prompt.\"\n    ]\n  },\n  \"rationale\": \"Both candidates failed significantly on almost every specific requirement provided in the prompt. Neither candidate mentioned the mandatory requirement to rotate the keys (the only way to restore security), neither rejected the aggregator-side redaction (both failed to acknowledge it as insufficient), and neither mentioned pre-emission scanning or specific deletion requests for the 400-day retention. Candidate A actually recommended the forbidden aggregator-side redaction. Candidate B provided a meta-analysis of 'council members' and 'drafts' instead of answering the prompt. Since both are functionally useless for the specific constraints provided, it is a tie.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:59:10.439729Z",
+  "durationMs" : 20482,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1664,
+    "completionTokens" : 445,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

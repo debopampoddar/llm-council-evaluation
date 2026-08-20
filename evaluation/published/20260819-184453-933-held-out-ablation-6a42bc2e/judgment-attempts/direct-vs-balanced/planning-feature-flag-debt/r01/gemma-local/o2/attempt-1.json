@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-balanced:planning-feature-flag-debt:r1:gemma-local:o2",
+  "pairId" : "direct-vs-balanced:planning-feature-flag-debt:r1",
+  "comparisonId" : "direct-vs-balanced",
+  "caseId" : "planning-feature-flag-debt",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "local-balanced",
+  "answerBVariant" : "direct-llama",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 2.0,
+    "completeness" : 3.0,
+    "correctness" : 4.0,
+    "reasoning" : 3.0,
+    "clarity" : 5.0
+  },
+  "scoresB" : {
+    "constraint-following" : 2.0,
+    "completeness" : 3.0,
+    "correctness" : 4.0,
+    "reasoning" : 3.0,
+    "clarity" : 5.0
+  },
+  "violationsA" : [ "Failed to provide a specific process; instead provided a meta-commentary/synthesis of two non-existent drafts.", "Failed to address specific requirements like using runtime telemetry or removing the losing branch.", "Failed to distinguish between permanent switches and temporary flags in the process." ],
+  "violationsB" : [ "Failed to use runtime evaluation telemetry to find dead flags.", "Failed to explicitly mention removing the losing branch (leaving unreachable code).", "Failed to explicitly mention the risk of enabling incomplete features during removal.", "Incorrectly suggests prioritizing 'Emergency Kill Switches' for removal (Reference facts state these are permanent operational controls and not debt)." ],
+  "rationale" : "Both candidates fail significantly on the specific requirements provided in the prompt. Candidate A is essentially a 'hallucinated' synthesis of two other drafts (A56037A4 and 7A7A63D) that were not provided in the context, making it useless as a standalone answer. Candidate B provides a generic process but fails several specific constraints: it ignores the requirement to use runtime telemetry, fails to mention removing the losing branch (a specific requirement), and incorrectly suggests prioritizing kill switches for removal (which the reference facts state are permanent controls, not debt). Because both are fundamentally inadequate at following the specific instructions and constraints, they are tied at a low score.",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 4,\n      \"completeness\": 3,\n      \"reasoning\": 3,\n      \"constraint-following\": 2,\n      \"clarity\": 5\n    },\n    \"B\": {\n      \"correctness\": 4,\n      \"completeness\": 3,\n      \"reasoning\": 3,\n      \"constraint-following\": 2,\n      \"clarity\": 5\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Failed to provide a specific process; instead provided a meta-commentary/synthesis of two non-existent drafts.\",\n      \"Failed to address specific requirements like using runtime telemetry or removing the losing branch.\",\n      \"Failed to distinguish between permanent switches and temporary flags in the process.\"\n    ],\n    \"B\": [\n      \"Failed to use runtime evaluation telemetry to find dead flags.\",\n      \"Failed to explicitly mention removing the losing branch (leaving unreachable code).\",\n      \"Failed to explicitly mention the risk of enabling incomplete features during removal.\",\n      \"Incorrectly suggests prioritizing 'Emergency Kill Switches' for removal (Reference facts state these are permanent operational controls and not debt).\"\n    ]\n  },\n  \"rationale\": \"Both candidates fail significantly on the specific requirements provided in the prompt. Candidate A is essentially a 'hallucinated' synthesis of two other drafts (A56037A4 and 7A7A63D) that were not provided in the context, making it useless as a standalone answer. Candidate B provides a generic process but fails several specific constraints: it ignores the requirement to use runtime telemetry, fails to mention removing the losing branch (a specific requirement), and incorrectly suggests prioritizing kill switches for removal (which the reference facts state are permanent controls, not debt). Because both are fundamentally inadequate at following the specific instructions and constraints, they are tied at a low score.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:18:17.075957Z",
+  "durationMs" : 20560,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1639,
+    "completionTokens" : 447,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

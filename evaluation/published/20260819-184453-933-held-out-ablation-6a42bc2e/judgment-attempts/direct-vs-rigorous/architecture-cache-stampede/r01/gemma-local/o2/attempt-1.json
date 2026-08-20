@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-rigorous:architecture-cache-stampede:r1:gemma-local:o2",
+  "pairId" : "direct-vs-rigorous:architecture-cache-stampede:r1",
+  "comparisonId" : "direct-vs-rigorous",
+  "caseId" : "architecture-cache-stampede",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "direct-llama",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "scoresB" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "violationsA" : [ "Failed to name the 'cache stampede' pattern.", "Failed to mention 'TTL jitter'.", "Failed to mention 'serving stale while revalidating'." ],
+  "violationsB" : [ "Failed to mention 'TTL jitter'.", "Failed to mention 'serving stale while revalidating'." ],
+  "rationale" : "Both candidates failed significantly on the specific requirements provided in the prompt. Neither candidate correctly named the 'cache stampede' pattern (Candidate B correctly identified it, but Candidate A did not). More importantly, both candidates failed to include the specific required fixes: 'TTL jitter' and 'serving stale while revalidating'. Candidate A failed to name the pattern entirely, while Candidate B correctly named it but missed the specific technical requirements. Because both failed to meet the core requirements of the prompt, they are tied at a low quality level.",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    },\n    \"B\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Failed to name the 'cache stampede' pattern.\",\n      \"Failed to mention 'TTL jitter'.\",\n      \"Failed to mention 'serving stale while revalidating'.\"\n    ],\n    \"B\": [\n      \"Failed to mention 'TTL jitter'.\",\n      \"Failed to mention 'serving stale while revalidating'.\"\n    ]\n  },\n  \"rationale\": \"Both candidates failed significantly on the specific requirements provided in the prompt. Neither candidate correctly named the 'cache stampede' pattern (Candidate B correctly identified it, but Candidate A did not). More importantly, both candidates failed to include the specific required fixes: 'TTL jitter' and 'serving stale while revalidating'. Candidate A failed to name the pattern entirely, while Candidate B correctly named it but missed the specific technical requirements. Because both failed to meet the core requirements of the prompt, they are tied at a low quality level.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:25:26.996376Z",
+  "durationMs" : 16871,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1590,
+    "completionTokens" : 344,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

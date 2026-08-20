@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "balanced-vs-rigorous:smoke-arithmetic:r1:gemma-local:o2",
+  "pairId" : "balanced-vs-rigorous:smoke-arithmetic:r1",
+  "comparisonId" : "balanced-vs-rigorous",
+  "caseId" : "smoke-arithmetic",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "local-balanced",
+  "status" : "COMPLETED",
+  "winner" : "B",
+  "confidence" : 0.9,
+  "scoresA" : {
+    "reasoning" : 100.0,
+    "correctness" : 100.0,
+    "completeness" : 100.0,
+    "constraint-following" : 100.0,
+    "clarity" : 100.0
+  },
+  "scoresB" : {
+    "reasoning" : 100.0,
+    "correctness" : 100.0,
+    "completeness" : 100.0,
+    "constraint-following" : 100.0,
+    "clarity" : 100.0
+  },
+  "violationsA" : [ ],
+  "violationsB" : [ ],
+  "rationale" : "Both candidates correctly identified the answer (34) and showed the calculation (15% of 40 = 6; 40 - 6 = 34). Both included unnecessary 'council' and 'draft' meta-commentary which was not requested, but since both included it equally, it does not affect the ranking. Candidate B is slightly preferred for its structured layout of the final answer.",
+  "rawResponse" : "{\n  \"winner\": \"B\",\n  \"confidence\": 0.9,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 100,\n      \"completeness\": 100,\n      \"reasoning\": 100,\n      \"constraint-following\": 100,\n      \"clarity\": 100\n    },\n    \"B\": {\n      \"correctness\": 100,\n      \"completeness\": 100,\n      \"reasoning\": 100,\n      \"constraint-following\": 100,\n      \"clarity\": 100\n    }\n  },\n  \"violations\": {\n    \"A\": [],\n    \"B\": []\n  },\n  \"rationale\": \"Both candidates correctly identified the answer (34) and showed the calculation (15% of 40 = 6; 40 - 6 = 34). Both included unnecessary 'council' and 'draft' meta-commentary which was not requested, but since both included it equally, it does not affect the ranking. Candidate B is slightly preferred for its structured layout of the final answer.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-19T18:35:22.716958Z",
+  "durationMs" : 17075,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1531,
+    "completionTokens" : 271,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

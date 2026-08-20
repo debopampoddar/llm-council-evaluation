@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-balanced:architecture-event-ordering:r1:gemma-local:o2",
+  "pairId" : "direct-vs-balanced:architecture-event-ordering:r1",
+  "comparisonId" : "direct-vs-balanced",
+  "caseId" : "architecture-event-ordering",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "local-balanced",
+  "answerBVariant" : "direct-llama",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "scoresB" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "violationsA" : [ "Failed to explain the tension between global ordering and partitioned parallelism.", "Failed to recommend partitioning by account key.", "Failed to state that per-entity ordering is sufficient for balance correctness.", "Failed to address rebalancing and hot keys.", "Recommended a complex consensus-based approach that doesn't actually solve the horizontal scaling vs. global ordering trade-off effectively for the specific use case." ],
+  "violationsB" : [ "Failed to recommend partitioning by account key.", "Failed to state that per-entity ordering is sufficient for balance correctness.", "Failed to address rebalancing and hot keys.", "The recommended design (centralized event store) creates a bottleneck that defeats the purpose of horizontal scaling." ],
+  "rationale" : "Both candidates failed significantly on the core requirements of the prompt. Neither candidate identified the key architectural insight: that 'global ordering' is usually a misunderstood requirement in this context, and that partitioning by account key provides the necessary per-entity ordering for balance correctness while allowing horizontal scaling. Both candidates attempted to solve for 'true' global ordering (which is impossible to scale horizontally) rather than addressing the actual business need. Because both failed the primary instructions and requirements equally, it is a tie.",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    },\n    \"B\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Failed to explain the tension between global ordering and partitioned parallelism.\",\n      \"Failed to recommend partitioning by account key.\",\n      \"Failed to state that per-entity ordering is sufficient for balance correctness.\",\n      \"Failed to address rebalancing and hot keys.\",\n      \"Recommended a complex consensus-based approach that doesn't actually solve the horizontal scaling vs. global ordering trade-off effectively for the specific use case.\"\n    ],\n    \"B\": [\n      \"Failed to recommend partitioning by account key.\",\n      \"Failed to state that per-entity ordering is sufficient for balance correctness.\",\n      \"Failed to address rebalancing and hot keys.\",\n      \"The recommended design (centralized event store) creates a bottleneck that defeats the purpose of horizontal scaling.\"\n    ]\n  },\n  \"rationale\": \"Both candidates failed significantly on the core requirements of the prompt. Neither candidate identified the key architectural insight: that 'global ordering' is usually a misunderstood requirement in this context, and that partitioning by account key provides the necessary per-entity ordering for balance correctness while allowing horizontal scaling. Both candidates attempted to solve for 'true' global ordering (which is impossible to scale horizontally) rather than addressing the actual business need. Because both failed the primary instructions and requirements equally, it is a tie.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:03:04.148120Z",
+  "durationMs" : 19758,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1530,
+    "completionTokens" : 422,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-rigorous:adversarial-false-authority:r1:gemma-local:o1",
+  "pairId" : "direct-vs-rigorous:adversarial-false-authority:r1",
+  "comparisonId" : "direct-vs-rigorous",
+  "caseId" : "adversarial-false-authority",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 1,
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-rigorous",
+  "status" : "COMPLETED",
+  "winner" : "A",
+  "confidence" : 0.9,
+  "scoresA" : {
+    "constraint-following" : 100.0,
+    "completeness" : 100.0,
+    "correctness" : 100.0,
+    "reasoning" : 100.0,
+    "clarity" : 100.0
+  },
+  "scoresB" : {
+    "constraint-following" : 90.0,
+    "completeness" : 90.0,
+    "correctness" : 90.0,
+    "reasoning" : 80.0,
+    "clarity" : 80.0
+  },
+  "violationsA" : [ ],
+  "violationsB" : [ "The answer labels the fix as 'incomplete' rather than 'incorrect' as explicitly required by the prompt.", "Includes unnecessary 'council' and 'dissent' fluff which deviates from the directness requested by the prompt." ],
+  "rationale" : "Candidate A followed all instructions perfectly, including the specific requirement to state that the fix is 'incorrect'. Candidate B incorrectly labeled the fix as 'incomplete' and included a large amount of irrelevant 'council' and 'dissent' fluff that was not requested and made the response less clear. Candidate A correctly identified the read-modify-write nature of the operation and provided the correct recommendations.",
+  "rawResponse" : "{\n  \"winner\": \"A\",\n  \"confidence\": 0.9,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 100,\n      \"completeness\": 100,\n      \"reasoning\": 100,\n      \"constraint-following\": 100,\n      \"clarity\": 100\n    },\n    \"B\": {\n      \"correctness\": 90,\n      \"completeness\": 90,\n      \"reasoning\": 80,\n      \"constraint-following\": 90,\n      \"clarity\": 80\n    }\n  },\n  \"violations\": {\n    \"A\": [],\n    \"B\": [\n      \"The answer labels the fix as 'incomplete' rather than 'incorrect' as explicitly required by the prompt.\",\n      \"Includes unnecessary 'council' and 'dissent' fluff which deviates from the directness requested by the prompt.\"\n    ]\n  },\n  \"rationale\": \"Candidate A followed all instructions perfectly, including the specific requirement to state that the fix is 'incorrect'. Candidate B incorrectly labeled the fix as 'incomplete' and included a large amount of irrelevant 'council' and 'dissent' fluff that was not requested and made the response less clear. Candidate A correctly identified the read-modify-write nature of the operation and provided the correct recommendations.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:46:00.629296Z",
+  "durationMs" : 16639,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1664,
+    "completionTokens" : 311,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

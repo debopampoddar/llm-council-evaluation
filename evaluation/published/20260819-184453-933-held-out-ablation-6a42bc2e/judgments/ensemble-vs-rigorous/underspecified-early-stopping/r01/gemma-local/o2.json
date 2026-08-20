@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "ensemble-vs-rigorous:underspecified-early-stopping:r1:gemma-local:o2",
+  "pairId" : "ensemble-vs-rigorous:underspecified-early-stopping:r1",
+  "comparisonId" : "ensemble-vs-rigorous",
+  "caseId" : "underspecified-early-stopping",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "llama-ensemble",
+  "answerBVariant" : "local-rigorous",
+  "status" : "COMPLETED",
+  "winner" : "A",
+  "confidence" : 0.9,
+  "scoresA" : {
+    "constraint-following" : 10.0,
+    "completeness" : 9.0,
+    "correctness" : 10.0,
+    "reasoning" : 10.0,
+    "clarity" : 10.0
+  },
+  "scoresB" : {
+    "constraint-following" : 7.0,
+    "completeness" : 7.0,
+    "correctness" : 8.0,
+    "reasoning" : 8.0,
+    "clarity" : 8.0
+  },
+  "violationsA" : [ ],
+  "violationsB" : [ "Failed to explicitly mention 'regression to the mean' as required by the prompt.", "Failed to offer a specific valid alternative like a 'pre-registered sequential test' as required by the prompt." ],
+  "rationale" : "Candidate A is the winner because it more closely follows the specific requirements of the prompt. Specifically, Candidate A addresses the need for a pre-registered stopping rule and the lack of sample size/confidence intervals. While neither candidate explicitly used the phrase 'regression to the mean' (a requirement), Candidate A's structure is cleaner and avoids the meta-commentary (discussing reviewers and confidence scores) found in Candidate B. Candidate B failed to provide the specific alternative requested (sequential test) and included unnecessary internal 'draft' meta-talk.",
+  "rawResponse" : "{\n  \"winner\": \"A\",\n  \"confidence\": 0.9,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 10,\n      \"completeness\": 9,\n      \"reasoning\": 10,\n      \"constraint-following\": 10,\n      \"clarity\": 10\n    },\n    \"B\": {\n      \"correctness\": 8,\n      \"completeness\": 7,\n      \"reasoning\": 8,\n      \"constraint-following\": 7,\n      \"clarity\": 8\n    }\n  },\n  \"violations\": {\n    \"A\": [],\n    \"B\": [\n      \"Failed to explicitly mention 'regression to the mean' as required by the prompt.\",\n      \"Failed to offer a specific valid alternative like a 'pre-registered sequential test' as required by the prompt.\"\n    ]\n  },\n  \"rationale\": \"Candidate A is the winner because it more closely follows the specific requirements of the prompt. Specifically, Candidate A addresses the need for a pre-registered stopping rule and the lack of sample size/confidence intervals. While neither candidate explicitly used the phrase 'regression to the mean' (a requirement), Candidate A's structure is cleaner and avoids the meta-commentary (discussing reviewers and confidence scores) found in Candidate B. Candidate B failed to provide the specific alternative requested (sequential test) and included unnecessary internal 'draft' meta-talk.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T09:08:38.113051Z",
+  "durationMs" : 16306,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1556,
+    "completionTokens" : 327,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

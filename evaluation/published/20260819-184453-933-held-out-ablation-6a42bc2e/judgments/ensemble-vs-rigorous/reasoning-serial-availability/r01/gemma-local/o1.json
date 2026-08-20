@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "ensemble-vs-rigorous:reasoning-serial-availability:r1:gemma-local:o1",
+  "pairId" : "ensemble-vs-rigorous:reasoning-serial-availability:r1",
+  "comparisonId" : "ensemble-vs-rigorous",
+  "caseId" : "reasoning-serial-availability",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 1,
+  "answerAVariant" : "llama-ensemble",
+  "answerBVariant" : "local-rigorous",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "scoresB" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "violationsA" : [ "Incorrect calculation: 0.999^4 is ~0.996, not 99.96%.", "Incorrect calculation: 0.4% of 43200 minutes is ~172 minutes, not 43 minutes.", "Failed to follow requirement to report approximately 99.6 percent.", "Failed to follow requirement to convert to roughly 170 to 175 minutes." ],
+  "violationsB" : [ "Incorrect calculation: 0.999^4 is ~0.996, not 99.70%.", "Incorrect calculation: 0.3% of 43200 minutes is ~129.6 minutes, not 8.64 minutes.", "Failed to follow requirement to report approximately 99.6 percent.", "Failed to follow requirement to convert to roughly 170 to 175 minutes." ],
+  "rationale" : "Both candidates failed significantly on the mathematical requirements and the specific constraints provided in the prompt. \n\nCandidate A: Calculated 99.96% (incorrect, should be 99.6%) and 43 minutes (incorrect, should be ~172 minutes). \nCandidate B: Calculated 99.70% (incorrect, should be 99.6%) and 8.64 minutes (incorrect, should be ~172 minutes).\n\nNeither candidate followed the specific instructions to report 99.6% or the 170-175 minute range. Since both are equally incorrect and failed to meet the core requirements, it is a tie.",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    },\n    \"B\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Incorrect calculation: 0.999^4 is ~0.996, not 99.96%.\",\n      \"Incorrect calculation: 0.4% of 43200 minutes is ~172 minutes, not 43 minutes.\",\n      \"Failed to follow requirement to report approximately 99.6 percent.\",\n      \"Failed to follow requirement to convert to roughly 170 to 175 minutes.\"\n    ],\n    \"B\": [\n      \"Incorrect calculation: 0.999^4 is ~0.996, not 99.70%.\",\n      \"Incorrect calculation: 0.3% of 43200 minutes is ~129.6 minutes, not 8.64 minutes.\",\n      \"Failed to follow requirement to report approximately 99.6 percent.\",\n      \"Failed to follow requirement to convert to roughly 170 to 175 minutes.\"\n    ]\n  },\n  \"rationale\": \"Both candidates failed significantly on the mathematical requirements and the specific constraints provided in the prompt. \\n\\nCandidate A: Calculated 99.96% (incorrect, should be 99.6%) and 43 minutes (incorrect, should be ~172 minutes). \\nCandidate B: Calculated 99.70% (incorrect, should be 99.6%) and 8.64 minutes (incorrect, should be ~172 minutes).\\n\\nNeither candidate followed the specific instructions to report 99.6% or the 170-175 minute range. Since both are equally incorrect and failed to meet the core requirements, it is a tie.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T09:01:19.649579Z",
+  "durationMs" : 23321,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1417,
+    "completionTokens" : 531,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

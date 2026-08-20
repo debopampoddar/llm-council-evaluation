@@ -1,0 +1,24 @@
+{
+  "unitId" : "underspecified-early-stopping:direct-llama:r1",
+  "caseId" : "underspecified-early-stopping",
+  "variantId" : "direct-llama",
+  "repetition" : 1,
+  "status" : "COMPLETED",
+  "answer" : "**Recommendation:** No, do not stop the test and ship the winner yet.\n\n**Key Reasons:**\n\n1. **Insufficient duration**: The test has only been running for two days, which is a very short period. Most A/B testing guidelines recommend a minimum test duration of 2-4 weeks to account for variability and ensure reliable results.\n2. **No pre-registered stopping rule**: The team is checking the dashboard frequently, which can lead to data snooping and biased results. A pre-registered stopping rule would help prevent this issue.\n3. **No confidence interval or sample size**: Without these metrics, it's difficult to assess the statistical significance of the observed lift and determine whether it's due to chance or a real effect.\n\n**Important Assumptions:**\n\n* The test is properly randomized and controlled.\n* The observed lift is not due to any external factors or biases.\n\n**Material Uncertainties:**\n\n* The test may not have reached statistical significance.\n* The observed lift may not be sustainable or representative of the larger population.\n* There may be other factors contributing to the observed effect that are not accounted for in the test.",
+  "startedAt" : "2026-08-20T07:30:20.129949Z",
+  "completedAt" : "2026-08-20T07:30:27.670111Z",
+  "durationMs" : 7540,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 157,
+    "completionTokens" : 234,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  },
+  "failureCategory" : null,
+  "failureReason" : null,
+  "warnings" : [ ],
+  "componentAnswers" : [ ],
+  "councilResult" : null
+}

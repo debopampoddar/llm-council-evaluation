@@ -1,0 +1,24 @@
+{
+  "unitId" : "architecture-read-after-write:direct-llama:r1",
+  "caseId" : "architecture-read-after-write",
+  "variantId" : "direct-llama",
+  "repetition" : 1,
+  "status" : "COMPLETED",
+  "answer" : "**Cause:**\n\nThe issue is due to the replication lag between the primary database and the asynchronous replicas. When a user edits their profile, the write operation is sent to the primary database, but the read operation to display the updated profile is sent to one of the replicas before the write has been fully replicated. As a result, the user may be shown the previous value, which has not yet been replicated to the replica.\n\n**Key Reasons:**\n\n1. Replication lag: The time it takes for the write operation to be replicated to the replicas, which can be up to 2 seconds.\n2. Asynchronous replication: The replicas are not immediately updated with the latest changes, but rather at some point in the future.\n\n**Important Assumptions:**\n\n1. The profile page issues its read immediately after the write returns, which means the read operation is sent to the replica before the write has been fully replicated.\n2. The replication lag is between 20 ms and 2 s, which means there is a significant delay between the write operation and the replication of the changes to the replicas.\n\n**Material Uncertainties:**\n\n1. The exact timing of the replication lag, which can vary depending on the load on the system and the network latency.\n2. The consistency model of the database, which may allow for stale reads or require stronger consistency guarantees.\n\n**Recommendation:**\n\nTo fix this issue without discarding read scaling, implement a caching layer that stores the latest values for each user's profile. When a user edits their profile, update the cache immediately after the write operation returns. When the profile page issues its read, check the cache first and display the cached value if it exists. If the cache is empty or outdated, send a read operation to one of the replicas.\n\n**Key Benefits:**\n\n1. Improved user experience: Users will see the updated profile values immediately after editing their profile.\n2. Reduced replication lag: The caching layer can reduce the impact of replication lag on the user experience.\n3. Retained read scaling: The caching layer can be implemented without discarding read scaling, allowing the system to continue to handle a large number of reads concurrently.",
+  "startedAt" : "2026-08-19T19:14:25.565722Z",
+  "completedAt" : "2026-08-19T19:14:41.788357Z",
+  "durationMs" : 16222,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 161,
+    "completionTokens" : 439,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  },
+  "failureCategory" : null,
+  "failureReason" : null,
+  "warnings" : [ ],
+  "componentAnswers" : [ ],
+  "councilResult" : null
+}

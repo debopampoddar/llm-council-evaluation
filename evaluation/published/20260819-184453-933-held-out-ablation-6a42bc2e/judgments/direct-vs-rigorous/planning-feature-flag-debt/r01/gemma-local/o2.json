@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-rigorous:planning-feature-flag-debt:r1:gemma-local:o2",
+  "pairId" : "direct-vs-rigorous:planning-feature-flag-debt:r1",
+  "comparisonId" : "direct-vs-rigorous",
+  "caseId" : "planning-feature-flag-debt",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "direct-llama",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 2.0,
+    "completeness" : 4.0,
+    "correctness" : 3.0,
+    "reasoning" : 3.0,
+    "clarity" : 5.0
+  },
+  "scoresB" : {
+    "constraint-following" : 2.0,
+    "completeness" : 4.0,
+    "correctness" : 3.0,
+    "reasoning" : 3.0,
+    "clarity" : 5.0
+  },
+  "violationsA" : [ "Failed to explicitly mention using runtime evaluation telemetry to find dead flags.", "Failed to explicitly mention removing the losing branch together with the check.", "Failed to explicitly mention the specific sequencing requirement regarding incomplete features.", "Included irrelevant 'council' and 'weighting' meta-talk which was not requested." ],
+  "violationsB" : [ "Failed to explicitly mention using runtime evaluation telemetry to find dead flags.", "Failed to explicitly mention removing the losing branch together with the check.", "Failed to explicitly mention the specific sequencing requirement regarding incomplete features.", "Incorrectly suggests prioritizing 'emergency kill switches' for removal (Red Flag: Kill switches are permanent operational controls and should not be removed)." ],
+  "rationale" : "Both models failed significantly on the specific technical requirements provided in the prompt. Neither model mentioned using 'runtime evaluation telemetry' to identify dead flags, nor did either mention the specific requirement to 'remove the flag check and the losing branch together' (to avoid unreachable code). Furthermore, neither model addressed the specific sequencing requirement to ensure incomplete features are not accidentally enabled. Candidate A included a large amount of irrelevant 'council' meta-data. Candidate B committed a major red-flag violation by suggesting that emergency kill switches should be prioritized for removal, whereas the reference facts state they are permanent operational controls and not debt. Because both failed the core technical constraints and requirements equally, it is a tie.",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 3,\n      \"completeness\": 4,\n      \"reasoning\": 3,\n      \"constraint-following\": 2,\n      \"clarity\": 5\n    },\n    \"B\": {\n      \"correctness\": 3,\n      \"completeness\": 4,\n      \"reasoning\": 3,\n      \"constraint-following\": 2,\n      \"clarity\": 5\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Failed to explicitly mention using runtime evaluation telemetry to find dead flags.\",\n      \"Failed to explicitly mention removing the losing branch together with the check.\",\n      \"Failed to explicitly mention the specific sequencing requirement regarding incomplete features.\",\n      \"Included irrelevant 'council' and 'weighting' meta-talk which was not requested.\"\n    ],\n    \"B\": [\n      \"Failed to explicitly mention using runtime evaluation telemetry to find dead flags.\",\n      \"Failed to explicitly mention removing the losing branch together with the check.\",\n      \"Failed to explicitly mention the specific sequencing requirement regarding incomplete features.\",\n      \"Incorrectly suggests prioritizing 'emergency kill switches' for removal (Red Flag: Kill switches are permanent operational controls and should not be removed).\"\n    ]\n  },\n  \"rationale\": \"Both models failed significantly on the specific technical requirements provided in the prompt. Neither model mentioned using 'runtime evaluation telemetry' to identify dead flags, nor did either mention the specific requirement to 'remove the flag check and the losing branch together' (to avoid unreachable code). Furthermore, neither model addressed the specific sequencing requirement to ensure incomplete features are not accidentally enabled. Candidate A included a large amount of irrelevant 'council' meta-data. Candidate B committed a major red-flag violation by suggesting that emergency kill switches should be prioritized for removal, whereas the reference facts state they are permanent operational controls and not debt. Because both failed the core technical constraints and requirements equally, it is a tie.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:41:28.518414Z",
+  "durationMs" : 22799,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1905,
+    "completionTokens" : 456,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

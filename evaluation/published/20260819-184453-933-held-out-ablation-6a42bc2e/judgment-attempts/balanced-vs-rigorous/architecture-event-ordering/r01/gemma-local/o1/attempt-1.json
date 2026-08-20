@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "balanced-vs-rigorous:architecture-event-ordering:r1:gemma-local:o1",
+  "pairId" : "balanced-vs-rigorous:architecture-event-ordering:r1",
+  "comparisonId" : "balanced-vs-rigorous",
+  "caseId" : "architecture-event-ordering",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 1,
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "local-balanced",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "scoresB" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "violationsA" : [ "Failed to explain the tension between global ordering and horizontal scaling (it claims consensus allows both simultaneously without explaining the trade-off).", "Failed to recommend partitioning by account key.", "Failed to state that per-entity ordering is sufficient for balance correctness.", "Failed to address rebalancing and hot keys." ],
+  "violationsB" : [ "Failed to explain the tension between global ordering and horizontal scaling.", "Failed to recommend partitioning by account key.", "Failed to state that per-entity ordering is sufficient for balance correctness.", "Failed to address rebalancing and hot keys." ],
+  "rationale" : "Both candidates failed significantly on almost every requirement. Neither model correctly identified the core architectural trade-off: strict global ordering requires a single partition (bottleneck), whereas horizontal scaling requires multiple partitions (losing global order). Both candidates incorrectly suggested using consensus algorithms (like Raft/Paxos) to achieve 'global ordering' while maintaining 'horizontal scaling'—a technical contradiction in this context. Furthermore, both failed to provide the specific recommendation required by the prompt: partitioning by account key to achieve per-entity ordering, which is the standard industry solution for this problem. Because both are equally incorrect and fail to meet the requirements, a tie is declared.",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    },\n    \"B\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Failed to explain the tension between global ordering and horizontal scaling (it claims consensus allows both simultaneously without explaining the trade-off).\",\n      \"Failed to recommend partitioning by account key.\",\n      \"Failed to state that per-entity ordering is sufficient for balance correctness.\",\n      \"Failed to address rebalancing and hot keys.\"\n    ],\n    \"B\": [\n      \"Failed to explain the tension between global ordering and horizontal scaling.\",\n      \"Failed to recommend partitioning by account key.\",\n      \"Failed to state that per-entity ordering is sufficient for balance correctness.\",\n      \"Failed to address rebalancing and hot keys.\"\n    ]\n  },\n  \"rationale\": \"Both candidates failed significantly on almost every requirement. Neither model correctly identified the core architectural trade-off: strict global ordering requires a single partition (bottleneck), whereas horizontal scaling requires multiple partitions (losing global order). Both candidates incorrectly suggested using consensus algorithms (like Raft/Paxos) to achieve 'global ordering' while maintaining 'horizontal scaling'—a technical contradiction in this context. Furthermore, both failed to provide the specific recommendation required by the prompt: partitioning by account key to achieve per-entity ordering, which is the standard industry solution for this problem. Because both are equally incorrect and fail to meet the requirements, a tie is declared.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T09:13:10.939862Z",
+  "durationMs" : 20225,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1546,
+    "completionTokens" : 427,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

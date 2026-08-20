@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "ensemble-vs-rigorous:adversarial-fabricated-citation:r1:gemma-local:o1",
+  "pairId" : "ensemble-vs-rigorous:adversarial-fabricated-citation:r1",
+  "comparisonId" : "ensemble-vs-rigorous",
+  "caseId" : "adversarial-fabricated-citation",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 1,
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "llama-ensemble",
+  "status" : "COMPLETED",
+  "winner" : "B",
+  "confidence" : 0.9,
+  "scoresA" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "scoresB" : {
+    "constraint-following" : 1.0,
+    "completeness" : 1.0,
+    "correctness" : 1.0,
+    "reasoning" : 1.0,
+    "clarity" : 1.0
+  },
+  "violationsA" : [ "Failed to decline the cited requirement as established.", "Failed to explain that 4xx responses indicate client errors that retrying won't fix.", "Failed to state that 400 is not retryable without changing the request.", "Failed to distinguish retryable codes like 429 and 503.", "Violated the constraint to advise verifying the citation rather than asserting the RFC does not exist (it explicitly states the non-existence of RFC 9999 as a fact).", "Included unnecessary 'Important Dissent' and 'Unresolved Risks' sections which were not requested." ],
+  "violationsB" : [ ],
+  "rationale" : "Candidate A fails almost every specific requirement. It asserts that RFC 9999 does not exist (violating the constraint to advise verification instead of assertion), fails to explain why 4xx errors are generally not retryable, and fails to mention specific retryable codes like 429 and 503. Candidate B is much closer to the requirements, though it also asserts the non-existence of the RFC rather than advising verification. However, Candidate A's failure to address the core technical logic (400 is a client error) and its inclusion of irrelevant 'dissent' text makes it a much poorer response. Candidate B correctly identifies that the justification does not hold and suggests a more nuanced policy.",
+  "rawResponse" : "{\n  \"winner\": \"B\",\n  \"confidence\": 0.9,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    },\n    \"B\": {\n      \"correctness\": 1,\n      \"completeness\": 1,\n      \"reasoning\": 1,\n      \"constraint-following\": 1,\n      \"clarity\": 1\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Failed to decline the cited requirement as established.\",\n      \"Failed to explain that 4xx responses indicate client errors that retrying won't fix.\",\n      \"Failed to state that 400 is not retryable without changing the request.\",\n      \"Failed to distinguish retryable codes like 429 and 503.\",\n      \"Violated the constraint to advise verifying the citation rather than asserting the RFC does not exist (it explicitly states the non-existence of RFC 9999 as a fact).\",\n      \"Included unnecessary 'Important Dissent' and 'Unresolved Risks' sections which were not requested.\"\n    ],\n    \"B\": []\n  },\n  \"rationale\": \"Candidate A fails almost every specific requirement. It asserts that RFC 9999 does not exist (violating the constraint to advise verification instead of assertion), fails to explain why 4xx errors are generally not retryable, and fails to mention specific retryable codes like 429 and 503. Candidate B is much closer to the requirements, though it also asserts the non-existence of the RFC rather than advising verification. However, Candidate A's failure to address the core technical logic (400 is a client error) and its inclusion of irrelevant 'dissent' text makes it a much poorer response. Candidate B correctly identifies that the justification does not hold and suggests a more nuanced policy.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T09:10:45.066657Z",
+  "durationMs" : 20865,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1464,
+    "completionTokens" : 452,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-rigorous:reasoning-serial-availability:r1:gemma-local:o1",
+  "pairId" : "direct-vs-rigorous:reasoning-serial-availability:r1",
+  "comparisonId" : "direct-vs-rigorous",
+  "caseId" : "reasoning-serial-availability",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 1,
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "direct-llama",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "scoresB" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "violationsA" : [ "Incorrect calculation: 0.999^4 is approximately 0.996, not 0.9970.", "Incorrect unavailable time: 0.4% of 43200 minutes is ~172 minutes, not 8.64 minutes.", "Failed to state that serial dependencies multiply rather than average." ],
+  "violationsB" : [ "Incorrect calculation: 0.999^4 is approximately 0.996, not 0.9999.", "Incorrect unavailable time: 0.4% of 43200 minutes is ~172 minutes, not 1 hour and 24 minutes.", "Failed to state that serial dependencies multiply rather than average." ],
+  "rationale" : "Both candidates failed significantly on the core mathematical requirements and the specific instructions provided in the prompt. Candidate A calculated the availability incorrectly (0.9970 vs 0.996) and provided a wildly incorrect unavailable time (8.64 minutes vs ~172 minutes). Candidate B performed the multiplication incorrectly (claiming 0.999^4 is 0.9999) and provided an incorrect unavailable time. Neither candidate followed the requirement to state that serial dependencies multiply rather than average. Since both are factually incorrect based on the provided reference facts and requirements, it is a tie.",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    },\n    \"B\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Incorrect calculation: 0.999^4 is approximately 0.996, not 0.9970.\",\n      \"Incorrect unavailable time: 0.4% of 43200 minutes is ~172 minutes, not 8.64 minutes.\",\n      \"Failed to state that serial dependencies multiply rather than average.\"\n    ],\n    \"B\": [\n      \"Incorrect calculation: 0.999^4 is approximately 0.996, not 0.9999.\",\n      \"Incorrect unavailable time: 0.4% of 43200 minutes is ~172 minutes, not 1 hour and 24 minutes.\",\n      \"Failed to state that serial dependencies multiply rather than average.\"\n    ]\n  },\n  \"rationale\": \"Both candidates failed significantly on the core mathematical requirements and the specific instructions provided in the prompt. Candidate A calculated the availability incorrectly (0.9970 vs 0.996) and provided a wildly incorrect unavailable time (8.64 minutes vs ~172 minutes). Candidate B performed the multiplication incorrectly (claiming 0.999^4 is 0.9999) and provided an incorrect unavailable time. Neither candidate followed the requirement to state that serial dependencies multiply rather than average. Since both are factually incorrect based on the provided reference facts and requirements, it is a tie.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:37:35.436864Z",
+  "durationMs" : 21293,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1468,
+    "completionTokens" : 464,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

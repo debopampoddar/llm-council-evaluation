@@ -1,0 +1,24 @@
+{
+  "unitId" : "planning-capacity-headroom:direct-llama:r1",
+  "caseId" : "planning-capacity-headroom",
+  "variantId" : "direct-llama",
+  "repetition" : 1,
+  "status" : "COMPLETED",
+  "answer" : "**Recommendation:**\n\n1.  **Short-term (next 3 months):** Increase instances to 50, with a focus on horizontal scaling to absorb the expected marketing launch traffic. This will provide a buffer against the unknown step change.\n2.  **Mid-term (months 4-6):** Monitor traffic growth and adjust instance count as needed. If traffic exceeds 15,000 requests per second, consider vertical scaling (e.g., instance upgrades) or additional horizontal scaling.\n3.  **Long-term (months 7-12):** Plan for a 20% increase in instance count every quarter to account for continued traffic growth. This will ensure the system remains scalable and responsive.\n\n**Assumptions:**\n\n*   The 8% month-over-month traffic growth will continue.\n*   The marketing launch will introduce a significant, but unknown, step change in traffic.\n*   Instances will continue to take 6 minutes to become healthy.\n*   The budget review will allow for quarterly adjustments.\n\n**Uncertainties:**\n\n*   The magnitude of the marketing launch traffic increase is unknown.\n*   The effectiveness of vertical scaling (instance upgrades) is uncertain.\n*   The system's ability to handle increased traffic without significant performance degradation is uncertain.\n\n**Invalidation of assumptions:**\n\n*   If traffic growth slows down or reverses, the plan may need to be adjusted.\n*   If the marketing launch traffic increase is significantly lower than expected, the plan may be more conservative than necessary.\n*   If instance upgrade options are limited or ineffective, the plan may need to focus on horizontal scaling only.",
+  "startedAt" : "2026-08-20T06:45:57.124492Z",
+  "completedAt" : "2026-08-20T06:46:08.730301Z",
+  "durationMs" : 11605,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 171,
+    "completionTokens" : 327,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  },
+  "failureCategory" : null,
+  "failureReason" : null,
+  "warnings" : [ ],
+  "componentAnswers" : [ ],
+  "councilResult" : null
+}

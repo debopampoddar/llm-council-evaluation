@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-rigorous:security-cors-credentials:r1:gemma-local:o1",
+  "pairId" : "direct-vs-rigorous:security-cors-credentials:r1",
+  "comparisonId" : "direct-vs-rigorous",
+  "caseId" : "security-cors-credentials",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 1,
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "direct-llama",
+  "status" : "COMPLETED",
+  "winner" : "B",
+  "confidence" : 0.9,
+  "scoresA" : {
+    "constraint-following" : 90.0,
+    "completeness" : 70.0,
+    "correctness" : 80.0,
+    "reasoning" : 70.0,
+    "clarity" : 80.0
+  },
+  "scoresB" : {
+    "constraint-following" : 100.0,
+    "completeness" : 90.0,
+    "correctness" : 90.0,
+    "reasoning" : 90.0,
+    "clarity" : 90.0
+  },
+  "violationsA" : [ "The response is unnecessarily verbose and includes a 'council' narrative that was not requested.", "It fails to explicitly state the concrete risk as clearly as B, burying it in a long list of recommendations." ],
+  "violationsB" : [ ],
+  "rationale" : "Candidate B is the winner because it directly addresses the prompt's request to 'state the concrete risk' and follows all requirements concisely. It correctly identifies the interaction between reflecting the Origin, allowing credentials, and the SameSite=None attribute. Candidate A is extremely verbose, including a fictional 'council' narrative that was not part of the prompt, and fails to provide a clear, singular statement of the concrete risk, instead providing a long list of recommendations first.",
+  "rawResponse" : "{\n  \"winner\": \"B\",\n  \"confidence\": 0.9,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 80,\n      \"completeness\": 70,\n      \"reasoning\": 70,\n      \"constraint-following\": 90,\n      \"clarity\": 80\n    },\n    \"B\": {\n      \"correctness\": 90,\n      \"completeness\": 90,\n      \"reasoning\": 90,\n      \"constraint-following\": 100,\n      \"clarity\": 90\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"The response is unnecessarily verbose and includes a 'council' narrative that was not requested.\",\n      \"It fails to explicitly state the concrete risk as clearly as B, burying it in a long list of recommendations.\"\n    ],\n    \"B\": []\n  },\n  \"rationale\": \"Candidate B is the winner because it directly addresses the prompt's request to 'state the concrete risk' and follows all requirements concisely. It correctly identifies the interaction between reflecting the Origin, allowing credentials, and the SameSite=None attribute. Candidate A is extremely verbose, including a fictional 'council' narrative that was not part of the prompt, and fails to provide a clear, singular statement of the concrete risk, instead providing a long list of recommendations first.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:34:28.663129Z",
+  "durationMs" : 17772,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1876,
+    "completionTokens" : 318,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

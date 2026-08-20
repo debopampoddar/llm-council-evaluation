@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-balanced:architecture-tenant-isolation:r1:gemma-local:o2",
+  "pairId" : "direct-vs-balanced:architecture-tenant-isolation:r1",
+  "comparisonId" : "direct-vs-balanced",
+  "caseId" : "architecture-tenant-isolation",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "local-balanced",
+  "answerBVariant" : "direct-llama",
+  "status" : "COMPLETED",
+  "winner" : "A",
+  "confidence" : 0.9,
+  "scoresA" : {
+    "constraint-following" : 10.0,
+    "completeness" : 9.0,
+    "correctness" : 10.0,
+    "reasoning" : 9.0,
+    "clarity" : 8.0
+  },
+  "scoresB" : {
+    "constraint-following" : 5.0,
+    "completeness" : 6.0,
+    "correctness" : 4.0,
+    "reasoning" : 4.0,
+    "clarity" : 7.0
+  },
+  "violationsA" : [ ],
+  "violationsB" : [ "Failed to explicitly address the contractual non-co-residency requirement for the two enterprise customers (it suggests a multi-VC approach which implies co-residency unless every tenant has its own VC, which contradicts the operational constraints).", "Failed to explicitly compare the three requested models (shared-schema, shared-database, dedicated)." ],
+  "rationale" : "Candidate A correctly identifies the need for a hybrid model to satisfy the specific contractual requirements of the two enterprise customers (dedicated infrastructure) while using a shared-schema approach for the remaining 898 tenants to keep operational costs manageable for a small team of six. Candidate B fails to address the non-co-residency requirement effectively, as its 'Multi-VC' approach doesn't clearly distinguish between the enterprise needs and the general pool. Candidate B also fails to provide the required comparison of the three specific models mentioned in the prompt. Candidate A's reasoning regarding the trade-off between operational overhead and isolation is much more aligned with the provided context.",
+  "rawResponse" : "{\n  \"winner\": \"A\",\n  \"confidence\": 0.9,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 10,\n      \"completeness\": 9,\n      \"reasoning\": 9,\n      \"constraint-following\": 10,\n      \"clarity\": 8\n    },\n    \"B\": {\n      \"correctness\": 4,\n      \"completeness\": 6,\n      \"reasoning\": 4,\n      \"constraint-following\": 5,\n      \"clarity\": 7\n    }\n  },\n  \"violations\": {\n    \"A\": [],\n    \"B\": [\n      \"Failed to explicitly address the contractual non-co-residency requirement for the two enterprise customers (it suggests a multi-VC approach which implies co-residency unless every tenant has its own VC, which contradicts the operational constraints).\",\n      \"Failed to explicitly compare the three requested models (shared-schema, shared-database, dedicated).\"\n    ]\n  },\n  \"rationale\": \"Candidate A correctly identifies the need for a hybrid model to satisfy the specific contractual requirements of the two enterprise customers (dedicated infrastructure) while using a shared-schema approach for the remaining 898 tenants to keep operational costs manageable for a small team of six. Candidate B fails to address the non-co-residency requirement effectively, as its 'Multi-VC' approach doesn't clearly distinguish between the enterprise needs and the general pool. Candidate B also fails to provide the required comparison of the three specific models mentioned in the prompt. Candidate A's reasoning regarding the trade-off between operational overhead and isolation is much more aligned with the provided context.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:05:12.069058Z",
+  "durationMs" : 21088,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1803,
+    "completionTokens" : 376,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

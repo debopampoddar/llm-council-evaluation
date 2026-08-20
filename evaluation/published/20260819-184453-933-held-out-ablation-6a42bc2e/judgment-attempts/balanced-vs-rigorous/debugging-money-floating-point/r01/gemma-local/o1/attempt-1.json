@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "balanced-vs-rigorous:debugging-money-floating-point:r1:gemma-local:o1",
+  "pairId" : "balanced-vs-rigorous:debugging-money-floating-point:r1",
+  "comparisonId" : "balanced-vs-rigorous",
+  "caseId" : "debugging-money-floating-point",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 1,
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "local-balanced",
+  "status" : "COMPLETED",
+  "winner" : "A",
+  "confidence" : 0.9,
+  "scoresA" : {
+    "constraint-following" : 10.0,
+    "completeness" : 10.0,
+    "correctness" : 10.0,
+    "reasoning" : 10.0,
+    "clarity" : 10.0
+  },
+  "scoresB" : {
+    "constraint-following" : 9.0,
+    "completeness" : 8.0,
+    "correctness" : 10.0,
+    "reasoning" : 9.0,
+    "clarity" : 10.0
+  },
+  "violationsA" : [ ],
+  "violationsB" : [ ],
+  "rationale" : "Candidate A is slightly better because it explicitly mentions a specific rounding mode (RoundingMode.HALF_UP) and a specific scale (implied by the context of cents), whereas Candidate B is more generic. Both correctly identify the root cause (binary floating point representation), the accumulation of error, and the correct remedies (BigDecimal/Decimal and integer minor units). Candidate A's inclusion of a specific rounding mode aligns better with the requirement to 'Specify an explicit rounding mode and scale'.",
+  "rawResponse" : "{\n  \"winner\": \"A\",\n  \"confidence\": 0.9,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 10,\n      \"completeness\": 10,\n      \"reasoning\": 10,\n      \"constraint-following\": 10,\n      \"clarity\": 10\n    },\n    \"B\": {\n      \"correctness\": 10,\n      \"completeness\": 8,\n      \"reasoning\": 9,\n      \"constraint-following\": 9,\n      \"clarity\": 10\n    }\n  },\n  \"violations\": {\n    \"A\": [],\n    \"B\": []\n  },\n  \"rationale\": \"Candidate A is slightly better because it explicitly mentions a specific rounding mode (RoundingMode.HALF_UP) and a specific scale (implied by the context of cents), whereas Candidate B is more generic. Both correctly identify the root cause (binary floating point representation), the accumulation of error, and the correct remedies (BigDecimal/Decimal and integer minor units). Candidate A's inclusion of a specific rounding mode aligns better with the requirement to 'Specify an explicit rounding mode and scale'.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T09:18:39.708163Z",
+  "durationMs" : 15533,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1753,
+    "completionTokens" : 270,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

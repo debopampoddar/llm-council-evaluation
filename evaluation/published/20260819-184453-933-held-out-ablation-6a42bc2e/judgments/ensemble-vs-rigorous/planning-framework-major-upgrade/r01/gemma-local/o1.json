@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "ensemble-vs-rigorous:planning-framework-major-upgrade:r1:gemma-local:o1",
+  "pairId" : "ensemble-vs-rigorous:planning-framework-major-upgrade:r1",
+  "comparisonId" : "ensemble-vs-rigorous",
+  "caseId" : "planning-framework-major-upgrade",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 1,
+  "answerAVariant" : "llama-ensemble",
+  "answerBVariant" : "local-rigorous",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "scoresB" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "violationsA" : [ "Violates requirement to sequence low-risk services first (it suggests prioritizing services with no tests or on the payment path, which are high-risk).", "Violates requirement to keep payment-path services out of the first wave.", "Fails to state if the plan fits the 10-week freeze.", "Fails to define explicit abort/rollback criteria." ],
+  "violationsB" : [ "Violates requirement to sequence low-risk services first (it suggests prioritizing critical services).", "Violates requirement to keep payment-path services out of the first wave.", "Fails to state if the plan fits the 10-week freeze.", "Fails to define explicit abort/rollback criteria." ],
+  "rationale" : "Both candidates failed significantly on almost every specific requirement provided in the prompt. \n\n1. Sequencing: Both failed to sequence low-risk services first. Candidate A suggested prioritizing high-risk (untested/payment) services, while Candidate B suggested prioritizing critical services. \n2. Payment Path: Both failed to keep payment-path services out of the first wave. \n3. Untested Services: Neither provided a specific plan for characterization tests for the two teams without automated tests. \n4. Freeze/Timeline: Neither stated whether the plan fits the 10-week freeze. \n5. Abort/Rollback: Neither defined explicit criteria for these. \n\nBecause both candidates failed the core constraints and requirements equally, a tie is the only appropriate score.",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    },\n    \"B\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Violates requirement to sequence low-risk services first (it suggests prioritizing services with no tests or on the payment path, which are high-risk).\",\n      \"Violates requirement to keep payment-path services out of the first wave.\",\n      \"Fails to state if the plan fits the 10-week freeze.\",\n      \"Fails to define explicit abort/rollback criteria.\"\n    ],\n    \"B\": [\n      \"Violates requirement to sequence low-risk services first (it suggests prioritizing critical services).\",\n      \"Violates requirement to keep payment-path services out of the first wave.\",\n      \"Fails to state if the plan fits the 10-week freeze.\",\n      \"Fails to define explicit abort/rollback criteria.\"\n    ]\n  },\n  \"rationale\": \"Both candidates failed significantly on almost every specific requirement provided in the prompt. \\n\\n1. Sequencing: Both failed to sequence low-risk services first. Candidate A suggested prioritizing high-risk (untested/payment) services, while Candidate B suggested prioritizing critical services. \\n2. Payment Path: Both failed to keep payment-path services out of the first wave. \\n3. Untested Services: Neither provided a specific plan for characterization tests for the two teams without automated tests. \\n4. Freeze/Timeline: Neither stated whether the plan fits the 10-week freeze. \\n5. Abort/Rollback: Neither defined explicit criteria for these. \\n\\nBecause both candidates failed the core constraints and requirements equally, a tie is the only appropriate score.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T09:03:23.940140Z",
+  "durationMs" : 23388,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1745,
+    "completionTokens" : 492,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

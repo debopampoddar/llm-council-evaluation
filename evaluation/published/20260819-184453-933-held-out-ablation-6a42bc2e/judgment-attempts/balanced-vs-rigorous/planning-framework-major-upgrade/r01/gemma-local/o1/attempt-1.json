@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "balanced-vs-rigorous:planning-framework-major-upgrade:r1:gemma-local:o1",
+  "pairId" : "balanced-vs-rigorous:planning-framework-major-upgrade:r1",
+  "comparisonId" : "balanced-vs-rigorous",
+  "caseId" : "planning-framework-major-upgrade",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 1,
+  "answerAVariant" : "local-balanced",
+  "answerBVariant" : "local-rigorous",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "scoresB" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "violationsA" : [ "Failed to provide a concrete plan (sequencing, risk control, indicators of failure).", "Failed to address the specific requirements regarding untested services.", "Failed to address the 10-week freeze constraint.", "The response appears to be a meta-commentary on a deliberation process rather than an actual answer to the prompt." ],
+  "violationsB" : [ "Failed to provide a concrete plan (sequencing, risk control, indicators of failure).", "Failed to address the specific requirements regarding untested services.", "Failed to address the 10-week freeze constraint.", "The response appears to be a meta-commentary on a deliberation process rather than an actual answer to the prompt." ],
+  "rationale" : "Both candidates failed completely to answer the prompt. Instead of providing a plan for the framework upgrade, both candidates provided 'Final Recommendations' that appear to be internal meta-summaries of a multi-agent deliberation process (referencing 'drafts' and 'council members'). Neither candidate addressed the specific requirements (sequencing, risk control, indicators of failure, handling untested services, or the 10-week freeze). They are both non-responsive to the user's request.",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    },\n    \"B\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Failed to provide a concrete plan (sequencing, risk control, indicators of failure).\",\n      \"Failed to address the specific requirements regarding untested services.\",\n      \"Failed to address the 10-week freeze constraint.\",\n      \"The response appears to be a meta-commentary on a deliberation process rather than an actual answer to the prompt.\"\n    ],\n    \"B\": [\n      \"Failed to provide a concrete plan (sequencing, risk control, indicators of failure).\",\n      \"Failed to address the specific requirements regarding untested services.\",\n      \"Failed to address the 10-week freeze constraint.\",\n      \"The response appears to be a meta-commentary on a deliberation process rather than an actual answer to the prompt.\"\n    ]\n  },\n  \"rationale\": \"Both candidates failed completely to answer the prompt. Instead of providing a plan for the framework upgrade, both candidates provided 'Final Recommendations' that appear to be internal meta-summaries of a multi-agent deliberation process (referencing 'drafts' and 'council members'). Neither candidate addressed the specific requirements (sequencing, risk control, indicators of failure, handling untested services, or the 10-week freeze). They are both non-responsive to the user's request.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T09:27:02.945401Z",
+  "durationMs" : 21636,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1958,
+    "completionTokens" : 421,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "ensemble-vs-rigorous:underspecified-early-stopping:r1:gemma-local:o1",
+  "pairId" : "ensemble-vs-rigorous:underspecified-early-stopping:r1",
+  "comparisonId" : "ensemble-vs-rigorous",
+  "caseId" : "underspecified-early-stopping",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 1,
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "llama-ensemble",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 3.0,
+    "completeness" : 4.0,
+    "correctness" : 3.0,
+    "reasoning" : 4.0,
+    "clarity" : 5.0
+  },
+  "scoresB" : {
+    "constraint-following" : 3.0,
+    "completeness" : 4.0,
+    "correctness" : 3.0,
+    "reasoning" : 4.0,
+    "clarity" : 5.0
+  },
+  "violationsA" : [ "Failed to explain that repeated checking inflates the false-positive rate.", "Failed to note that early lift is often regression to the mean.", "Failed to offer a valid alternative such as a pre-registered sequential test." ],
+  "violationsB" : [ "Failed to explain that repeated checking inflates the false-positive rate.", "Failed to note that early lift is often regression to the mean.", "Failed to offer a valid alternative such as a pre-registered sequential test." ],
+  "rationale" : "Both candidates failed significantly on the specific requirements of the prompt. Neither candidate mentioned the inflation of the false-positive rate due to repeated checking (peeking), neither mentioned regression to the mean, and neither offered a specific alternative like a pre-registered sequential test. Both correctly advised against stopping the test and identified the lack of sample size/confidence intervals as issues, but they failed the core technical instructions provided in the requirements.",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 3,\n      \"completeness\": 4,\n      \"reasoning\": 4,\n      \"constraint-following\": 3,\n      \"clarity\": 5\n    },\n    \"B\": {\n      \"correctness\": 3,\n      \"completeness\": 4,\n      \"reasoning\": 4,\n      \"constraint-following\": 3,\n      \"clarity\": 5\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Failed to explain that repeated checking inflates the false-positive rate.\",\n      \"Failed to note that early lift is often regression to the mean.\",\n      \"Failed to offer a valid alternative such as a pre-registered sequential test.\"\n    ],\n    \"B\": [\n      \"Failed to explain that repeated checking inflates the false-positive rate.\",\n      \"Failed to note that early lift is often regression to the mean.\",\n      \"Failed to offer a valid alternative such as a pre-registered sequential test.\"\n    ]\n  },\n  \"rationale\": \"Both candidates failed significantly on the specific requirements of the prompt. Neither candidate mentioned the inflation of the false-positive rate due to repeated checking (peeking), neither mentioned regression to the mean, and neither offered a specific alternative like a pre-registered sequential test. Both correctly advised against stopping the test and identified the lack of sample size/confidence intervals as issues, but they failed the core technical instructions provided in the requirements.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T09:08:21.713185Z",
+  "durationMs" : 17876,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1556,
+    "completionTokens" : 360,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

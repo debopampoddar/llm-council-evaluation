@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "balanced-vs-rigorous:architecture-event-ordering:r1:gemma-local:o2",
+  "pairId" : "balanced-vs-rigorous:architecture-event-ordering:r1",
+  "comparisonId" : "balanced-vs-rigorous",
+  "caseId" : "architecture-event-ordering",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "local-balanced",
+  "answerBVariant" : "local-rigorous",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "scoresB" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "violationsA" : [ "Failed to explain the tension between global ordering and horizontal scaling.", "Failed to recommend partitioning by account key.", "Failed to state that per-entity ordering is sufficient for balance correctness.", "Failed to address rebalancing and hot keys.", "Recommended a complex consensus-based global ordering which contradicts the reference fact that global ordering requires a single partition (bottleneck)." ],
+  "violationsB" : [ "Failed to explain the tension between global ordering and horizontal scaling.", "Failed to recommend partitioning by account key.", "Failed to state that per-entity ordering is sufficient for balance correctness.", "Failed to address rebalancing and hot keys.", "Recommended a consensus-based global ordering which contradicts the reference fact that global ordering requires a single partition (bottleneck)." ],
+  "rationale" : "Both candidates failed significantly on almost every requirement. Neither candidate explained the fundamental tension (global order requires a single consumer/partition, which prevents horizontal scaling). Neither candidate provided the correct recommendation (partitioning by account key to achieve per-entity ordering, which is sufficient for balance correctness). Both candidates instead proposed complex distributed consensus algorithms to maintain global order, which is the 'red flag' path that ignores the scalability requirements and the reference facts provided. Because both failed equally to meet the prompt's requirements and constraints, it is a tie.",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    },\n    \"B\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Failed to explain the tension between global ordering and horizontal scaling.\",\n      \"Failed to recommend partitioning by account key.\",\n      \"Failed to state that per-entity ordering is sufficient for balance correctness.\",\n      \"Failed to address rebalancing and hot keys.\",\n      \"Recommended a complex consensus-based global ordering which contradicts the reference fact that global ordering requires a single partition (bottleneck).\"\n    ],\n    \"B\": [\n      \"Failed to explain the tension between global ordering and horizontal scaling.\",\n      \"Failed to recommend partitioning by account key.\",\n      \"Failed to state that per-entity ordering is sufficient for balance correctness.\",\n      \"Failed to address rebalancing and hot keys.\",\n      \"Recommended a consensus-based global ordering which contradicts the reference fact that global ordering requires a single partition (bottleneck).\"\n    ]\n  },\n  \"rationale\": \"Both candidates failed significantly on almost every requirement. Neither candidate explained the fundamental tension (global order requires a single consumer/partition, which prevents horizontal scaling). Neither candidate provided the correct recommendation (partitioning by account key to achieve per-entity ordering, which is sufficient for balance correctness). Both candidates instead proposed complex distributed consensus algorithms to maintain global order, which is the 'red flag' path that ignores the scalability requirements and the reference facts provided. Because both failed equally to meet the prompt's requirements and constraints, it is a tie.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T09:13:31.411414Z",
+  "durationMs" : 20375,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1546,
+    "completionTokens" : 444,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

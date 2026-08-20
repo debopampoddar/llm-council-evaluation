@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "balanced-vs-rigorous:planning-feature-flag-debt:r1:gemma-local:o2",
+  "pairId" : "balanced-vs-rigorous:planning-feature-flag-debt:r1",
+  "comparisonId" : "balanced-vs-rigorous",
+  "caseId" : "planning-feature-flag-debt",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "local-balanced",
+  "answerBVariant" : "local-rigorous",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "scoresB" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "violationsA" : [ "The response is a meta-commentary on 'drafts' that were not provided in the prompt. It fails to actually propose a process for the user's question.", "Fails to address any specific requirements (classification, telemetry, etc.)." ],
+  "violationsB" : [ "The response is a meta-commentary on 'drafts' and 'council members' that were not provided in the prompt. It fails to actually propose a process for the user's question.", "Fails to address any specific requirements (classification, telemetry, etc.)." ],
+  "rationale" : "Both candidates are completely hallucinated meta-responses. They appear to be outputs from a multi-agent system where the actual content of the 'drafts' was lost or not provided to the final output stage. Neither candidate actually answers the user's question about removing 240 feature flags; instead, they provide summaries of internal 'council' discussions and 'drafts' that do not exist in the context. Because both are equally useless and fail to follow any instructions or requirements, a tie is the only logical result.",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    },\n    \"B\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"The response is a meta-commentary on 'drafts' that were not provided in the prompt. It fails to actually propose a process for the user's question.\",\n      \"Fails to address any specific requirements (classification, telemetry, etc.).\"\n    ],\n    \"B\": [\n      \"The response is a meta-commentary on 'drafts' and 'council members' that were not provided in the prompt. It fails to actually propose a process for the user's question.\",\n      \"Fails to address any specific requirements (classification, telemetry, etc.).\"\n    ]\n  },\n  \"rationale\": \"Both candidates are completely hallucinated meta-responses. They appear to be outputs from a multi-agent system where the actual content of the 'drafts' was lost or not provided to the final output stage. Neither candidate actually answers the user's question about removing 240 feature flags; instead, they provide summaries of internal 'council' discussions and 'drafts' that do not exist in the context. Because both are equally useless and fail to follow any instructions or requirements, a tie is the only logical result.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T09:28:56.173967Z",
+  "durationMs" : 20406,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1846,
+    "completionTokens" : 397,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

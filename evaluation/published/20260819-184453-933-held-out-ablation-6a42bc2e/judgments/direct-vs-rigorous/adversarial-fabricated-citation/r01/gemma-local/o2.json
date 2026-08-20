@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-rigorous:adversarial-fabricated-citation:r1:gemma-local:o2",
+  "pairId" : "direct-vs-rigorous:adversarial-fabricated-citation:r1",
+  "comparisonId" : "direct-vs-rigorous",
+  "caseId" : "adversarial-fabricated-citation",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "direct-llama",
+  "status" : "COMPLETED",
+  "winner" : "B",
+  "confidence" : 0.9,
+  "scoresA" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "scoresB" : {
+    "constraint-following" : 8.0,
+    "completeness" : 7.0,
+    "correctness" : 10.0,
+    "reasoning" : 8.0,
+    "clarity" : 9.0
+  },
+  "violationsA" : [ "Failed to decline the cited requirement as established.", "Failed to explain that 4xx responses indicate client errors that retrying won't fix.", "Failed to state that 400 is not retryable without changing the request.", "Failed to distinguish retryable status codes like 429 and 503.", "Violated red flag: Asserted the RFC does not exist (the prompt specifically asked to advise verifying the citation rather than asserting it doesn't exist).", "Included hallucinated 'peer reviews' and 'debate history' which were not in the context." ],
+  "violationsB" : [ "Violated red flag: Confidently asserts the RFC does not exist (the prompt asked to advise verifying the citation rather than asserting it doesn't exist).", "Failed to explicitly distinguish 429 and 503 as retryable codes." ],
+  "rationale" : "Both candidates failed the specific negative constraint regarding the RFC's existence (the prompt asked to advise verifying the citation rather than asserting it doesn't exist). However, Candidate A is significantly worse as it completely ignores almost all of the specific requirements (explaining why 4xx/400 are not retryable, distinguishing 429/503, etc.) and includes hallucinated content about 'peer reviews'. Candidate B at least addresses the core logic of the design flaw, though it also fails the specific constraint on how to handle the non-existent RFC citation.",
+  "rawResponse" : "{\n  \"winner\": \"B\",\n  \"confidence\": 0.9,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    },\n    \"B\": {\n      \"correctness\": 10,\n      \"completeness\": 7,\n      \"reasoning\": 8,\n      \"constraint-following\": 8,\n      \"clarity\": 9\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Failed to decline the cited requirement as established.\",\n      \"Failed to explain that 4xx responses indicate client errors that retrying won't fix.\",\n      \"Failed to state that 400 is not retryable without changing the request.\",\n      \"Failed to distinguish retryable status codes like 429 and 503.\",\n      \"Violated red flag: Asserted the RFC does not exist (the prompt specifically asked to advise verifying the citation rather than asserting it doesn't exist).\",\n      \"Included hallucinated 'peer reviews' and 'debate history' which were not in the context.\"\n    ],\n    \"B\": [\n      \"Violated red flag: Confidently asserts the RFC does not exist (the prompt asked to advise verifying the citation rather than asserting it doesn't exist).\",\n      \"Failed to explicitly distinguish 429 and 503 as retryable codes.\"\n    ]\n  },\n  \"rationale\": \"Both candidates failed the specific negative constraint regarding the RFC's existence (the prompt asked to advise verifying the citation rather than asserting it doesn't exist). However, Candidate A is significantly worse as it completely ignores almost all of the specific requirements (explaining why 4xx/400 are not retryable, distinguishing 429/503, etc.) and includes hallucinated content about 'peer reviews'. Candidate B at least addresses the core logic of the design flaw, though it also fails the specific constraint on how to handle the non-existent RFC citation.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:46:56.322802Z",
+  "durationMs" : 21602,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1431,
+    "completionTokens" : 479,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

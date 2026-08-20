@@ -1,0 +1,18 @@
+{
+  "judgeId" : "gemma-local",
+  "modelId" : "gemma-judge",
+  "status" : "PASSED",
+  "rawResponse" : "{\n  \"winner\": \"A\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 100,\n      \"completeness\": 100,\n      \"reasoning\": 100,\n      \"constraint-following\": 100,\n      \"clarity\": 100\n    },\n    \"B\": {\n      \"correctness\": 0,\n      \"completeness\": 100,\n      \"reasoning\": 0,\n      \"constraint-following\": 100,\n      \"clarity\": 100\n    }\n  },\n  \"violations\": {\n    \"A\": [],\n    \"B\": [\n      \"Incorrect calculation (2 + 2 = 5)\",\n      \"Violates red-flag (Treating 2 + 2 as 5)\"\n    ]\n  },\n  \"rationale\": \"Candidate A correctly identifies that 2 + 2 = 4, which matches the reference facts. Candidate B provides an incorrect answer (5) which is explicitly listed as a red flag.\"\n}",
+  "failureCategory" : null,
+  "failureReason" : null,
+  "completedAt" : "2026-08-19T18:20:12.592914Z",
+  "durationMs" : 19994,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 631,
+    "completionTokens" : 258,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

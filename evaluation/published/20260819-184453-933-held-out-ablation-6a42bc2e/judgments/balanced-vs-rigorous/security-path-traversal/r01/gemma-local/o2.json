@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "balanced-vs-rigorous:security-path-traversal:r1:gemma-local:o2",
+  "pairId" : "balanced-vs-rigorous:security-path-traversal:r1",
+  "comparisonId" : "balanced-vs-rigorous",
+  "caseId" : "security-path-traversal",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "local-balanced",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 40.0,
+    "completeness" : 50.0,
+    "correctness" : 60.0,
+    "reasoning" : 50.0,
+    "clarity" : 80.0
+  },
+  "scoresB" : {
+    "constraint-following" : 40.0,
+    "completeness" : 50.0,
+    "correctness" : 60.0,
+    "reasoning" : 50.0,
+    "clarity" : 80.0
+  },
+  "violationsA" : [ "Fails to explicitly mention URL decoding before validation.", "Fails to address the TOCTOU (Time-of-Check to Time-of-Use) risk for symlinks (e.g., using file descriptors).", "Does not explicitly state to reject rather than sanitize." ],
+  "violationsB" : [ "Fails to explicitly mention URL decoding before validation.", "Fails to address the TOCTOU (Time-of-Check to Time-of-Use) risk for symlinks (e.g., using file descriptors).", "Does not explicitly state to reject rather than sanitize.", "Suggests 'normalization' which can be ambiguous; doesn't explicitly mandate canonical resolution of the final joined path." ],
+  "rationale" : "Both candidates perform poorly against the specific technical requirements provided in the prompt. Neither candidate explicitly mentions the requirement to perform URL decoding before validation, nor do either of them address the specific requirement to prevent symlink replacement between validation and open (TOCTOU) via file descriptors or immutable trees. Both candidates also fail to explicitly state the 'reject rather than sanitize' constraint. Candidate A mentions `path.is_relative_to()` which is a good modern check, but Candidate B's suggestion to separate configuration from artifacts is a good architectural practice not requested by the prompt. Because both failed the majority of the specific technical constraints (URL decoding, TOCTOU prevention, and explicit rejection vs. sanitization), they are tied in their lack of quality.",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 60,\n      \"completeness\": 50,\n      \"reasoning\": 50,\n      \"constraint-following\": 40,\n      \"clarity\": 80\n    },\n    \"B\": {\n      \"correctness\": 60,\n      \"completeness\": 50,\n      \"reasoning\": 50,\n      \"constraint-following\": 40,\n      \"clarity\": 80\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Fails to explicitly mention URL decoding before validation.\",\n      \"Fails to address the TOCTOU (Time-of-Check to Time-of-Use) risk for symlinks (e.g., using file descriptors).\",\n      \"Does not explicitly state to reject rather than sanitize.\"\n    ],\n    \"B\": [\n      \"Fails to explicitly mention URL decoding before validation.\",\n      \"Fails to address the TOCTOU (Time-of-Check to Time-of-Use) risk for symlinks (e.g., using file descriptors).\",\n      \"Does not explicitly state to reject rather than sanitize.\",\n      \"Suggests 'normalization' which can be ambiguous; doesn't explicitly mandate canonical resolution of the final joined path.\"\n    ]\n  },\n  \"rationale\": \"Both candidates perform poorly against the specific technical requirements provided in the prompt. Neither candidate explicitly mentions the requirement to perform URL decoding before validation, nor do either of them address the specific requirement to prevent symlink replacement between validation and open (TOCTOU) via file descriptors or immutable trees. Both candidates also fail to explicitly state the 'reject rather than sanitize' constraint. Candidate A mentions `path.is_relative_to()` which is a good modern check, but Candidate B's suggestion to separate configuration from artifacts is a good architectural practice not requested by the prompt. Because both failed the majority of the specific technical constraints (URL decoding, TOCTOU prevention, and explicit rejection vs. sanitization), they are tied in their lack of quality.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T09:20:17.636190Z",
+  "durationMs" : 21960,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1673,
+    "completionTokens" : 488,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

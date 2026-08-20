@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "ensemble-vs-rigorous:planning-postmortem-structure:r1:gemma-local:o2",
+  "pairId" : "ensemble-vs-rigorous:planning-postmortem-structure:r1",
+  "comparisonId" : "ensemble-vs-rigorous",
+  "caseId" : "planning-postmortem-structure",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "llama-ensemble",
+  "answerBVariant" : "local-rigorous",
+  "status" : "COMPLETED",
+  "winner" : "A",
+  "confidence" : 0.9,
+  "scoresA" : {
+    "constraint-following" : 70.0,
+    "completeness" : 80.0,
+    "correctness" : 85.0,
+    "reasoning" : 80.0,
+    "clarity" : 90.0
+  },
+  "scoresB" : {
+    "constraint-following" : 20.0,
+    "completeness" : 30.0,
+    "correctness" : 40.0,
+    "reasoning" : 40.0,
+    "clarity" : 80.0
+  },
+  "violationsA" : [ "The example action items assign the runbook update to the specific engineer involved, which slightly leans toward individual responsibility rather than a systemic process fix.", "It does not explicitly state that adding approvals is a weak control compared to making the failure impossible/detectable (though it includes a review of the process)." ],
+  "violationsB" : [ "Fails to provide a postmortem structure.", "Fails to provide criteria for good action items.", "Explicitly mentions 'assign accountability' in the first sentence, violating the blameless requirement.", "Does not separate the trigger from the underlying cause.", "Does not treat the missing alert as a distinct finding.", "Does not note that approvals are a weak control." ],
+  "rationale" : "Candidate A provides a structured response that includes a postmortem outline and specific criteria for action items. While it doesn't explicitly call out the 'weakness' of approvals as a control as clearly as requested, it follows the core requirements of being blameless and structured. Candidate B fails almost every specific requirement: it does not provide a structure, does not provide criteria, and explicitly mentions 'assigning accountability' (violating the blameless requirement). Candidate A is the only viable answer.",
+  "rawResponse" : "{\n  \"winner\": \"A\",\n  \"confidence\": 0.9,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 85,\n      \"completeness\": 80,\n      \"reasoning\": 80,\n      \"constraint-following\": 70,\n      \"clarity\": 90\n    },\n    \"B\": {\n      \"correctness\": 40,\n      \"completeness\": 30,\n      \"reasoning\": 40,\n      \"constraint-following\": 20,\n      \"clarity\": 80\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"The example action items assign the runbook update to the specific engineer involved, which slightly leans toward individual responsibility rather than a systemic process fix.\",\n      \"It does not explicitly state that adding approvals is a weak control compared to making the failure impossible/detectable (though it includes a review of the process).\"\n    ],\n    \"B\": [\n      \"Fails to provide a postmortem structure.\",\n      \"Fails to provide criteria for good action items.\",\n      \"Explicitly mentions 'assign accountability' in the first sentence, violating the blameless requirement.\",\n      \"Does not separate the trigger from the underlying cause.\",\n      \"Does not treat the missing alert as a distinct finding.\",\n      \"Does not note that approvals are a weak control.\"\n    ]\n  },\n  \"rationale\": \"Candidate A provides a structured response that includes a postmortem outline and specific criteria for action items. While it doesn't explicitly call out the 'weakness' of approvals as a control as clearly as requested, it follows the core requirements of being blameless and structured. Candidate B fails almost every specific requirement: it does not provide a structure, does not provide criteria, and explicitly mentions 'assigning accountability' (violating the blameless requirement). Candidate A is the only viable answer.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T09:06:08.795793Z",
+  "durationMs" : 21852,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1855,
+    "completionTokens" : 435,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

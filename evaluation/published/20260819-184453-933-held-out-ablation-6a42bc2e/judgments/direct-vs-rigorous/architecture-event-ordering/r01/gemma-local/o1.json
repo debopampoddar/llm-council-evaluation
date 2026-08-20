@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-rigorous:architecture-event-ordering:r1:gemma-local:o1",
+  "pairId" : "direct-vs-rigorous:architecture-event-ordering:r1",
+  "comparisonId" : "direct-vs-rigorous",
+  "caseId" : "architecture-event-ordering",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 1,
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "direct-llama",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "scoresB" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "violationsA" : [ "Failed to explain the tension between global ordering and partitioned parallelism.", "Failed to recommend partitioning by account key.", "Failed to state that per-entity ordering is sufficient for balance correctness.", "Failed to address rebalancing and hot keys.", "Incorrectly claims that Paxos/Raft allows for horizontal scaling of global ordering (it provides consensus on a single sequence, which is a bottleneck)." ],
+  "violationsB" : [ "Failed to recommend partitioning by account key.", "Failed to state that per-entity ordering is sufficient for balance correctness.", "Failed to address rebalancing and hot keys.", "The recommended design (centralized store for global order) is a bottleneck that defeats the purpose of horizontal scaling." ],
+  "rationale" : "Both candidates failed significantly on the core requirements of the prompt. Neither candidate correctly identified that 'per-entity ordering' (partitioning by account key) is the standard industry solution that satisfies the requirements of balance correctness while allowing horizontal scaling. Both candidates attempted to solve for 'strict global ordering' across all accounts, which is a known anti-pattern for this scale (30k events/sec) and contradicts the requirement to explain the tension and provide a practical design. Candidate A suggests a consensus algorithm which doesn't actually solve the horizontal scaling bottleneck for global order. Candidate B suggests a centralized store which creates a massive bottleneck. Since both failed the primary instructions and requirements, they are tied at 0.",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    },\n    \"B\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Failed to explain the tension between global ordering and partitioned parallelism.\",\n      \"Failed to recommend partitioning by account key.\",\n      \"Failed to state that per-entity ordering is sufficient for balance correctness.\",\n      \"Failed to address rebalancing and hot keys.\",\n      \"Incorrectly claims that Paxos/Raft allows for horizontal scaling of global ordering (it provides consensus on a single sequence, which is a bottleneck).\"\n    ],\n    \"B\": [\n      \"Failed to recommend partitioning by account key.\",\n      \"Failed to state that per-entity ordering is sufficient for balance correctness.\",\n      \"Failed to address rebalancing and hot keys.\",\n      \"The recommended design (centralized store for global order) is a bottleneck that defeats the purpose of horizontal scaling.\"\n    ]\n  },\n  \"rationale\": \"Both candidates failed significantly on the core requirements of the prompt. Neither candidate correctly identified that 'per-entity ordering' (partitioning by account key) is the standard industry solution that satisfies the requirements of balance correctness while allowing horizontal scaling. Both candidates attempted to solve for 'strict global ordering' across all accounts, which is a known anti-pattern for this scale (30k events/sec) and contradicts the requirement to explain the tension and provide a practical design. Candidate A suggests a consensus algorithm which doesn't actually solve the horizontal scaling bottleneck for global order. Candidate B suggests a centralized store which creates a massive bottleneck. Since both failed the primary instructions and requirements, they are tied at 0.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:25:49.019482Z",
+  "durationMs" : 21965,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1585,
+    "completionTokens" : 469,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

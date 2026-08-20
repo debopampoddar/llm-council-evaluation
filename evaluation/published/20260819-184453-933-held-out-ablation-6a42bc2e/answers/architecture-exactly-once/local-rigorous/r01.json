@@ -1,0 +1,194 @@
+{
+  "unitId" : "architecture-exactly-once:local-rigorous:r1",
+  "caseId" : "architecture-exactly-once",
+  "variantId" : "local-rigorous",
+  "repetition" : 1,
+  "status" : "COMPLETED",
+  "answer" : "**Final Recommendation/Answer:**\n\nTo achieve exactly-once delivery between producer and consumer services, implement a combination of idempotent operations, duplicate detection, at-least-once delivery, and a compensation mechanism. This approach ensures that repeated messages do not change the outcome, duplicate charges or actions are prevented, and messages are not lost due to consumer crashes.\n\n**Rationale:**\n\nThe proposed solution integrates the strongest reasoning from all drafts. Idempotent operations (draft-F7AA0239) ensure that the consumer can process the same message multiple times without causing any side effects. Duplicate detection (draft-AD31BF75) prevents duplicate charges or actions. At-least-once delivery (draft-F7AA0239) ensures that messages are not lost due to consumer crashes. The compensation mechanism (draft-AD31BF75) handles cases where the consumer crashes after processing a message but before recording it.\n\n**Important Dissent:**\n\nWhile the proposed solution is robust, it is essential to acknowledge the challenges and limitations of the network and system environment. As noted in draft-A9BE580B, the network's behavior is unpredictable, and messages may be dropped, duplicated, or delayed. The consumer's crash detection and recovery mechanisms are not reliable. The compensation mechanism may not be able to recover from all possible failure scenarios.\n\n**Unresolved Risks:**\n\n1. **Network failures:** The proposed solution assumes standard network conditions. However, in the face of network failures or system crashes, the compensation mechanism may not be able to recover from all possible failure scenarios.\n2. **Edge cases:** The proposed solution does not explicitly discuss potential edge cases, such as high network latency, frequent system crashes, or extremely high message volumes.\n3. **Trade-offs:** The proposed solution does not discuss the trade-offs between different approaches or potential limitations of the proposed solution.\n\n**Confidence:**\n\nThe final answer is based on the integration of the strongest reasoning from all drafts. The confidence level is 90, reflecting the robustness of the proposed solution and the potential limitations and unresolved risks.\n\nNote: The final answer acknowledges the challenges and limitations of the network and system environment, as discussed in draft-A9BE580B. The proposed solution is a hybrid approach that combines techniques such as idempotent operations, compensating transactions, and eventual consistency to provide a robust solution that satisfies the business need while being practical in real-world scenarios.",
+  "startedAt" : "2026-08-19T18:46:18.738489Z",
+  "completedAt" : "2026-08-19T18:49:04.739874Z",
+  "durationMs" : 166001,
+  "usage" : {
+    "calls" : 8,
+    "promptTokens" : 8548,
+    "completionTokens" : 4203,
+    "estimatedCostUsd" : null,
+    "estimated" : false,
+    "partiallyPriced" : false
+  },
+  "failureCategory" : null,
+  "failureReason" : null,
+  "warnings" : [ ],
+  "componentAnswers" : [ ],
+  "councilResult" : {
+    "sessionId" : "3a4a788c-302f-4bb0-bbb8-7f4cba89940f",
+    "status" : "COMPLETED",
+    "profileId" : "local",
+    "depthMode" : "RIGOROUS",
+    "policyId" : "local-rigorous",
+    "protocolId" : "rigorous",
+    "answer" : "**Final Recommendation/Answer:**\n\nTo achieve exactly-once delivery between producer and consumer services, implement a combination of idempotent operations, duplicate detection, at-least-once delivery, and a compensation mechanism. This approach ensures that repeated messages do not change the outcome, duplicate charges or actions are prevented, and messages are not lost due to consumer crashes.\n\n**Rationale:**\n\nThe proposed solution integrates the strongest reasoning from all drafts. Idempotent operations (draft-F7AA0239) ensure that the consumer can process the same message multiple times without causing any side effects. Duplicate detection (draft-AD31BF75) prevents duplicate charges or actions. At-least-once delivery (draft-F7AA0239) ensures that messages are not lost due to consumer crashes. The compensation mechanism (draft-AD31BF75) handles cases where the consumer crashes after processing a message but before recording it.\n\n**Important Dissent:**\n\nWhile the proposed solution is robust, it is essential to acknowledge the challenges and limitations of the network and system environment. As noted in draft-A9BE580B, the network's behavior is unpredictable, and messages may be dropped, duplicated, or delayed. The consumer's crash detection and recovery mechanisms are not reliable. The compensation mechanism may not be able to recover from all possible failure scenarios.\n\n**Unresolved Risks:**\n\n1. **Network failures:** The proposed solution assumes standard network conditions. However, in the face of network failures or system crashes, the compensation mechanism may not be able to recover from all possible failure scenarios.\n2. **Edge cases:** The proposed solution does not explicitly discuss potential edge cases, such as high network latency, frequent system crashes, or extremely high message volumes.\n3. **Trade-offs:** The proposed solution does not discuss the trade-offs between different approaches or potential limitations of the proposed solution.\n\n**Confidence:**\n\nThe final answer is based on the integration of the strongest reasoning from all drafts. The confidence level is 90, reflecting the robustness of the proposed solution and the potential limitations and unresolved risks.\n\nNote: The final answer acknowledges the challenges and limitations of the network and system environment, as discussed in draft-A9BE580B. The proposed solution is a hybrid approach that combines techniques such as idempotent operations, compensating transactions, and eventual consistency to provide a robust solution that satisfies the business need while being practical in real-world scenarios.",
+    "draftCount" : 3,
+    "reviewCount" : 6,
+    "debateRounds" : 0,
+    "participatingModels" : [ "local-llama3", "local-mistral", "local-qwen" ],
+    "excludedModels" : [ ],
+    "warnings" : [ ],
+    "sycophancyWarnings" : [ ],
+    "scoreSummary" : {
+      "scores" : [ {
+        "scorerId" : "confidence-weighted",
+        "draftId" : "draft-AD31BF75",
+        "dimensionScores" : {
+          "accuracy" : 87.35294117647058,
+          "completeness" : 79.99999999999999,
+          "reasoning" : 84.99999999999999,
+          "clarity" : 89.99999999999999,
+          "constructiveness" : 84.99999999999999
+        },
+        "weightedTotal" : 85.47058823529412,
+        "label" : "initial"
+      }, {
+        "scorerId" : "confidence-weighted",
+        "draftId" : "draft-A9BE580B",
+        "dimensionScores" : {
+          "accuracy" : 87.5,
+          "completeness" : 85.0,
+          "reasoning" : 87.5,
+          "clarity" : 85.0,
+          "constructiveness" : 85.0
+        },
+        "weightedTotal" : 86.0,
+        "label" : "initial"
+      }, {
+        "scorerId" : "confidence-weighted",
+        "draftId" : "draft-F7AA0239",
+        "dimensionScores" : {
+          "accuracy" : 92.56756756756756,
+          "completeness" : 85.13513513513513,
+          "reasoning" : 87.56756756756756,
+          "clarity" : 92.43243243243242,
+          "constructiveness" : 90.0
+        },
+        "weightedTotal" : 90.05405405405405,
+        "label" : "initial"
+      } ],
+      "variance" : 4.191532222393525,
+      "winningDraftId" : "draft-F7AA0239",
+      "escalated" : false,
+      "escalationPolicy" : null,
+      "reviewerDisagreement" : 9.0,
+      "disagreementMeasurable" : true
+    },
+    "validation" : {
+      "validatorId" : "local-validator",
+      "approved" : true,
+      "confidence" : 0.9,
+      "issues" : [ ],
+      "recommendedFixes" : [ ],
+      "criteria" : {
+        "uncertainty" : "warn - The final answer acknowledges unresolved risks and potential limitations, such as network failures, edge cases, and trade-offs.",
+        "correctness" : "pass - The final answer provides a comprehensive solution that addresses the requirement for exactly-once delivery between producer and consumer services.",
+        "completeness" : "pass - The final answer includes a detailed explanation of the proposed solution, its rationale, and potential challenges.",
+        "actionability" : "pass - The final answer provides a practical solution that can be implemented in real-world scenarios.",
+        "safety" : "pass - The final answer discusses the safety implications of the network and system environment."
+      },
+      "requiresHumanReview" : false,
+      "rawText" : "{\n  \"approved\": true,\n  \"confidence\": 0.9,\n  \"issues\": [],\n  \"recommendedFixes\": [],\n  \"criteria\": {\n    \"correctness\": \"pass - The final answer provides a comprehensive solution that addresses the requirement for exactly-once delivery between producer and consumer services.\",\n    \"completeness\": \"pass - The final answer includes a detailed explanation of the proposed solution, its rationale, and potential challenges.\",\n    \"uncertainty\": \"warn - The final answer acknowledges unresolved risks and potential limitations, such as network failures, edge cases, and trade-offs.\",\n    \"safety\": \"pass - The final answer discusses the safety implications of the network and system environment.\",\n    \"actionability\": \"pass - The final answer provides a practical solution that can be implemented in real-world scenarios.\"\n  },\n  \"requiresHumanReview\": false\n}"
+    },
+    "validationIndependence" : "INDEPENDENT",
+    "failureReason" : null,
+    "failureCategory" : null,
+    "modelFailures" : [ ],
+    "usage" : {
+      "promptTokens" : 8548,
+      "completionTokens" : 4203,
+      "totalTokens" : 12751,
+      "calls" : 8,
+      "estimatedCostUsd" : null,
+      "estimated" : false,
+      "partiallyPriced" : false,
+      "byModel" : [ {
+        "modelId" : "local-mistral",
+        "calls" : 2,
+        "promptTokens" : 2085,
+        "completionTokens" : 1051,
+        "totalTokens" : 3136,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "modelId" : "local-qwen",
+        "calls" : 2,
+        "promptTokens" : 1763,
+        "completionTokens" : 1233,
+        "totalTokens" : 2996,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "modelId" : "local-llama3",
+        "calls" : 2,
+        "promptTokens" : 1738,
+        "completionTokens" : 1223,
+        "totalTokens" : 2961,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "modelId" : "local-chair",
+        "calls" : 1,
+        "promptTokens" : 1801,
+        "completionTokens" : 489,
+        "totalTokens" : 2290,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "modelId" : "local-validator",
+        "calls" : 1,
+        "promptTokens" : 1161,
+        "completionTokens" : 207,
+        "totalTokens" : 1368,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      } ],
+      "byStage" : [ {
+        "stage" : "GENERATE",
+        "calls" : 3,
+        "promptTokens" : 690,
+        "completionTokens" : 1027,
+        "totalTokens" : 1717,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "stage" : "REVIEW",
+        "calls" : 3,
+        "promptTokens" : 4896,
+        "completionTokens" : 2480,
+        "totalTokens" : 7376,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "stage" : "SYNTHESIZE",
+        "calls" : 1,
+        "promptTokens" : 1801,
+        "completionTokens" : 489,
+        "totalTokens" : 2290,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "stage" : "VALIDATE",
+        "calls" : 1,
+        "promptTokens" : 1161,
+        "completionTokens" : 207,
+        "totalTokens" : 1368,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      } ]
+    },
+    "integrity" : {
+      "reduced" : false,
+      "preserveDissent" : true,
+      "sycophancyThreshold" : 0.7,
+      "reviewsPerDraft" : 2,
+      "notes" : [ ]
+    }
+  }
+}

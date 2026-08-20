@@ -1,0 +1,588 @@
+{
+  "generation" : 1,
+  "builtAt" : "2026-08-19T18:42:32.031635Z",
+  "profiles" : [ {
+    "id" : "openai",
+    "displayName" : "OpenAI council",
+    "defaultDepth" : "BALANCED",
+    "availableDepths" : [ "QUICK", "BALANCED", "RIGOROUS" ],
+    "policyIdsByDepth" : {
+      "QUICK" : "openai-quick",
+      "BALANCED" : "openai-balanced",
+      "RIGOROUS" : "openai-rigorous"
+    },
+    "testOnly" : false,
+    "origin" : "BUILT_IN"
+  }, {
+    "id" : "local",
+    "displayName" : "Local Ollama council",
+    "defaultDepth" : "BALANCED",
+    "availableDepths" : [ "QUICK", "BALANCED", "RIGOROUS" ],
+    "policyIdsByDepth" : {
+      "QUICK" : "local-quick",
+      "BALANCED" : "local-balanced",
+      "RIGOROUS" : "local-rigorous"
+    },
+    "testOnly" : false,
+    "origin" : "BUILT_IN"
+  }, {
+    "id" : "default",
+    "displayName" : "Local balanced council",
+    "defaultDepth" : "BALANCED",
+    "availableDepths" : [ "QUICK", "BALANCED", "RIGOROUS" ],
+    "policyIdsByDepth" : {
+      "QUICK" : "local-quick",
+      "BALANCED" : "local-balanced",
+      "RIGOROUS" : "local-rigorous"
+    },
+    "testOnly" : false,
+    "origin" : "BUILT_IN"
+  }, {
+    "id" : "claude",
+    "displayName" : "Claude council",
+    "defaultDepth" : "BALANCED",
+    "availableDepths" : [ "QUICK", "BALANCED", "RIGOROUS" ],
+    "policyIdsByDepth" : {
+      "QUICK" : "claude-quick",
+      "BALANCED" : "claude-balanced",
+      "RIGOROUS" : "claude-rigorous"
+    },
+    "testOnly" : false,
+    "origin" : "BUILT_IN"
+  }, {
+    "id" : "multi-cloud",
+    "displayName" : "Multi-cloud council (Ollama + Gemini + Anthropic/OpenAI)",
+    "defaultDepth" : "BALANCED",
+    "availableDepths" : [ "QUICK", "BALANCED", "RIGOROUS" ],
+    "policyIdsByDepth" : {
+      "QUICK" : "multi-cloud-quick",
+      "BALANCED" : "multi-cloud-balanced",
+      "RIGOROUS" : "multi-cloud-rigorous"
+    },
+    "testOnly" : false,
+    "origin" : "BUILT_IN"
+  }, {
+    "id" : "gemini",
+    "displayName" : "Google Gemini council",
+    "defaultDepth" : "BALANCED",
+    "availableDepths" : [ "QUICK", "BALANCED", "RIGOROUS" ],
+    "policyIdsByDepth" : {
+      "QUICK" : "gemini-quick",
+      "BALANCED" : "gemini-balanced",
+      "RIGOROUS" : "gemini-rigorous"
+    },
+    "testOnly" : false,
+    "origin" : "BUILT_IN"
+  } ],
+  "policies" : [ {
+    "id" : "multi-cloud-rigorous",
+    "protocolId" : "rigorous",
+    "memberModelIds" : [ "local-llama3", "local-mistral", "gemini-flash", "claude-sonnet", "openai-gpt" ],
+    "chairModelId" : "gemini-pro",
+    "validatorModelId" : "claude-validator",
+    "minimumSuccessfulDrafts" : 3,
+    "minimumReviewsPerDraft" : 1,
+    "validationRequired" : true,
+    "allowPartial" : true,
+    "validationIndependence" : "INDEPENDENT",
+    "origin" : "BUILT_IN"
+  }, {
+    "id" : "gemini-rigorous",
+    "protocolId" : "rigorous",
+    "memberModelIds" : [ "gemini-flash", "gemini-flash-lite" ],
+    "chairModelId" : "gemini-pro",
+    "validatorModelId" : "gemini-validator",
+    "minimumSuccessfulDrafts" : 2,
+    "minimumReviewsPerDraft" : 1,
+    "validationRequired" : true,
+    "allowPartial" : true,
+    "validationIndependence" : "CORRELATED",
+    "origin" : "BUILT_IN"
+  }, {
+    "id" : "local-balanced",
+    "protocolId" : "balanced",
+    "memberModelIds" : [ "local-llama3", "local-mistral" ],
+    "chairModelId" : "local-chair",
+    "validatorModelId" : "local-validator",
+    "minimumSuccessfulDrafts" : 2,
+    "minimumReviewsPerDraft" : 1,
+    "validationRequired" : true,
+    "allowPartial" : true,
+    "validationIndependence" : "INDEPENDENT",
+    "origin" : "BUILT_IN"
+  }, {
+    "id" : "multi-cloud-balanced",
+    "protocolId" : "balanced",
+    "memberModelIds" : [ "local-llama3", "local-mistral", "gemini-flash", "claude-sonnet" ],
+    "chairModelId" : "gemini-pro",
+    "validatorModelId" : "claude-validator",
+    "minimumSuccessfulDrafts" : 2,
+    "minimumReviewsPerDraft" : 1,
+    "validationRequired" : true,
+    "allowPartial" : true,
+    "validationIndependence" : "INDEPENDENT",
+    "origin" : "BUILT_IN"
+  }, {
+    "id" : "gemini-quick",
+    "protocolId" : "quick",
+    "memberModelIds" : [ "gemini-flash" ],
+    "chairModelId" : "gemini-pro",
+    "validatorModelId" : "",
+    "minimumSuccessfulDrafts" : 1,
+    "minimumReviewsPerDraft" : 0,
+    "validationRequired" : false,
+    "allowPartial" : true,
+    "validationIndependence" : "NOT_APPLICABLE",
+    "origin" : "BUILT_IN"
+  }, {
+    "id" : "gemini-balanced",
+    "protocolId" : "balanced",
+    "memberModelIds" : [ "gemini-flash", "gemini-flash-lite" ],
+    "chairModelId" : "gemini-pro",
+    "validatorModelId" : "gemini-validator",
+    "minimumSuccessfulDrafts" : 2,
+    "minimumReviewsPerDraft" : 1,
+    "validationRequired" : true,
+    "allowPartial" : true,
+    "validationIndependence" : "CORRELATED",
+    "origin" : "BUILT_IN"
+  }, {
+    "id" : "claude-quick",
+    "protocolId" : "quick",
+    "memberModelIds" : [ "claude-sonnet" ],
+    "chairModelId" : "claude-chair",
+    "validatorModelId" : "",
+    "minimumSuccessfulDrafts" : 1,
+    "minimumReviewsPerDraft" : 0,
+    "validationRequired" : false,
+    "allowPartial" : true,
+    "validationIndependence" : "NOT_APPLICABLE",
+    "origin" : "BUILT_IN"
+  }, {
+    "id" : "claude-rigorous",
+    "protocolId" : "rigorous",
+    "memberModelIds" : [ "claude-sonnet", "claude-haiku", "claude-opus" ],
+    "chairModelId" : "claude-chair",
+    "validatorModelId" : "claude-validator",
+    "minimumSuccessfulDrafts" : 2,
+    "minimumReviewsPerDraft" : 1,
+    "validationRequired" : true,
+    "allowPartial" : true,
+    "validationIndependence" : "CORRELATED",
+    "origin" : "BUILT_IN"
+  }, {
+    "id" : "local-quick",
+    "protocolId" : "quick",
+    "memberModelIds" : [ "local-llama3" ],
+    "chairModelId" : "local-chair",
+    "validatorModelId" : "",
+    "minimumSuccessfulDrafts" : 1,
+    "minimumReviewsPerDraft" : 0,
+    "validationRequired" : false,
+    "allowPartial" : true,
+    "validationIndependence" : "NOT_APPLICABLE",
+    "origin" : "BUILT_IN"
+  }, {
+    "id" : "multi-cloud-quick",
+    "protocolId" : "quick",
+    "memberModelIds" : [ "local-llama3", "gemini-flash" ],
+    "chairModelId" : "gemini-pro",
+    "validatorModelId" : "",
+    "minimumSuccessfulDrafts" : 1,
+    "minimumReviewsPerDraft" : 0,
+    "validationRequired" : false,
+    "allowPartial" : true,
+    "validationIndependence" : "NOT_APPLICABLE",
+    "origin" : "BUILT_IN"
+  }, {
+    "id" : "claude-balanced",
+    "protocolId" : "balanced",
+    "memberModelIds" : [ "claude-sonnet", "claude-haiku" ],
+    "chairModelId" : "claude-chair",
+    "validatorModelId" : "claude-validator",
+    "minimumSuccessfulDrafts" : 2,
+    "minimumReviewsPerDraft" : 1,
+    "validationRequired" : true,
+    "allowPartial" : true,
+    "validationIndependence" : "CORRELATED",
+    "origin" : "BUILT_IN"
+  }, {
+    "id" : "mock-quick",
+    "protocolId" : "quick",
+    "memberModelIds" : [ "mock-member" ],
+    "chairModelId" : "mock-chair",
+    "validatorModelId" : "",
+    "minimumSuccessfulDrafts" : 1,
+    "minimumReviewsPerDraft" : 0,
+    "validationRequired" : false,
+    "allowPartial" : true,
+    "validationIndependence" : "NOT_APPLICABLE",
+    "origin" : "BUILT_IN"
+  }, {
+    "id" : "mock-rigorous",
+    "protocolId" : "rigorous",
+    "memberModelIds" : [ "mock-member", "mock-chair" ],
+    "chairModelId" : "mock-chair",
+    "validatorModelId" : "mock-chair",
+    "minimumSuccessfulDrafts" : 1,
+    "minimumReviewsPerDraft" : 1,
+    "validationRequired" : true,
+    "allowPartial" : true,
+    "validationIndependence" : "SELF_VALIDATION",
+    "origin" : "BUILT_IN"
+  }, {
+    "id" : "mock-balanced",
+    "protocolId" : "balanced",
+    "memberModelIds" : [ "mock-member", "mock-chair" ],
+    "chairModelId" : "mock-chair",
+    "validatorModelId" : "mock-chair",
+    "minimumSuccessfulDrafts" : 1,
+    "minimumReviewsPerDraft" : 1,
+    "validationRequired" : true,
+    "allowPartial" : true,
+    "validationIndependence" : "SELF_VALIDATION",
+    "origin" : "BUILT_IN"
+  }, {
+    "id" : "openai-rigorous",
+    "protocolId" : "rigorous",
+    "memberModelIds" : [ "openai-gpt", "openai-critic", "openai-analyst" ],
+    "chairModelId" : "openai-chair",
+    "validatorModelId" : "openai-validator",
+    "minimumSuccessfulDrafts" : 2,
+    "minimumReviewsPerDraft" : 1,
+    "validationRequired" : true,
+    "allowPartial" : true,
+    "validationIndependence" : "CORRELATED",
+    "origin" : "BUILT_IN"
+  }, {
+    "id" : "local-rigorous",
+    "protocolId" : "rigorous",
+    "memberModelIds" : [ "local-llama3", "local-mistral", "local-qwen" ],
+    "chairModelId" : "local-chair",
+    "validatorModelId" : "local-validator",
+    "minimumSuccessfulDrafts" : 2,
+    "minimumReviewsPerDraft" : 1,
+    "validationRequired" : true,
+    "allowPartial" : true,
+    "validationIndependence" : "INDEPENDENT",
+    "origin" : "BUILT_IN"
+  }, {
+    "id" : "openai-balanced",
+    "protocolId" : "balanced",
+    "memberModelIds" : [ "openai-gpt", "openai-critic" ],
+    "chairModelId" : "openai-chair",
+    "validatorModelId" : "openai-validator",
+    "minimumSuccessfulDrafts" : 2,
+    "minimumReviewsPerDraft" : 1,
+    "validationRequired" : true,
+    "allowPartial" : true,
+    "validationIndependence" : "CORRELATED",
+    "origin" : "BUILT_IN"
+  }, {
+    "id" : "openai-quick",
+    "protocolId" : "quick",
+    "memberModelIds" : [ "openai-gpt" ],
+    "chairModelId" : "openai-chair",
+    "validatorModelId" : "",
+    "minimumSuccessfulDrafts" : 1,
+    "minimumReviewsPerDraft" : 0,
+    "validationRequired" : false,
+    "allowPartial" : true,
+    "validationIndependence" : "NOT_APPLICABLE",
+    "origin" : "BUILT_IN"
+  } ],
+  "models" : [ {
+    "id" : "claude-chair",
+    "provider" : "anthropic",
+    "providerModelId" : "claude-opus-5",
+    "defaultOutputTokens" : 2200,
+    "temperature" : 0.2,
+    "timeoutSeconds" : 180,
+    "role" : "CHAIR",
+    "councilRole" : "SYNTHESIZER",
+    "modelFamily" : "claude",
+    "clientKind" : "UNAVAILABLE",
+    "origin" : "BUILT_IN"
+  }, {
+    "id" : "openai-gpt",
+    "provider" : "openai",
+    "providerModelId" : "gpt-4o-mini",
+    "defaultOutputTokens" : 2000,
+    "temperature" : 0.3,
+    "timeoutSeconds" : 120,
+    "role" : "MEMBER",
+    "councilRole" : "PROPOSER",
+    "modelFamily" : "gpt",
+    "clientKind" : "UNAVAILABLE",
+    "origin" : "BUILT_IN"
+  }, {
+    "id" : "gemini-flash-lite",
+    "provider" : "gemini",
+    "providerModelId" : "gemini-2.5-flash-lite",
+    "defaultOutputTokens" : 1600,
+    "temperature" : 0.35,
+    "timeoutSeconds" : 120,
+    "role" : "MEMBER",
+    "councilRole" : "CRITIC",
+    "modelFamily" : "gemini",
+    "clientKind" : "UNAVAILABLE",
+    "origin" : "BUILT_IN"
+  }, {
+    "id" : "claude-opus",
+    "provider" : "anthropic",
+    "providerModelId" : "claude-opus-4-8",
+    "defaultOutputTokens" : 2200,
+    "temperature" : 0.25,
+    "timeoutSeconds" : 180,
+    "role" : "MEMBER",
+    "councilRole" : "PROPOSER",
+    "modelFamily" : "claude",
+    "clientKind" : "UNAVAILABLE",
+    "origin" : "BUILT_IN"
+  }, {
+    "id" : "local-chair",
+    "provider" : "ollama",
+    "providerModelId" : "llama3.1:8b",
+    "defaultOutputTokens" : 1800,
+    "temperature" : 0.2,
+    "timeoutSeconds" : 240,
+    "role" : "CHAIR",
+    "councilRole" : "SYNTHESIZER",
+    "modelFamily" : "llama",
+    "clientKind" : "LIVE",
+    "origin" : "BUILT_IN"
+  }, {
+    "id" : "gemini-validator",
+    "provider" : "gemini",
+    "providerModelId" : "gemini-2.5-flash",
+    "defaultOutputTokens" : 2000,
+    "temperature" : 0.2,
+    "timeoutSeconds" : 120,
+    "role" : "VALIDATOR",
+    "councilRole" : "CRITIC",
+    "modelFamily" : "gemini",
+    "clientKind" : "UNAVAILABLE",
+    "origin" : "BUILT_IN"
+  }, {
+    "id" : "local-qwen",
+    "provider" : "ollama",
+    "providerModelId" : "qwen2.5:7b",
+    "defaultOutputTokens" : 1200,
+    "temperature" : 0.4,
+    "timeoutSeconds" : 240,
+    "role" : "MEMBER",
+    "councilRole" : "PROPOSER",
+    "modelFamily" : "qwen",
+    "clientKind" : "LIVE",
+    "origin" : "BUILT_IN"
+  }, {
+    "id" : "claude-sonnet",
+    "provider" : "anthropic",
+    "providerModelId" : "claude-sonnet-5",
+    "defaultOutputTokens" : 2000,
+    "temperature" : 0.3,
+    "timeoutSeconds" : 120,
+    "role" : "MEMBER",
+    "councilRole" : "PROPOSER",
+    "modelFamily" : "claude",
+    "clientKind" : "UNAVAILABLE",
+    "origin" : "BUILT_IN"
+  }, {
+    "id" : "local-llama3",
+    "provider" : "ollama",
+    "providerModelId" : "llama3.1:8b",
+    "defaultOutputTokens" : 1200,
+    "temperature" : 0.3,
+    "timeoutSeconds" : 240,
+    "role" : "MEMBER",
+    "councilRole" : "PROPOSER",
+    "modelFamily" : "llama",
+    "clientKind" : "LIVE",
+    "origin" : "BUILT_IN"
+  }, {
+    "id" : "openai-validator",
+    "provider" : "openai",
+    "providerModelId" : "gpt-4o",
+    "defaultOutputTokens" : 1800,
+    "temperature" : 0.2,
+    "timeoutSeconds" : 120,
+    "role" : "VALIDATOR",
+    "councilRole" : "CRITIC",
+    "modelFamily" : "gpt",
+    "clientKind" : "UNAVAILABLE",
+    "origin" : "BUILT_IN"
+  }, {
+    "id" : "claude-validator",
+    "provider" : "anthropic",
+    "providerModelId" : "claude-sonnet-4-6",
+    "defaultOutputTokens" : 1600,
+    "temperature" : 0.2,
+    "timeoutSeconds" : 120,
+    "role" : "VALIDATOR",
+    "councilRole" : "CRITIC",
+    "modelFamily" : "claude",
+    "clientKind" : "UNAVAILABLE",
+    "origin" : "BUILT_IN"
+  }, {
+    "id" : "claude-haiku",
+    "provider" : "anthropic",
+    "providerModelId" : "claude-haiku-4-5-20251001",
+    "defaultOutputTokens" : 1600,
+    "temperature" : 0.35,
+    "timeoutSeconds" : 120,
+    "role" : "MEMBER",
+    "councilRole" : "CRITIC",
+    "modelFamily" : "claude",
+    "clientKind" : "UNAVAILABLE",
+    "origin" : "BUILT_IN"
+  }, {
+    "id" : "gemini-flash",
+    "provider" : "gemini",
+    "providerModelId" : "gemini-2.5-flash",
+    "defaultOutputTokens" : 2000,
+    "temperature" : 0.3,
+    "timeoutSeconds" : 120,
+    "role" : "MEMBER",
+    "councilRole" : "PROPOSER",
+    "modelFamily" : "gemini",
+    "clientKind" : "UNAVAILABLE",
+    "origin" : "BUILT_IN"
+  }, {
+    "id" : "openai-chair",
+    "provider" : "openai",
+    "providerModelId" : "gpt-4.1",
+    "defaultOutputTokens" : 2200,
+    "temperature" : 0.2,
+    "timeoutSeconds" : 180,
+    "role" : "CHAIR",
+    "councilRole" : "SYNTHESIZER",
+    "modelFamily" : "gpt",
+    "clientKind" : "UNAVAILABLE",
+    "origin" : "BUILT_IN"
+  }, {
+    "id" : "openai-analyst",
+    "provider" : "openai",
+    "providerModelId" : "gpt-4.1-nano",
+    "defaultOutputTokens" : 1600,
+    "temperature" : 0.3,
+    "timeoutSeconds" : 120,
+    "role" : "MEMBER",
+    "councilRole" : "PROPOSER",
+    "modelFamily" : "gpt",
+    "clientKind" : "UNAVAILABLE",
+    "origin" : "BUILT_IN"
+  }, {
+    "id" : "gemini-pro",
+    "provider" : "gemini",
+    "providerModelId" : "gemini-2.5-pro",
+    "defaultOutputTokens" : 2200,
+    "temperature" : 0.2,
+    "timeoutSeconds" : 180,
+    "role" : "CHAIR",
+    "councilRole" : "SYNTHESIZER",
+    "modelFamily" : "gemini",
+    "clientKind" : "UNAVAILABLE",
+    "origin" : "BUILT_IN"
+  }, {
+    "id" : "local-validator",
+    "provider" : "ollama",
+    "providerModelId" : "mistral:7b",
+    "defaultOutputTokens" : 1200,
+    "temperature" : 0.2,
+    "timeoutSeconds" : 240,
+    "role" : "VALIDATOR",
+    "councilRole" : "CRITIC",
+    "modelFamily" : "mistral",
+    "clientKind" : "LIVE",
+    "origin" : "BUILT_IN"
+  }, {
+    "id" : "openai-critic",
+    "provider" : "openai",
+    "providerModelId" : "gpt-4.1-mini",
+    "defaultOutputTokens" : 1800,
+    "temperature" : 0.35,
+    "timeoutSeconds" : 120,
+    "role" : "MEMBER",
+    "councilRole" : "CRITIC",
+    "modelFamily" : "gpt",
+    "clientKind" : "UNAVAILABLE",
+    "origin" : "BUILT_IN"
+  }, {
+    "id" : "local-mistral",
+    "provider" : "ollama",
+    "providerModelId" : "mistral:7b",
+    "defaultOutputTokens" : 1200,
+    "temperature" : 0.35,
+    "timeoutSeconds" : 240,
+    "role" : "MEMBER",
+    "councilRole" : "CRITIC",
+    "modelFamily" : "mistral",
+    "clientKind" : "LIVE",
+    "origin" : "BUILT_IN"
+  } ],
+  "protocols" : [ {
+    "id" : "balanced",
+    "description" : "Default council with anonymized review, scoring, synthesis, and Fresh Eyes validation.",
+    "orderedStages" : [ "GENERATE", "ANONYMIZE", "REVIEW", "SCORE", "SYNTHESIZE", "VALIDATE" ],
+    "stageOptions" : {
+      "SYNTHESIZE" : {
+        "preserve-dissent" : true
+      }
+    },
+    "origin" : "BUILT_IN"
+  }, {
+    "id" : "quick",
+    "description" : "Fast low-cost council for smoke tests and low-stakes requests.",
+    "orderedStages" : [ "GENERATE", "SYNTHESIZE" ],
+    "stageOptions" : { },
+    "origin" : "BUILT_IN"
+  }, {
+    "id" : "rigorous",
+    "description" : "High-rigor council with conditional debate, post-debate revision, re-review, second scoring, validation, and export.",
+    "orderedStages" : [ "GENERATE", "ANONYMIZE", "REVIEW", "SCORE", "DEBATE", "REVISE", "REVIEW_POST_DEBATE", "SCORE", "SYNTHESIZE", "VALIDATE", "EXPORT" ],
+    "stageOptions" : {
+      "DEBATE" : {
+        "min-rounds" : 2,
+        "max-rounds" : 3,
+        "ks-convergence-threshold" : 0.1,
+        "convergence-confidence-delta" : 5.0,
+        "debate-trigger-score-variance" : 40.0,
+        "force-run" : false,
+        "sycophancy-threshold" : 0.7,
+        "sycophancy-confidence-delta" : 15.0
+      },
+      "SYNTHESIZE" : {
+        "preserve-dissent" : true
+      },
+      "EXPORT" : {
+        "export-raw-artifacts" : false
+      }
+    },
+    "origin" : "BUILT_IN"
+  } ],
+  "providers" : [ {
+    "provider" : "anthropic",
+    "active" : false,
+    "reason" : "Anthropic not available — provide a real SPRING_AI_ANTHROPIC_API_KEY (current key is a placeholder or missing).",
+    "requiredEnvVar" : "SPRING_AI_ANTHROPIC_API_KEY",
+    "discoveredModels" : [ ]
+  }, {
+    "provider" : "gemini",
+    "active" : false,
+    "reason" : "Gemini/Vertex AI not available — provide GOOGLE_CLOUD_PROJECT (for Vertex AI with ADC) or configure Gemini API key access. Current project ID is blank or missing.",
+    "requiredEnvVar" : "GOOGLE_CLOUD_PROJECT",
+    "discoveredModels" : [ ]
+  }, {
+    "provider" : "ollama",
+    "active" : true,
+    "reason" : null,
+    "requiredEnvVar" : null,
+    "discoveredModels" : [ "gemma4:12b-it-qat", "qwen2.5:7b", "mistral:7b", "llama3.1:8b" ]
+  }, {
+    "provider" : "openai",
+    "active" : false,
+    "reason" : "OpenAI not available — provide a real SPRING_AI_OPENAI_API_KEY (current key is a placeholder or missing).",
+    "requiredEnvVar" : "SPRING_AI_OPENAI_API_KEY",
+    "discoveredModels" : [ ]
+  } ]
+}

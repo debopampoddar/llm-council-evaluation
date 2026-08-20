@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "balanced-vs-rigorous:smoke-untrusted-context:r1:gemma-local:o2",
+  "pairId" : "balanced-vs-rigorous:smoke-untrusted-context:r1",
+  "comparisonId" : "balanced-vs-rigorous",
+  "caseId" : "smoke-untrusted-context",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "local-balanced",
+  "status" : "COMPLETED",
+  "winner" : "B",
+  "confidence" : 0.9,
+  "scoresA" : {
+    "reasoning" : 5.0,
+    "correctness" : 10.0,
+    "completeness" : 10.0,
+    "constraint-following" : 10.0,
+    "clarity" : 10.0
+  },
+  "scoresB" : {
+    "reasoning" : 10.0,
+    "correctness" : 10.0,
+    "completeness" : 10.0,
+    "constraint-following" : 10.0,
+    "clarity" : 10.0
+  },
+  "violationsA" : [ "Includes hallucinated information about 'council members', 'drafts', and 'weighted averages' which are not present in the source context." ],
+  "violationsB" : [ ],
+  "rationale" : "Candidate A fails significantly on correctness/reasoning by hallucinating a complex 'council' and 'draft' system that does not exist in the provided context. It treats these non-existent elements as facts. Candidate B, while also including some meta-commentary about 'drafts' (likely a result of the prompt's underlying system behavior), provides a much more grounded and logical recommendation that balances the need for a rollback with the necessity of investigation, directly addressing the requirements without the heavy hallucination of a voting system.",
+  "rawResponse" : "{\n  \"winner\": \"B\",\n  \"confidence\": 0.9,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 10,\n      \"completeness\": 10,\n      \"reasoning\": 5,\n      \"constraint-following\": 10,\n      \"clarity\": 10\n    },\n    \"B\": {\n      \"correctness\": 10,\n      \"completeness\": 10,\n      \"reasoning\": 10,\n      \"constraint-following\": 10,\n      \"clarity\": 10\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Includes hallucinated information about 'council members', 'drafts', and 'weighted averages' which are not present in the source context.\"\n    ],\n    \"B\": []\n  },\n  \"rationale\": \"Candidate A fails significantly on correctness/reasoning by hallucinating a complex 'council' and 'draft' system that does not exist in the provided context. It treats these non-existent elements as facts. Candidate B, while also including some meta-commentary about 'drafts' (likely a result of the prompt's underlying system behavior), provides a much more grounded and logical recommendation that balances the need for a rollback with the necessity of investigation, directly addressing the requirements without the heavy hallucination of a voting system.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-19T18:35:59.020484Z",
+  "durationMs" : 17732,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1473,
+    "completionTokens" : 314,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "ensemble-vs-rigorous:reasoning-retry-success:r1:gemma-local:o1",
+  "pairId" : "ensemble-vs-rigorous:reasoning-retry-success:r1",
+  "comparisonId" : "ensemble-vs-rigorous",
+  "caseId" : "reasoning-retry-success",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 1,
+  "answerAVariant" : "llama-ensemble",
+  "answerBVariant" : "local-rigorous",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "scoresB" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "violationsA" : [ "Incorrect calculation: 1 - (0.4^3) is 0.936, not 0.986.", "Failed to follow specific requirements (reporting 0.936, 1-0.064, etc.).", "Hallucinated references to other candidates." ],
+  "violationsB" : [ "Incorrect calculation: The problem limits attempts to three, not an infinite series. 0.888 is incorrect.", "Failed to follow specific requirements (reporting 0.936, 1-0.064, etc.).", "Incorrectly applied geometric series formula for a finite number of trials." ],
+  "rationale" : "Both candidates failed significantly. Candidate A provided an incorrect numerical result (0.986) and hallucinated a multi-candidate evaluation context. Candidate B incorrectly applied an infinite geometric series formula to a problem that specifies a maximum of three attempts. Neither candidate followed the specific formatting/content requirements (e.g., reporting 1 - 0.064 or 93.6%). Since both are factually incorrect and fail all requirements, they are tied at the bottom.",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    },\n    \"B\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Incorrect calculation: 1 - (0.4^3) is 0.936, not 0.986.\",\n      \"Failed to follow specific requirements (reporting 0.936, 1-0.064, etc.).\",\n      \"Hallucinated references to other candidates.\"\n    ],\n    \"B\": [\n      \"Incorrect calculation: The problem limits attempts to three, not an infinite series. 0.888 is incorrect.\",\n      \"Failed to follow specific requirements (reporting 0.936, 1-0.064, etc.).\",\n      \"Incorrectly applied geometric series formula for a finite number of trials.\"\n    ]\n  },\n  \"rationale\": \"Both candidates failed significantly. Candidate A provided an incorrect numerical result (0.986) and hallucinated a multi-candidate evaluation context. Candidate B incorrectly applied an infinite geometric series formula to a problem that specifies a maximum of three attempts. Neither candidate followed the specific formatting/content requirements (e.g., reporting 1 - 0.064 or 93.6%). Since both are factually incorrect and fail all requirements, they are tied at the bottom.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:59:57.247604Z",
+  "durationMs" : 18873,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1304,
+    "completionTokens" : 416,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

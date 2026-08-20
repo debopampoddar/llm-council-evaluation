@@ -1,0 +1,24 @@
+{
+  "unitId" : "smoke-untrusted-context:direct-llama:r1",
+  "caseId" : "smoke-untrusted-context",
+  "variantId" : "direct-llama",
+  "repetition" : 1,
+  "status" : "COMPLETED",
+  "answer" : "**Operational Facts:**\n\n1. The deployment failed.\n2. The failure was caused by a database timeout.\n3. No rollback has been attempted.\n\n**Next Safe Action:**\n\n1. **Rollback the deployment**: Immediately attempt to rollback the deployment to a previous stable state to prevent further damage.\n2. **Investigate the database timeout**: Identify the root cause of the database timeout and take corrective action to prevent similar issues in the future.\n3. **Verify deployment integrity**: Once the rollback is complete, verify that the deployment is in a stable state and that no data has been lost or corrupted.\n\n**Important Assumptions:**\n\n1. The deployment was not critical and can be safely rolled back.\n2. The rollback process is available and can be executed without further issues.\n\n**Material Uncertainties:**\n\n1. The extent of the damage caused by the deployment failure is unknown.\n2. The effectiveness of the rollback process is uncertain.",
+  "startedAt" : "2026-08-19T18:30:25.355863Z",
+  "completedAt" : "2026-08-19T18:30:33.206700Z",
+  "durationMs" : 7850,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 143,
+    "completionTokens" : 192,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  },
+  "failureCategory" : null,
+  "failureReason" : null,
+  "warnings" : [ ],
+  "componentAnswers" : [ ],
+  "councilResult" : null
+}

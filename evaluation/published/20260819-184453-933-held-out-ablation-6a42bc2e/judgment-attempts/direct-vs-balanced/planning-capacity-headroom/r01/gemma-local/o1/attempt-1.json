@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-balanced:planning-capacity-headroom:r1:gemma-local:o1",
+  "pairId" : "direct-vs-balanced:planning-capacity-headroom:r1",
+  "comparisonId" : "direct-vs-balanced",
+  "caseId" : "planning-capacity-headroom",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 1,
+  "answerAVariant" : "local-balanced",
+  "answerBVariant" : "direct-llama",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 30.0,
+    "completeness" : 40.0,
+    "correctness" : 40.0,
+    "reasoning" : 30.0,
+    "clarity" : 80.0
+  },
+  "scoresB" : {
+    "constraint-following" : 30.0,
+    "completeness" : 40.0,
+    "correctness" : 40.0,
+    "reasoning" : 30.0,
+    "clarity" : 80.0
+  },
+  "violationsA" : [ "Failed to compute the 2.5x load requirement (30,000 RPS)", "Failed to compound the growth rate (used a vague 25% quarterly increase instead of the 1.08^12 calculation)", "Did not explicitly state the headroom amount or reason", "Did not propose a specific method to bound the marketing launch step change" ],
+  "violationsB" : [ "Failed to compute the 2.5x load requirement (30,000 RPS)", "Failed to compound the growth rate (used a vague 20% quarterly increase instead of the 1.08^12 calculation)", "Did not explicitly state the headroom amount or reason", "Did not propose a specific method to bound the marketing launch step change" ],
+  "rationale" : "Both candidates failed significantly on the core mathematical and logic requirements of the prompt. Neither candidate performed the compound growth calculation (1.08^12 ≈ 2.52), which is necessary to reach the required ~30,000 RPS target. Both candidates provided arbitrary percentage increases (25% and 20% respectively) rather than calculating the specific capacity needed to meet the 2.5x load requirement. Furthermore, both failed to explicitly state a specific headroom value/reason and failed to propose a method to bound the unquantified marketing launch (e.g., by setting a maximum threshold or a 'worst-case' buffer). Because both failed the primary technical requirements in a similar fashion, they are tied.",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 40,\n      \"completeness\": 40,\n      \"reasoning\": 30,\n      \"constraint-following\": 30,\n      \"clarity\": 80\n    },\n    \"B\": {\n      \"correctness\": 40,\n      \"completeness\": 40,\n      \"reasoning\": 30,\n      \"constraint-following\": 30,\n      \"clarity\": 80\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Failed to compute the 2.5x load requirement (30,000 RPS)\",\n      \"Failed to compound the growth rate (used a vague 25% quarterly increase instead of the 1.08^12 calculation)\",\n      \"Did not explicitly state the headroom amount or reason\",\n      \"Did not propose a specific method to bound the marketing launch step change\"\n    ],\n    \"B\": [\n      \"Failed to compute the 2.5x load requirement (30,000 RPS)\",\n      \"Failed to compound the growth rate (used a vague 20% quarterly increase instead of the 1.08^12 calculation)\",\n      \"Did not explicitly state the headroom amount or reason\",\n      \"Did not propose a specific method to bound the marketing launch step change\"\n    ]\n  },\n  \"rationale\": \"Both candidates failed significantly on the core mathematical and logic requirements of the prompt. Neither candidate performed the compound growth calculation (1.08^12 ≈ 2.52), which is necessary to reach the required ~30,000 RPS target. Both candidates provided arbitrary percentage increases (25% and 20% respectively) rather than calculating the specific capacity needed to meet the 2.5x load requirement. Furthermore, both failed to explicitly state a specific headroom value/reason and failed to propose a method to bound the unquantified marketing launch (e.g., by setting a maximum threshold or a 'worst-case' buffer). Because both failed the primary technical requirements in a similar fashion, they are tied.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:17:11.096021Z",
+  "durationMs" : 23555,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1666,
+    "completionTokens" : 505,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

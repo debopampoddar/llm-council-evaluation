@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "balanced-vs-rigorous:planning-retention-deletion:r1:gemma-local:o1",
+  "pairId" : "balanced-vs-rigorous:planning-retention-deletion:r1",
+  "comparisonId" : "balanced-vs-rigorous",
+  "caseId" : "planning-retention-deletion",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 1,
+  "answerAVariant" : "local-balanced",
+  "answerBVariant" : "local-rigorous",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "scoresB" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "violationsA" : [ "Fails to address the constraint regarding immutable backups (claims they can be deleted within 30 days despite being immutable).", "Fails to propose a verifiable completion signal.", "Fails to distinguish between row-level deletion and aggregate derivation correctly (suggests deleting aggregates).", "Contains meta-commentary about 'drafts' and 'councils' which is irrelevant to the prompt." ],
+  "violationsB" : [ "Fails to address the constraint regarding immutable backups (claims they can be updated simultaneously).", "Fails to propose a verifiable completion signal.", "Fails to distinguish between row-level deletion and aggregate derivation correctly.", "Contains meta-commentary about 'drafts' and 'councils' which is irrelevant to the prompt." ],
+  "rationale" : "Both candidates are poor responses. They both appear to be 'hallucinated' outputs from a multi-agent system where the agents are discussing their own internal drafts rather than answering the user's prompt. Both candidates fail almost every specific requirement: they do not propose a verifiable completion signal, they fail to correctly handle the 'immutable' nature of the backups (claiming they can be deleted in 30 days when the context says they are immutable and require a restore-time re-deletion strategy), and they include irrelevant meta-talk about 'Draft-B28BF69F' and 'councils'. Because both are equally non-compliant and structurally broken, a tie is the only logical result.",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    },\n    \"B\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Fails to address the constraint regarding immutable backups (claims they can be deleted within 30 days despite being immutable).\",\n      \"Fails to propose a verifiable completion signal.\",\n      \"Fails to distinguish between row-level deletion and aggregate derivation correctly (suggests deleting aggregates).\",\n      \"Contains meta-commentary about 'drafts' and 'councils' which is irrelevant to the prompt.\"\n    ],\n    \"B\": [\n      \"Fails to address the constraint regarding immutable backups (claims they can be updated simultaneously).\",\n      \"Fails to propose a verifiable completion signal.\",\n      \"Fails to distinguish between row-level deletion and aggregate derivation correctly.\",\n      \"Contains meta-commentary about 'drafts' and 'councils' which is irrelevant to the prompt.\"\n    ]\n  },\n  \"rationale\": \"Both candidates are poor responses. They both appear to be 'hallucinated' outputs from a multi-agent system where the agents are discussing their own internal drafts rather than answering the user's prompt. Both candidates fail almost every specific requirement: they do not propose a verifiable completion signal, they fail to correctly handle the 'immutable' nature of the backups (claiming they can be deleted in 30 days when the context says they are immutable and require a restore-time re-deletion strategy), and they include irrelevant meta-talk about 'Draft-B28BF69F' and 'councils'. Because both are equally non-compliant and structurally broken, a tie is the only logical result.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T09:30:02.102476Z",
+  "durationMs" : 23467,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1843,
+    "completionTokens" : 483,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

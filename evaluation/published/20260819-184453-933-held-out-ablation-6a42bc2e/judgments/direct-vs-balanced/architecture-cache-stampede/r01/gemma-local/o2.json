@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-balanced:architecture-cache-stampede:r1:gemma-local:o2",
+  "pairId" : "direct-vs-balanced:architecture-cache-stampede:r1",
+  "comparisonId" : "direct-vs-balanced",
+  "caseId" : "architecture-cache-stampede",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "local-balanced",
+  "answerBVariant" : "direct-llama",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "scoresB" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "violationsA" : [ "Failed to name the 'cache stampede' pattern.", "Failed to suggest single-flight/locking.", "Failed to suggest TTL jitter.", "Failed to suggest serving stale while revalidating.", "Recommended a cache hierarchy which was not requested and does not solve the specific stampede mechanics described." ],
+  "violationsB" : [ "Failed to suggest single-flight/locking.", "Failed to suggest TTL jitter.", "Failed to suggest serving stale while revalidating.", "Incorrectly identifies 'lack of sharding' as a primary cause of the stampede (sharding doesn't prevent a stampede on a single hot key)." ],
+  "rationale" : "Both candidates failed significantly on the specific requirements of the prompt. Neither candidate named the 'cache stampede' pattern (though B described it), and both completely failed to include the three specific technical requirements: single-flight/locking, TTL jitter, and serving stale while revalidating. Candidate A provided a generic architectural recommendation that did not address the specific mechanics of the problem. Candidate B correctly identified the pattern but provided incorrect/irrelevant solutions (sharding does not prevent stampedes on a single hot key). Since both failed the core requirements of the prompt, it is a tie in failure.",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    },\n    \"B\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Failed to name the 'cache stampede' pattern.\",\n      \"Failed to suggest single-flight/locking.\",\n      \"Failed to suggest TTL jitter.\",\n      \"Failed to suggest serving stale while revalidating.\",\n      \"Recommended a cache hierarchy which was not requested and does not solve the specific stampede mechanics described.\"\n    ],\n    \"B\": [\n      \"Failed to suggest single-flight/locking.\",\n      \"Failed to suggest TTL jitter.\",\n      \"Failed to suggest serving stale while revalidating.\",\n      \"Incorrectly identifies 'lack of sharding' as a primary cause of the stampede (sharding doesn't prevent a stampede on a single hot key).\"\n    ]\n  },\n  \"rationale\": \"Both candidates failed significantly on the specific requirements of the prompt. Neither candidate named the 'cache stampede' pattern (though B described it), and both completely failed to include the three specific technical requirements: single-flight/locking, TTL jitter, and serving stale while revalidating. Candidate A provided a generic architectural recommendation that did not address the specific mechanics of the problem. Candidate B correctly identified the pattern but provided incorrect/irrelevant solutions (sharding does not prevent stampedes on a single hot key). Since both failed the core requirements of the prompt, it is a tie in failure.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:02:21.672434Z",
+  "durationMs" : 20088,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1623,
+    "completionTokens" : 433,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

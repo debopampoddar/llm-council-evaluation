@@ -1,0 +1,174 @@
+{
+  "unitId" : "debugging-threadlocal-leak:local-balanced:r1",
+  "caseId" : "debugging-threadlocal-leak",
+  "variantId" : "local-balanced",
+  "repetition" : 1,
+  "status" : "COMPLETED",
+  "answer" : "**Final Recommendation/Answer:**\n\nReplace the ThreadLocal with a ThreadLocal that uses a WeakHashMap to prevent memory leaks.\n\n**Rationale:**\n\nThe use of a static ThreadLocal.withInitial() call creates a new HashMap for each thread, leading to memory leakage as no removal of the Map instances occurs. This results in a gradual increase in heap usage over time. The objects stored in the map are not weakly referenced, preventing them from being garbage collected even when they are no longer referenced by the thread. The filter's call to put() on every request exacerbates the issue, causing the map to grow steadily over time.\n\n**Important Dissent:**\n\nWhile the use of a static ThreadLocal.withInitial() does contribute to the memory leak, it is not the only factor at play. The servlet container's thread pool management and the application's design for handling requests and threads are also crucial factors. A proper solution would involve not only refactoring the use of ThreadLocal but also addressing these other factors.\n\n**Unresolved Risks:**\n\n1. The impact of the servlet container's thread pool management on the memory leak is not fully understood.\n2. The application's design for handling requests and threads may exacerbate the memory leak.\n3. The use of a WeakHashMap may not be sufficient to prevent memory leaks in all scenarios.\n\n**Confidence:**\n\n95 (The use of a WeakHashMap is a well-established solution to prevent memory leaks in ThreadLocal variables, and the rationale provided is clear and well-supported.)\n\n**Smallest Correct Fix:**\n\nReplace the ThreadLocal with a ThreadLocal that uses a WeakHashMap:\n```java\nprivate static final ThreadLocal<Map<String,Object>> STATE =\n    ThreadLocal.withInitial(WeakHashMap::new);\n```\nThis will allow the objects stored in the map to be garbage collected when they are no longer referenced by the thread.",
+  "startedAt" : "2026-08-19T19:26:02.293839Z",
+  "completedAt" : "2026-08-19T19:27:41.109720Z",
+  "durationMs" : 98815,
+  "usage" : {
+    "calls" : 6,
+    "promptTokens" : 5296,
+    "completionTokens" : 2248,
+    "estimatedCostUsd" : null,
+    "estimated" : false,
+    "partiallyPriced" : false
+  },
+  "failureCategory" : null,
+  "failureReason" : null,
+  "warnings" : [ ],
+  "componentAnswers" : [ ],
+  "councilResult" : {
+    "sessionId" : "b67f6eb7-ca89-47f9-8bfa-773cbf1d1356",
+    "status" : "COMPLETED",
+    "profileId" : "local",
+    "depthMode" : "BALANCED",
+    "policyId" : "local-balanced",
+    "protocolId" : "balanced",
+    "answer" : "**Final Recommendation/Answer:**\n\nReplace the ThreadLocal with a ThreadLocal that uses a WeakHashMap to prevent memory leaks.\n\n**Rationale:**\n\nThe use of a static ThreadLocal.withInitial() call creates a new HashMap for each thread, leading to memory leakage as no removal of the Map instances occurs. This results in a gradual increase in heap usage over time. The objects stored in the map are not weakly referenced, preventing them from being garbage collected even when they are no longer referenced by the thread. The filter's call to put() on every request exacerbates the issue, causing the map to grow steadily over time.\n\n**Important Dissent:**\n\nWhile the use of a static ThreadLocal.withInitial() does contribute to the memory leak, it is not the only factor at play. The servlet container's thread pool management and the application's design for handling requests and threads are also crucial factors. A proper solution would involve not only refactoring the use of ThreadLocal but also addressing these other factors.\n\n**Unresolved Risks:**\n\n1. The impact of the servlet container's thread pool management on the memory leak is not fully understood.\n2. The application's design for handling requests and threads may exacerbate the memory leak.\n3. The use of a WeakHashMap may not be sufficient to prevent memory leaks in all scenarios.\n\n**Confidence:**\n\n95 (The use of a WeakHashMap is a well-established solution to prevent memory leaks in ThreadLocal variables, and the rationale provided is clear and well-supported.)\n\n**Smallest Correct Fix:**\n\nReplace the ThreadLocal with a ThreadLocal that uses a WeakHashMap:\n```java\nprivate static final ThreadLocal<Map<String,Object>> STATE =\n    ThreadLocal.withInitial(WeakHashMap::new);\n```\nThis will allow the objects stored in the map to be garbage collected when they are no longer referenced by the thread.",
+    "draftCount" : 2,
+    "reviewCount" : 2,
+    "debateRounds" : 0,
+    "participatingModels" : [ "local-llama3", "local-mistral" ],
+    "excludedModels" : [ ],
+    "warnings" : [ ],
+    "sycophancyWarnings" : [ ],
+    "scoreSummary" : {
+      "scores" : [ {
+        "scorerId" : "confidence-weighted",
+        "draftId" : "draft-5367E8FF",
+        "dimensionScores" : {
+          "accuracy" : 95.0,
+          "completeness" : 85.0,
+          "reasoning" : 90.0,
+          "clarity" : 90.0,
+          "constructiveness" : 90.0
+        },
+        "weightedTotal" : 88.0,
+        "label" : "initial"
+      }, {
+        "scorerId" : "confidence-weighted",
+        "draftId" : "draft-88ED863A",
+        "dimensionScores" : {
+          "accuracy" : 85.0,
+          "completeness" : 90.0,
+          "reasoning" : 90.0,
+          "clarity" : 90.0,
+          "constructiveness" : 95.0
+        },
+        "weightedTotal" : 88.99999999999999,
+        "label" : "initial"
+      } ],
+      "variance" : 0.2499999999999929,
+      "winningDraftId" : "draft-88ED863A",
+      "escalated" : false,
+      "escalationPolicy" : null,
+      "reviewerDisagreement" : 0.0,
+      "disagreementMeasurable" : false
+    },
+    "validation" : {
+      "validatorId" : "local-validator",
+      "approved" : true,
+      "confidence" : 0.95,
+      "issues" : [ ],
+      "recommendedFixes" : [ "Replace the ThreadLocal with a ThreadLocal that uses a WeakHashMap: ```java\nprivate static final ThreadLocal<Map<String,Object>> STATE = \n    ThreadLocal.withInitial(WeakHashMap::new);\n```" ],
+      "criteria" : {
+        "uncertainty" : "pass - The answer acknowledges potential unresolved risks but does not affect the validity of the provided fix.",
+        "correctness" : "pass - The provided fix addresses the memory leak issue by using a WeakHashMap in the ThreadLocal.",
+        "completeness" : "pass - The answer provides a clear and concise explanation of the issue and the fix.",
+        "actionability" : "pass - The answer provides a clear and actionable fix.",
+        "safety" : "pass - The provided fix is safe and does not introduce new issues."
+      },
+      "requiresHumanReview" : false,
+      "rawText" : "{\n  \"approved\": true,\n  \"confidence\": 0.95,\n  \"issues\": [],\n  \"recommendedFixes\": [\"Replace the ThreadLocal with a ThreadLocal that uses a WeakHashMap: ```java\\nprivate static final ThreadLocal<Map<String,Object>> STATE = \\n    ThreadLocal.withInitial(WeakHashMap::new);\\n```\"],\n  \"criteria\": {\n    \"correctness\": \"pass - The provided fix addresses the memory leak issue by using a WeakHashMap in the ThreadLocal.\",\n    \"completeness\": \"pass - The answer provides a clear and concise explanation of the issue and the fix.\",\n    \"uncertainty\": \"pass - The answer acknowledges potential unresolved risks but does not affect the validity of the provided fix.\",\n    \"safety\": \"pass - The provided fix is safe and does not introduce new issues.\",\n    \"actionability\": \"pass - The answer provides a clear and actionable fix.\"\n  },\n  \"requiresHumanReview\": false\n}"
+    },
+    "validationIndependence" : "INDEPENDENT",
+    "failureReason" : null,
+    "failureCategory" : null,
+    "modelFailures" : [ ],
+    "usage" : {
+      "promptTokens" : 5296,
+      "completionTokens" : 2248,
+      "totalTokens" : 7544,
+      "calls" : 6,
+      "estimatedCostUsd" : null,
+      "estimated" : false,
+      "partiallyPriced" : false,
+      "byModel" : [ {
+        "modelId" : "local-mistral",
+        "calls" : 2,
+        "promptTokens" : 1668,
+        "completionTokens" : 761,
+        "totalTokens" : 2429,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "modelId" : "local-llama3",
+        "calls" : 2,
+        "promptTokens" : 1379,
+        "completionTokens" : 869,
+        "totalTokens" : 2248,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "modelId" : "local-chair",
+        "calls" : 1,
+        "promptTokens" : 1158,
+        "completionTokens" : 378,
+        "totalTokens" : 1536,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "modelId" : "local-validator",
+        "calls" : 1,
+        "promptTokens" : 1091,
+        "completionTokens" : 240,
+        "totalTokens" : 1331,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      } ],
+      "byStage" : [ {
+        "stage" : "GENERATE",
+        "calls" : 2,
+        "promptTokens" : 553,
+        "completionTokens" : 687,
+        "totalTokens" : 1240,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "stage" : "REVIEW",
+        "calls" : 2,
+        "promptTokens" : 2494,
+        "completionTokens" : 943,
+        "totalTokens" : 3437,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "stage" : "SYNTHESIZE",
+        "calls" : 1,
+        "promptTokens" : 1158,
+        "completionTokens" : 378,
+        "totalTokens" : 1536,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "stage" : "VALIDATE",
+        "calls" : 1,
+        "promptTokens" : 1091,
+        "completionTokens" : 240,
+        "totalTokens" : 1331,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      } ]
+    },
+    "integrity" : {
+      "reduced" : false,
+      "preserveDissent" : true,
+      "sycophancyThreshold" : null,
+      "reviewsPerDraft" : 1,
+      "notes" : [ ]
+    }
+  }
+}

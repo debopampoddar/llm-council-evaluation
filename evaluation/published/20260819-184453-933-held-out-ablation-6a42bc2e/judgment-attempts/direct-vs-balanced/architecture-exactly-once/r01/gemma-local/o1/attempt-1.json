@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-balanced:architecture-exactly-once:r1:gemma-local:o1",
+  "pairId" : "direct-vs-balanced:architecture-exactly-once:r1",
+  "comparisonId" : "direct-vs-balanced",
+  "caseId" : "architecture-exactly-once",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 1,
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-balanced",
+  "status" : "COMPLETED",
+  "winner" : "A",
+  "confidence" : 0.9,
+  "scoresA" : {
+    "constraint-following" : 9.0,
+    "completeness" : 8.0,
+    "correctness" : 9.0,
+    "reasoning" : 8.0,
+    "clarity" : 9.0
+  },
+  "scoresB" : {
+    "constraint-following" : 4.0,
+    "completeness" : 4.0,
+    "correctness" : 5.0,
+    "reasoning" : 3.0,
+    "clarity" : 6.0
+  },
+  "violationsA" : [ ],
+  "violationsB" : [ "Failed to explicitly state that exactly-once delivery is not achievable over an unreliable network (it says 'challenging' instead of 'not achievable').", "Failed to describe deduplication keys and their retention window.", "Included irrelevant 'council' and 'reviewer' meta-talk which was not requested." ],
+  "rationale" : "Candidate A correctly identifies that exactly-once delivery is not achievable and provides a structured design. While it suggests Two-Phase Commit (which is often overkill for simple message passing but technically valid for atomic effects), it addresses the core requirements of idempotency and duplicate detection. Candidate B fails significantly on several requirements: it does not explicitly state that exactly-once delivery is impossible (using 'challenging' instead), it fails to mention deduplication keys or retention windows, and it includes a large amount of irrelevant 'meta-talk' about a fictional council of reviewers. Candidate A is much closer to the requested technical explanation.",
+  "rawResponse" : "{\n  \"winner\": \"A\",\n  \"confidence\": 0.9,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 9,\n      \"completeness\": 8,\n      \"reasoning\": 8,\n      \"constraint-following\": 9,\n      \"clarity\": 9\n    },\n    \"B\": {\n      \"correctness\": 5,\n      \"completeness\": 4,\n      \"reasoning\": 3,\n      \"constraint-following\": 4,\n      \"clarity\": 6\n    }\n  },\n  \"violations\": {\n    \"A\": [],\n    \"B\": [\n      \"Failed to explicitly state that exactly-once delivery is not achievable over an unreliable network (it says 'challenging' instead of 'not achievable').\",\n      \"Failed to describe deduplication keys and their retention window.\",\n      \"Included irrelevant 'council' and 'reviewer' meta-talk which was not requested.\"\n    ]\n  },\n  \"rationale\": \"Candidate A correctly identifies that exactly-once delivery is not achievable and provides a structured design. While it suggests Two-Phase Commit (which is often overkill for simple message passing but technically valid for atomic effects), it addresses the core requirements of idempotency and duplicate detection. Candidate B fails significantly on several requirements: it does not explicitly state that exactly-once delivery is impossible (using 'challenging' instead), it fails to mention deduplication keys or retention windows, and it includes a large amount of irrelevant 'meta-talk' about a fictional council of reviewers. Candidate A is much closer to the requested technical explanation.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:01:15.000579Z",
+  "durationMs" : 24238,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1797,
+    "completionTokens" : 360,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

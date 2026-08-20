@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "balanced-vs-rigorous:architecture-read-after-write:r1:gemma-local:o2",
+  "pairId" : "balanced-vs-rigorous:architecture-read-after-write:r1",
+  "comparisonId" : "balanced-vs-rigorous",
+  "caseId" : "architecture-read-after-write",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "local-balanced",
+  "answerBVariant" : "local-rigorous",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 4.0,
+    "completeness" : 4.0,
+    "correctness" : 3.0,
+    "reasoning" : 3.0,
+    "clarity" : 5.0
+  },
+  "scoresB" : {
+    "constraint-following" : 4.0,
+    "completeness" : 4.0,
+    "correctness" : 3.0,
+    "reasoning" : 3.0,
+    "clarity" : 5.0
+  },
+  "violationsA" : [ "The recommendation to 'wait for the write operation's effects to be propagated to all replicas' effectively violates the constraint to not discard read scaling, as it introduces a synchronous bottleneck.", "The suggested 'read-after-write lock' is not a standard or efficient way to handle this in a distributed system without sacrificing scaling." ],
+  "violationsB" : [ "The recommendation to 'retry the read' is a red flag as it is not a correctness guarantee.", "The recommendation to 'ensure the application only reads from a replica that has caught up' is vague and doesn't specify a mechanism like sticky routing or tokens." ],
+  "rationale" : "Both candidates fail significantly on the core technical requirements. Neither candidate correctly identifies or implements the standard industry solutions for 'read-your-writes' consistency in an asynchronous replica environment (such as sticky sessions/routing, write tokens/LSNs, or using a 'primary-only' read for a short window after a write). \n\nCandidate A suggests a 'read-after-write lock' and 'waiting for propagation,' which destroys the read scaling the prompt explicitly asks to preserve. \n\nCandidate B suggests a 'retry loop' (a red flag) and a 'read-repair' strategy, which is not a standard way to solve read-after-write consistency and doesn't guarantee correctness. \n\nBoth candidates hallucinate a 'council' or 'reviewers' in their meta-commentary, which is irrelevant to the prompt. Because both failed to provide a technically sound solution that respects the constraints, they are tied in their poor performance.",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 3,\n      \"completeness\": 4,\n      \"reasoning\": 3,\n      \"constraint-following\": 4,\n      \"clarity\": 5\n    },\n    \"B\": {\n      \"correctness\": 3,\n      \"completeness\": 4,\n      \"reasoning\": 3,\n      \"constraint-following\": 4,\n      \"clarity\": 5\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"The recommendation to 'wait for the write operation's effects to be propagated to all replicas' effectively violates the constraint to not discard read scaling, as it introduces a synchronous bottleneck.\",\n      \"The suggested 'read-after-write lock' is not a standard or efficient way to handle this in a distributed system without sacrificing scaling.\"\n    ],\n    \"B\": [\n      \"The recommendation to 'retry the read' is a red flag as it is not a correctness guarantee.\",\n      \"The recommendation to 'ensure the application only reads from a replica that has caught up' is vague and doesn't specify a mechanism like sticky routing or tokens.\"\n    ]\n  },\n  \"rationale\": \"Both candidates fail significantly on the core technical requirements. Neither candidate correctly identifies or implements the standard industry solutions for 'read-your-writes' consistency in an asynchronous replica environment (such as sticky sessions/routing, write tokens/LSNs, or using a 'primary-only' read for a short window after a write). \\n\\nCandidate A suggests a 'read-after-write lock' and 'waiting for propagation,' which destroys the read scaling the prompt explicitly asks to preserve. \\n\\nCandidate B suggests a 'retry loop' (a red flag) and a 'read-repair' strategy, which is not a standard way to solve read-after-write consistency and doesn't guarantee correctness. \\n\\nBoth candidates hallucinate a 'council' or 'reviewers' in their meta-commentary, which is irrelevant to the prompt. Because both failed to provide a technically sound solution that respects the constraints, they are tied in their poor performance.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T09:14:56.885902Z",
+  "durationMs" : 22444,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1707,
+    "completionTokens" : 501,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

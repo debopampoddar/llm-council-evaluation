@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-rigorous:planning-capacity-headroom:r1:gemma-local:o1",
+  "pairId" : "direct-vs-rigorous:planning-capacity-headroom:r1",
+  "comparisonId" : "direct-vs-rigorous",
+  "caseId" : "planning-capacity-headroom",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 1,
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "direct-llama",
+  "status" : "COMPLETED",
+  "winner" : "B",
+  "confidence" : 0.9,
+  "scoresA" : {
+    "constraint-following" : 20.0,
+    "completeness" : 30.0,
+    "correctness" : 20.0,
+    "reasoning" : 30.0,
+    "clarity" : 60.0
+  },
+  "scoresB" : {
+    "constraint-following" : 80.0,
+    "completeness" : 80.0,
+    "correctness" : 80.0,
+    "reasoning" : 80.0,
+    "clarity" : 90.0
+  },
+  "violationsA" : [ "Failed to compound the growth rate (used 20% quarterly instead of calculating 1.08^12).", "Failed to compute the required capacity of ~30,000 requests per second.", "Failed to explicitly address the 6-minute warm-up as a constraint on reactive scaling.", "Included irrelevant 'council member' and 'peer review' meta-talk not present in the prompt." ],
+  "violationsB" : [ "Did not explicitly state the specific headroom value (e.g., 'X% buffer'), though it mentions a buffer." ],
+  "rationale" : "Candidate A fails almost all specific requirements: it does not compound the growth rate, it does not calculate the required capacity (~30,000 RPS), and it includes hallucinated 'council member' text. Candidate B is much stronger as it correctly identifies the growth trends, addresses the marketing launch as an unquantified step change, and lists the assumptions and their invalidation points. While B is slightly vague on the specific 'headroom' percentage, it is significantly more accurate and follows the constraints better than A.",
+  "rawResponse" : "{\n  \"winner\": \"B\",\n  \"confidence\": 0.9,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 20,\n      \"completeness\": 30,\n      \"reasoning\": 30,\n      \"constraint-following\": 20,\n      \"clarity\": 60\n    },\n    \"B\": {\n      \"correctness\": 80,\n      \"completeness\": 80,\n      \"reasoning\": 80,\n      \"constraint-following\": 80,\n      \"clarity\": 90\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Failed to compound the growth rate (used 20% quarterly instead of calculating 1.08^12).\",\n      \"Failed to compute the required capacity of ~30,000 requests per second.\",\n      \"Failed to explicitly address the 6-minute warm-up as a constraint on reactive scaling.\",\n      \"Included irrelevant 'council member' and 'peer review' meta-talk not present in the prompt.\"\n    ],\n    \"B\": [\n      \"Did not explicitly state the specific headroom value (e.g., 'X% buffer'), though it mentions a buffer.\"\n    ]\n  },\n  \"rationale\": \"Candidate A fails almost all specific requirements: it does not compound the growth rate, it does not calculate the required capacity (~30,000 RPS), and it includes hallucinated 'council member' text. Candidate B is much stronger as it correctly identifies the growth trends, addresses the marketing launch as an unquantified step change, and lists the assumptions and their invalidation points. While B is slightly vague on the specific 'headroom' percentage, it is significantly more accurate and follows the constraints better than A.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:40:22.537946Z",
+  "durationMs" : 20109,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1663,
+    "completionTokens" : 410,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

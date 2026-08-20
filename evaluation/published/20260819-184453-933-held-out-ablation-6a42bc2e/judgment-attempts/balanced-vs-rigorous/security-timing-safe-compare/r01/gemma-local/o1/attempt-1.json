@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "balanced-vs-rigorous:security-timing-safe-compare:r1:gemma-local:o1",
+  "pairId" : "balanced-vs-rigorous:security-timing-safe-compare:r1",
+  "comparisonId" : "balanced-vs-rigorous",
+  "caseId" : "security-timing-safe-compare",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 1,
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "local-balanced",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 3.0,
+    "completeness" : 4.0,
+    "correctness" : 3.0,
+    "reasoning" : 4.0,
+    "clarity" : 8.0
+  },
+  "scoresB" : {
+    "constraint-following" : 3.0,
+    "completeness" : 4.0,
+    "correctness" : 3.0,
+    "reasoning" : 4.0,
+    "clarity" : 8.0
+  },
+  "violationsA" : [ "Failed to mention network noise/jitter as a factor in exploitability.", "Failed to recommend rate limiting.", "Failed to recommend comparing hashes rather than raw secrets (it actually suggests the opposite in its 'Dissent' section, claiming tokens are not sensitive)." ],
+  "violationsB" : [ "Failed to mention network noise/jitter as a factor in exploitability.", "Failed to recommend rate limiting.", "Failed to recommend comparing hashes rather than raw secrets.", "Incorrectly claims hashing ensures case-insensitivity (hashing is generally case-sensitive)." ],
+  "rationale" : "Both candidates failed significantly on several core requirements. Neither candidate addressed the network noise/jitter factor, the recommendation for rate limiting, or the specific requirement to recommend comparing hashes rather than raw secrets. Both candidates correctly identified the need for constant-time comparison (e.g., MessageDigest.isEqual) and the risk of timing attacks with String.equals. Because both failed the same set of specific requirements and provided similar quality of reasoning regarding the primary vulnerability, they are tied.",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 3,\n      \"completeness\": 4,\n      \"reasoning\": 4,\n      \"constraint-following\": 3,\n      \"clarity\": 8\n    },\n    \"B\": {\n      \"correctness\": 3,\n      \"completeness\": 4,\n      \"reasoning\": 4,\n      \"constraint-following\": 3,\n      \"clarity\": 8\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Failed to mention network noise/jitter as a factor in exploitability.\",\n      \"Failed to recommend rate limiting.\",\n      \"Failed to recommend comparing hashes rather than raw secrets (it actually suggests the opposite in its 'Dissent' section, claiming tokens are not sensitive).\"\n    ],\n    \"B\": [\n      \"Failed to mention network noise/jitter as a factor in exploitability.\",\n      \"Failed to recommend rate limiting.\",\n      \"Failed to recommend comparing hashes rather than raw secrets.\",\n      \"Incorrectly claims hashing ensures case-insensitivity (hashing is generally case-sensitive).\"\n    ]\n  },\n  \"rationale\": \"Both candidates failed significantly on several core requirements. Neither candidate addressed the network noise/jitter factor, the recommendation for rate limiting, or the specific requirement to recommend comparing hashes rather than raw secrets. Both candidates correctly identified the need for constant-time comparison (e.g., MessageDigest.isEqual) and the risk of timing attacks with String.equals. Because both failed the same set of specific requirements and provided similar quality of reasoning regarding the primary vulnerability, they are tied.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T09:20:37.322290Z",
+  "durationMs" : 19588,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1709,
+    "completionTokens" : 387,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

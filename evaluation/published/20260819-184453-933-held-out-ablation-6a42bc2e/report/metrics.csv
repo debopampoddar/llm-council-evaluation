@@ -1,0 +1,11 @@
+type,id,attempts,completed,partial,failed,answer_rate,avg_calls,avg_tokens,cost,left_wins,right_wins,ties,unresolved,position_unstable,judge_disagreement,invalid,missing,preference,lower95,upper95,unresolved_lower,unresolved_upper
+variant,direct-llama,36,36,0,0,1.0,1.0,536.4444444444445,0.0,,,,,,,,,,,,,
+variant,llama-ensemble,36,36,0,0,1.0,6.0,5166.194444444444,0.0,,,,,,,,,,,,,
+variant,local-balanced,36,31,5,0,1.0,6.0,7453.0,,,,,,,,,,,,,,
+variant,local-rigorous,36,32,4,0,1.0,10.666666666666666,23438.444444444445,,,,,,,,,,,,,,
+comparison,direct-vs-balanced,,,,,,,,,13,5,14,4,4,0,0,0,0.625,0.4525440735307745,0.7706611269054578,0.5555555555555556,0.6666666666666666
+comparison,direct-vs-rigorous,,,,,,,,,14,0,13,9,9,0,0,0,0.7592592592592593,0.5726638704511647,0.8812705585715709,0.5694444444444444,0.8194444444444444
+comparison,ensemble-vs-rigorous,,,,,,,,,10,0,18,8,8,0,0,0,0.6785714285714286,0.49338843180857617,0.8206675307750504,0.5277777777777778,0.75
+comparison,balanced-vs-rigorous,,,,,,,,,5,3,21,7,7,0,0,0,0.5344827586206896,0.3598045573672107,0.7010940772190142,0.4305555555555556,0.625
+judge,all,288,,,,,288,592144,0.0,,,,,,,,,,,,,
+run,total,,,,,,,,,,,,,,,,,,,,,

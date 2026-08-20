@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "ensemble-vs-rigorous:reasoning-batching-throughput:r1:gemma-local:o1",
+  "pairId" : "ensemble-vs-rigorous:reasoning-batching-throughput:r1",
+  "comparisonId" : "ensemble-vs-rigorous",
+  "caseId" : "reasoning-batching-throughput",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 1,
+  "answerAVariant" : "llama-ensemble",
+  "answerBVariant" : "local-rigorous",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "scoresB" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "violationsA" : [ "The candidate failed to answer the prompt. It provided a meta-analysis of other (non-existent) candidates instead of performing the calculation requested in the question." ],
+  "violationsB" : [ "The candidate failed to answer the prompt. It provided a meta-analysis of other (non-existent) drafts and gave a factually incorrect speed-up (10% instead of 100x)." ],
+  "rationale" : "Both candidates are completely non-responsive to the actual prompt. They both appear to be 'meta-responses' or 'evaluations' of internal drafts that were not provided in the context. Neither candidate performed the required calculations (10,000 seconds vs 100 seconds) or stated the correct speed-up (100x). Since both are equally useless and fail to address the prompt, a tie is declared.",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    },\n    \"B\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"The candidate failed to answer the prompt. It provided a meta-analysis of other (non-existent) candidates instead of performing the calculation requested in the question.\"\n    ],\n    \"B\": [\n      \"The candidate failed to answer the prompt. It provided a meta-analysis of other (non-existent) drafts and gave a factually incorrect speed-up (10% instead of 100x).\"\n    ]\n  },\n  \"rationale\": \"Both candidates are completely non-responsive to the actual prompt. They both appear to be 'meta-responses' or 'evaluations' of internal drafts that were not provided in the context. Neither candidate performed the required calculations (10,000 seconds vs 100 seconds) or stated the correct speed-up (100x). Since both are equally useless and fail to address the prompt, a tie is declared.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T09:02:43.725757Z",
+  "durationMs" : 16810,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1405,
+    "completionTokens" : 345,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

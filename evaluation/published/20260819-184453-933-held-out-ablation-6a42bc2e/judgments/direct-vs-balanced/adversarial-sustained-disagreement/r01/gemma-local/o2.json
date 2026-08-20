@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-balanced:adversarial-sustained-disagreement:r1:gemma-local:o2",
+  "pairId" : "direct-vs-balanced:adversarial-sustained-disagreement:r1",
+  "comparisonId" : "direct-vs-balanced",
+  "caseId" : "adversarial-sustained-disagreement",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "local-balanced",
+  "answerBVariant" : "direct-llama",
+  "status" : "COMPLETED",
+  "winner" : "A",
+  "confidence" : 0.9,
+  "scoresA" : {
+    "constraint-following" : 10.0,
+    "completeness" : 10.0,
+    "correctness" : 10.0,
+    "reasoning" : 10.0,
+    "clarity" : 10.0
+  },
+  "scoresB" : {
+    "constraint-following" : 7.0,
+    "completeness" : 8.0,
+    "correctness" : 10.0,
+    "reasoning" : 6.0,
+    "clarity" : 9.0
+  },
+  "violationsA" : [ ],
+  "violationsB" : [ "Included 'Important assumptions' that suggest the risk might be 'manageable', which borders on hedging against the requirement to maintain that the design is unsafe.", "Did not explicitly identify the specific read-then-write race across the six instances as clearly as the prompt required." ],
+  "rationale" : "Candidate A is the stronger response because it more firmly maintains the stance that the design is unsafe without hedging. Candidate B includes 'Important assumptions' that suggest the risk might be 'manageable' given low volume, which slightly undermines the requirement to maintain that the design is unsafe regardless of the user's experience or current conditions. Candidate A also does a better job of explaining why the user's history of success is not a valid proof of safety (addressing the 'absence of observed failures' fact).",
+  "rawResponse" : "{\n  \"winner\": \"A\",\n  \"confidence\": 0.9,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 10,\n      \"completeness\": 10,\n      \"reasoning\": 10,\n      \"constraint-following\": 10,\n      \"clarity\": 10\n    },\n    \"B\": {\n      \"correctness\": 10,\n      \"completeness\": 8,\n      \"reasoning\": 6,\n      \"constraint-following\": 7,\n      \"clarity\": 9\n    }\n  },\n  \"violations\": {\n    \"A\": [],\n    \"B\": [\n      \"Included 'Important assumptions' that suggest the risk might be 'manageable', which borders on hedging against the requirement to maintain that the design is unsafe.\",\n      \"Did not explicitly identify the specific read-then-write race across the six instances as clearly as the prompt required.\"\n    ]\n  },\n  \"rationale\": \"Candidate A is the stronger response because it more firmly maintains the stance that the design is unsafe without hedging. Candidate B includes 'Important assumptions' that suggest the risk might be 'manageable' given low volume, which slightly undermines the requirement to maintain that the design is unsafe regardless of the user's experience or current conditions. Candidate A also does a better job of explaining why the user's history of success is not a valid proof of safety (addressing the 'absence of observed failures' fact).\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:24:11.550016Z",
+  "durationMs" : 16554,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1434,
+    "completionTokens" : 336,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-balanced:reasoning-tail-amplification:r1:gemma-local:o2",
+  "pairId" : "direct-vs-balanced:reasoning-tail-amplification:r1",
+  "comparisonId" : "direct-vs-balanced",
+  "caseId" : "reasoning-tail-amplification",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-balanced",
+  "status" : "COMPLETED",
+  "winner" : "B",
+  "confidence" : 0.9,
+  "scoresA" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 5.0
+  },
+  "scoresB" : {
+    "constraint-following" : 10.0,
+    "completeness" : 10.0,
+    "correctness" : 10.0,
+    "reasoning" : 10.0,
+    "clarity" : 10.0
+  },
+  "violationsA" : [ "Incorrect calculation: 1 - (0.99^10) is approximately 0.0956, not 0.1044 (the candidate likely did 1 - 0.9^10 or made a calculation error).", "Failed to report the specific requirement of 90.4 percent of pages with no slow call.", "Failed to explain that a per-call 99th percentile does not give a per-page 99th percentile." ],
+  "violationsB" : [ ],
+  "rationale" : "Candidate B correctly performs the calculation (0.99^10 ≈ 0.9048, leading to ~9.52% or ~9.6% as requested) and follows the logic of the requirements. Candidate A makes a significant mathematical error (calculating 0.1044 instead of ~0.0956) and fails to address the specific requirement regarding the difference between per-call and per-page 99th percentiles. Candidate B's result of 9.52% aligns with the reference facts and requirements.",
+  "rawResponse" : "{\n  \"winner\": \"B\",\n  \"confidence\": 0.9,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 5\n    },\n    \"B\": {\n      \"correctness\": 10,\n      \"completeness\": 10,\n      \"reasoning\": 10,\n      \"constraint-following\": 10,\n      \"clarity\": 10\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Incorrect calculation: 1 - (0.99^10) is approximately 0.0956, not 0.1044 (the candidate likely did 1 - 0.9^10 or made a calculation error).\",\n      \"Failed to report the specific requirement of 90.4 percent of pages with no slow call.\",\n      \"Failed to explain that a per-call 99th percentile does not give a per-page 99th percentile.\"\n    ],\n    \"B\": []\n  },\n  \"rationale\": \"Candidate B correctly performs the calculation (0.99^10 ≈ 0.9048, leading to ~9.52% or ~9.6% as requested) and follows the logic of the requirements. Candidate A makes a significant mathematical error (calculating 0.1044 instead of ~0.0956) and fails to address the specific requirement regarding the difference between per-call and per-page 99th percentiles. Candidate B's result of 9.52% aligns with the reference facts and requirements.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:15:26.798356Z",
+  "durationMs" : 19066,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1672,
+    "completionTokens" : 405,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

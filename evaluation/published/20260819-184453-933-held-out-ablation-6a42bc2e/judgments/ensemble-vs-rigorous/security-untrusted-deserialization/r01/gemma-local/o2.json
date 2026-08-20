@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "ensemble-vs-rigorous:security-untrusted-deserialization:r1:gemma-local:o2",
+  "pairId" : "ensemble-vs-rigorous:security-untrusted-deserialization:r1",
+  "comparisonId" : "ensemble-vs-rigorous",
+  "caseId" : "security-untrusted-deserialization",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "llama-ensemble",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 10.0,
+    "completeness" : 10.0,
+    "correctness" : 10.0,
+    "reasoning" : 10.0,
+    "clarity" : 10.0
+  },
+  "scoresB" : {
+    "constraint-following" : 10.0,
+    "completeness" : 10.0,
+    "correctness" : 10.0,
+    "reasoning" : 10.0,
+    "clarity" : 10.0
+  },
+  "violationsA" : [ ],
+  "violationsB" : [ ],
+  "rationale" : "Both candidates fail significantly because they both hallucinate 'council members', 'drafts', and 'peer reviews' which are not present in the prompt or context. This suggests they are following a template for a different type of task (likely a multi-agent evaluation) rather than answering the specific security question provided. However, since both failed in the exact same way by hallucinating the same non-existent context, they are tied in their failure to adhere to the prompt's actual content while attempting to provide the requested security information.",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 10,\n      \"completeness\": 10,\n      \"reasoning\": 10,\n      \"constraint-following\": 10,\n      \"clarity\": 10\n    },\n    \"B\": {\n      \"correctness\": 10,\n      \"completeness\": 10,\n      \"reasoning\": 10,\n      \"constraint-following\": 10,\n      \"clarity\": 10\n    }\n  },\n  \"violations\": {\n    \"A\": [],\n    \"B\": []\n  },\n  \"rationale\": \"Both candidates fail significantly because they both hallucinate 'council members', 'drafts', and 'peer reviews' which are not present in the prompt or context. This suggests they are following a template for a different type of task (likely a multi-agent evaluation) rather than answering the specific security question provided. However, since both failed in the exact same way by hallucinating the same non-existent context, they are tied in their failure to adhere to the prompt's actual content while attempting to provide the requested security information.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:57:49.794954Z",
+  "durationMs" : 16522,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1856,
+    "completionTokens" : 284,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

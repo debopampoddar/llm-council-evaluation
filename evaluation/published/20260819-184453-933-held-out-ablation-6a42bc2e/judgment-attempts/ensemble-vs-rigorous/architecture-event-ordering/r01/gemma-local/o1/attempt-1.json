@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "ensemble-vs-rigorous:architecture-event-ordering:r1:gemma-local:o1",
+  "pairId" : "ensemble-vs-rigorous:architecture-event-ordering:r1",
+  "comparisonId" : "ensemble-vs-rigorous",
+  "caseId" : "architecture-event-ordering",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 1,
+  "answerAVariant" : "llama-ensemble",
+  "answerBVariant" : "local-rigorous",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "scoresB" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "violationsA" : [ "Failed to explain the tension between global ordering and partitioned parallelism.", "Failed to recommend partitioning by account key.", "Failed to state that per-entity ordering is sufficient for balance correctness.", "Failed to address rebalancing and hot keys.", "Proposed a design that actually creates a bottleneck (a single global event store) rather than solving the tension correctly." ],
+  "violationsB" : [ "Failed to explain the tension between global ordering and partitioned parallelism.", "Failed to recommend partitioning by account key.", "Failed to state that per-entity ordering is sufficient for balance correctness.", "Failed to address rebalancing and hot keys.", "Proposed a design (consensus for global order) that contradicts the requirement for horizontal scaling at the volume specified (30k/sec)." ],
+  "rationale" : "Both candidates failed significantly on almost every requirement. Neither candidate correctly identified the core architectural trade-off: that strict global ordering requires a single partition (bottleneck), whereas horizontal scaling requires multiple partitions. Neither candidate recommended the correct solution (partitioning by account key), which provides the necessary per-entity ordering for balance correctness while allowing horizontal scaling. Both candidates proposed complex, non-scalable solutions for global ordering that would fail to meet the 30,000 events per second requirement. Since both are equally incorrect and fail to meet the prompt's constraints, it is a tie.",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    },\n    \"B\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Failed to explain the tension between global ordering and partitioned parallelism.\",\n      \"Failed to recommend partitioning by account key.\",\n      \"Failed to state that per-entity ordering is sufficient for balance correctness.\",\n      \"Failed to address rebalancing and hot keys.\",\n      \"Proposed a design that actually creates a bottleneck (a single global event store) rather than solving the tension correctly.\"\n    ],\n    \"B\": [\n      \"Failed to explain the tension between global ordering and partitioned parallelism.\",\n      \"Failed to recommend partitioning by account key.\",\n      \"Failed to state that per-entity ordering is sufficient for balance correctness.\",\n      \"Failed to address rebalancing and hot keys.\",\n      \"Proposed a design (consensus for global order) that contradicts the requirement for horizontal scaling at the volume specified (30k/sec).\"\n    ]\n  },\n  \"rationale\": \"Both candidates failed significantly on almost every requirement. Neither candidate correctly identified the core architectural trade-off: that strict global ordering requires a single partition (bottleneck), whereas horizontal scaling requires multiple partitions. Neither candidate recommended the correct solution (partitioning by account key), which provides the necessary per-entity ordering for balance correctness while allowing horizontal scaling. Both candidates proposed complex, non-scalable solutions for global ordering that would fail to meet the 30,000 events per second requirement. Since both are equally incorrect and fail to meet the prompt's constraints, it is a tie.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:49:05.686203Z",
+  "durationMs" : 21657,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1640,
+    "completionTokens" : 457,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

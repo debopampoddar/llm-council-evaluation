@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "balanced-vs-rigorous:reasoning-retry-success:r1:gemma-local:o2",
+  "pairId" : "balanced-vs-rigorous:reasoning-retry-success:r1",
+  "comparisonId" : "balanced-vs-rigorous",
+  "caseId" : "reasoning-retry-success",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "local-balanced",
+  "answerBVariant" : "local-rigorous",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "scoresB" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "violationsA" : [ "Incorrect calculation: states 0.81 instead of 0.936.", "Failed to follow specific requirements (failure probability as 0.4 cubed, report as 1 minus 0.064, state 93.6 percent)." ],
+  "violationsB" : [ "Incorrect calculation: states 0.888 (infinite series) instead of 0.936 (3 attempts).", "Failed to follow specific requirements (failure probability as 0.4 cubed, report as 1 minus 0.064, state 93.6 percent)." ],
+  "rationale" : "Both candidates failed significantly on the core task. The prompt specifies a maximum of three attempts, which requires calculating 1 - (0.4^3) = 0.936. Candidate A incorrectly calculated a value (0.81) and failed all specific formatting/content requirements. Candidate B incorrectly treated the problem as an infinite geometric series (0.888) and also failed all specific requirements. Since both are completely incorrect and failed to follow the constraints, it is a tie.",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    },\n    \"B\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Incorrect calculation: states 0.81 instead of 0.936.\",\n      \"Failed to follow specific requirements (failure probability as 0.4 cubed, report as 1 minus 0.064, state 93.6 percent).\"\n    ],\n    \"B\": [\n      \"Incorrect calculation: states 0.888 (infinite series) instead of 0.936 (3 attempts).\",\n      \"Failed to follow specific requirements (failure probability as 0.4 cubed, report as 1 minus 0.064, state 93.6 percent).\"\n    ]\n  },\n  \"rationale\": \"Both candidates failed significantly on the core task. The prompt specifies a maximum of three attempts, which requires calculating 1 - (0.4^3) = 0.936. Candidate A incorrectly calculated a value (0.81) and failed all specific formatting/content requirements. Candidate B incorrectly treated the problem as an infinite geometric series (0.888) and also failed all specific requirements. Since both are completely incorrect and failed to follow the constraints, it is a tie.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T09:24:05.030560Z",
+  "durationMs" : 18899,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1487,
+    "completionTokens" : 403,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

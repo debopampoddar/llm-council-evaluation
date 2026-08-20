@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "ensemble-vs-rigorous:architecture-saga-compensation:r1:gemma-local:o2",
+  "pairId" : "ensemble-vs-rigorous:architecture-saga-compensation:r1",
+  "comparisonId" : "ensemble-vs-rigorous",
+  "caseId" : "architecture-saga-compensation",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "llama-ensemble",
+  "answerBVariant" : "local-rigorous",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "scoresB" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "violationsA" : [ "The candidate explicitly states it is using a 'two-phase commit approach', which contradicts the context/reference facts stating that two-phase commit is unavailable across independently owned services.", "Fails to explain that compensation is semantic rather than a rollback.", "Fails to address the case where compensation itself fails.", "Fails to address the customer-visible intermediate state." ],
+  "violationsB" : [ "The candidate is a meta-analysis of 'drafts' that are not provided in the prompt, making the actual design non-existent.", "Fails to explain that compensation is semantic rather than a rollback.", "Fails to address the case where compensation itself fails.", "Fails to address the customer-visible intermediate state." ],
+  "rationale" : "Both candidates are completely unusable. Candidate A provides a design that explicitly violates the core constraint of the prompt (it suggests a Two-Phase Commit, which the reference facts state is unavailable). Candidate B is a 'meta-answer' that refers to internal drafts (e.g., draft-AC8C436B) that were not provided in the input, resulting in no actual design being presented. Neither candidate addressed the specific requirements regarding semantic compensation, compensation failure handling, or intermediate states.",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    },\n    \"B\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"The candidate explicitly states it is using a 'two-phase commit approach', which contradicts the context/reference facts stating that two-phase commit is unavailable across independently owned services.\",\n      \"Fails to explain that compensation is semantic rather than a rollback.\",\n      \"Fails to address the case where compensation itself fails.\",\n      \"Fails to address the customer-visible intermediate state.\"\n    ],\n    \"B\": [\n      \"The candidate is a meta-analysis of 'drafts' that are not provided in the prompt, making the actual design non-existent.\",\n      \"Fails to explain that compensation is semantic rather than a rollback.\",\n      \"Fails to address the case where compensation itself fails.\",\n      \"Fails to address the customer-visible intermediate state.\"\n    ]\n  },\n  \"rationale\": \"Both candidates are completely unusable. Candidate A provides a design that explicitly violates the core constraint of the prompt (it suggests a Two-Phase Commit, which the reference facts state is unavailable). Candidate B is a 'meta-answer' that refers to internal drafts (e.g., draft-AC8C436B) that were not provided in the input, resulting in no actual design being presented. Neither candidate addressed the specific requirements regarding semantic compensation, compensation failure handling, or intermediate states.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:50:09.393753Z",
+  "durationMs" : 21853,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1900,
+    "completionTokens" : 431,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

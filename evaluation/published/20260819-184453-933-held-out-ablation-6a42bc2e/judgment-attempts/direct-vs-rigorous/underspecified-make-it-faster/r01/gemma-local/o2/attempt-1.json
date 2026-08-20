@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-rigorous:underspecified-make-it-faster:r1:gemma-local:o2",
+  "pairId" : "direct-vs-rigorous:underspecified-make-it-faster:r1",
+  "comparisonId" : "direct-vs-rigorous",
+  "caseId" : "underspecified-make-it-faster",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-rigorous",
+  "status" : "COMPLETED",
+  "winner" : "A",
+  "confidence" : 0.9,
+  "scoresA" : {
+    "constraint-following" : 10.0,
+    "completeness" : 9.0,
+    "correctness" : 10.0,
+    "reasoning" : 9.0,
+    "clarity" : 9.0
+  },
+  "scoresB" : {
+    "constraint-following" : 8.0,
+    "completeness" : 8.0,
+    "correctness" : 10.0,
+    "reasoning" : 6.0,
+    "clarity" : 6.0
+  },
+  "violationsA" : [ ],
+  "violationsB" : [ "Includes meta-commentary about a 'previous debate' and 'contributing members' which was not part of the prompt context." ],
+  "rationale" : "Candidate A follows all instructions correctly. It declines to prescribe a specific change, proposes profiling as the first step, and asks for/suggests gathering metrics and dependency breakdowns. Candidate B contains significant 'hallucinated' context regarding a 'debate' and 'contributing members' that do not exist in the prompt, making it appear as though it is a summary of a multi-agent conversation rather than a direct answer. Candidate A is much cleaner and more professional.",
+  "rawResponse" : "{\n  \"winner\": \"A\",\n  \"confidence\": 0.9,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 10,\n      \"completeness\": 9,\n      \"reasoning\": 9,\n      \"constraint-following\": 10,\n      \"clarity\": 9\n    },\n    \"B\": {\n      \"correctness\": 10,\n      \"completeness\": 8,\n      \"reasoning\": 6,\n      \"constraint-following\": 8,\n      \"clarity\": 6\n    }\n  },\n  \"violations\": {\n    \"A\": [],\n    \"B\": [\n      \"Includes meta-commentary about a 'previous debate' and 'contributing members' which was not part of the prompt context.\"\n    ]\n  },\n  \"rationale\": \"Candidate A follows all instructions correctly. It declines to prescribe a specific change, proposes profiling as the first step, and asks for/suggests gathering metrics and dependency breakdowns. Candidate B contains significant 'hallucinated' context regarding a 'debate' and 'contributing members' that do not exist in the prompt, making it appear as though it is a summary of a multi-agent conversation rather than a direct answer. Candidate A is much cleaner and more professional.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:43:27.806882Z",
+  "durationMs" : 16519,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1753,
+    "completionTokens" : 295,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

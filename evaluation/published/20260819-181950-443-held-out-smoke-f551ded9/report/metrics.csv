@@ -1,0 +1,11 @@
+type,id,attempts,completed,partial,failed,answer_rate,avg_calls,avg_tokens,cost,left_wins,right_wins,ties,unresolved,position_unstable,judge_disagreement,invalid,missing,preference,lower95,upper95,unresolved_lower,unresolved_upper
+variant,direct-llama,2,2,0,0,1.0,1.0,272.5,0.0,,,,,,,,,,,,,
+variant,llama-ensemble,2,2,0,0,1.0,6.0,2290.5,0.0,,,,,,,,,,,,,
+variant,local-balanced,2,2,0,0,1.0,6.0,6182.0,,,,,,,,,,,,,,
+variant,local-rigorous,2,2,0,0,1.0,14.0,28092.0,,,,,,,,,,,,,,
+comparison,direct-vs-balanced,,,,,,,,,2,0,0,0,0,0,0,0,1.0,0.34238022750665303,1.0,1.0,1.0
+comparison,direct-vs-rigorous,,,,,,,,,2,0,0,0,0,0,0,0,1.0,0.34238022750665303,1.0,1.0,1.0
+comparison,ensemble-vs-rigorous,,,,,,,,,2,0,0,0,0,0,0,0,1.0,0.34238022750665303,1.0,1.0,1.0
+comparison,balanced-vs-rigorous,,,,,,,,,1,0,0,1,1,0,0,0,1.0,0.20654931437723745,1.0,0.5,1.0
+judge,all,16,,,,,16,25848,0.0,,,,,,,,,,,,,
+run,total,,,,,,,,,,,,,,,,,,,,,

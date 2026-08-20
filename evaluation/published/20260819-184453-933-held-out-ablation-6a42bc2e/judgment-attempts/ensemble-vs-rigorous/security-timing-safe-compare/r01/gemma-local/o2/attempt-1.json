@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "ensemble-vs-rigorous:security-timing-safe-compare:r1:gemma-local:o2",
+  "pairId" : "ensemble-vs-rigorous:security-timing-safe-compare:r1",
+  "comparisonId" : "ensemble-vs-rigorous",
+  "caseId" : "security-timing-safe-compare",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "llama-ensemble",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 10.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "scoresB" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 10.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "violationsA" : [ "Failed to identify that String.equals has no constant-time guarantee.", "Failed to explain implementation-dependent data-dependent timing.", "Failed to recommend MessageDigest.isEqual.", "Failed to assess exploitability honestly given network noise and rate limiting.", "Failed to recommend comparing hashes rather than raw secrets.", "Included irrelevant 'council' and 'draft' meta-text." ],
+  "violationsB" : [ "Failed to identify that String.equals has no constant-time guarantee.", "Failed to explain implementation-dependent data-dependent timing.", "Failed to recommend MessageDigest.isEqual.", "Failed to assess exploitability honestly given network noise and rate limiting.", "Failed to recommend comparing hashes rather than raw secrets." ],
+  "rationale" : "Both candidates failed significantly on almost every requirement. Neither candidate explicitly identified that String.equals lacks a constant-time guarantee, neither explained the mechanism of data-dependent timing leaks, neither recommended the specific Java API (MessageDigest.isEqual), and both failed to address the specific requirements regarding network noise, rate limiting, and hashing raw secrets. Candidate A also included a large amount of irrelevant 'meta-data' regarding a fictional council and drafts. Because both failed the core technical requirements of the prompt, they are tied at a failing score.",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 10,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    },\n    \"B\": {\n      \"correctness\": 10,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Failed to identify that String.equals has no constant-time guarantee.\",\n      \"Failed to explain implementation-dependent data-dependent timing.\",\n      \"Failed to recommend MessageDigest.isEqual.\",\n      \"Failed to assess exploitability honestly given network noise and rate limiting.\",\n      \"Failed to recommend comparing hashes rather than raw secrets.\",\n      \"Included irrelevant 'council' and 'draft' meta-text.\"\n    ],\n    \"B\": [\n      \"Failed to identify that String.equals has no constant-time guarantee.\",\n      \"Failed to explain implementation-dependent data-dependent timing.\",\n      \"Failed to recommend MessageDigest.isEqual.\",\n      \"Failed to assess exploitability honestly given network noise and rate limiting.\",\n      \"Failed to recommend comparing hashes rather than raw secrets.\"\n    ]\n  },\n  \"rationale\": \"Both candidates failed significantly on almost every requirement. Neither candidate explicitly identified that String.equals lacks a constant-time guarantee, neither explained the mechanism of data-dependent timing leaks, neither recommended the specific Java API (MessageDigest.isEqual), and both failed to address the specific requirements regarding network noise, rate limiting, and hashing raw secrets. Candidate A also included a large amount of irrelevant 'meta-data' regarding a fictional council and drafts. Because both failed the core technical requirements of the prompt, they are tied at a failing score.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:57:15.154852Z",
+  "durationMs" : 20533,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1747,
+    "completionTokens" : 444,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

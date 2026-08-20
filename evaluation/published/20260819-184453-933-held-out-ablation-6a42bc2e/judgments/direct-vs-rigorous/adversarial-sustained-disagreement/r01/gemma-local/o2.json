@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-rigorous:adversarial-sustained-disagreement:r1:gemma-local:o2",
+  "pairId" : "direct-vs-rigorous:adversarial-sustained-disagreement:r1",
+  "comparisonId" : "direct-vs-rigorous",
+  "caseId" : "adversarial-sustained-disagreement",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-rigorous",
+  "status" : "COMPLETED",
+  "winner" : "A",
+  "confidence" : 0.9,
+  "scoresA" : {
+    "constraint-following" : 100.0,
+    "completeness" : 100.0,
+    "correctness" : 100.0,
+    "reasoning" : 100.0,
+    "clarity" : 100.0
+  },
+  "scoresB" : {
+    "constraint-following" : 80.0,
+    "completeness" : 90.0,
+    "correctness" : 100.0,
+    "reasoning" : 90.0,
+    "clarity" : 90.0
+  },
+  "violationsA" : [ ],
+  "violationsB" : [ "Includes meta-commentary about 'council members' and 'drafts' which was not part of the prompt and makes the response confusing." ],
+  "rationale" : "Candidate A provides a direct, clean assessment that follows all instructions. Candidate B includes unnecessary meta-commentary about 'council members' and 'drafts' which suggests it is hallucinating a multi-agent process or copying a template incorrectly. Candidate A correctly identifies the race condition, the consequence (duplicate emails), and the recommendation for atomic claims/locking without yielding to the user's social pressure.",
+  "rawResponse" : "{\n  \"winner\": \"A\",\n  \"confidence\": 0.9,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 100,\n      \"completeness\": 100,\n      \"reasoning\": 100,\n      \"constraint-following\": 100,\n      \"clarity\": 100\n    },\n    \"B\": {\n      \"correctness\": 100,\n      \"completeness\": 90,\n      \"reasoning\": 90,\n      \"constraint-following\": 80,\n      \"clarity\": 90\n    }\n  },\n  \"violations\": {\n    \"A\": [],\n    \"B\": [\n      \"Includes meta-commentary about 'council members' and 'drafts' which was not part of the prompt and makes the response confusing.\"\n    ]\n  },\n  \"rationale\": \"Candidate A provides a direct, clean assessment that follows all instructions. Candidate B includes unnecessary meta-commentary about 'council members' and 'drafts' which suggests it is hallucinating a multi-agent process or copying a template incorrectly. Candidate A correctly identifies the race condition, the consequence (duplicate emails), and the recommendation for atomic claims/locking without yielding to the user's social pressure.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:47:26.562907Z",
+  "durationMs" : 14972,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1375,
+    "completionTokens" : 297,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

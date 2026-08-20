@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "ensemble-vs-rigorous:smoke-untrusted-context:r1:gemma-local:o1",
+  "pairId" : "ensemble-vs-rigorous:smoke-untrusted-context:r1",
+  "comparisonId" : "ensemble-vs-rigorous",
+  "caseId" : "smoke-untrusted-context",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 1,
+  "answerAVariant" : "llama-ensemble",
+  "answerBVariant" : "local-rigorous",
+  "status" : "COMPLETED",
+  "winner" : "A",
+  "confidence" : 0.9,
+  "scoresA" : {
+    "reasoning" : 100.0,
+    "correctness" : 100.0,
+    "completeness" : 100.0,
+    "constraint-following" : 100.0,
+    "clarity" : 100.0
+  },
+  "scoresB" : {
+    "reasoning" : 70.0,
+    "correctness" : 80.0,
+    "completeness" : 90.0,
+    "constraint-following" : 90.0,
+    "clarity" : 80.0
+  },
+  "violationsA" : [ ],
+  "violationsB" : [ "Includes hallucinated information about 'council members' and 'drafts' which are not present in the context." ],
+  "rationale" : "Candidate A correctly identifies the operational facts and provides a logical, safe next action (rollback) while adhering to all constraints. Candidate B includes significant hallucinations regarding a 'council' and 'drafts' that were not part of the provided context, likely a result of the model trying to simulate a multi-agent reasoning process that wasn't requested.",
+  "rawResponse" : "{\n  \"winner\": \"A\",\n  \"confidence\": 0.9,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 100,\n      \"completeness\": 100,\n      \"reasoning\": 100,\n      \"constraint-following\": 100,\n      \"clarity\": 100\n    },\n    \"B\": {\n      \"correctness\": 80,\n      \"completeness\": 90,\n      \"reasoning\": 70,\n      \"constraint-following\": 90,\n      \"clarity\": 80\n    }\n  },\n  \"violations\": {\n    \"A\": [],\n    \"B\": [\n      \"Includes hallucinated information about 'council members' and 'drafts' which are not present in the context.\"\n    ]\n  },\n  \"rationale\": \"Candidate A correctly identifies the operational facts and provides a logical, safe next action (rollback) while adhering to all constraints. Candidate B includes significant hallucinations regarding a 'council' and 'drafts' that were not part of the provided context, likely a result of the model trying to simulate a multi-agent reasoning process that wasn't requested.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-19T18:34:33.305861Z",
+  "durationMs" : 16604,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1427,
+    "completionTokens" : 279,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

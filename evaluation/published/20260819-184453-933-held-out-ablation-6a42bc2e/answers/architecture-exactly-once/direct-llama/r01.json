@@ -1,0 +1,24 @@
+{
+  "unitId" : "architecture-exactly-once:direct-llama:r1",
+  "caseId" : "architecture-exactly-once",
+  "variantId" : "direct-llama",
+  "repetition" : 1,
+  "status" : "COMPLETED",
+  "answer" : "**Achievability:**\n\nExactly-once delivery is not achievable in the presence of network failures, message duplication, or crashes on either side. This is because the system cannot guarantee that a message will be delivered only once, even with retries and idempotent operations.\n\nHowever, we can design a system that satisfies the underlying business need of never charging a customer twice and never silently not charging them.\n\n**Design:**\n\n1. **Idempotent operations**: Ensure that the operation of charging a customer is idempotent, meaning that performing the operation multiple times has the same effect as performing it once.\n2. **Two-phase commit**: Implement a two-phase commit protocol between the producer and consumer services. This involves:\n\t* **Prepare phase**: The producer sends a prepare message to the consumer, which includes the message to be processed and a unique identifier.\n\t* **Commit phase**: If the consumer receives the prepare message, it sends a commit message to the producer, which includes the result of processing the message. If the consumer crashes before sending the commit message, the producer will detect the failure and retry the prepare phase.\n3. **Message logging**: Log all messages sent by the producer, including the unique identifier and the message itself. This allows the system to detect and retry failed messages.\n4. **Consumer-side logging**: Log all messages received by the consumer, including the unique identifier and the result of processing the message.\n5. **Duplicate detection**: Implement a duplicate detection mechanism on the consumer side to prevent duplicate processing of messages.\n6. **Retry mechanism**: Implement a retry mechanism for the producer to retry failed messages.\n\n**Key reasons:**\n\n* Two-phase commit ensures that either both the producer and consumer commit to the message or neither does.\n* Idempotent operations ensure that charging a customer multiple times has the same effect as charging them once.\n* Message logging and duplicate detection ensure that failed messages are detected and retried.\n\n**Important assumptions:**\n\n* The producer and consumer services are designed to handle failures and retries.\n* The network is reliable enough to ensure that messages are delivered eventually.\n\n**Material uncertainties:**\n\n* The system's ability to detect and retry failed messages depends on the logging and duplicate detection mechanisms.\n* The two-phase commit protocol may introduce additional latency and complexity.",
+  "startedAt" : "2026-08-19T18:49:04.754846Z",
+  "completedAt" : "2026-08-19T18:49:22.284972Z",
+  "durationMs" : 17530,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 185,
+    "completionTokens" : 461,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  },
+  "failureCategory" : null,
+  "failureReason" : null,
+  "warnings" : [ ],
+  "componentAnswers" : [ ],
+  "councilResult" : null
+}

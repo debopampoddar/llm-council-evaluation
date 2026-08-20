@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-rigorous:debugging-utc-boundary:r1:gemma-local:o1",
+  "pairId" : "direct-vs-rigorous:debugging-utc-boundary:r1",
+  "comparisonId" : "direct-vs-rigorous",
+  "caseId" : "debugging-utc-boundary",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 1,
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-rigorous",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 40.0,
+    "completeness" : 40.0,
+    "correctness" : 40.0,
+    "reasoning" : 30.0,
+    "clarity" : 80.0
+  },
+  "scoresB" : {
+    "constraint-following" : 40.0,
+    "completeness" : 40.0,
+    "correctness" : 40.0,
+    "reasoning" : 30.0,
+    "clarity" : 70.0
+  },
+  "violationsA" : [ "Violates red flag: Recommends storing local time without an offset.", "Fails to identify that the correct bucket depends on a defined reporting time zone.", "Fails to explicitly identify the 23-hour day as a daylight-saving transition." ],
+  "violationsB" : [ "Fails to identify that the correct bucket depends on a defined reporting time zone.", "Fails to explicitly identify the 23-hour day as a daylight-saving transition.", "Contains hallucinated references to 'drafts' and 'draft-A349FAAA' which are not in the context." ],
+  "rationale" : "Both candidates fail significantly on the core requirements. Neither candidate correctly identifies that the 23-hour day is a daylight-saving transition (a specific requirement). Neither candidate mentions that the reporting time zone is a product decision that must be stated explicitly. \n\nCandidate A violates a specific red flag by recommending storing events in the user's local time without an offset. \n\nCandidate B contains significant hallucinations, referencing 'drafts' and specific draft IDs that do not exist in the provided context. \n\nBecause both failed the primary technical requirements and the red flags/hallucination checks, they are tied in their poor performance.",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 40,\n      \"completeness\": 40,\n      \"reasoning\": 30,\n      \"constraint-following\": 40,\n      \"clarity\": 80\n    },\n    \"B\": {\n      \"correctness\": 40,\n      \"completeness\": 40,\n      \"reasoning\": 30,\n      \"constraint-following\": 40,\n      \"clarity\": 70\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Violates red flag: Recommends storing local time without an offset.\",\n      \"Fails to identify that the correct bucket depends on a defined reporting time zone.\",\n      \"Fails to explicitly identify the 23-hour day as a daylight-saving transition.\"\n    ],\n    \"B\": [\n      \"Fails to identify that the correct bucket depends on a defined reporting time zone.\",\n      \"Fails to explicitly identify the 23-hour day as a daylight-saving transition.\",\n      \"Contains hallucinated references to 'drafts' and 'draft-A349FAAA' which are not in the context.\"\n    ]\n  },\n  \"rationale\": \"Both candidates fail significantly on the core requirements. Neither candidate correctly identifies that the 23-hour day is a daylight-saving transition (a specific requirement). Neither candidate mentions that the reporting time zone is a product decision that must be stated explicitly. \\n\\nCandidate A violates a specific red flag by recommending storing events in the user's local time without an offset. \\n\\nCandidate B contains significant hallucinations, referencing 'drafts' and specific draft IDs that do not exist in the provided context. \\n\\nBecause both failed the primary technical requirements and the red flags/hallucination checks, they are tied in their poor performance.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:31:50.580397Z",
+  "durationMs" : 21183,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1586,
+    "completionTokens" : 447,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

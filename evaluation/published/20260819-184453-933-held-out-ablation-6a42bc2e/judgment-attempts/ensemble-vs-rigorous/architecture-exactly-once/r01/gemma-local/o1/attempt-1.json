@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "ensemble-vs-rigorous:architecture-exactly-once:r1:gemma-local:o1",
+  "pairId" : "ensemble-vs-rigorous:architecture-exactly-once:r1",
+  "comparisonId" : "ensemble-vs-rigorous",
+  "caseId" : "architecture-exactly-once",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 1,
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "llama-ensemble",
+  "status" : "COMPLETED",
+  "winner" : "B",
+  "confidence" : 0.9,
+  "scoresA" : {
+    "constraint-following" : 2.0,
+    "completeness" : 4.0,
+    "correctness" : 10.0,
+    "reasoning" : 3.0,
+    "clarity" : 5.0
+  },
+  "scoresB" : {
+    "constraint-following" : 8.0,
+    "completeness" : 8.0,
+    "correctness" : 10.0,
+    "reasoning" : 8.0,
+    "clarity" : 9.0
+  },
+  "violationsA" : [ "Failed to explicitly state that exactly-once delivery is not achievable over an unreliable network (it only implies it in the 'Rationale' section).", "Failed to distinguish between delivery and processing/effect clearly.", "Failed to describe deduplication keys or retention windows.", "The response is largely meta-commentary on 'drafts' which were not provided in the prompt." ],
+  "violationsB" : [ "Did not explicitly mention a 'retention window' for deduplication, though it covers the core logic." ],
+  "rationale" : "Candidate A is a poor response because it appears to be a meta-analysis of internal 'drafts' that were not provided in the prompt, resulting in a response that fails almost all specific requirements (it doesn't clearly state the impossibility of exactly-once delivery, doesn't distinguish between delivery and effect, and lacks deduplication details). Candidate B, while not mentioning a specific retention window, correctly identifies that exactly-once delivery is impossible, distinguishes between delivery and effect via idempotency, and provides a coherent design using at-least-once delivery and idempotent operations. Candidate B is much more useful and follows the core instructions.",
+  "rawResponse" : "{\n  \"winner\": \"B\",\n  \"confidence\": 0.9,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 10,\n      \"completeness\": 4,\n      \"reasoning\": 3,\n      \"constraint-following\": 2,\n      \"clarity\": 5\n    },\n    \"B\": {\n      \"correctness\": 10,\n      \"completeness\": 8,\n      \"reasoning\": 8,\n      \"constraint-following\": 8,\n      \"clarity\": 9\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Failed to explicitly state that exactly-once delivery is not achievable over an unreliable network (it only implies it in the 'Rationale' section).\",\n      \"Failed to distinguish between delivery and processing/effect clearly.\",\n      \"Failed to describe deduplication keys or retention windows.\",\n      \"The response is largely meta-commentary on 'drafts' which were not provided in the prompt.\"\n    ],\n    \"B\": [\n      \"Did not explicitly mention a 'retention window' for deduplication, though it covers the core logic.\"\n    ]\n  },\n  \"rationale\": \"Candidate A is a poor response because it appears to be a meta-analysis of internal 'drafts' that were not provided in the prompt, resulting in a response that fails almost all specific requirements (it doesn't clearly state the impossibility of exactly-once delivery, doesn't distinguish between delivery and effect, and lacks deduplication details). Candidate B, while not mentioning a specific retention window, correctly identifies that exactly-once delivery is impossible, distinguishes between delivery and effect via idempotency, and provides a coherent design using at-least-once delivery and idempotent operations. Candidate B is much more useful and follows the core instructions.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:47:47.215600Z",
+  "durationMs" : 20582,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1786,
+    "completionTokens" : 409,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

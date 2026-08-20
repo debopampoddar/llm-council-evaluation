@@ -1,0 +1,24 @@
+{
+  "unitId" : "architecture-cache-stampede:direct-llama:r1",
+  "caseId" : "architecture-cache-stampede",
+  "variantId" : "direct-llama",
+  "repetition" : 1,
+  "status" : "COMPLETED",
+  "answer" : "**Diagnosis:**\n\nThe pattern is a cache stampede, where a large number of instances simultaneously try to recompute the same cache key after it expires. This leads to a surge in requests to the origin database, causing it to become overwhelmed.\n\n**Key reasons:**\n\n1. **TTL (Time-To-Live) setting**: The same TTL is set for all instances, causing them to expire the cache key at the same time.\n2. **High request rate**: The key is requested approximately 4,000 times per second across twelve instances, leading to a large number of simultaneous requests to the origin database.\n3. **Lack of cache sharding or partitioning**: The cache is not sharded or partitioned, leading to a single point of contention when the cache key expires.\n\n**Design a fix:**\n\n1. **Implement cache sharding or partitioning**: Divide the cache into smaller, independent shards or partitions, each with its own TTL. This will distribute the load and prevent a single point of contention.\n2. **Use a more granular TTL**: Set a shorter TTL for each instance, allowing them to expire the cache key independently. This will reduce the number of simultaneous requests to the origin database.\n3. **Implement a cache warm-up mechanism**: Before the TTL expires, warm up the cache by pre-computing the key and storing it in the cache. This will reduce the load on the origin database when the TTL expires.\n4. **Consider using a distributed cache**: Use a distributed cache like Redis or Hazelcast, which can handle high request rates and provide features like sharding and partitioning.\n5. **Monitor and adjust**: Continuously monitor the cache and adjust the TTL, sharding, or partitioning as needed to ensure the cache remains useful and the origin database is not overwhelmed.\n\n**Important assumptions:**\n\n* The origin database is the primary source of truth for the cache key.\n* The cache is used to reduce the load on the origin database.\n\n**Material uncertainties:**\n\n* The impact of the cache stampede on the origin database's performance and availability.\n* The effectiveness of the proposed fix in preventing future cache stampedes.",
+  "startedAt" : "2026-08-19T18:54:53.651909Z",
+  "completedAt" : "2026-08-19T18:55:10.688766Z",
+  "durationMs" : 17036,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 165,
+    "completionTokens" : 440,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  },
+  "failureCategory" : null,
+  "failureReason" : null,
+  "warnings" : [ ],
+  "componentAnswers" : [ ],
+  "councilResult" : null
+}

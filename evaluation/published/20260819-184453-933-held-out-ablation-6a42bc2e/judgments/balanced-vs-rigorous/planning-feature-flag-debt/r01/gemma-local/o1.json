@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "balanced-vs-rigorous:planning-feature-flag-debt:r1:gemma-local:o1",
+  "pairId" : "balanced-vs-rigorous:planning-feature-flag-debt:r1",
+  "comparisonId" : "balanced-vs-rigorous",
+  "caseId" : "planning-feature-flag-debt",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 1,
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "local-balanced",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 3.0,
+    "completeness" : 4.0,
+    "correctness" : 5.0,
+    "reasoning" : 4.0,
+    "clarity" : 6.0
+  },
+  "scoresB" : {
+    "constraint-following" : 3.0,
+    "completeness" : 4.0,
+    "correctness" : 5.0,
+    "reasoning" : 4.0,
+    "clarity" : 6.0
+  },
+  "violationsA" : [ "Failed to explicitly classify flags as permanent operational switches vs temporary release flags.", "Failed to mention using runtime evaluation telemetry to find dead flags.", "Failed to specify removing the losing branch together with the check.", "Failed to provide a specific sequence to avoid enabling incomplete features." ],
+  "violationsB" : [ "Failed to explicitly classify flags as permanent operational switches vs temporary release flags.", "Failed to mention using runtime evaluation telemetry to find dead flags.", "Failed to specify removing the losing branch together with the check.", "Failed to provide a specific sequence to avoid enabling incomplete features." ],
+  "rationale" : "Both candidates fail significantly on the specific requirements provided in the prompt. Neither candidate mentions using runtime evaluation telemetry to identify dead flags, neither explicitly describes the process of removing the 'losing branch' alongside the check, and neither provides a specific sequencing strategy to ensure incomplete features aren't enabled. Both candidates provide generic 'phased removal' advice without addressing the specific technical constraints (like the kill switch distinction or the telemetry requirement). Because both failed the core requirements in a similar manner, a tie is the most accurate assessment.",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 5,\n      \"completeness\": 4,\n      \"reasoning\": 4,\n      \"constraint-following\": 3,\n      \"clarity\": 6\n    },\n    \"B\": {\n      \"correctness\": 5,\n      \"completeness\": 4,\n      \"reasoning\": 4,\n      \"constraint-following\": 3,\n      \"clarity\": 6\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Failed to explicitly classify flags as permanent operational switches vs temporary release flags.\",\n      \"Failed to mention using runtime evaluation telemetry to find dead flags.\",\n      \"Failed to specify removing the losing branch together with the check.\",\n      \"Failed to provide a specific sequence to avoid enabling incomplete features.\"\n    ],\n    \"B\": [\n      \"Failed to explicitly classify flags as permanent operational switches vs temporary release flags.\",\n      \"Failed to mention using runtime evaluation telemetry to find dead flags.\",\n      \"Failed to specify removing the losing branch together with the check.\",\n      \"Failed to provide a specific sequence to avoid enabling incomplete features.\"\n    ]\n  },\n  \"rationale\": \"Both candidates fail significantly on the specific requirements provided in the prompt. Neither candidate mentions using runtime evaluation telemetry to identify dead flags, neither explicitly describes the process of removing the 'losing branch' alongside the check, and neither provides a specific sequencing strategy to ensure incomplete features aren't enabled. Both candidates provide generic 'phased removal' advice without addressing the specific technical constraints (like the kill switch distinction or the telemetry requirement). Because both failed the core requirements in a similar manner, a tie is the most accurate assessment.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T09:28:35.672286Z",
+  "durationMs" : 20632,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1846,
+    "completionTokens" : 402,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

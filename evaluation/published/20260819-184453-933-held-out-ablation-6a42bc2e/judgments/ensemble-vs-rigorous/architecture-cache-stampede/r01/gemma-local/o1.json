@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "ensemble-vs-rigorous:architecture-cache-stampede:r1:gemma-local:o1",
+  "pairId" : "ensemble-vs-rigorous:architecture-cache-stampede:r1",
+  "comparisonId" : "ensemble-vs-rigorous",
+  "caseId" : "architecture-cache-stampede",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 1,
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "llama-ensemble",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "scoresB" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "violationsA" : [ "Failed to name the 'cache stampede' or 'thundering herd' pattern.", "Failed to mention TTL jitter.", "Failed to mention serving stale while revalidating." ],
+  "violationsB" : [ "Failed to name the 'cache stampede' or 'thundering herd' pattern.", "Failed to mention TTL jitter.", "Failed to mention serving stale while revalidating.", "Incorrectly diagnosed the pattern as 'cache thrashing' (which usually refers to high churn/eviction, not simultaneous expiry)." ],
+  "rationale" : "Both candidates failed significantly on the core requirements of the prompt. Neither candidate correctly identified the 'cache stampede' or 'thundering herd' pattern. Neither candidate addressed the specific requirements to include TTL jitter or the 'serve stale while revalidating' strategy. Candidate A suggested a distributed lock (which is a correct technical fix for single-flight), but Candidate B's diagnosis of 'cache thrashing' is technically inaccurate for this specific scenario. Since both failed all primary requirements and provided generic/irrelevant advice (like cache warming or sharding) instead of the requested specific fixes, they are tied at a failing grade.",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    },\n    \"B\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Failed to name the 'cache stampede' or 'thundering herd' pattern.\",\n      \"Failed to mention TTL jitter.\",\n      \"Failed to mention serving stale while revalidating.\"\n    ],\n    \"B\": [\n      \"Failed to name the 'cache stampede' or 'thundering herd' pattern.\",\n      \"Failed to mention TTL jitter.\",\n      \"Failed to mention serving stale while revalidating.\",\n      \"Incorrectly diagnosed the pattern as 'cache thrashing' (which usually refers to high churn/eviction, not simultaneous expiry).\"\n    ]\n  },\n  \"rationale\": \"Both candidates failed significantly on the core requirements of the prompt. Neither candidate correctly identified the 'cache stampede' or 'thundering herd' pattern. Neither candidate addressed the specific requirements to include TTL jitter or the 'serve stale while revalidating' strategy. Candidate A suggested a distributed lock (which is a correct technical fix for single-flight), but Candidate B's diagnosis of 'cache thrashing' is technically inaccurate for this specific scenario. Since both failed all primary requirements and provided generic/irrelevant advice (like cache warming or sharding) instead of the requested specific fixes, they are tied at a failing grade.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:48:26.158042Z",
+  "durationMs" : 20613,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1744,
+    "completionTokens" : 413,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

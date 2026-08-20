@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "balanced-vs-rigorous:reasoning-spam-ppv:r1:gemma-local:o1",
+  "pairId" : "balanced-vs-rigorous:reasoning-spam-ppv:r1",
+  "comparisonId" : "balanced-vs-rigorous",
+  "caseId" : "reasoning-spam-ppv",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 1,
+  "answerAVariant" : "local-balanced",
+  "answerBVariant" : "local-rigorous",
+  "status" : "COMPLETED",
+  "winner" : "B",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 0.0,
+    "completeness" : 1.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 1.0
+  },
+  "scoresB" : {
+    "constraint-following" : 10.0,
+    "completeness" : 10.0,
+    "correctness" : 10.0,
+    "reasoning" : 10.0,
+    "clarity" : 10.0
+  },
+  "violationsA" : [ "Incorrect calculation: The candidate calculated 180/194 (implied by 200-20+40 logic) or similar, but the correct denominator is 220. It failed to follow the specific requirement to divide 180 by 220.", "Incorrect final answer: 94.1% is mathematically wrong based on the provided context." ],
+  "violationsB" : [ ],
+  "rationale" : "Candidate A failed the primary mathematical task, providing an incorrect probability (94.1%) and failing to follow the specific calculation requirements (dividing 180 by 220). Candidate B correctly identified the expected counts (180 flagged spam, 40 flagged non-spam), correctly identified the total flagged messages (220), and performed the correct division to reach the required result of approximately 81.8%.",
+  "rawResponse" : "{\n  \"winner\": \"B\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 0,\n      \"completeness\": 1,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 1\n    },\n    \"B\": {\n      \"correctness\": 10,\n      \"completeness\": 10,\n      \"reasoning\": 10,\n      \"constraint-following\": 10,\n      \"clarity\": 10\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Incorrect calculation: The candidate calculated 180/194 (implied by 200-20+40 logic) or similar, but the correct denominator is 220. It failed to follow the specific requirement to divide 180 by 220.\",\n      \"Incorrect final answer: 94.1% is mathematically wrong based on the provided context.\"\n    ],\n    \"B\": []\n  },\n  \"rationale\": \"Candidate A failed the primary mathematical task, providing an incorrect probability (94.1%) and failing to follow the specific calculation requirements (dividing 180 by 220). Candidate B correctly identified the expected counts (180 flagged spam, 40 flagged non-spam), correctly identified the total flagged messages (220), and performed the correct division to reach the required result of approximately 81.8%.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T09:23:06.888115Z",
+  "durationMs" : 17996,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1638,
+    "completionTokens" : 353,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

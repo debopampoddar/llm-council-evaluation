@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "ensemble-vs-rigorous:planning-feature-flag-debt:r1:gemma-local:o2",
+  "pairId" : "ensemble-vs-rigorous:planning-feature-flag-debt:r1",
+  "comparisonId" : "ensemble-vs-rigorous",
+  "caseId" : "planning-feature-flag-debt",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "llama-ensemble",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 3.0,
+    "completeness" : 4.0,
+    "correctness" : 5.0,
+    "reasoning" : 4.0,
+    "clarity" : 6.0
+  },
+  "scoresB" : {
+    "constraint-following" : 3.0,
+    "completeness" : 4.0,
+    "correctness" : 5.0,
+    "reasoning" : 4.0,
+    "clarity" : 6.0
+  },
+  "violationsA" : [ "Failed to explicitly distinguish between permanent operational switches and temporary release flags as required.", "Failed to mention using runtime evaluation telemetry to find dead flags.", "Failed to explicitly state the requirement to remove the losing branch together with the check.", "Failed to explicitly address the sequencing to avoid enabling incomplete features.", "Included unnecessary 'council' meta-talk which was not requested." ],
+  "violationsB" : [ "Failed to explicitly distinguish between permanent operational switches and temporary release flags as required.", "Failed to mention using runtime evaluation telemetry to find dead flags.", "Failed to explicitly state the requirement to remove the losing branch together with the check.", "Failed to explicitly address the sequencing to avoid enabling incomplete features.", "Violated a red flag by suggesting removing emergency kill switches first (the prompt says they are permanent operational switches and not debt, and the red flag says 'Removes the kill switch')." ],
+  "rationale" : "Both models failed significantly on the specific technical requirements provided in the prompt. Neither model mentioned using 'runtime evaluation telemetry' to identify dead flags, neither explicitly stated the requirement to 'remove the losing branch' (leaving it would result in unreachable code), and neither provided a specific sequence to ensure 'incomplete features are not accidentally enabled'. Furthermore, Candidate B explicitly violated a red flag by suggesting the removal of emergency kill switches first, whereas the context states they are permanent operational controls. Candidate A included a large amount of irrelevant 'council' meta-data. Because both failed the core technical requirements and constraints equally, a tie is declared.",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 5,\n      \"completeness\": 4,\n      \"reasoning\": 4,\n      \"constraint-following\": 3,\n      \"clarity\": 6\n    },\n    \"B\": {\n      \"correctness\": 5,\n      \"completeness\": 4,\n      \"reasoning\": 4,\n      \"constraint-following\": 3,\n      \"clarity\": 6\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Failed to explicitly distinguish between permanent operational switches and temporary release flags as required.\",\n      \"Failed to mention using runtime evaluation telemetry to find dead flags.\",\n      \"Failed to explicitly state the requirement to remove the losing branch together with the check.\",\n      \"Failed to explicitly address the sequencing to avoid enabling incomplete features.\",\n      \"Included unnecessary 'council' meta-talk which was not requested.\"\n    ],\n    \"B\": [\n      \"Failed to explicitly distinguish between permanent operational switches and temporary release flags as required.\",\n      \"Failed to mention using runtime evaluation telemetry to find dead flags.\",\n      \"Failed to explicitly state the requirement to remove the losing branch together with the check.\",\n      \"Failed to explicitly address the sequencing to avoid enabling incomplete features.\",\n      \"Violated a red flag by suggesting removing emergency kill switches first (the prompt says they are permanent operational switches and not debt, and the red flag says 'Removes the kill switch').\"\n    ]\n  },\n  \"rationale\": \"Both models failed significantly on the specific technical requirements provided in the prompt. Neither model mentioned using 'runtime evaluation telemetry' to identify dead flags, neither explicitly stated the requirement to 'remove the losing branch' (leaving it would result in unreachable code), and neither provided a specific sequence to ensure 'incomplete features are not accidentally enabled'. Furthermore, Candidate B explicitly violated a red flag by suggesting the removal of emergency kill switches first, whereas the context states they are permanent operational controls. Candidate A included a large amount of irrelevant 'council' meta-data. Because both failed the core technical requirements and constraints equally, a tie is declared.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T09:05:24.404596Z",
+  "durationMs" : 24764,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 2107,
+    "completionTokens" : 490,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "unitId" : "architecture-tenant-isolation:direct-llama:r1",
+  "caseId" : "architecture-tenant-isolation",
+  "variantId" : "direct-llama",
+  "repetition" : 1,
+  "status" : "COMPLETED",
+  "answer" : "**Recommended Data Isolation Model:**\n\nTo address the concerns of the two enterprise customers and ensure data isolation for all tenants, I recommend a multi-tenant, multi-VC (Virtual Cluster) architecture with PostgreSQL. This approach will provide the necessary isolation and scalability for the B2B product.\n\n**Key Components:**\n\n1.  **Multi-VC Architecture:** Divide the PostgreSQL cluster into multiple virtual clusters (VCs), each containing a subset of tenants. This will ensure that each VC operates independently, and a tenant's query load will not impact other tenants in different VCs.\n2.  **Tenant Isolation:** Use PostgreSQL's built-in features, such as:\n    *   **Tablespaces:** Store each tenant's data in a separate tablespace, which can be isolated and managed independently.\n    *   **Schema Isolation:** Use schema isolation to restrict access to specific schemas and tables for each tenant.\n    *   **Row-Level Security (RLS):** Implement RLS to restrict access to specific rows of data for each tenant.\n3.  **Query Load Isolation:** To prevent one tenant's query load from degrading others:\n    *   **Resource Management:** Implement resource management using PostgreSQL's built-in features, such as:\n        *   **Resource Queues:** Use resource queues to manage connections and prevent a single tenant from monopolizing resources.\n        *   **Connection Pooling:** Implement connection pooling to manage connections efficiently and prevent a single tenant from consuming excessive resources.\n    *   **Load Balancing:** Use load balancing techniques, such as:\n        *   **Round-Robin:** Distribute incoming queries across multiple VCs using a round-robin approach.\n        *   **Least Connections:** Direct queries to the VC with the least number of active connections.\n4.  **Monitoring and Alerting:** Implement monitoring and alerting tools to detect and respond to potential issues, such as:\n    *   **Query Performance:** Monitor query performance and alert when a tenant's query load is impacting others.\n    *   **Resource Utilization:** Monitor resource utilization and alert when a tenant is consuming excessive resources.\n\n**Important Assumptions:**\n\n*   The engineering team has experience with PostgreSQL and can implement the recommended architecture.\n*   The two enterprise customers have provided detailed requirements for data isolation and can work with the engineering team to implement the necessary features.\n\n**Material Uncertainties:**\n\n*   The scalability of the multi-VC architecture, particularly with 900 tenants.\n*   The impact of resource management and load balancing on query performance and resource utilization.\n\nBy implementing a multi-tenant, multi-VC architecture with PostgreSQL and using the recommended features and techniques, the B2B product can ensure data isolation for all tenants and prevent one tenant's query load from degrading others.",
+  "startedAt" : "2026-08-19T19:23:43.297842Z",
+  "completedAt" : "2026-08-19T19:24:05.764861Z",
+  "durationMs" : 22467,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 167,
+    "completionTokens" : 566,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  },
+  "failureCategory" : null,
+  "failureReason" : null,
+  "warnings" : [ ],
+  "componentAnswers" : [ ],
+  "councilResult" : null
+}

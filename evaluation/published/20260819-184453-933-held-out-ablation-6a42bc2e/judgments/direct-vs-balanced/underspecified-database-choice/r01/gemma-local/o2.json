@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-balanced:underspecified-database-choice:r1:gemma-local:o2",
+  "pairId" : "direct-vs-balanced:underspecified-database-choice:r1",
+  "comparisonId" : "direct-vs-balanced",
+  "caseId" : "underspecified-database-choice",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-balanced",
+  "status" : "COMPLETED",
+  "winner" : "A",
+  "confidence" : 0.9,
+  "scoresA" : {
+    "constraint-following" : 10.0,
+    "completeness" : 10.0,
+    "correctness" : 10.0,
+    "reasoning" : 10.0,
+    "clarity" : 10.0
+  },
+  "scoresB" : {
+    "constraint-following" : 6.0,
+    "completeness" : 7.0,
+    "correctness" : 5.0,
+    "reasoning" : 4.0,
+    "clarity" : 4.0
+  },
+  "violationsA" : [ ],
+  "violationsB" : [ "Includes meta-commentary about 'drafts' which are not present in the prompt context.", "Includes a 'Confidence' score and 'Unresolved Risks' section which were not requested and clutter the response." ],
+  "rationale" : "Candidate A followed all instructions perfectly: it declined to make an unconditional recommendation, identified all missing inputs (data model, access patterns, consistency, scale, latency, team experience, operational capability, and budget), and clearly structured the requirements. Candidate B included strange meta-commentary referring to 'drafts' that do not exist in the context, which is a hallucination/error in the generation process. Candidate A is much cleaner and more directly useful.",
+  "rawResponse" : "{\n  \"winner\": \"A\",\n  \"confidence\": 0.9,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 10,\n      \"completeness\": 10,\n      \"reasoning\": 10,\n      \"constraint-following\": 10,\n      \"clarity\": 10\n    },\n    \"B\": {\n      \"correctness\": 5,\n      \"completeness\": 7,\n      \"reasoning\": 4,\n      \"constraint-following\": 6,\n      \"clarity\": 4\n    }\n  },\n  \"violations\": {\n    \"A\": [],\n    \"B\": [\n      \"Includes meta-commentary about 'drafts' which are not present in the prompt context.\",\n      \"Includes a 'Confidence' score and 'Unresolved Risks' section which were not requested and clutter the response.\"\n    ]\n  },\n  \"rationale\": \"Candidate A followed all instructions perfectly: it declined to make an unconditional recommendation, identified all missing inputs (data model, access patterns, consistency, scale, latency, team experience, operational capability, and budget), and clearly structured the requirements. Candidate B included strange meta-commentary referring to 'drafts' that do not exist in the context, which is a hallucination/error in the generation process. Candidate A is much cleaner and more directly useful.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:20:44.001588Z",
+  "durationMs" : 15815,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1462,
+    "completionTokens" : 313,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

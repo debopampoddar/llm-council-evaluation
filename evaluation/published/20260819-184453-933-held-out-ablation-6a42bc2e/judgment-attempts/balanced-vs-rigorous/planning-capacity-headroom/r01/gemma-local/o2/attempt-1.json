@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "balanced-vs-rigorous:planning-capacity-headroom:r1:gemma-local:o2",
+  "pairId" : "balanced-vs-rigorous:planning-capacity-headroom:r1",
+  "comparisonId" : "balanced-vs-rigorous",
+  "caseId" : "planning-capacity-headroom",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "local-balanced",
+  "answerBVariant" : "local-rigorous",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "scoresB" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "violationsA" : [ "Failed to compute the 12-month projection (30,000 RPS) based on compounded growth.", "Failed to state specific headroom and the reason for it.", "Failed to explicitly address the 6-minute warm-up as a constraint on reactive scaling (instead suggested reducing it).", "Failed to propose a method to bound the unquantified marketing launch step change." ],
+  "violationsB" : [ "Failed to compute the 12-month projection (30,000 RPS) based on compounded growth.", "Failed to state specific headroom and the reason for it.", "Failed to explicitly address the 6-minute warm-up as a constraint on reactive scaling.", "Failed to propose a method to bound the unquantified marketing launch step change." ],
+  "rationale" : "Both candidates failed significantly on almost every specific requirement provided in the prompt. Neither candidate performed the required math (compounding 8% growth over 12 months to reach ~30,000 RPS), neither stated a specific headroom value or reason, and neither addressed the 6-minute warm-up as a specific constraint on reactive scaling (both instead suggested 'dynamic scaling' or 'reducing spin-up time'). Furthermore, neither proposed a way to bound the unquantified marketing launch. Both candidates provided generic 'hybrid scaling' advice that ignored the specific constraints and calculations requested. Since both are equally non-compliant and fail to meet the core requirements, a tie is the only appropriate result.",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    },\n    \"B\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Failed to compute the 12-month projection (30,000 RPS) based on compounded growth.\",\n      \"Failed to state specific headroom and the reason for it.\",\n      \"Failed to explicitly address the 6-minute warm-up as a constraint on reactive scaling (instead suggested reducing it).\",\n      \"Failed to propose a method to bound the unquantified marketing launch step change.\"\n    ],\n    \"B\": [\n      \"Failed to compute the 12-month projection (30,000 RPS) based on compounded growth.\",\n      \"Failed to state specific headroom and the reason for it.\",\n      \"Failed to explicitly address the 6-minute warm-up as a constraint on reactive scaling.\",\n      \"Failed to propose a method to bound the unquantified marketing launch step change.\"\n    ]\n  },\n  \"rationale\": \"Both candidates failed significantly on almost every specific requirement provided in the prompt. Neither candidate performed the required math (compounding 8% growth over 12 months to reach ~30,000 RPS), neither stated a specific headroom value or reason, and neither addressed the 6-minute warm-up as a specific constraint on reactive scaling (both instead suggested 'dynamic scaling' or 'reducing spin-up time'). Furthermore, neither proposed a way to bound the unquantified marketing launch. Both candidates provided generic 'hybrid scaling' advice that ignored the specific constraints and calculations requested. Since both are equally non-compliant and fail to meet the core requirements, a tie is the only appropriate result.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T09:28:14.941635Z",
+  "durationMs" : 23389,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1824,
+    "completionTokens" : 486,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

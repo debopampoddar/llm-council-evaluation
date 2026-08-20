@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "ensemble-vs-rigorous:planning-postmortem-structure:r1:gemma-local:o1",
+  "pairId" : "ensemble-vs-rigorous:planning-postmortem-structure:r1",
+  "comparisonId" : "ensemble-vs-rigorous",
+  "caseId" : "planning-postmortem-structure",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 1,
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "llama-ensemble",
+  "status" : "COMPLETED",
+  "winner" : "B",
+  "confidence" : 0.9,
+  "scoresA" : {
+    "constraint-following" : 0.0,
+    "completeness" : 0.0,
+    "correctness" : 0.0,
+    "reasoning" : 0.0,
+    "clarity" : 0.0
+  },
+  "scoresB" : {
+    "constraint-following" : 6.0,
+    "completeness" : 7.0,
+    "correctness" : 10.0,
+    "reasoning" : 8.0,
+    "clarity" : 10.0
+  },
+  "violationsA" : [ "Failed to provide a postmortem structure.", "Failed to provide criteria for action items.", "Failed to address the 'blameless' requirement (mentions assigning accountability).", "Failed to separate trigger from underlying cause.", "Failed to note that approvals are a weak control.", "Failed to treat missing alerts as a distinct finding." ],
+  "violationsB" : [ "Included an example action item that assigns responsibility to the specific engineer involved (violating the blameless/systemic focus).", "Included an action item to 'revise approval processes' without noting that this is a weak control compared to making the failure impossible/detectable.", "Did not explicitly separate the trigger from the underlying cause in the structure (though it lists them as contributing factors)." ],
+  "rationale" : "Candidate A failed almost every requirement of the prompt, providing a meta-discussion about a postmortem rather than actually drafting the structure or the criteria requested. Candidate B provided the requested structure and criteria. However, Candidate B struggled with the specific nuances of the 'blameless' and 'weak control' requirements: it assigned the action item for the runbook to the specific engineer (blame) and included an approval process revision without the required caveat that such a control is weak. Despite these flaws, Candidate B is the only one that actually answered the prompt.",
+  "rawResponse" : "{\n  \"winner\": \"B\",\n  \"confidence\": 0.9,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 0,\n      \"completeness\": 0,\n      \"reasoning\": 0,\n      \"constraint-following\": 0,\n      \"clarity\": 0\n    },\n    \"B\": {\n      \"correctness\": 10,\n      \"completeness\": 7,\n      \"reasoning\": 8,\n      \"constraint-following\": 6,\n      \"clarity\": 10\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Failed to provide a postmortem structure.\",\n      \"Failed to provide criteria for action items.\",\n      \"Failed to address the 'blameless' requirement (mentions assigning accountability).\",\n      \"Failed to separate trigger from underlying cause.\",\n      \"Failed to note that approvals are a weak control.\",\n      \"Failed to treat missing alerts as a distinct finding.\"\n    ],\n    \"B\": [\n      \"Included an example action item that assigns responsibility to the specific engineer involved (violating the blameless/systemic focus).\",\n      \"Included an action item to 'revise approval processes' without noting that this is a weak control compared to making the failure impossible/detectable.\",\n      \"Did not explicitly separate the trigger from the underlying cause in the structure (though it lists them as contributing factors).\"\n    ]\n  },\n  \"rationale\": \"Candidate A failed almost every requirement of the prompt, providing a meta-discussion about a postmortem rather than actually drafting the structure or the criteria requested. Candidate B provided the requested structure and criteria. However, Candidate B struggled with the specific nuances of the 'blameless' and 'weak control' requirements: it assigned the action item for the runbook to the specific engineer (blame) and included an approval process revision without the required caveat that such a control is weak. Despite these flaws, Candidate B is the only one that actually answered the prompt.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T09:05:46.861316Z",
+  "durationMs" : 22371,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1855,
+    "completionTokens" : 451,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

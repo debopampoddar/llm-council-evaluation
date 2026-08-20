@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "balanced-vs-rigorous:security-timing-safe-compare:r1:gemma-local:o2",
+  "pairId" : "balanced-vs-rigorous:security-timing-safe-compare:r1",
+  "comparisonId" : "balanced-vs-rigorous",
+  "caseId" : "security-timing-safe-compare",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "local-balanced",
+  "answerBVariant" : "local-rigorous",
+  "status" : "COMPLETED",
+  "winner" : "B",
+  "confidence" : 0.9,
+  "scoresA" : {
+    "constraint-following" : 0.7,
+    "completeness" : 0.6,
+    "correctness" : 0.8,
+    "reasoning" : 0.7,
+    "clarity" : 0.9
+  },
+  "scoresB" : {
+    "constraint-following" : 0.8,
+    "completeness" : 0.8,
+    "correctness" : 0.9,
+    "reasoning" : 0.8,
+    "clarity" : 0.9
+  },
+  "violationsA" : [ "Failed to explicitly recommend comparing hashes rather than raw secrets as a primary recommendation (it dismissed it as not widely accepted).", "Failed to mention network noise/jitter as a factor in exploitability." ],
+  "violationsB" : [ "Failed to explicitly mention network noise/jitter as a factor in exploitability." ],
+  "rationale" : "Candidate B is slightly better because it correctly identifies `MessageDigest.isEqual` as a specific recommendation (required by the prompt), whereas Candidate A suggests `Arrays.equals` (which is not inherently constant-time in all languages/libraries, though it is in some Java contexts, `MessageDigest.isEqual` is the standard security recommendation). Candidate A also incorrectly dismissed the recommendation to compare hashes as 'not widely accepted', whereas the prompt explicitly required it as a recommendation. Both failed to explicitly mention network noise/jitter, but B's inclusion of the correct API method gives it the edge.",
+  "rawResponse" : "{\n  \"winner\": \"B\",\n  \"confidence\": 0.9,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 0.8,\n      \"completeness\": 0.6,\n      \"reasoning\": 0.7,\n      \"constraint-following\": 0.7,\n      \"clarity\": 0.9\n    },\n    \"B\": {\n      \"correctness\": 0.9,\n      \"completeness\": 0.8,\n      \"reasoning\": 0.8,\n      \"constraint-following\": 0.8,\n      \"clarity\": 0.9\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Failed to explicitly recommend comparing hashes rather than raw secrets as a primary recommendation (it dismissed it as not widely accepted).\",\n      \"Failed to mention network noise/jitter as a factor in exploitability.\"\n    ],\n    \"B\": [\n      \"Failed to explicitly mention network noise/jitter as a factor in exploitability.\"\n    ]\n  },\n  \"rationale\": \"Candidate B is slightly better because it correctly identifies `MessageDigest.isEqual` as a specific recommendation (required by the prompt), whereas Candidate A suggests `Arrays.equals` (which is not inherently constant-time in all languages/libraries, though it is in some Java contexts, `MessageDigest.isEqual` is the standard security recommendation). Candidate A also incorrectly dismissed the recommendation to compare hashes as 'not widely accepted', whereas the prompt explicitly required it as a recommendation. Both failed to explicitly mention network noise/jitter, but B's inclusion of the correct API method gives it the edge.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T09:20:55.425571Z",
+  "durationMs" : 18010,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1709,
+    "completionTokens" : 376,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

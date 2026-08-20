@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-balanced:underspecified-make-it-faster:r1:gemma-local:o1",
+  "pairId" : "direct-vs-balanced:underspecified-make-it-faster:r1",
+  "comparisonId" : "direct-vs-balanced",
+  "caseId" : "underspecified-make-it-faster",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 1,
+  "answerAVariant" : "direct-llama",
+  "answerBVariant" : "local-balanced",
+  "status" : "COMPLETED",
+  "winner" : "B",
+  "confidence" : 0.9,
+  "scoresA" : {
+    "constraint-following" : 40.0,
+    "completeness" : 50.0,
+    "correctness" : 40.0,
+    "reasoning" : 30.0,
+    "clarity" : 80.0
+  },
+  "scoresB" : {
+    "constraint-following" : 100.0,
+    "completeness" : 90.0,
+    "correctness" : 90.0,
+    "reasoning" : 90.0,
+    "clarity" : 85.0
+  },
+  "violationsA" : [ "Failed to ask for percentile latency and a target.", "Included specific recommendations (caching, CDNs, DB optimization) without evidence, violating the 'Avoid inventing a bottleneck' and 'Decline to prescribe a specific change' requirements." ],
+  "violationsB" : [ ],
+  "rationale" : "Candidate B followed all instructions, specifically declining to prescribe a change without measurement and asking for the necessary data (traffic profile, dependency breakdown, etc.). Candidate A failed significantly by providing a list of specific optimizations (caching, CDNs, DB queries) despite the instructions explicitly stating to avoid inventing a bottleneck and to decline prescribing specific changes without measurement.",
+  "rawResponse" : "{\n  \"winner\": \"B\",\n  \"confidence\": 0.9,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 40,\n      \"completeness\": 50,\n      \"reasoning\": 30,\n      \"constraint-following\": 40,\n      \"clarity\": 80\n    },\n    \"B\": {\n      \"correctness\": 90,\n      \"completeness\": 90,\n      \"reasoning\": 90,\n      \"constraint-following\": 100,\n      \"clarity\": 85\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Failed to ask for percentile latency and a target.\",\n      \"Included specific recommendations (caching, CDNs, DB optimization) without evidence, violating the 'Avoid inventing a bottleneck' and 'Decline to prescribe a specific change' requirements.\"\n    ],\n    \"B\": []\n  },\n  \"rationale\": \"Candidate B followed all instructions, specifically declining to prescribe a change without measurement and asking for the necessary data (traffic profile, dependency breakdown, etc.). Candidate A failed significantly by providing a list of specific optimizations (caching, CDNs, DB queries) despite the instructions explicitly stating to avoid inventing a bottleneck and to decline prescribing specific changes without measurement.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:19:55.335032Z",
+  "durationMs" : 15961,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1560,
+    "completionTokens" : 302,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

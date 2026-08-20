@@ -1,0 +1,174 @@
+{
+  "unitId" : "architecture-tenant-isolation:local-balanced:r1",
+  "caseId" : "architecture-tenant-isolation",
+  "variantId" : "local-balanced",
+  "repetition" : 1,
+  "status" : "COMPLETED",
+  "answer" : "**Final Recommendation:**\n\nImplement a hybrid data isolation model that combines elements of Multi-Tenancy with Shared Schema (MT-SS) and dedicated databases or servers for enterprise customers. This approach balances data isolation, scalability, and resource utilization.\n\n**Rationale:**\n\n1. **Data Isolation**: For the two enterprise customers, use dedicated databases or servers to ensure their data is not co-resident with other tenants, meeting their contractual requirements.\n2. **Scalability and Resource Utilization**: For smaller tenants, implement MT-SS to reduce data duplication and improve resource utilization. This approach allows for better resource sharing and reduces waste.\n3. **Performance and Scalability**: Use a load balancer to distribute query loads across VCs, ensuring that no single tenant's query load degrades the performance of others.\n4. **Efficient Resource Utilization**: Each VC can be sized to match the specific needs of each tenant, reducing waste and improving resource utilization.\n\n**Important Dissent:**\n\nWhile the hybrid approach offers a balance between data isolation, scalability, and resource utilization, it may not be ideal for all tenants. Some smaller tenants may still experience performance degradation due to uneven query loads or data integrity issues. To mitigate these risks, consider implementing additional measures, such as:\n\n* Automated VC sizing or dynamic resource allocation\n* Regular monitoring and optimization of query loads and resource utilization\n* Implementing data partitioning or sharding for large tenants to improve performance and scalability\n\n**Unresolved Risks:**\n\n1. **VC Sizing**: The engineering team may face challenges in accurately sizing each VC to match the specific needs of each tenant.\n2. **Network Latency**: The load balancer may not be able to efficiently route queries between VCs, leading to increased network latency.\n3. **Data Integrity Issues**: Inconsistencies can arise if data is not properly synchronized across different databases or if there are issues with concurrent updates.\n\n**Confidence:**\n\nBased on the synthesis of the two drafts and peer reviews, the confidence level for this recommendation is 85. The hybrid approach offers a balance between data isolation, scalability, and resource utilization, but it may not be ideal for all tenants. Additional measures should be taken to mitigate the unresolved risks and ensure the performance and scalability of the system.",
+  "startedAt" : "2026-08-19T19:17:02.005110Z",
+  "completedAt" : "2026-08-19T19:20:00.472725Z",
+  "durationMs" : 178467,
+  "usage" : {
+    "calls" : 6,
+    "promptTokens" : 5588,
+    "completionTokens" : 2708,
+    "estimatedCostUsd" : null,
+    "estimated" : false,
+    "partiallyPriced" : false
+  },
+  "failureCategory" : null,
+  "failureReason" : null,
+  "warnings" : [ ],
+  "componentAnswers" : [ ],
+  "councilResult" : {
+    "sessionId" : "c104ba3a-d330-4030-bb52-890323aebea4",
+    "status" : "COMPLETED",
+    "profileId" : "local",
+    "depthMode" : "BALANCED",
+    "policyId" : "local-balanced",
+    "protocolId" : "balanced",
+    "answer" : "**Final Recommendation:**\n\nImplement a hybrid data isolation model that combines elements of Multi-Tenancy with Shared Schema (MT-SS) and dedicated databases or servers for enterprise customers. This approach balances data isolation, scalability, and resource utilization.\n\n**Rationale:**\n\n1. **Data Isolation**: For the two enterprise customers, use dedicated databases or servers to ensure their data is not co-resident with other tenants, meeting their contractual requirements.\n2. **Scalability and Resource Utilization**: For smaller tenants, implement MT-SS to reduce data duplication and improve resource utilization. This approach allows for better resource sharing and reduces waste.\n3. **Performance and Scalability**: Use a load balancer to distribute query loads across VCs, ensuring that no single tenant's query load degrades the performance of others.\n4. **Efficient Resource Utilization**: Each VC can be sized to match the specific needs of each tenant, reducing waste and improving resource utilization.\n\n**Important Dissent:**\n\nWhile the hybrid approach offers a balance between data isolation, scalability, and resource utilization, it may not be ideal for all tenants. Some smaller tenants may still experience performance degradation due to uneven query loads or data integrity issues. To mitigate these risks, consider implementing additional measures, such as:\n\n* Automated VC sizing or dynamic resource allocation\n* Regular monitoring and optimization of query loads and resource utilization\n* Implementing data partitioning or sharding for large tenants to improve performance and scalability\n\n**Unresolved Risks:**\n\n1. **VC Sizing**: The engineering team may face challenges in accurately sizing each VC to match the specific needs of each tenant.\n2. **Network Latency**: The load balancer may not be able to efficiently route queries between VCs, leading to increased network latency.\n3. **Data Integrity Issues**: Inconsistencies can arise if data is not properly synchronized across different databases or if there are issues with concurrent updates.\n\n**Confidence:**\n\nBased on the synthesis of the two drafts and peer reviews, the confidence level for this recommendation is 85. The hybrid approach offers a balance between data isolation, scalability, and resource utilization, but it may not be ideal for all tenants. Additional measures should be taken to mitigate the unresolved risks and ensure the performance and scalability of the system.",
+    "draftCount" : 2,
+    "reviewCount" : 2,
+    "debateRounds" : 0,
+    "participatingModels" : [ "local-llama3", "local-mistral" ],
+    "excludedModels" : [ ],
+    "warnings" : [ ],
+    "sycophancyWarnings" : [ ],
+    "scoreSummary" : {
+      "scores" : [ {
+        "scorerId" : "confidence-weighted",
+        "draftId" : "draft-AB02753A",
+        "dimensionScores" : {
+          "accuracy" : 90.0,
+          "completeness" : 80.0,
+          "reasoning" : 90.0,
+          "clarity" : 90.0,
+          "constructiveness" : 80.0
+        },
+        "weightedTotal" : 85.99999999999999,
+        "label" : "initial"
+      }, {
+        "scorerId" : "confidence-weighted",
+        "draftId" : "draft-D9938446",
+        "dimensionScores" : {
+          "accuracy" : 92.0,
+          "completeness" : 85.0,
+          "reasoning" : 88.0,
+          "clarity" : 90.0,
+          "constructiveness" : 92.0
+        },
+        "weightedTotal" : 90.0,
+        "label" : "initial"
+      } ],
+      "variance" : 4.000000000000028,
+      "winningDraftId" : "draft-D9938446",
+      "escalated" : false,
+      "escalationPolicy" : null,
+      "reviewerDisagreement" : 0.0,
+      "disagreementMeasurable" : false
+    },
+    "validation" : {
+      "validatorId" : "local-validator",
+      "approved" : true,
+      "confidence" : 0.85,
+      "issues" : [ ],
+      "recommendedFixes" : [ ],
+      "criteria" : {
+        "uncertainty" : "warn - The recommendation may not be ideal for all tenants, and additional measures are suggested to mitigate unresolved risks.",
+        "correctness" : "pass - The recommendation provides a balanced approach to data isolation, scalability, and resource utilization.",
+        "completeness" : "pass - The answer addresses the question and provides a detailed rationale, as well as considerations for potential issues.",
+        "actionability" : "pass - The answer provides a clear recommendation and suggestions for mitigating potential issues.",
+        "safety" : "pass - The recommendation does not present any obvious security concerns."
+      },
+      "requiresHumanReview" : false,
+      "rawText" : "{\n  \"approved\": true,\n  \"confidence\": 0.85,\n  \"issues\": [],\n  \"recommendedFixes\": [],\n  \"criteria\": {\n    \"correctness\": \"pass - The recommendation provides a balanced approach to data isolation, scalability, and resource utilization.\",\n    \"completeness\": \"pass - The answer addresses the question and provides a detailed rationale, as well as considerations for potential issues.\",\n    \"uncertainty\": \"warn - The recommendation may not be ideal for all tenants, and additional measures are suggested to mitigate unresolved risks.\",\n    \"safety\": \"pass - The recommendation does not present any obvious security concerns.\",\n    \"actionability\": \"pass - The answer provides a clear recommendation and suggestions for mitigating potential issues.\"\n  },\n  \"requiresHumanReview\": false\n}"
+    },
+    "validationIndependence" : "INDEPENDENT",
+    "failureReason" : null,
+    "failureCategory" : null,
+    "modelFailures" : [ ],
+    "usage" : {
+      "promptTokens" : 5588,
+      "completionTokens" : 2708,
+      "totalTokens" : 8296,
+      "calls" : 6,
+      "estimatedCostUsd" : null,
+      "estimated" : false,
+      "partiallyPriced" : false,
+      "byModel" : [ {
+        "modelId" : "local-mistral",
+        "calls" : 2,
+        "promptTokens" : 1759,
+        "completionTokens" : 971,
+        "totalTokens" : 2730,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "modelId" : "local-llama3",
+        "calls" : 2,
+        "promptTokens" : 1428,
+        "completionTokens" : 1077,
+        "totalTokens" : 2505,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "modelId" : "local-chair",
+        "calls" : 1,
+        "promptTokens" : 1273,
+        "completionTokens" : 464,
+        "totalTokens" : 1737,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "modelId" : "local-validator",
+        "calls" : 1,
+        "promptTokens" : 1128,
+        "completionTokens" : 196,
+        "totalTokens" : 1324,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      } ],
+      "byStage" : [ {
+        "stage" : "GENERATE",
+        "calls" : 2,
+        "promptTokens" : 459,
+        "completionTokens" : 815,
+        "totalTokens" : 1274,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "stage" : "REVIEW",
+        "calls" : 2,
+        "promptTokens" : 2728,
+        "completionTokens" : 1233,
+        "totalTokens" : 3961,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "stage" : "SYNTHESIZE",
+        "calls" : 1,
+        "promptTokens" : 1273,
+        "completionTokens" : 464,
+        "totalTokens" : 1737,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      }, {
+        "stage" : "VALIDATE",
+        "calls" : 1,
+        "promptTokens" : 1128,
+        "completionTokens" : 196,
+        "totalTokens" : 1324,
+        "estimatedCostUsd" : null,
+        "estimated" : false
+      } ]
+    },
+    "integrity" : {
+      "reduced" : false,
+      "preserveDissent" : true,
+      "sycophancyThreshold" : null,
+      "reviewsPerDraft" : 1,
+      "notes" : [ ]
+    }
+  }
+}

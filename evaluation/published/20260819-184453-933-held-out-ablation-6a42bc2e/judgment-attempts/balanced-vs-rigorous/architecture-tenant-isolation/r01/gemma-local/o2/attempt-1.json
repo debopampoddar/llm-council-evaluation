@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "balanced-vs-rigorous:architecture-tenant-isolation:r1:gemma-local:o2",
+  "pairId" : "balanced-vs-rigorous:architecture-tenant-isolation:r1",
+  "comparisonId" : "balanced-vs-rigorous",
+  "caseId" : "architecture-tenant-isolation",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 2,
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "local-balanced",
+  "status" : "COMPLETED",
+  "winner" : "B",
+  "confidence" : 0.9,
+  "scoresA" : {
+    "constraint-following" : 40.0,
+    "completeness" : 50.0,
+    "correctness" : 40.0,
+    "reasoning" : 40.0,
+    "clarity" : 70.0
+  },
+  "scoresB" : {
+    "constraint-following" : 100.0,
+    "completeness" : 90.0,
+    "correctness" : 90.0,
+    "reasoning" : 90.0,
+    "clarity" : 90.0
+  },
+  "violationsA" : [ "Fails to explicitly propose a hybrid model for all tenants as requested; instead, it suggests a complex 'multi-VC' architecture that leans toward instance-level isolation for everyone.", "Fails to clearly weigh the operational cost against a small 6-person team (the proposed architecture is extremely complex for 6 people).", "Does not clearly distinguish between the shared-schema and dedicated approaches in a comparative way as requested." ],
+  "violationsB" : [ ],
+  "rationale" : "Candidate B followed all instructions, specifically the requirement to propose a hybrid model. It correctly identified that the two enterprise customers need dedicated infrastructure (to meet the non-co-residency clause) while the remaining 898 tenants can share a schema to keep operational costs manageable for a small 6-person team. Candidate A suggested a complex 'multi-VC' architecture that would be operationally overwhelming for a team of six and did not clearly address the specific trade-offs between the three requested models (shared-schema, shared-database, and dedicated).",
+  "rawResponse" : "{\n  \"winner\": \"B\",\n  \"confidence\": 0.9,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 40,\n      \"completeness\": 50,\n      \"reasoning\": 40,\n      \"constraint-following\": 40,\n      \"clarity\": 70\n    },\n    \"B\": {\n      \"correctness\": 90,\n      \"completeness\": 90,\n      \"reasoning\": 90,\n      \"constraint-following\": 100,\n      \"clarity\": 90\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Fails to explicitly propose a hybrid model for all tenants as requested; instead, it suggests a complex 'multi-VC' architecture that leans toward instance-level isolation for everyone.\",\n      \"Fails to clearly weigh the operational cost against a small 6-person team (the proposed architecture is extremely complex for 6 people).\",\n      \"Does not clearly distinguish between the shared-schema and dedicated approaches in a comparative way as requested.\"\n    ],\n    \"B\": []\n  },\n  \"rationale\": \"Candidate B followed all instructions, specifically the requirement to propose a hybrid model. It correctly identified that the two enterprise customers need dedicated infrastructure (to meet the non-co-residency clause) while the remaining 898 tenants can share a schema to keep operational costs manageable for a small 6-person team. Candidate A suggested a complex 'multi-VC' architecture that would be operationally overwhelming for a team of six and did not clearly address the specific trade-offs between the three requested models (shared-schema, shared-database, and dedicated).\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T09:15:34.057274Z",
+  "durationMs" : 18400,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1743,
+    "completionTokens" : 387,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}

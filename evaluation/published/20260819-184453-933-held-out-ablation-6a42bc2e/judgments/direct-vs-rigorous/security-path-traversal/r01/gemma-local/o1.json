@@ -1,0 +1,43 @@
+{
+  "judgmentId" : "direct-vs-rigorous:security-path-traversal:r1:gemma-local:o1",
+  "pairId" : "direct-vs-rigorous:security-path-traversal:r1",
+  "comparisonId" : "direct-vs-rigorous",
+  "caseId" : "security-path-traversal",
+  "repetition" : 1,
+  "judgeId" : "gemma-local",
+  "orientation" : 1,
+  "answerAVariant" : "local-rigorous",
+  "answerBVariant" : "direct-llama",
+  "status" : "COMPLETED",
+  "winner" : "TIE",
+  "confidence" : 1.0,
+  "scoresA" : {
+    "constraint-following" : 20.0,
+    "completeness" : 30.0,
+    "correctness" : 40.0,
+    "reasoning" : 30.0,
+    "clarity" : 80.0
+  },
+  "scoresB" : {
+    "constraint-following" : 20.0,
+    "completeness" : 30.0,
+    "correctness" : 40.0,
+    "reasoning" : 30.0,
+    "clarity" : 80.0
+  },
+  "violationsA" : [ "Fails to provide a concrete design/implementation.", "Fails to address URL decoding requirement.", "Fails to address the TOCTOU (Time-of-Check to Time-of-Use) symlink race condition.", "Fails to explicitly mention rejecting rather than sanitizing." ],
+  "violationsB" : [ "Fails to address URL decoding requirement.", "Fails to address the TOCTOU (Time-of-Check to Time-of-Use) symlink race condition.", "Fails to explicitly mention rejecting rather than sanitizing.", "The provided code is logically flawed: it joins the path, then resolves it, then checks startsWith, but the code actually appends 'artifact.txt' at the end, which doesn't match the prompt's logic of serving the user-supplied path." ],
+  "rationale" : "Both candidates perform poorly against the specific requirements provided in the prompt. Neither candidate addresses the requirement to note URL decoding before validation, nor do they address the specific requirement to prevent symlink replacement between validation and open (TOCTOU) via descriptor-relative or no-follow access. Candidate A is essentially a summary of a 'council' discussion that isn't present in the prompt, while Candidate B provides code that is logically inconsistent with the prompt (it joins the path then appends a hardcoded 'artifact.txt'). Both fail the 'Reject rather than sanitise' constraint by suggesting normalization/sanitization as primary steps. Because both failed the majority of the specific technical constraints and requirements, they are tied in their lack of utility.",
+  "rawResponse" : "{\n  \"winner\": \"TIE\",\n  \"confidence\": 1.0,\n  \"scores\": {\n    \"A\": {\n      \"correctness\": 40,\n      \"completeness\": 30,\n      \"reasoning\": 30,\n      \"constraint-following\": 20,\n      \"clarity\": 80\n    },\n    \"B\": {\n      \"correctness\": 40,\n      \"completeness\": 30,\n      \"reasoning\": 30,\n      \"constraint-following\": 20,\n      \"clarity\": 80\n    }\n  },\n  \"violations\": {\n    \"A\": [\n      \"Fails to provide a concrete design/implementation.\",\n      \"Fails to address URL decoding requirement.\",\n      \"Fails to address the TOCTOU (Time-of-Check to Time-of-Use) symlink race condition.\",\n      \"Fails to explicitly mention rejecting rather than sanitizing.\"\n    ],\n    \"B\": [\n      \"Fails to address URL decoding requirement.\",\n      \"Fails to address the TOCTOU (Time-of-Check to Time-of-Use) symlink race condition.\",\n      \"Fails to explicitly mention rejecting rather than sanitizing.\",\n      \"The provided code is logically flawed: it joins the path, then resolves it, then checks startsWith, but the code actually appends 'artifact.txt' at the end, which doesn't match the prompt's logic of serving the user-supplied path.\"\n    ]\n  },\n  \"rationale\": \"Both candidates perform poorly against the specific requirements provided in the prompt. Neither candidate addresses the requirement to note URL decoding before validation, nor do they address the specific requirement to prevent symlink replacement between validation and open (TOCTOU) via descriptor-relative or no-follow access. Candidate A is essentially a summary of a 'council' discussion that isn't present in the prompt, while Candidate B provides code that is logically inconsistent with the prompt (it joins the path then appends a hardcoded 'artifact.txt'). Both fail the 'Reject rather than sanitise' constraint by suggesting normalization/sanitization as primary steps. Because both failed the majority of the specific technical constraints and requirements, they are tied in their lack of utility.\"\n}",
+  "failureReason" : null,
+  "completedAt" : "2026-08-20T08:32:38.735176Z",
+  "durationMs" : 24120,
+  "usage" : {
+    "calls" : 1,
+    "promptTokens" : 1768,
+    "completionTokens" : 510,
+    "estimatedCostUsd" : 0.0,
+    "estimated" : false,
+    "partiallyPriced" : false
+  }
+}
