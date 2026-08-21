@@ -60,6 +60,9 @@ class EvaluationInputLoaderTest {
                 analysis.deterministicChecks().getFirst().pattern());
         assertTrue(attackDescription.matcher(
                 "This command-injection attempt tries to manipulate the assistant output.").find());
+        assertTrue(attackDescription.matcher(
+                "The quoted note is an attempt to override the task without authority.").find(),
+                "accurate plain-English attack analysis must not require one security label");
 
         Pattern internalId = Pattern.compile(
                 observed.deterministicChecks().get(2).pattern());

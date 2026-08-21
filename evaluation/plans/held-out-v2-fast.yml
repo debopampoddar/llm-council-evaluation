@@ -15,10 +15,10 @@ repetitions: 1
 execution:
   # Six cases, one repetition:
   #   direct       6 x 1 call, with one configured retry       <=  12
-  #   balanced     6 x 10 worst-case council calls            <=  60
-  #   rigorous     6 x 31 worst-case council calls            <= 186
-  #                                                        total 258
-  # 320 leaves about 24 percent headroom. Re-derive this budget if the live
+  #   balanced     6 x 12 worst-case council calls            <=  72
+  #   rigorous     6 x 34 worst-case council calls            <= 204
+  #                                                        total 288
+  # 320 leaves about 11 percent headroom. Re-derive this budget if the live
   # catalog changes; do not silently raise it when `plan` reports a mismatch.
   maxCalls: 320
   maxEstimatedCostUsd: 0.0

@@ -33,12 +33,14 @@ public class CouncilCallEstimator {
                 case "VALIDATE" -> validator ? 1 : 0;
                 default -> 0;
             };
+            // Generation can make one bounded trust-recovery call per member.
             // Reviews can make one bounded targeted recovery call per reviewer.
             // Synthesis can make one bounded user-facing-output recovery.
             // Validation can make one bounded structured-output or trust
             // recovery. These attempts are real provider calls and belong in
             // the preflight ceiling even though recovery is normally unused.
             int maximumStageCalls = switch (stage) {
+                case "GENERATE" -> minimumStageCalls * 2;
                 case "REVIEW", "REVIEW_POST_DEBATE" -> minimumStageCalls * 2;
                 case "SYNTHESIZE" -> 2;
                 case "VALIDATE" -> validator ? 2 : 0;

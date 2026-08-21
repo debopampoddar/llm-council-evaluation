@@ -11,9 +11,12 @@ execution:
   # Seven cases across quick, balanced, and rigorous. This deliberately has no
   # model judge: Gemma now validates the council and cannot independently judge
   # its own gate. Deterministic checks are the acceptance criterion for completed
-  # answers. An explicit trust-boundary failure with no returned answer is an
-  # acceptable fail-closed result and must be verified from status and artifacts.
-  maxCalls: 360
+  # answers. A trust-boundary failure with no returned answer demonstrates safe
+  # containment, but remains a release-gate failure because recovery did not
+  # produce a usable answer; verify both status and raw artifacts.
+  # The current live topology estimates at most 350 protocol calls after
+  # bounded generation, review, synthesis, and validation recovery.
+  maxCalls: 420
   maxEstimatedCostUsd: 0.0
   councilRequestTimeoutSeconds: 1800
   judgeInvalidRetries: 0

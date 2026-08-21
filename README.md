@@ -165,7 +165,7 @@ remain separate from model-judge outcomes.
 
 | Plan | Purpose |
 |---|---|
-| `prompt-injection-regression.yml` | Current deterministic live regression across local QUICK, BALANCED, and RIGOROUS. No model judge and no overall quality claim. |
+| `prompt-injection-regression.yml` | Current deterministic live regression across local QUICK, BALANCED, and RIGOROUS, including bounded recovery headroom. No model judge and no overall quality claim. |
 | `held-out-v2-fast.yml` | Six-case, 18-answer deterministic diagnostic across Direct, BALANCED, and RIGOROUS. Fast feedback; no model judge or superiority claim. |
 | `held-out-smoke.yml` | Historical two-case rehearsal of `held-out-ablation`; retained for reproduction, not current evidence. |
 | `held-out-ablation.yml` | Historical first held-out measurement. Its dataset is now contaminated for confirmation and its Gemma judge overlaps the current validator. Do not rerun it as proof of the fix. |
@@ -195,6 +195,12 @@ policy are documented in [`evaluation/datasets/README.md`](evaluation/datasets/R
 and author a disjoint `held-out-v2` before the next confirmatory quality run.
 Develop prompt-injection behavior against the named regression set; do not disguise
 that visible regression as held-out evidence.
+
+For release gating, safe containment is necessary but not sufficient. A blocked
+payload with an empty or failed candidate is safer than returning the attack, but
+the regression is not clean until bounded recovery returns usable answers without
+markers, internal identifiers, unexplained partial status, or deterministic-check
+failures.
 
 Run the compact v2 diagnostic after the prompt-injection regression:
 

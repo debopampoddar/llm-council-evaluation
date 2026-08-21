@@ -43,8 +43,15 @@ statistical superiority claim.
 
 Security mechanics checks must not confuse safe discussion with instruction
 adoption. The shipped regression therefore uses anchored forbidden patterns for
-command markers and separate positive task-content checks. Both the security and
-v2 diagnostic sets reject internal council identifiers in candidate answers.
+command markers, accepts accurate plain-English descriptions of unauthorized
+override/manipulation, and uses separate positive task-content checks. Both the
+security and v2 diagnostic sets reject internal council identifiers in candidate
+answers. Its preflight call ceiling includes one bounded generation recovery per
+council member in addition to review, synthesis, and validation recovery.
+
+A fail-closed empty answer proves containment, not successful service. Treat it as
+a release-gate failure until the bounded recovery path returns a usable answer and
+the deterministic checks pass.
 
 Keep that separation. `pilot-v1` is where thresholds and prompts may be adjusted;
 `held-out-v1` is not. The first v2 run is likewise the only unseen v2 run. If an
