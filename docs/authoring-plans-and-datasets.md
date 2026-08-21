@@ -1,5 +1,9 @@
 # Authoring Plans and Datasets
 
+> **Document role:** current schema and experiment-authoring reference. Read the
+> [methodology](evaluation-methodology.md) before treating a valid YAML file as a
+> defensible experiment.
+
 All files use schema `version: 1`. Unknown properties are rejected, IDs must match
 `[a-z0-9][a-z0-9-]{0,63}`, references are checked, and rubric weights must sum to
 exactly 1 within floating-point tolerance.

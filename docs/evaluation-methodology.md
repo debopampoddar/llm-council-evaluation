@@ -1,5 +1,8 @@
 # Evaluation Methodology
 
+> **Document role:** current claim and experimental-design policy. The report
+> handbook explains how to apply it to a completed run.
+
 ## Evaluation question
 
 The primary question is not “does the council produce a plausible answer?” It is:

@@ -21,5 +21,7 @@ jobs:
           cache: maven
       - name: Compile and test
         run: mvn --batch-mode --no-transfer-progress clean verify
+      - name: Verify local documentation links
+        run: ruby scripts/verify-markdown-links.rb
       - name: Smoke-test packaged CLI
         run: java -jar target/llm-council-evaluation-1.0.0-SNAPSHOT.jar help

@@ -1,5 +1,8 @@
 # Dataset card
 
+> **Document role:** current provenance, intended-use, and contamination policy
+> for shipped datasets. It does not make the datasets statistically representative.
+
 ## Intended use
 
 These datasets evaluate technical answers for experienced backend, platform, and

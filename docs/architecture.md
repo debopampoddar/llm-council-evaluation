@@ -1,5 +1,7 @@
 # Architecture
 
+> **Document role:** current implementation boundary and evidence-flow reference.
+
 ## Boundary
 
 The evaluator treats `llm-council` as a black box. It uses only these public API
@@ -16,13 +18,14 @@ contaminating the baseline and keeps the evaluation logic independently reviewab
 
 ```mermaid
 flowchart LR
-  P["Versioned plan"] --> V["Strict loader and validator"]
+  PLAN["Versioned plan"] --> V["Strict loader and validator"]
   D["Versioned dataset"] --> V
   R["Versioned rubric"] --> V
   V --> F["Live preflight"]
   F --> C["Council REST API"]
-  F --> P["Judge control preflight"]
-  P --> B["Call and cost guards"]
+  F --> B["Call and cost guards"]
+  F -. "when judges are enabled" .-> JPF["Judge control preflight"]
+  JPF --> B["Call and cost guards"]
   B --> G["Candidate generation"]
   G --> C
   G --> M["Direct provider gateways"]
@@ -42,7 +45,7 @@ flowchart LR
 | Configuration | Strict YAML parsing, schema version checks, cross-file references, bounds, hashes. |
 | Council client | Catalog snapshot, profile health, session creation, synchronous run. |
 | Model gateways | Ollama HTTP plus Spring AI OpenAI, Anthropic, and Vertex AI Gemini adapters. |
-| Execution | Sequential, resumable generation and judging with explicit live/billable consent. |
+| Execution | Sequential, resumable candidate generation plus bounded configurable judgment concurrency, with explicit live/billable consent. |
 | Evidence store | One atomic JSON file per unit plus immutable manifest and preflight snapshot. |
 | Checks | Non-blank, contains all/any/none, regex, forbidden regex, and maximum characters. |
 | Judging | Anonymous A/B prompts, mirrored order, strict JSON response validation. |
@@ -63,10 +66,12 @@ Passing control evidence is reused on resume. The smoke calls and configured
 provider retries are included in call reservation. The runner then processes
 candidates sequentially. Successful evidence is durable before the next unit
 begins. Checks run immediately after each answer.
-Judging begins after candidate generation and is also stored one orientation at a
-time. Invalid responses can receive a bounded fresh call; every attempt is retained
-separately before the final canonical orientation is written. Reports are built from
-canonical stored evidence only.
+Judging begins after candidate generation. Independent judgment units may run with
+bounded concurrency, but each attempt and final orientation is atomically stored in
+its own path. Invalid responses can receive a bounded fresh call; every attempt is
+retained separately before the final canonical orientation is written. Reports are
+built from canonical stored evidence only. When no eligible comparison/judge units
+exist, the runner explicitly reports that judging was skipped.
 
 `resume` reloads the embedded inputs from the manifest, repeats live health checks,
 and compares a normalized catalog fingerprint. It skips every already-present
