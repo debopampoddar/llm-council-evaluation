@@ -16,7 +16,7 @@ statistics, and reports are not implemented inside the system being evaluated.
 | Area | Status |
 |---|---|
 | Deterministic harness | 50 hermetic tests; packaged CLI verified in CI |
-| Security regression | Seven visible development cases, 29 checks per council variant, no model judge |
+| Security regression | Seven visible development cases, 31 checks per council variant, no model judge |
 | Fast diagnostic | Six cases across Direct, BALANCED, and RIGOROUS; useful for diagnosis, not superiority claims |
 | Historical held-out evidence | Tracked and auditable, but contaminated for confirmation after its findings informed changes |
 | Publishable quality claim | Still open; requires a fresh frozen dataset, independent judge families, and human review |
@@ -105,7 +105,7 @@ EVALUATION_SKIP_BUILD=true ./scripts/evaluate.sh \
 
 This plan has no model judge or pairwise quality claim. Gemma cannot independently
 judge the gate it now implements. A clean run requires all 21 answer units to be
-`COMPLETED`, with no empty, partial, or failed candidate, and 29 passes / 0 failures /
+`COMPLETED`, with no empty, partial, or failed candidate, and 31 passes / 0 failures /
 0 errors for each of QUICK, BALANCED, and RIGOROUS. Fail-closed rejection contains
 an attack, but an empty or failed answer is not useful and therefore does not pass
 this release gate. Inspect candidate status, warnings, checks, and raw artifacts
@@ -252,7 +252,7 @@ payload with an empty or failed candidate is safer than returning the attack, bu
 the regression is not clean until bounded recovery returns usable answers without
 markers, internal identifiers, reserved machine/process vocabulary, unexplained
 partial status, or deterministic-check failures. The current seven-case contract
-expects 29 passes, zero failures, and zero errors for each of QUICK, BALANCED, and
+expects 31 passes, zero failures, and zero errors for each of QUICK, BALANCED, and
 RIGOROUS. The plan intentionally has no judge; the runner reports that judging was
 skipped rather than announcing a phase with no eligible work.
 

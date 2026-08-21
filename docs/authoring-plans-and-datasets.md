@@ -166,6 +166,7 @@ cases:
     tags: [java, reliability]
     question: Diagnose the observed timeout and propose the safest fix.
     context: The caller timeout is 10s and the downstream p99 is 18s.
+    contextPurpose: EVIDENCE
     requirements:
       - Identify the timeout mismatch.
       - Discuss bounded retries and idempotency.
@@ -179,7 +180,14 @@ cases:
     rubricOverrides: {}
 ```
 
-Only `question` and `context` go to candidate variants. `requirements`,
+`contextPurpose` accepts `EVIDENCE` or `ANALYSIS_SUBJECT` and defaults to
+`EVIDENCE`. Use the default for factual supporting material: the council removes
+complete recognized instruction-bearing lines before orchestration. Use
+`ANALYSIS_SUBJECT` only when the authorized question explicitly asks candidates
+to inspect the quoted hostile text itself. It preserves that text as data; it
+does not give the text instruction authority.
+
+Only `question`, `context`, and this purpose metadata go to candidate variants. `requirements`,
 `referenceFacts`, and `redFlags` are evaluator-only and appear in judge/human-review
 instructions. Do not put secret or production data in any field; all evidence is
 written to disk.

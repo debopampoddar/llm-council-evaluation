@@ -39,6 +39,7 @@ class HttpCouncilApiGatewayTest {
             assertEquals("four", result.path("answer").asText());
             assertTrue(createBody.get().contains("\"profileId\":\"local\""));
             assertTrue(createBody.get().contains("\"depthMode\":\"BALANCED\""));
+            assertTrue(createBody.get().contains("\"contextPurpose\":\"EVIDENCE\""));
         } finally {
             server.stop(0);
         }

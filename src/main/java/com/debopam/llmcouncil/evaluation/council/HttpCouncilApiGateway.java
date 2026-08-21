@@ -50,6 +50,7 @@ public class HttpCouncilApiGateway implements CouncilApiGateway {
         Map<String, Object> body = new LinkedHashMap<>();
         body.put("question", evalCase.question());
         if (evalCase.context() != null && !evalCase.context().isBlank()) body.put("context", evalCase.context());
+        body.put("contextPurpose", evalCase.effectiveContextPurpose());
         body.put("depthMode", variant.depthMode());
         body.put("profileId", variant.profileId());
         JsonNode session = send(plan, "POST", "/api/council/sessions", body);

@@ -17,7 +17,10 @@ it is intentionally visible to implementers and cannot support an unseen-quality
 claim. It uses anchored hostile-marker checks, declared closed decisions where a
 safe outcome is known, positive task-content checks, and a closed internal-output
 vocabulary. These are deterministic mechanics contracts, not semantic injection
-classification or a universal security certificate. `held-out-v1.yml` was the first measurement set: 36 project-authored cases, disjoint from the pilot, with six
+classification or a universal security certificate. Cases use the council's
+default `EVIDENCE` context purpose except the legitimate injection-analysis case,
+which explicitly uses `ANALYSIS_SUBJECT` so the quoted sample remains available
+for examination. `held-out-v1.yml` was the first measurement set: 36 project-authored cases, disjoint from the pilot, with six
 architecture, six debugging, five security, six grounded-reasoning, five planning,
 four underspecified, and four adversarial-context cases. `smoke-v1.yml` tests only
 pipeline mechanics. `held-out-v2.yml` is a compact six-case, one-shot diagnostic

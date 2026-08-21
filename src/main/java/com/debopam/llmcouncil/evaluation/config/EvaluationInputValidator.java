@@ -124,6 +124,10 @@ public class EvaluationInputValidator {
                 errors.add("Case '" + evalCase.id() + "' question exceeds the council API limit of 5000 characters");
             if (evalCase.context() != null && evalCase.context().length() > 10_000)
                 errors.add("Case '" + evalCase.id() + "' context exceeds the council API limit of 10000 characters");
+            if (!Set.of("EVIDENCE", "ANALYSIS_SUBJECT")
+                    .contains(upper(evalCase.effectiveContextPurpose())))
+                errors.add("Case '" + evalCase.id()
+                        + "' contextPurpose must be EVIDENCE or ANALYSIS_SUBJECT");
             stringList(evalCase.tags(), "Case '" + evalCase.id() + "' tags", errors);
             stringList(evalCase.requirements(), "Case '" + evalCase.id() + "' requirements", errors);
             stringList(evalCase.referenceFacts(), "Case '" + evalCase.id() + "' referenceFacts", errors);
