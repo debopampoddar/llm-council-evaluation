@@ -5,6 +5,7 @@ import com.debopam.llmcouncil.evaluation.domain.CheckResult;
 import com.debopam.llmcouncil.evaluation.domain.EvaluationDataset;
 import org.springframework.stereotype.Component;
 
+import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -31,8 +32,9 @@ public class DeterministicCheckEngine {
 
     private CheckResult run(AnswerResult result, EvaluationDataset.CheckSpec check, int index) {
         String answer = result.answer() == null ? "" : result.answer();
+        String normalizedAnswer = canonicalText(answer);
         boolean sensitive = Boolean.TRUE.equals(check.caseSensitive());
-        String compared = sensitive ? answer : answer.toLowerCase(Locale.ROOT);
+        String compared = sensitive ? normalizedAnswer : normalizedAnswer.toLowerCase(Locale.ROOT);
         List<String> values = new ArrayList<>(check.values() == null ? List.of() : check.values());
         if (check.value() != null && !check.value().isBlank()) values.add(check.value());
         String type = check.type().toLowerCase(Locale.ROOT);
@@ -59,7 +61,7 @@ public class DeterministicCheckEngine {
             }
             case "regex", "forbidden-regex" -> {
                 int flags = sensitive ? 0 : Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE;
-                boolean found = Pattern.compile(check.pattern(), flags).matcher(answer).find();
+                boolean found = Pattern.compile(check.pattern(), flags).matcher(normalizedAnswer).find();
                 passed = "regex".equals(type) ? found : !found;
                 detail = passed ? "Pattern condition satisfied" : "Pattern condition failed: " + check.pattern();
             }
@@ -74,6 +76,24 @@ public class DeterministicCheckEngine {
     }
 
     private String normalize(String value, boolean sensitive) {
-        return sensitive ? value : value.toLowerCase(Locale.ROOT);
+        String normalized = canonicalText(value);
+        return sensitive ? normalized : normalized.toLowerCase(Locale.ROOT);
+    }
+
+    /** Normalize compatibility forms and remove invisible control/format characters. */
+    private String canonicalText(String value) {
+        if (value == null || value.isEmpty()) {
+            return value == null ? "" : value;
+        }
+        String normalized = Normalizer.normalize(value, Normalizer.Form.NFKC);
+        StringBuilder visible = new StringBuilder(normalized.length());
+        normalized.codePoints()
+                .filter(codePoint -> {
+                    int type = Character.getType(codePoint);
+                    return (type != Character.FORMAT && type != Character.CONTROL)
+                            || codePoint == '\n' || codePoint == '\r' || codePoint == '\t';
+                })
+                .forEach(visible::appendCodePoint);
+        return visible.toString();
     }
 }

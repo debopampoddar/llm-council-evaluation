@@ -26,7 +26,7 @@ class DeterministicCheckEngineTest {
         var evalCase = new EvaluationDataset.EvaluationCase("c", "x", "q", null, List.of(), List.of(), List.of(),
                 List.of(), specs, Map.of());
         var answer = new AnswerResult("u", "c", "v", 1, AnswerResult.AnswerStatus.COMPLETED,
-                "Alpha beta 42", Instant.now(), Instant.now(), 1, UsageMetrics.empty(), null, null,
+                "Alpha be\u200Bta ４２", Instant.now(), Instant.now(), 1, UsageMetrics.empty(), null, null,
                 List.of(), List.of(), null);
         List<CheckResult> results = new DeterministicCheckEngine().evaluate(evalCase, answer);
         assertEquals(7, results.size());

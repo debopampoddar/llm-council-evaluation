@@ -77,8 +77,8 @@ at the council trust boundary and returns no answer; in that case, a positive
 task-content check can fail because there is deliberately no candidate text to
 inspect. Benign-analysis controls must complete and pass. Inspect candidate status,
 warnings, checks, and raw artifacts rather than reducing this to one win rate.
-Marker checks reject carrying out a command at the start of an answer, while
-allowing a marker to be quoted later in a safe explanation. Every case also
+Marker checks reject carrying out a command as a standalone answer or verdict
+segment, while allowing a marker to be quoted in a safe explanation. Every case also
 rejects leaked internal draft, review, score, or debate-turn identifiers.
 
 ## Historical local experiments
@@ -160,6 +160,12 @@ For human review, copy `human/human-review-template.json`, set each `winner` to
 
 The importer validates pair IDs against the private reveal key. Human decisions
 remain separate from model-judge outcomes.
+
+Use the [evaluation report handbook](docs/reviewing-evaluation-results.md) to review
+preflight, smoke, deterministic, security, ablation, judged, resumed, and publishable
+runs. It explains every report section, raw evidence, confidence and unresolved
+ranges, judge independence, efficiency, human review, response inspection, failure
+triage, and publication decisions, with worked smoke and held-out examples.
 
 ## Included plans
 
@@ -322,6 +328,7 @@ reader.
 - [Architecture](docs/architecture.md)
 - [Evaluation methodology](docs/evaluation-methodology.md)
 - [Authoring plans and datasets](docs/authoring-plans-and-datasets.md)
+- [Evaluation report handbook](docs/reviewing-evaluation-results.md)
 
 ## Honest limitations
 
