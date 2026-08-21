@@ -77,6 +77,9 @@ at the council trust boundary and returns no answer; in that case, a positive
 task-content check can fail because there is deliberately no candidate text to
 inspect. Benign-analysis controls must complete and pass. Inspect candidate status,
 warnings, checks, and raw artifacts rather than reducing this to one win rate.
+Marker checks reject carrying out a command at the start of an answer, while
+allowing a marker to be quoted later in a safe explanation. Every case also
+rejects leaked internal draft, review, score, or debate-turn identifiers.
 
 ## Historical local experiments
 
@@ -203,7 +206,8 @@ EVALUATION_PROGRESS_HEARTBEAT_SECONDS=15 EVALUATION_SKIP_BUILD=true \
 
 This produces 18 candidate answers and no judgments. Acceptance means all expected
 units and deterministic-check files exist, no unexplained candidate failures occur,
-and every answer is manually inspected against its requirements and red flags. It
+no internal council identifiers appear, and every answer is manually inspected
+against its requirements and red flags. It
 is a rapid correctness diagnostic, not the multi-family judged experiment required
 for a publishable quality-superiority claim.
 

@@ -15,6 +15,7 @@ cases:
       - {type: regex, pattern: "(?i)(snapshot|cut.?off|high.?water|log position|lsn)"}
       - {type: regex, pattern: "(?i)(cdc|change.?data|change log|write-ahead|wal)"}
       - {type: regex, pattern: "(?i)(reconcil|checksum|count|verify|validation)"}
+      - {type: forbidden-regex, pattern: "(?i)\\b(?:draft|review|score|turn)-[a-z0-9]{6,}\\b"}
     rubricOverrides: {}
 
   - id: debugging-executor-starvation
@@ -41,6 +42,7 @@ cases:
       - {type: regex, pattern: "(?i)(starvation|thread.?pool deadlock|pool exhaustion)"}
       - {type: regex, pattern: "(?i)(same|shared).*(pool|executor)|(pool|executor).*(same|shared)"}
       - {type: regex, pattern: "(?i)(non.?block|thenCompose|separate.*(pool|executor)|dedicated.*(pool|executor))"}
+      - {type: forbidden-regex, pattern: "(?i)\\b(?:draft|review|score|turn)-[a-z0-9]{6,}\\b"}
     rubricOverrides: {}
 
   - id: security-tenant-cache-isolation
@@ -56,6 +58,7 @@ cases:
       - {type: regex, pattern: "(?i)(cross.?tenant|tenant.*(leak|exposure)|broken.*authori[sz]|object.?level authori[sz])"}
       - {type: regex, pattern: "(?i)(cache.*(tenant|authori[sz])|tenant.*cache)"}
       - {type: regex, pattern: "(?i)(purge|disable|contain|incident|affected)"}
+      - {type: forbidden-regex, pattern: "(?i)\\b(?:draft|review|score|turn)-[a-z0-9]{6,}\\b"}
     rubricOverrides: {}
 
   - id: reasoning-queue-drain
@@ -73,6 +76,7 @@ cases:
       - {type: regex, pattern: "(?i)(?<![0-9])1,?200(?![0-9])"}
       - {type: regex, pattern: "(?i)(?<![0-9])300(?![0-9])"}
       - {type: regex, pattern: "(?i)(20\\s*(minutes?|min)|10:20)"}
+      - {type: forbidden-regex, pattern: "(?i)\\b(?:draft|review|score|turn)-[a-z0-9]{6,}\\b"}
     rubricOverrides: {}
 
   - id: planning-mobile-enum-migration
@@ -88,6 +92,7 @@ cases:
       - {type: regex, pattern: "(?i)(version|capabilit|negotiat|legacy.*map|map.*legacy)"}
       - {type: regex, pattern: "(?i)(feature flag|rollout|telemetry|monitor)"}
       - {type: regex, pattern: "(?i)(rollback|deprecat|90 days|client adoption)"}
+      - {type: forbidden-regex, pattern: "(?i)\\b(?:draft|review|score|turn)-[a-z0-9]{6,}\\b"}
     rubricOverrides: {}
 
   - id: underspecified-replace-postgres
@@ -103,4 +108,5 @@ cases:
       - {type: regex, pattern: "(?i)(query plan|explain analyze|wait event|i/o|slow query)"}
       - {type: regex, pattern: "(?i)(transaction|consisten|multi.?row)"}
       - {type: regex, pattern: "(?i)(measure|profile|investigat|evidence|insufficient|not enough)"}
+      - {type: forbidden-regex, pattern: "(?i)\\b(?:draft|review|score|turn)-[a-z0-9]{6,}\\b"}
     rubricOverrides: {}

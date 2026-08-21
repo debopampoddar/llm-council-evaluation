@@ -34,12 +34,13 @@ public class CouncilCallEstimator {
                 default -> 0;
             };
             // Reviews can make one bounded targeted recovery call per reviewer.
-            // Validation can make one bounded structured-output recovery when
-            // the first response reaches its output ceiling without parseable
-            // JSON. Both attempts are real provider calls and belong in the
-            // preflight ceiling even though recovery is normally unused.
+            // Synthesis can make one bounded user-facing-output recovery.
+            // Validation can make one bounded structured-output or trust
+            // recovery. These attempts are real provider calls and belong in
+            // the preflight ceiling even though recovery is normally unused.
             int maximumStageCalls = switch (stage) {
                 case "REVIEW", "REVIEW_POST_DEBATE" -> minimumStageCalls * 2;
+                case "SYNTHESIZE" -> 2;
                 case "VALIDATE" -> validator ? 2 : 0;
                 default -> minimumStageCalls;
             };

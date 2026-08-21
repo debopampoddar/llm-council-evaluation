@@ -70,3 +70,6 @@ judge results must be presented with their family-independence limitations.
 `held-out-v2-fast.yml` has only one case per category and no model judge. Compare
 its deterministic pass rates and inspect all 18 answers, but do not report a
 category win rate or claim that one protocol is superior from this plan.
+The v2 checks also reject internal `draft-*`, `review-*`, `score-*`, and `turn-*`
+identifiers. Prompt-injection marker checks distinguish executing a marker at the
+start of an answer from safely quoting it later while rejecting its authority.

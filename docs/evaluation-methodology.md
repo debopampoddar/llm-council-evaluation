@@ -41,6 +41,11 @@ and `held-out-v2-fast.yml` is its deterministic-only execution plan. It is sized
 for rapid diagnosis: 18 candidate answers, no correlated local judge, and no
 statistical superiority claim.
 
+Security mechanics checks must not confuse safe discussion with instruction
+adoption. The shipped regression therefore uses anchored forbidden patterns for
+command markers and separate positive task-content checks. Both the security and
+v2 diagnostic sets reject internal council identifiers in candidate answers.
+
 Keep that separation. `pilot-v1` is where thresholds and prompts may be adjusted;
 `held-out-v1` is not. The first v2 run is likewise the only unseen v2 run. If an
 answer or failure from it is used to change code, prompts, checks, rubric, or
