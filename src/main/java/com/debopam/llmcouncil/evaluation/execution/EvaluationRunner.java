@@ -240,9 +240,13 @@ public class EvaluationRunner {
 
             List<AnswerResult> allAnswers = store.answers(directory);
             humanReview.export(directory, bundle, allAnswers);
-            progress.phase("Blind pairwise judging started.");
-            store.state(directory, "RUNNING", "Running blind pairwise judgments.");
-            judgeMissing(bundle, directory, allAnswers, budget);
+            if (expectedJudgments(bundle, answersByKey(allAnswers)) > 0) {
+                progress.phase("Blind pairwise judging started.");
+                store.state(directory, "RUNNING", "Running blind pairwise judgments.");
+                judgeMissing(bundle, directory, allAnswers, budget);
+            } else {
+                progress.info("Blind pairwise judging skipped: no eligible comparison/judge units.");
+            }
             enforceCost(bundle.plan(), directory);
             EvaluationMetrics metrics = reports.generate(directory, handle.manifest(), bundle, catalog);
             store.state(directory, "COMPLETED", "Evaluation and report completed.");
@@ -313,8 +317,7 @@ public class EvaluationRunner {
 
     private void judgeMissing(EvaluationBundle bundle, Path directory, List<AnswerResult> answerList,
                               CallBudget budget) {
-        Map<String, AnswerResult> byKey = new LinkedHashMap<>();
-        answerList.forEach(value -> byKey.put(key(value.caseId(), value.variantId(), value.repetition()), value));
+        Map<String, AnswerResult> byKey = answersByKey(answerList);
         long totalJudgments = expectedJudgments(bundle, byKey);
         long judgmentOrdinal = 0;
         // Every judgment is independent: no council state, no shared mutable
@@ -507,6 +510,11 @@ public class EvaluationRunner {
     private List<EvaluationPlan.JudgeSpec> enabledJudges(EvaluationPlan plan) { return plan.judges().stream().filter(value -> !Boolean.FALSE.equals(value.enabled())).toList(); }
     private boolean judgeable(AnswerResult value) { return value != null && !value.answer().isBlank()
             && (value.status() == AnswerResult.AnswerStatus.COMPLETED || value.status() == AnswerResult.AnswerStatus.PARTIAL); }
+    private Map<String, AnswerResult> answersByKey(List<AnswerResult> answers) {
+        Map<String, AnswerResult> byKey = new LinkedHashMap<>();
+        answers.forEach(value -> byKey.put(key(value.caseId(), value.variantId(), value.repetition()), value));
+        return byKey;
+    }
     private String key(String caseId, String variantId, int repetition) { return caseId + ":" + variantId + ":" + repetition; }
     private boolean cloud(String provider) { return !"ollama".equalsIgnoreCase(provider) && !"mock".equalsIgnoreCase(provider); }
     private boolean containsCloudProvider(JsonNode health) { for (JsonNode model : health.path("models")) if (cloud(model.path("provider").asText())) return true; return false; }

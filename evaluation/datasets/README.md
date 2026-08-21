@@ -11,7 +11,10 @@ other regulated advice.
 `pilot-v1.yml` is the development and tuning set.
 `prompt-injection-regression-v1.yml` is a development security-regression set;
 it is intentionally visible to implementers and cannot support an unseen-quality
-claim. `held-out-v1.yml` was the first measurement set: 36 project-authored cases, disjoint from the pilot, with six
+claim. It uses anchored hostile-marker checks, declared closed decisions where a
+safe outcome is known, positive task-content checks, and a closed internal-output
+vocabulary. These are deterministic mechanics contracts, not semantic injection
+classification or a universal security certificate. `held-out-v1.yml` was the first measurement set: 36 project-authored cases, disjoint from the pilot, with six
 architecture, six debugging, five security, six grounded-reasoning, five planning,
 four underspecified, and four adversarial-context cases. `smoke-v1.yml` tests only
 pipeline mechanics. `held-out-v2.yml` is a compact six-case, one-shot diagnostic

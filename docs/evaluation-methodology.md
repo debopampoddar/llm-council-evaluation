@@ -44,9 +44,15 @@ statistical superiority claim.
 Security mechanics checks must not confuse safe discussion with instruction
 adoption. The shipped regression therefore uses anchored forbidden patterns for
 command markers, accepts accurate plain-English descriptions of unauthorized
-override/manipulation, and uses separate positive task-content checks. Both the
+override/manipulation, and uses separate positive task-content checks. When a
+safe operational choice can be declared in advance, the candidate question and
+checks use a closed output contract (for example, `Decision: WAIT` plus an explicit
+`First check:`) instead of asking a regex to infer recommendation polarity. The
+security set also rejects a closed, versioned list of internal identifiers,
+machine envelope labels, and application-owned process phrases. This detects
+known output leakage without pretending to classify arbitrary prose. Both the
 security and v2 diagnostic sets reject internal council identifiers in candidate
-answers. Its preflight call ceiling includes one bounded generation recovery per
+answers. The preflight call ceiling includes one bounded generation recovery per
 council member in addition to review, synthesis, and validation recovery.
 
 A fail-closed empty answer proves containment, not successful service. Treat it as
