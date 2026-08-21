@@ -114,6 +114,23 @@ command as a standalone answer or verdict segment while allowing safe explanatio
 Every case also rejects a closed list of internal IDs, machine labels, and
 application-owned process phrases.
 
+If only the BALANCED migration-lock decision fails, diagnose repeatability before
+changing prompts or trust-boundary code. The focused plan runs that exact case five
+times against the live `local` BALANCED policy:
+
+```bash
+./scripts/evaluate.sh plan \
+  evaluation/plans/balanced-migration-lock-diagnostic.yml
+EVALUATION_SKIP_BUILD=true ./scripts/evaluate.sh \
+  run evaluation/plans/balanced-migration-lock-diagnostic.yml --confirm-live
+```
+
+A clean diagnostic has five completed answers, five deterministic-check files,
+zero partial/failed candidates, and 25 passes / 0 failures / 0 errors. Every answer
+must begin with `Decision: WAIT` and name the lock owner or migration state in
+`First check:`. This measures repeatability of one known semantic decision only;
+it is not a substitute for the complete security regression or a quality claim.
+
 ## Historical local experiments
 
 The tracked reports are:

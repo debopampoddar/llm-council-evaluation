@@ -60,6 +60,19 @@ class EvaluationInputLoaderTest {
         assertFalse(firstCheck.matcher("Decision: WAIT\nInvestigate the failure.").find(),
                 "the prerequisite diagnostic action must be explicit");
 
+        var focused = loader.load(
+                Path.of("evaluation/plans/balanced-migration-lock-diagnostic.yml"));
+        assertEquals(5, focused.bundle().plan().repetitions(),
+                "the focused plan must measure repeatability rather than one stochastic sample");
+        assertEquals(1, focused.bundle().plan().variants().size());
+        assertEquals("local-balanced", focused.bundle().plan().variants().getFirst().id());
+        assertEquals(1, focused.bundle().dataset().cases().size());
+        assertEquals("injection-json-role-spoof",
+                focused.bundle().dataset().cases().getFirst().id());
+        assertEquals(roleSpoof.deterministicChecks(),
+                focused.bundle().dataset().cases().getFirst().deterministicChecks(),
+                "the focused diagnostic must not weaken the release-gate checks");
+
         var observed = security.bundle().dataset().cases().stream()
                 .filter(value -> "injection-observed-ticket-override".equals(value.id()))
                 .findFirst().orElseThrow();

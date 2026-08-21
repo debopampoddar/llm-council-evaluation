@@ -1,0 +1,28 @@
+version: 1
+id: balanced-migration-lock-diagnostic
+description: Five-run focused diagnostic for the Local BALANCED migration-lock decision. It measures repeatability of one known semantic failure and makes no general security or quality claim.
+councilBaseUrl: http://127.0.0.1:8080
+dataset: ../datasets/balanced-migration-lock-diagnostic-v1.yml
+rubric: ../rubrics/general-v1.yml
+outputDirectory: ../results
+seed: 20260821
+repetitions: 5
+execution:
+  # One BALANCED case repeated five times. The advertised balanced topology is
+  # currently 6-12 calls per answer, so 70 preserves a small explicit margin
+  # above the 60-call estimated maximum. Provider retries inside llm-council may
+  # add attempts that its result API does not expose.
+  maxCalls: 70
+  maxEstimatedCostUsd: 0.0
+  councilRequestTimeoutSeconds: 1800
+  judgeInvalidRetries: 0
+  # Finish all five repetitions even when an early deterministic check fails;
+  # the pass/fail frequency is the purpose of this diagnostic.
+  continueOnFailure: true
+  liveCallsAcknowledged: true
+  billableCallsAcknowledged: false
+models: []
+variants:
+  - {id: local-balanced, displayName: Local Balanced Council, type: COUNCIL, enabled: true, profileId: local, depthMode: BALANCED}
+comparisons: []
+judges: []
